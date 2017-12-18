@@ -500,3 +500,60 @@ alter table PHIEU_XUAT add constraint FK_PHIEUXUAT_NV foreign key (MaNVLap) refe
 alter table PHIEU_XUAT add constraint FK_PHIEUXUAT_KHOHANG foreign key (MaKhoXuat) references KHOHANG(MaKho)
 
 alter table CT_PHIEU_XUAT add constraint FK_CTPHIEUXUAT_PHIEUXUAT foreign key (MaPhieuXuat) references PHIEU_XUAT(MaPhieu)
+
+
+-- proc
+go
+-- lấy mã phiếu xuất tiếp theo
+create proc sp_LayMaPhieuXuat
+	@kq varchar(10) output
+as
+begin
+	declare @ma int
+	set @ma = 1
+
+	declare cur Cursor
+	for select MaPhieu
+	from PHIEU_XUAT
+
+	open cur
+	declare @mahh varchar(10)
+	fetch next from cur into @mahh
+	while @@FETCH_STATUS = 0 
+	begin
+		if @ma != cast(@mahh as int)
+			break
+
+		set @ma += 1
+		fetch next from cur into @mahh
+	end
+	close cur
+	deallocate cur
+
+	declare @len int, @j int--, @kq varchar(10)
+	set @kq = ''
+	set @len = 3 - len(cast(@ma as varchar(10)))
+
+	set @j = 0
+	while(@j < @len)
+	begin
+		set @kq += '0'
+
+		set @j += 1
+	end
+	set @kq += CAST(@ma as varchar(3))
+end
+go
+
+-- lấy thông tin khách hàng
+create proc sp_LayThongTinKhachHang
+	@diachi nvarchar(100) output,
+	@dt varchar(13) output,
+	@makh varchar(10)
+as
+begin
+	select @diachi=DiaChi, @dt=DienThoai
+	from KHACH_HANG
+	where MaKH = @makh
+end
+go

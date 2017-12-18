@@ -85,12 +85,14 @@
     <Compile Include="DAO\XL_NhaCungCap.cs" />
     <Compile Include="DAO\XL_NhanVien.cs" />
     <Compile Include="DAO\XL_NhomHang.cs" />
+    <Compile Include="DAO\XL_PhieuXuat.cs" />
     <Compile Include="DAO\XL_VaiTro.cs" />
     <Compile Include="DAO\XL_VaiTro_ChucNang.cs" />
     <Compile Include="DTO\ChucNang.cs" />
     <Compile Include="DTO\HangHoa.cs" />
     <Compile Include="DTO\NguoiDung.cs" />
     <Compile Include="DTO\NhanVien.cs" />
+    <Compile Include="DTO\PhieuXuat.cs" />
     <Compile Include="DTO\VaiTro.cs" />
     <Compile Include="DTO\VaiTro_ChucNang.cs" />
     <Compile Include="GUI\frmDangNhap.cs">
