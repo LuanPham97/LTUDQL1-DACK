@@ -32,17 +32,20 @@
             this.rbcMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnHangHoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBanHang = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgBaoMat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgKhoHang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpChucNang = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgNhapXuat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
+            this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
+            this.pnMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbcMain
@@ -51,9 +54,10 @@
             this.rbcMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.rbcMain.ExpandCollapseItem,
             this.btnHangHoa,
-            this.btnPhanQuyen});
+            this.btnPhanQuyen,
+            this.btnBanHang});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 6;
+            this.rbcMain.MaxItemId = 7;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -62,6 +66,7 @@
             this.rbpTroGiup});
             this.rbcMain.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.rbcMain.Size = new System.Drawing.Size(828, 143);
+            this.rbcMain.StatusBar = this.rstatusbarMain;
             // 
             // btnHangHoa
             // 
@@ -78,6 +83,14 @@
             this.btnPhanQuyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhanQuyen.ImageOptions.Image")));
             this.btnPhanQuyen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhanQuyen.ImageOptions.LargeImage")));
             this.btnPhanQuyen.Name = "btnPhanQuyen";
+            // 
+            // btnBanHang
+            // 
+            this.btnBanHang.Caption = "Bán Hàng";
+            this.btnBanHang.Id = 6;
+            this.btnBanHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBanHang.ImageOptions.Image")));
+            this.btnBanHang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBanHang.ImageOptions.LargeImage")));
+            this.btnBanHang.Name = "btnBanHang";
             // 
             // rbpHeThong
             // 
@@ -108,14 +121,15 @@
             // rbpChucNang
             // 
             this.rbpChucNang.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
+            this.rpgNhapXuat});
             this.rbpChucNang.Name = "rbpChucNang";
             this.rbpChucNang.Text = "Chức Năng";
             // 
-            // ribbonPageGroup3
+            // rpgNhapXuat
             // 
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
+            this.rpgNhapXuat.ItemLinks.Add(this.btnBanHang);
+            this.rpgNhapXuat.Name = "rpgNhapXuat";
+            this.rpgNhapXuat.Text = "Nhập - Xuất";
             // 
             // rbpTroGiup
             // 
@@ -131,11 +145,19 @@
             // 
             // pnMain
             // 
+            this.pnMain.Controls.Add(this.rstatusbarMain);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 143);
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
+            // 
+            // rstatusbarMain
+            // 
+            this.rstatusbarMain.Location = new System.Drawing.Point(2, 362);
+            this.rstatusbarMain.Name = "rstatusbarMain";
+            this.rstatusbarMain.Ribbon = this.rbcMain;
+            this.rstatusbarMain.Size = new System.Drawing.Size(824, 20);
             // 
             // frmMain
             // 
@@ -148,9 +170,11 @@
             this.Name = "frmMain";
             this.Ribbon = this.rbcMain;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StatusBar = this.rstatusbarMain;
             this.Text = "PHẦN MỀM QUẢN LÝ BÁN HÀNG";
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).EndInit();
+            this.pnMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,11 +189,13 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpDanhMuc;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgKhoHang;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpChucNang;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgNhapXuat;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpTroGiup;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraEditors.PanelControl pnMain;
         private DevExpress.XtraBars.BarButtonItem btnPhanQuyen;
+        private DevExpress.XtraBars.BarButtonItem btnBanHang;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar rstatusbarMain;
     }
 }
 

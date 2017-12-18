@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v17.1" />
     <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.CodeParser.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -53,6 +54,7 @@
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.SqlServer.GridControl, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -121,6 +123,12 @@
     <Compile Include="GUI\HeThong\frmThemSuaVaiTro.Designer.cs">
       <DependentUpon>frmThemSuaVaiTro.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucBanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucBanHang.Designer.cs">
+      <DependentUpon>ucBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ucHangHoa.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +140,12 @@
     </Compile>
     <Compile Include="GUI\HeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ucTongTien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucTongTien.Designer.cs">
+      <DependentUpon>ucTongTien.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,11 +169,17 @@
     <EmbeddedResource Include="GUI\HeThong\frmThemSuaVaiTro.resx">
       <DependentUpon>frmThemSuaVaiTro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucBanHang.resx">
+      <DependentUpon>ucBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucHangHoa.resx">
       <DependentUpon>ucHangHoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucTongTien.resx">
+      <DependentUpon>ucTongTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
