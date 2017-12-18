@@ -129,6 +129,12 @@
     <Compile Include="GUI\ucBanHang.Designer.cs">
       <DependentUpon>ucBanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucBanHang2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucBanHang2.Designer.cs">
+      <DependentUpon>ucBanHang2.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ucHangHoa.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucBanHang.resx">
       <DependentUpon>ucBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucBanHang2.resx">
+      <DependentUpon>ucBanHang2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucHangHoa.resx">
       <DependentUpon>ucHangHoa.cs</DependentUpon>

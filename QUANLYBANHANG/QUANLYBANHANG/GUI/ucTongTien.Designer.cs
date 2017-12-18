@@ -48,7 +48,7 @@
             // 
             // txtChietKhau
             // 
-            this.txtChietKhau.Location = new System.Drawing.Point(206, 9);
+            this.txtChietKhau.Location = new System.Drawing.Point(253, 11);
             this.txtChietKhau.Name = "txtChietKhau";
             this.txtChietKhau.Size = new System.Drawing.Size(79, 20);
             this.txtChietKhau.TabIndex = 2;
@@ -57,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(133, 13);
+            this.label1.Location = new System.Drawing.Point(180, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 3;
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(314, 15);
+            this.label2.Location = new System.Drawing.Point(361, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 5;
@@ -74,7 +74,7 @@
             // 
             // txtVAT
             // 
-            this.txtVAT.Location = new System.Drawing.Point(348, 9);
+            this.txtVAT.Location = new System.Drawing.Point(395, 11);
             this.txtVAT.Name = "txtVAT";
             this.txtVAT.Size = new System.Drawing.Size(82, 20);
             this.txtVAT.TabIndex = 4;
@@ -82,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(478, 15);
+            this.label3.Location = new System.Drawing.Point(578, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 7;
@@ -90,7 +90,7 @@
             // 
             // txtThanhTien
             // 
-            this.txtThanhTien.Location = new System.Drawing.Point(546, 9);
+            this.txtThanhTien.Location = new System.Drawing.Point(646, 11);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Size = new System.Drawing.Size(126, 20);
             this.txtThanhTien.TabIndex = 6;
@@ -107,7 +107,7 @@
             this.Controls.Add(this.txtChietKhau);
             this.Controls.Add(this.ckeInSauKhiLuu);
             this.Name = "ucTongTien";
-            this.Size = new System.Drawing.Size(683, 41);
+            this.Size = new System.Drawing.Size(775, 41);
             ((System.ComponentModel.ISupportInitialize)(this.ckeInSauKhiLuu.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
