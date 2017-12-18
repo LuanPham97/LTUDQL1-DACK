@@ -26,7 +26,25 @@ namespace QUANLYBANHANG.GUI
             FillCbKhachHang();
             FillCbNhanVien();
             FillCbKhoXuat();
-            FillDateEditNgayLap();
+            FillDateEdit();
+            FillCbDKTT();//điều khoản thanh toán
+            FillCbHTTT();//hình thức thanh toán
+        }
+
+        private void FillCbDKTT()
+        {
+            string[] dktt = { "Công Nợ", "Thanh toán ngay" };
+
+            cbDKTT.Items.AddRange(dktt);
+            cbDKTT.SelectedIndex = 0;
+        }
+
+        private void FillCbHTTT()
+        {
+            string[] httt = { "Tiền Mặt", "Chuyển Khoản" };
+
+            cbHTTT.Items.AddRange(httt);
+            cbHTTT.SelectedIndex = 0;
         }
 
         private void FillCbNhanVien()
@@ -67,9 +85,11 @@ namespace QUANLYBANHANG.GUI
             lkueKho.ItemIndex = 0;
         }
 
-        private void FillDateEditNgayLap()
+        private void FillDateEdit()
         {
             deNgayLap.EditValue = DateTime.Now;
+            deNgayGiao.EditValue = DateTime.Now;
+            deHanThanhToan.EditValue = DateTime.Now;
         }
     }
 }

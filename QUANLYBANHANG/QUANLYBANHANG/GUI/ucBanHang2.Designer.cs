@@ -217,7 +217,7 @@
             this.lkueKho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueKho.Size = new System.Drawing.Size(122, 20);
-            this.lkueKho.TabIndex = 29;
+            this.lkueKho.TabIndex = 10;
             // 
             // label15
             // 
@@ -235,7 +235,7 @@
             this.lkueMaNV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueMaNV.Size = new System.Drawing.Size(122, 20);
-            this.lkueMaNV.TabIndex = 27;
+            this.lkueMaNV.TabIndex = 8;
             // 
             // label14
             // 
@@ -251,7 +251,7 @@
             this.txtSoPhieuNhapTay.Location = new System.Drawing.Point(684, 106);
             this.txtSoPhieuNhapTay.Name = "txtSoPhieuNhapTay";
             this.txtSoPhieuNhapTay.Size = new System.Drawing.Size(124, 21);
-            this.txtSoPhieuNhapTay.TabIndex = 25;
+            this.txtSoPhieuNhapTay.TabIndex = 9;
             // 
             // label13
             // 
@@ -267,7 +267,7 @@
             this.txtSoHDVAT.Location = new System.Drawing.Point(684, 79);
             this.txtSoHDVAT.Name = "txtSoHDVAT";
             this.txtSoHDVAT.Size = new System.Drawing.Size(124, 21);
-            this.txtSoHDVAT.TabIndex = 23;
+            this.txtSoHDVAT.TabIndex = 7;
             // 
             // label12
             // 
@@ -288,7 +288,7 @@
             this.deNgayGiao.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayGiao.Size = new System.Drawing.Size(122, 20);
-            this.deNgayGiao.TabIndex = 21;
+            this.deNgayGiao.TabIndex = 14;
             // 
             // label11
             // 
@@ -309,7 +309,7 @@
             this.deHanThanhToan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deHanThanhToan.Size = new System.Drawing.Size(124, 20);
-            this.deHanThanhToan.TabIndex = 19;
+            this.deHanThanhToan.TabIndex = 13;
             // 
             // label10
             // 
@@ -326,7 +326,7 @@
             this.cbHTTT.Location = new System.Drawing.Point(353, 142);
             this.cbHTTT.Name = "cbHTTT";
             this.cbHTTT.Size = new System.Drawing.Size(119, 21);
-            this.cbHTTT.TabIndex = 17;
+            this.cbHTTT.TabIndex = 12;
             // 
             // label9
             // 
@@ -343,7 +343,7 @@
             this.cbDKTT.Location = new System.Drawing.Point(97, 140);
             this.cbDKTT.Name = "cbDKTT";
             this.cbDKTT.Size = new System.Drawing.Size(135, 21);
-            this.cbDKTT.TabIndex = 15;
+            this.cbDKTT.TabIndex = 11;
             // 
             // label8
             // 
@@ -359,7 +359,7 @@
             this.rtxtGhiChu.Location = new System.Drawing.Point(97, 79);
             this.rtxtGhiChu.Name = "rtxtGhiChu";
             this.rtxtGhiChu.Size = new System.Drawing.Size(375, 55);
-            this.rtxtGhiChu.TabIndex = 13;
+            this.rtxtGhiChu.TabIndex = 6;
             this.rtxtGhiChu.Text = "";
             // 
             // label7
@@ -381,7 +381,7 @@
             this.deNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayLap.Size = new System.Drawing.Size(122, 20);
-            this.deNgayLap.TabIndex = 11;
+            this.deNgayLap.TabIndex = 5;
             // 
             // label6
             // 
@@ -397,7 +397,7 @@
             this.txtSDT.Location = new System.Drawing.Point(684, 52);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(124, 21);
-            this.txtSDT.TabIndex = 9;
+            this.txtSDT.TabIndex = 4;
             // 
             // label5
             // 
@@ -413,7 +413,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(97, 52);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(375, 21);
-            this.txtDiaChi.TabIndex = 7;
+            this.txtDiaChi.TabIndex = 3;
             // 
             // label4
             // 
@@ -429,7 +429,7 @@
             this.txtMaPhieu.Location = new System.Drawing.Point(950, 26);
             this.txtMaPhieu.Name = "txtMaPhieu";
             this.txtMaPhieu.Size = new System.Drawing.Size(122, 21);
-            this.txtMaPhieu.TabIndex = 5;
+            this.txtMaPhieu.TabIndex = 2;
             // 
             // label3
             // 
@@ -447,7 +447,7 @@
             this.lkueMaKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueMaKH.Size = new System.Drawing.Size(124, 20);
-            this.lkueMaKH.TabIndex = 3;
+            this.lkueMaKH.TabIndex = 1;
             // 
             // label2
             // 
@@ -465,7 +465,7 @@
             this.lkueTenKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueTenKH.Size = new System.Drawing.Size(375, 20);
-            this.lkueTenKH.TabIndex = 1;
+            this.lkueTenKH.TabIndex = 0;
             // 
             // label1
             // 
