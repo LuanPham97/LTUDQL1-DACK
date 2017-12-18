@@ -110,6 +110,31 @@ create table HANGHOA(
 	GiaBanSi int,
 	ConQuanLy bit
 )
+
+create table KHACH_HANG
+(
+	MaKH varchar(10) primary key,
+	LaKhachLe bit, --là khách lẻ hay đại lý
+	MaKhuVuc varchar(10), -- fk ma khu vuc, khu vuc
+	TenKH nvarchar(50),
+	DiaChi nvarchar(100),
+	MaSoThue varchar(50),
+	Fax nvarchar(50),
+	DienThoai varchar(13),
+	Mobile varchar(13),
+	Email varchar(50),
+	Website varchar(50),
+	TaiKhoan varchar(50),
+	NganHang nvarchar(50),
+	GioiHanNo int default (0),
+	NoHienTai int default (0),
+	ChietKhau int default (0),
+	AccYahoo varchar(50),
+	AccSkype varchar(50),
+	NguoiLienHe nvarchar(50),
+
+	ConQuanLy bit
+)
 go
 
 alter table KHOHANG add constraint FK_KHOHANG_NHANVIEN foreign key (NguoiQuanLy) references NhanVien(MaNhanVien)
@@ -120,6 +145,7 @@ alter table HANGHOA add constraint FK_HANGHOA_KHOHANG foreign key (KhoMacDinh) r
 alter table HANGHOA add constraint FK_HANGHOA_NHOMHANG foreign key (PhanLoai) references NhomHang(MaNhomHang)
 alter table HANGHOA add constraint FK_HANGHOA_DONVI foreign key (DonVi) references DonViTinh(MaDVTinh)
 alter table HANGHOA add constraint FK_HANGHOA_NHACC foreign key (NhaCungCap) references NhaCungCap(MaNCC)
+alter table KHACH_HANG add constraint FK_KHACHHANG_KHUVUC foreign key (MaKhuVuc) references KhuVuc(MaKhuVuc)
 
 
 -------------- THEM DU LIEU -------------
@@ -427,3 +453,46 @@ begin
 	from NGUOIDUNG
 	where TenDangNhap = @tendangnhap
 end
+go
+
+
+
+-------- TAB CHỨC NĂNG ------------
+-- BÁN HÀNG
+
+-- Phiếu xuất hàng
+create table PHIEU_XUAT(
+	MaPhieu varchar(10) primary key,
+	MaKH varchar(10), --fk ma khach hang, khach hang
+	NgayLap datetime,
+	GhiChu nvarchar(200),
+	SoHoaDonVAT varchar(50),
+	MaNVLap varchar(10), --fk ma nv, nhan vien
+	SoPhieuNhapTay varchar(50),
+	MaKhoXuat varchar(10), -- fk ma kho, kho hang
+	DieuKhoanThanhToan nvarchar(50),
+	HinhThucThanhToan nvarchar(50),
+	HanThanhToan datetime,
+	NgayGiao datetime,
+)
+go
+
+-- Chi tiết phiếu xuất
+create table CT_PHIEU_XUAT
+(
+	MaPhieuXuat varchar(10), --fk ma phieu, phieu xuat
+	MaHang varchar(10),
+	SoLuong int default(0),
+	DonGia int default(0),
+	ChietKhau int default(0), -- tính theo %
+	ThanhToan int default(0),
+
+	primary key(MaPhieuXuat, MaHang)
+)
+go
+--khóa ngoại
+alter table PHIEU_XUAT add constraint FK_PHIEUXUAT_KH foreign key (MaKH) references KHACH_HANG(MaKH)
+alter table PHIEU_XUAT add constraint FK_PHIEUXUAT_NV foreign key (MaNVLap) references NHANVIEN(MaNhanVien)
+alter table PHIEU_XUAT add constraint FK_PHIEUXUAT_KHOHANG foreign key (MaKhoXuat) references KHOHANG(MaKho)
+
+alter table CT_PHIEU_XUAT add constraint FK_CTPHIEUXUAT_PHIEUXUAT foreign key (MaPhieuXuat) references PHIEU_XUAT(MaPhieu)
