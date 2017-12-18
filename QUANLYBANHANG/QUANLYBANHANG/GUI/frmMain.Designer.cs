@@ -41,8 +41,8 @@
             this.rpgNhapXuat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.pnMain = new DevExpress.XtraEditors.PanelControl();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.pnMain = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -143,6 +143,13 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
+            // rstatusbarMain
+            // 
+            this.rstatusbarMain.Location = new System.Drawing.Point(2, 355);
+            this.rstatusbarMain.Name = "rstatusbarMain";
+            this.rstatusbarMain.Ribbon = this.rbcMain;
+            this.rstatusbarMain.Size = new System.Drawing.Size(824, 27);
+            // 
             // pnMain
             // 
             this.pnMain.Controls.Add(this.rstatusbarMain);
@@ -151,13 +158,6 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
-            // 
-            // rstatusbarMain
-            // 
-            this.rstatusbarMain.Location = new System.Drawing.Point(2, 362);
-            this.rstatusbarMain.Name = "rstatusbarMain";
-            this.rstatusbarMain.Ribbon = this.rbcMain;
-            this.rstatusbarMain.Size = new System.Drawing.Size(824, 20);
             // 
             // frmMain
             // 
@@ -172,6 +172,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.rstatusbarMain;
             this.Text = "PHẦN MỀM QUẢN LÝ BÁN HÀNG";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).EndInit();
             this.pnMain.ResumeLayout(false);

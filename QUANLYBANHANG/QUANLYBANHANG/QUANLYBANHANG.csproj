@@ -123,12 +123,6 @@
     <Compile Include="GUI\HeThong\frmThemSuaVaiTro.Designer.cs">
       <DependentUpon>frmThemSuaVaiTro.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ucBanHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\ucBanHang.Designer.cs">
-      <DependentUpon>ucBanHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\ucBanHang2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,9 +168,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HeThong\frmThemSuaVaiTro.resx">
       <DependentUpon>frmThemSuaVaiTro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ucBanHang.resx">
-      <DependentUpon>ucBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucBanHang2.resx">
       <DependentUpon>ucBanHang2.cs</DependentUpon>

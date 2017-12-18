@@ -172,6 +172,8 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Controls.Add(this.lkueKho);
             this.groupControl2.Controls.Add(this.label15);
             this.groupControl2.Controls.Add(this.lkueMaNV);

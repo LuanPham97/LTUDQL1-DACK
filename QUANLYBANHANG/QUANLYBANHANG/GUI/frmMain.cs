@@ -23,8 +23,20 @@ namespace QUANLYBANHANG
 
             btnHangHoa.ItemClick += btnHangHoa_Click;
             btnPhanQuyen.ItemClick += BtnPhanQuyen_ItemClick;
+            btnBanHang.ItemClick += BtnBanHang_ItemClick;
 
             PHANQUYEN(mavt);
+        }
+
+        private void BtnBanHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnMain.Controls.Clear();
+
+            VaiTro_ChucNang phanquyenBH = btnBanHang.Tag as VaiTro_ChucNang;
+
+            ucBanHang2 ucbh = new ucBanHang2(phanquyenBH);
+            ucbh.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(ucbh);
         }
 
         private void PHANQUYEN(string mavt)

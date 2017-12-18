@@ -135,6 +135,7 @@ create table KHACH_HANG
 
 	ConQuanLy bit
 )
+
 go
 
 alter table KHOHANG add constraint FK_KHOHANG_NHANVIEN foreign key (NguoiQuanLy) references NhanVien(MaNhanVien)
@@ -189,6 +190,9 @@ insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, DienThoai, BoPhan) values('
 insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, BoPhan) values('002', N'Phan Quang Thông', 'quangthong@hptvn.com','KD')
 insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, BoPhan) values('003', N'Nguyễn Thị Minh Huệ', 'huenguyen@hptvn.com','KD')
 
+-- thêm khách hàng
+insert into KHACH_HANG(MaKH, LaKhachLe, TenKH, DienThoai, Email) values('001', 1, N'Phạm Đình Luân', '0972129697', 'luanpham.997@gmail.com')
+insert into KHACH_HANG(MaKH, LaKhachLe, TenKH, DienThoai, Email) values('002', 1, N'Khách hàng VIP', '0999999999', 'luanpham2.997@gmail.com')
 
 
 --------- THÊM STORE PROCEDURES ----------
