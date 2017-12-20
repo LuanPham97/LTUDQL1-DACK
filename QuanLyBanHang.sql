@@ -557,3 +557,17 @@ begin
 	where MaKH = @makh
 end
 go
+
+-- lấy tên đơn vị và đơn giá dựa vào mã hàng hóa
+create proc sp_LayTenDonViTinh
+	@mahh varchar(10),
+	@tendv nvarchar(50) output,
+	@dongia int out
+as
+begin
+	set @tendv = ''
+	set @dongia = 0
+	select @tendv = dv.TenDVTinh, @dongia = hh.GiaBanLe
+	from HANGHOA hh, DONVITINH dv
+	where hh.DonVi=dv.MaDVTinh and hh.MaHangHoa=@mahh
+end

@@ -17,6 +17,10 @@ namespace QUANLYBANHANG.GUI
 {
     public partial class ucBanHang2 : UserControl
     {
+        //vị trí dòng, cột đang chọn
+        int rowIndex = -1;
+        int colIndex = -1;
+
         public ucBanHang2(VaiTro_ChucNang vtpq)
         {
             InitializeComponent();
@@ -27,44 +31,114 @@ namespace QUANLYBANHANG.GUI
             lkueMaKH.EditValueChanged += LkueMaKH_EditValueChanged;
             lkueTenKH.EditValueChanged += LkueTenKH_EditValueChanged;
 
-            //sự kiện ô thay đổi dữ liệu khi người dùng chọn mã
+            //sự kiện ô thay đổi dữ liệu khi người dùng chọn mã hoặc tên hàng
+            gvPhieuXuat.CellValueChanged += GvPhieuXuat_CellValueChanged;
+            gvPhieuXuat.CellEnter += GvPhieuXuat_CellEnter;
+            gvPhieuXuat.KeyUp += GvPhieuXuat_KeyUp;
         }
 
-            //var col = e.Column.FieldName;
-            //if (col == "TatCa")
-            //{
-            //    var tmp = tlQuyenHan.EditingValue;
+        private void GvPhieuXuat_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                if (colIndex == 0 || colIndex == 1)
+                {
+                    int row = e.KeyCode == Keys.Enter ? rowIndex - 1 : rowIndex;
 
-            //    if ((bool)tmp == true)
-            //    {
-            //        tlQuyenHan.FocusedNode.SetValue(2, false);
-            //        tlQuyenHan.FocusedNode.SetValue(3, false);
-            //        tlQuyenHan.FocusedNode.SetValue(4, false);
-            //        tlQuyenHan.FocusedNode.SetValue(5, false);
-            //        tlQuyenHan.FocusedNode.SetValue(6, false);
-            //        tlQuyenHan.FocusedNode.SetValue(7, false);
-            //        tlQuyenHan.FocusedNode.SetValue(8, false);
-            //    }
-            //    else if ((bool)tmp == false)
-            //    {
-            //        tlQuyenHan.FocusedNode.SetValue(2, true);
-            //        tlQuyenHan.FocusedNode.SetValue(3, true);
-            //        tlQuyenHan.FocusedNode.SetValue(4, true);
-            //        tlQuyenHan.FocusedNode.SetValue(5, true);
-            //        tlQuyenHan.FocusedNode.SetValue(6, true);
-            //        tlQuyenHan.FocusedNode.SetValue(7, true);
-            //        tlQuyenHan.FocusedNode.SetValue(8, true);
-            //    }
-            //}
-            //else
-            //{
-            //    var tmp = tlQuyenHan.EditingValue;
+                    gvPhieuXuat.CurrentCell = gvPhieuXuat.Rows[row].Cells["colSoLuong"];
+                }
+            }
+        }
 
-            //    if ((bool)tmp == true)
-            //    {
-            //        tlQuyenHan.FocusedNode.SetValue(1, false);
-            //    }
-            //}
+        private void GvPhieuXuat_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+            colIndex = e.ColumnIndex;
+        }
+
+        private void GvPhieuXuat_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int col = e.ColumnIndex;
+            if (col == 0 || col == 1)
+            {
+                string mahang = col == 0 ? gvPhieuXuat.Rows[e.RowIndex].Cells["colMaHang"].Value.ToString() :
+                    gvPhieuXuat.Rows[e.RowIndex].Cells["colTenHang"].Value.ToString();
+
+                string tendonvi = null;
+                int dongia = 0;
+                LayThongTinHangHoa(mahang, ref tendonvi, ref dongia);
+
+                if (col == 0)
+                    gvPhieuXuat.Rows[e.RowIndex].Cells["colTenHang"].Value = mahang;
+                else
+                    gvPhieuXuat.Rows[e.RowIndex].Cells["colMaHang"].Value = mahang;
+
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colDonVi"].Value = tendonvi;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value = 1;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value = dongia;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value = dongia;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value = 0;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value = 0;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = dongia;
+            }
+        }
+
+        private void LayThongTinHangHoa(string mahang, ref string tdv, ref int dg)
+        {
+            string sql = "sp_LayTenDonViTinh";
+
+            Provider p = new Provider();
+            p.Connect();
+
+            SqlParameter tendv = new SqlParameter("@tendv", SqlDbType.NVarChar, 50);
+            tendv.Direction = ParameterDirection.Output;
+            SqlParameter dongia = new SqlParameter("@dongia", SqlDbType.Int);
+            dongia.Direction = ParameterDirection.Output;
+
+            p.ExecuteNonQuery(CommandType.StoredProcedure, sql,
+                new SqlParameter { ParameterName = "@mahh", Value = mahang }, tendv, dongia);
+
+            tdv = tendv.Value.ToString();
+            dg = int.Parse(dongia.Value.ToString());
+
+            p.Disconnect();
+        }
+
+        //var col = e.Column.FieldName;
+        //if (col == "TatCa")
+        //{
+        //    var tmp = tlQuyenHan.EditingValue;
+
+        //    if ((bool)tmp == true)
+        //    {
+        //        tlQuyenHan.FocusedNode.SetValue(2, false);
+        //        tlQuyenHan.FocusedNode.SetValue(3, false);
+        //        tlQuyenHan.FocusedNode.SetValue(4, false);
+        //        tlQuyenHan.FocusedNode.SetValue(5, false);
+        //        tlQuyenHan.FocusedNode.SetValue(6, false);
+        //        tlQuyenHan.FocusedNode.SetValue(7, false);
+        //        tlQuyenHan.FocusedNode.SetValue(8, false);
+        //    }
+        //    else if ((bool)tmp == false)
+        //    {
+        //        tlQuyenHan.FocusedNode.SetValue(2, true);
+        //        tlQuyenHan.FocusedNode.SetValue(3, true);
+        //        tlQuyenHan.FocusedNode.SetValue(4, true);
+        //        tlQuyenHan.FocusedNode.SetValue(5, true);
+        //        tlQuyenHan.FocusedNode.SetValue(6, true);
+        //        tlQuyenHan.FocusedNode.SetValue(7, true);
+        //        tlQuyenHan.FocusedNode.SetValue(8, true);
+        //    }
+        //}
+        //else
+        //{
+        //    var tmp = tlQuyenHan.EditingValue;
+
+        //    if ((bool)tmp == true)
+        //    {
+        //        tlQuyenHan.FocusedNode.SetValue(1, false);
+        //    }
+        //}
 
         private void LkueTenKH_EditValueChanged(object sender, EventArgs e)
         {
@@ -117,17 +191,25 @@ namespace QUANLYBANHANG.GUI
             string sql;
             DataTable dt = null;
 
-            //fill cb ma hang
-            sql = "select MaHangHoa, TenHang, TonHienTai from HANGHOA";
+            sql = "select MaHangHoa, TenHang from HANGHOA";
             dt = Execute.LayDuLieuBang(sql);
-            RepositoryItemLookUpEdit rlkue = new RepositoryItemLookUpEdit();
-            rlkue.DataSource = dt;
-            rlkue.ValueMember = "MaHangHoa";
-            rlkue.DisplayMember = "MaHangHoa";
-            colMaHang.ColumnEdit = rlkue;
 
+            //fill cb ma hang
+            colMaHang.DataSource = dt;
+            colMaHang.ValueMember = "MaHangHoa";
+            colMaHang.DisplayMember = "MaHangHoa";
             //fill cb ten hang
-            colTenHang.ColumnEdit = rlkue;
+            colTenHang.DataSource = dt;
+            colTenHang.ValueMember = "MaHangHoa";
+            colTenHang.DisplayMember = "TenHang";
+
+            //
+            colSoLuong.ValueType = typeof(int);
+            colDonGia.ValueType = typeof(int);
+            colThanhTien.ValueType = typeof(int);
+            colChietKhau.ValueType = typeof(int);
+            colCK.ValueType = typeof(int);
+            colThanhToan.ValueType = typeof(int);
         }
 
         private string GenerateMaPhieu()
