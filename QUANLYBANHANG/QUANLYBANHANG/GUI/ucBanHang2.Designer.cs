@@ -544,7 +544,7 @@
             // 
             // colChietKhau
             // 
-            this.colChietKhau.HeaderText = "Chiết Khấu";
+            this.colChietKhau.HeaderText = "Tiền Chiết Khấu";
             this.colChietKhau.Name = "colChietKhau";
             this.colChietKhau.ReadOnly = true;
             // 

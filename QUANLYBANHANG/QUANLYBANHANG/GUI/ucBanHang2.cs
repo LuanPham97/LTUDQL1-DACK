@@ -100,12 +100,33 @@ namespace QUANLYBANHANG.GUI
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = dongia;
             }
 
-            // tính thành tiền
-            //int thanhtien = (int)gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value * (int)gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value;
-            //gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value =
+
+            // if thay đổi value của 1 trong các cột phía sau thì tính lại thành tiền và thanh toán
+            else if (col >= 3)
+            {
+                //tính thành tiền
+                int thanhtien = 0;
+                if(gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value!=null && gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value != null)
+                {
+                    thanhtien = int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value.ToString()) * int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value.ToString());
+                }
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value = thanhtien;
+
+                // tính giá tiền chiết khấu
+                int chietKhau = 0;
+                if (gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value != null)
+                {
+                    chietKhau = (int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value.ToString()) * int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value.ToString())) / 100;
+                }
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value = chietKhau;
+
+                // tính thanh toán
+                int thanhtoan = 0;
+                thanhtoan = int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value.ToString()) - int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value.ToString());
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = thanhtoan;
+            }
 
 
-            // tính giá tiền chiết khấu
 
             // tính thanh toán
 
