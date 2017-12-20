@@ -35,6 +35,14 @@ namespace QUANLYBANHANG.GUI
             gvPhieuXuat.CellValueChanged += GvPhieuXuat_CellValueChanged;
             gvPhieuXuat.CellEnter += GvPhieuXuat_CellEnter;
             gvPhieuXuat.KeyUp += GvPhieuXuat_KeyUp;
+
+            //xử lý lỗi khi người dùng nhập liệu sai
+            gvPhieuXuat.DataError += GvPhieuXuat_DataError;
+        }
+
+        private void GvPhieuXuat_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Lỗi nhập liệu", "Hệ Thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void GvPhieuXuat_KeyUp(object sender, KeyEventArgs e)
@@ -48,6 +56,14 @@ namespace QUANLYBANHANG.GUI
                     gvPhieuXuat.CurrentCell = gvPhieuXuat.Rows[row].Cells["colSoLuong"];
                 }
             }
+
+            else if (colIndex >= 3)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    gvPhieuXuat.CurrentCell = gvPhieuXuat.Rows[rowIndex].Cells[0];
+                }
+            }
         }
 
         private void GvPhieuXuat_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -59,16 +75,18 @@ namespace QUANLYBANHANG.GUI
         private void GvPhieuXuat_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             int col = e.ColumnIndex;
+
+            //cột tên hàng hoặc mã hàng
             if (col == 0 || col == 1)
             {
-                string mahang = col == 0 ? gvPhieuXuat.Rows[e.RowIndex].Cells["colMaHang"].Value.ToString() :
+                string mahang = col == 1 ? gvPhieuXuat.Rows[e.RowIndex].Cells["colMaHang"].Value.ToString() :
                     gvPhieuXuat.Rows[e.RowIndex].Cells["colTenHang"].Value.ToString();
 
                 string tendonvi = null;
                 int dongia = 0;
                 LayThongTinHangHoa(mahang, ref tendonvi, ref dongia);
 
-                if (col == 0)
+                if (col == 1)
                     gvPhieuXuat.Rows[e.RowIndex].Cells["colTenHang"].Value = mahang;
                 else
                     gvPhieuXuat.Rows[e.RowIndex].Cells["colMaHang"].Value = mahang;
@@ -81,6 +99,16 @@ namespace QUANLYBANHANG.GUI
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value = 0;
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = dongia;
             }
+
+            // tính thành tiền
+            //int thanhtien = (int)gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value * (int)gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value;
+            //gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value =
+
+
+            // tính giá tiền chiết khấu
+
+            // tính thanh toán
+
         }
 
         private void LayThongTinHangHoa(string mahang, ref string tdv, ref int dg)
@@ -103,42 +131,6 @@ namespace QUANLYBANHANG.GUI
 
             p.Disconnect();
         }
-
-        //var col = e.Column.FieldName;
-        //if (col == "TatCa")
-        //{
-        //    var tmp = tlQuyenHan.EditingValue;
-
-        //    if ((bool)tmp == true)
-        //    {
-        //        tlQuyenHan.FocusedNode.SetValue(2, false);
-        //        tlQuyenHan.FocusedNode.SetValue(3, false);
-        //        tlQuyenHan.FocusedNode.SetValue(4, false);
-        //        tlQuyenHan.FocusedNode.SetValue(5, false);
-        //        tlQuyenHan.FocusedNode.SetValue(6, false);
-        //        tlQuyenHan.FocusedNode.SetValue(7, false);
-        //        tlQuyenHan.FocusedNode.SetValue(8, false);
-        //    }
-        //    else if ((bool)tmp == false)
-        //    {
-        //        tlQuyenHan.FocusedNode.SetValue(2, true);
-        //        tlQuyenHan.FocusedNode.SetValue(3, true);
-        //        tlQuyenHan.FocusedNode.SetValue(4, true);
-        //        tlQuyenHan.FocusedNode.SetValue(5, true);
-        //        tlQuyenHan.FocusedNode.SetValue(6, true);
-        //        tlQuyenHan.FocusedNode.SetValue(7, true);
-        //        tlQuyenHan.FocusedNode.SetValue(8, true);
-        //    }
-        //}
-        //else
-        //{
-        //    var tmp = tlQuyenHan.EditingValue;
-
-        //    if ((bool)tmp == true)
-        //    {
-        //        tlQuyenHan.FocusedNode.SetValue(1, false);
-        //    }
-        //}
 
         private void LkueTenKH_EditValueChanged(object sender, EventArgs e)
         {

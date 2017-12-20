@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBanHang2));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.ucTongTien1 = new QUANLYBANHANG.GUI.ucTongTien();
             this.btnNapLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -68,8 +68,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnTaoMoi = new DevExpress.XtraEditors.SimpleButton();
             this.gvPhieuXuat = new System.Windows.Forms.DataGridView();
-            this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ucTongTien1 = new QUANLYBANHANG.GUI.ucTongTien();
             this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,14 +135,6 @@
             this.groupControl1.Size = new System.Drawing.Size(1087, 582);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Phiếu Xuất Hàng";
-            // 
-            // ucTongTien1
-            // 
-            this.ucTongTien1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucTongTien1.Location = new System.Drawing.Point(2, 539);
-            this.ucTongTien1.Name = "ucTongTien1";
-            this.ucTongTien1.Size = new System.Drawing.Size(1083, 41);
-            this.ucTongTien1.TabIndex = 5;
             // 
             // btnNapLai
             // 
@@ -483,8 +476,8 @@
             this.gvPhieuXuat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvPhieuXuat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvPhieuXuat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaHang,
             this.colTenHang,
+            this.colMaHang,
             this.colDonVi,
             this.colSoLuong,
             this.colDonGia,
@@ -497,15 +490,30 @@
             this.gvPhieuXuat.Size = new System.Drawing.Size(1076, 291);
             this.gvPhieuXuat.TabIndex = 6;
             // 
-            // colMaHang
+            // ucTongTien1
             // 
-            this.colMaHang.HeaderText = "Mã Hàng";
-            this.colMaHang.Name = "colMaHang";
+            this.ucTongTien1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucTongTien1.Location = new System.Drawing.Point(2, 539);
+            this.ucTongTien1.Name = "ucTongTien1";
+            this.ucTongTien1.Size = new System.Drawing.Size(1083, 41);
+            this.ucTongTien1.TabIndex = 5;
             // 
             // colTenHang
             // 
+            this.colTenHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.colTenHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.colTenHang.HeaderText = "Tên Hàng";
             this.colTenHang.Name = "colTenHang";
+            // 
+            // colMaHang
+            // 
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.colMaHang.HeaderText = "Mã Hàng";
+            this.colMaHang.Name = "colMaHang";
             // 
             // colDonVi
             // 
@@ -538,6 +546,7 @@
             // 
             this.colChietKhau.HeaderText = "Chiết Khấu";
             this.colChietKhau.Name = "colChietKhau";
+            this.colChietKhau.ReadOnly = true;
             // 
             // colThanhToan
             // 
@@ -616,8 +625,8 @@
         private System.Windows.Forms.ComboBox cbDKTT;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView gvPhieuXuat;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colMaHang;
         private System.Windows.Forms.DataGridViewComboBoxColumn colTenHang;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colMaHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDonVi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
