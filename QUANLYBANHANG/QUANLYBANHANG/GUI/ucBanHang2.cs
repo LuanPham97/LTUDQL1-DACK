@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using QUANLYBANHANG.DAO;
 using QUANLYBANHANG.DTO;
 using System.Data.SqlClient;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 
 namespace QUANLYBANHANG.GUI
 {
@@ -24,7 +26,45 @@ namespace QUANLYBANHANG.GUI
             //sự kiện thay đổi dữ liệu khi chọn cb khách hàng
             lkueMaKH.EditValueChanged += LkueMaKH_EditValueChanged;
             lkueTenKH.EditValueChanged += LkueTenKH_EditValueChanged;
+
+            //sự kiện ô thay đổi dữ liệu khi người dùng chọn mã
         }
+
+            //var col = e.Column.FieldName;
+            //if (col == "TatCa")
+            //{
+            //    var tmp = tlQuyenHan.EditingValue;
+
+            //    if ((bool)tmp == true)
+            //    {
+            //        tlQuyenHan.FocusedNode.SetValue(2, false);
+            //        tlQuyenHan.FocusedNode.SetValue(3, false);
+            //        tlQuyenHan.FocusedNode.SetValue(4, false);
+            //        tlQuyenHan.FocusedNode.SetValue(5, false);
+            //        tlQuyenHan.FocusedNode.SetValue(6, false);
+            //        tlQuyenHan.FocusedNode.SetValue(7, false);
+            //        tlQuyenHan.FocusedNode.SetValue(8, false);
+            //    }
+            //    else if ((bool)tmp == false)
+            //    {
+            //        tlQuyenHan.FocusedNode.SetValue(2, true);
+            //        tlQuyenHan.FocusedNode.SetValue(3, true);
+            //        tlQuyenHan.FocusedNode.SetValue(4, true);
+            //        tlQuyenHan.FocusedNode.SetValue(5, true);
+            //        tlQuyenHan.FocusedNode.SetValue(6, true);
+            //        tlQuyenHan.FocusedNode.SetValue(7, true);
+            //        tlQuyenHan.FocusedNode.SetValue(8, true);
+            //    }
+            //}
+            //else
+            //{
+            //    var tmp = tlQuyenHan.EditingValue;
+
+            //    if ((bool)tmp == true)
+            //    {
+            //        tlQuyenHan.FocusedNode.SetValue(1, false);
+            //    }
+            //}
 
         private void LkueTenKH_EditValueChanged(object sender, EventArgs e)
         {
@@ -69,6 +109,25 @@ namespace QUANLYBANHANG.GUI
             FillCbHTTT();//hình thức thanh toán
             txtMaPhieu.Text = GenerateMaPhieu();
             txtMaPhieu.ReadOnly = true;
+            FillGridView();
+        }
+
+        private void FillGridView()
+        {
+            string sql;
+            DataTable dt = null;
+
+            //fill cb ma hang
+            sql = "select MaHangHoa, TenHang, TonHienTai from HANGHOA";
+            dt = Execute.LayDuLieuBang(sql);
+            RepositoryItemLookUpEdit rlkue = new RepositoryItemLookUpEdit();
+            rlkue.DataSource = dt;
+            rlkue.ValueMember = "MaHangHoa";
+            rlkue.DisplayMember = "MaHangHoa";
+            colMaHang.ColumnEdit = rlkue;
+
+            //fill cb ten hang
+            colTenHang.ColumnEdit = rlkue;
         }
 
         private string GenerateMaPhieu()
