@@ -39,9 +39,9 @@ namespace QUANLYBANHANG.GUI
 
         private void GvPhieuXuat_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter || e.KeyCode == Keys.Tab)
+            if (colIndex == 0 || colIndex == 1)
             {
-                if (colIndex == 0 || colIndex == 1)
+                if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
                 {
                     int row = e.KeyCode == Keys.Enter ? rowIndex - 1 : rowIndex;
 
