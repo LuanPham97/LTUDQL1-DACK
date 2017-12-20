@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBanHang2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -68,7 +68,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnTaoMoi = new DevExpress.XtraEditors.SimpleButton();
             this.gvPhieuXuat = new System.Windows.Forms.DataGridView();
-            this.ucTongTien1 = new QUANLYBANHANG.GUI.ucTongTien();
             this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +77,7 @@
             this.colCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucTongTien1 = new QUANLYBANHANG.GUI.ucTongTien();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
@@ -490,14 +490,6 @@
             this.gvPhieuXuat.Size = new System.Drawing.Size(1076, 291);
             this.gvPhieuXuat.TabIndex = 6;
             // 
-            // ucTongTien1
-            // 
-            this.ucTongTien1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucTongTien1.Location = new System.Drawing.Point(2, 539);
-            this.ucTongTien1.Name = "ucTongTien1";
-            this.ucTongTien1.Size = new System.Drawing.Size(1083, 41);
-            this.ucTongTien1.TabIndex = 5;
-            // 
             // colTenHang
             // 
             this.colTenHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
@@ -507,9 +499,9 @@
             // 
             // colMaHang
             // 
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle2;
             this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.colMaHang.HeaderText = "Mã Hàng";
@@ -553,6 +545,14 @@
             this.colThanhToan.HeaderText = "Thanh Toán";
             this.colThanhToan.Name = "colThanhToan";
             this.colThanhToan.ReadOnly = true;
+            // 
+            // ucTongTien1
+            // 
+            this.ucTongTien1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucTongTien1.Location = new System.Drawing.Point(2, 539);
+            this.ucTongTien1.Name = "ucTongTien1";
+            this.ucTongTien1.Size = new System.Drawing.Size(1083, 41);
+            this.ucTongTien1.TabIndex = 5;
             // 
             // ucBanHang2
             // 

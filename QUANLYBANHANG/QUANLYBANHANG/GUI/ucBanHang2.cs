@@ -21,6 +21,9 @@ namespace QUANLYBANHANG.GUI
         int rowIndex = -1;
         int colIndex = -1;
 
+        //tiền thanh toán
+        int tienThanhToan = 0;
+
         public ucBanHang2(VaiTro_ChucNang vtpq)
         {
             InitializeComponent();
@@ -104,6 +107,15 @@ namespace QUANLYBANHANG.GUI
             // if thay đổi value của 1 trong các cột phía sau thì tính lại thành tiền và thanh toán
             else if (col >= 3)
             {
+                if (col == 6 && gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value != null)
+                {
+                    int ck = (int)gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value;
+                    if (ck > 100)
+                        gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value = 100;
+                    else if (ck < 0)
+                        gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value = 0;
+                }
+
                 //tính thành tiền
                 int thanhtien = 0;
                 if(gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value!=null && gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value != null)
@@ -125,11 +137,6 @@ namespace QUANLYBANHANG.GUI
                 thanhtoan = int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value.ToString()) - int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value.ToString());
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = thanhtoan;
             }
-
-
-
-            // tính thanh toán
-
         }
 
         private void LayThongTinHangHoa(string mahang, ref string tdv, ref int dg)
