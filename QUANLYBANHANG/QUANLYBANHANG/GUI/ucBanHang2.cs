@@ -21,9 +21,6 @@ namespace QUANLYBANHANG.GUI
         int rowIndex = -1;
         int colIndex = -1;
 
-        //tiền thanh toán
-        int tienThanhToan = 0;
-
         public ucBanHang2(VaiTro_ChucNang vtpq)
         {
             InitializeComponent();
@@ -41,6 +38,23 @@ namespace QUANLYBANHANG.GUI
 
             //xử lý lỗi khi người dùng nhập liệu sai
             gvPhieuXuat.DataError += GvPhieuXuat_DataError;
+
+            //1000 separator
+
+            //sự kiện các txt phía dưới
+        }
+
+        //tính tổng tiền thanh toán
+        private int TinhTongTienThanhToan()
+        {
+            int kq = 0;
+            for (int i = 0; i < gvPhieuXuat.Rows.Count; i++)
+            {
+                if(gvPhieuXuat.Rows[i].Cells["colThanhToan"].Value != null)
+                    kq += (int)gvPhieuXuat.Rows[i].Cells["colThanhToan"].Value;
+            }
+
+            return kq;
         }
 
         private void GvPhieuXuat_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -105,7 +119,7 @@ namespace QUANLYBANHANG.GUI
 
 
             // if thay đổi value của 1 trong các cột phía sau thì tính lại thành tiền và thanh toán
-            else if (col >= 3)
+            else if (col >= 3 && col != 8)
             {
                 if (col == 6 && gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value != null)
                 {
@@ -136,6 +150,12 @@ namespace QUANLYBANHANG.GUI
                 int thanhtoan = 0;
                 thanhtoan = int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value.ToString()) - int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value.ToString());
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = thanhtoan;
+            }
+
+            //thanh toan
+            else if (col == 8)
+            {
+                txtThanhTien.Text = TinhTongTienThanhToan().ToString();
             }
         }
 
@@ -204,6 +224,12 @@ namespace QUANLYBANHANG.GUI
             txtMaPhieu.Text = GenerateMaPhieu();
             txtMaPhieu.ReadOnly = true;
             FillGridView();
+
+            // format 1000 separator
+            gvPhieuXuat.Columns["colThanhToan"].DefaultCellStyle.Format = "#,###";
+            gvPhieuXuat.Columns["colChietKhau"].DefaultCellStyle.Format = "#,###";
+            gvPhieuXuat.Columns["colThanhTien"].DefaultCellStyle.Format = "#,###";
+            gvPhieuXuat.Columns["colDonGia"].DefaultCellStyle.Format = "#,###";
         }
 
         private void FillGridView()
