@@ -45,13 +45,13 @@ namespace QUANLYBANHANG.GUI
         }
 
         //tính tổng tiền thanh toán
-        private int TinhTongTienThanhToan()
+        private long TinhTongTienThanhToan()
         {
-            int kq = 0;
+            long kq = 0;
             for (int i = 0; i < gvPhieuXuat.Rows.Count; i++)
             {
                 if(gvPhieuXuat.Rows[i].Cells["colThanhToan"].Value != null)
-                    kq += (int)gvPhieuXuat.Rows[i].Cells["colThanhToan"].Value;
+                    kq += (long)gvPhieuXuat.Rows[i].Cells["colThanhToan"].Value;
             }
 
             return kq;
@@ -100,7 +100,7 @@ namespace QUANLYBANHANG.GUI
                     gvPhieuXuat.Rows[e.RowIndex].Cells["colTenHang"].Value.ToString();
 
                 string tendonvi = null;
-                int dongia = 0;
+                long dongia = 0;
                 LayThongTinHangHoa(mahang, ref tendonvi, ref dongia);
 
                 if (col == 1)
@@ -109,11 +109,11 @@ namespace QUANLYBANHANG.GUI
                     gvPhieuXuat.Rows[e.RowIndex].Cells["colMaHang"].Value = mahang;
 
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colDonVi"].Value = tendonvi;
-                gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value = 1;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value = (long)1;
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value = dongia;
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value = dongia;
-                gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value = 0;
-                gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value = 0;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value = (long)0;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value = (long)0;
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = dongia;
             }
 
@@ -123,7 +123,7 @@ namespace QUANLYBANHANG.GUI
             {
                 if (col == 6 && gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value != null)
                 {
-                    int ck = (int)gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value;
+                    long ck = (long)gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value;
                     if (ck > 100)
                         gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value = 100;
                     else if (ck < 0)
@@ -131,35 +131,35 @@ namespace QUANLYBANHANG.GUI
                 }
 
                 //tính thành tiền
-                int thanhtien = 0;
+                long thanhtien = 0;
                 if(gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value!=null && gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value != null)
                 {
-                    thanhtien = int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value.ToString()) * int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value.ToString());
+                    thanhtien = long.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colSoLuong"].Value.ToString()) * long.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colDonGia"].Value.ToString());
                 }
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value = thanhtien;
 
                 // tính giá tiền chiết khấu
-                int chietKhau = 0;
+                long chietKhau = 0;
                 if (gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value != null)
                 {
-                    chietKhau = (int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value.ToString()) * int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value.ToString())) / 100;
+                    chietKhau = (long.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value.ToString()) * long.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value.ToString())) / 100;
                 }
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value = chietKhau;
 
                 // tính thanh toán
-                int thanhtoan = 0;
-                thanhtoan = int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value.ToString()) - int.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value.ToString());
+                long thanhtoan = 0;
+                thanhtoan = long.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhTien"].Value.ToString()) - long.Parse(gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value.ToString());
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = thanhtoan;
             }
 
             //thanh toan
             else if (col == 8)
             {
-                txtThanhTien.Text = TinhTongTienThanhToan().ToString();
+                nmrThanhTien.Value = TinhTongTienThanhToan();
             }
         }
 
-        private void LayThongTinHangHoa(string mahang, ref string tdv, ref int dg)
+        private void LayThongTinHangHoa(string mahang, ref string tdv, ref long dg)
         {
             string sql = "sp_LayTenDonViTinh";
 
@@ -175,7 +175,7 @@ namespace QUANLYBANHANG.GUI
                 new SqlParameter { ParameterName = "@mahh", Value = mahang }, tendv, dongia);
 
             tdv = tendv.Value.ToString();
-            dg = int.Parse(dongia.Value.ToString());
+            dg = long.Parse(dongia.Value.ToString());
 
             p.Disconnect();
         }
@@ -230,6 +230,10 @@ namespace QUANLYBANHANG.GUI
             gvPhieuXuat.Columns["colChietKhau"].DefaultCellStyle.Format = "#,###";
             gvPhieuXuat.Columns["colThanhTien"].DefaultCellStyle.Format = "#,###";
             gvPhieuXuat.Columns["colDonGia"].DefaultCellStyle.Format = "#,###";
+
+
+            //gvPhieuXuat.Columns["colThanhToan"].DefaultCellStyle.NullValue = "0";
+            //gvPhieuXuat.Columns["colThanhToan"].DefaultCellStyle.NullValue = "0";
         }
 
         private void FillGridView()
@@ -250,12 +254,12 @@ namespace QUANLYBANHANG.GUI
             colTenHang.DisplayMember = "TenHang";
 
             //
-            colSoLuong.ValueType = typeof(int);
-            colDonGia.ValueType = typeof(int);
-            colThanhTien.ValueType = typeof(int);
-            colChietKhau.ValueType = typeof(int);
-            colCK.ValueType = typeof(int);
-            colThanhToan.ValueType = typeof(int);
+            colSoLuong.ValueType = typeof(long);
+            colDonGia.ValueType = typeof(long);
+            colThanhTien.ValueType = typeof(long);
+            colChietKhau.ValueType = typeof(long);
+            colCK.ValueType = typeof(long);
+            colThanhToan.ValueType = typeof(long);
         }
 
         private string GenerateMaPhieu()

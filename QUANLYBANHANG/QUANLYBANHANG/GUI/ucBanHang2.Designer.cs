@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBanHang2));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gvPhieuXuat = new System.Windows.Forms.DataGridView();
-            this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNapLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -84,9 +75,18 @@
             this.txtVAT = new System.Windows.Forms.TextBox();
             this.ceChietKhau = new DevExpress.XtraEditors.CalcEdit();
             this.ceCK = new DevExpress.XtraEditors.CalcEdit();
-            this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.ceVAT = new DevExpress.XtraEditors.CalcEdit();
             this.ceVATM = new DevExpress.XtraEditors.CalcEdit();
+            this.nmrThanhTien = new System.Windows.Forms.NumericUpDown();
+            this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
@@ -109,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ceCK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceVAT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceVATM.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrThanhTien)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -136,11 +137,11 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.nmrThanhTien);
             this.groupControl1.Controls.Add(this.ceVAT);
             this.groupControl1.Controls.Add(this.ceVATM);
             this.groupControl1.Controls.Add(this.ceCK);
             this.groupControl1.Controls.Add(this.txtVAT);
-            this.groupControl1.Controls.Add(this.txtThanhTien);
             this.groupControl1.Controls.Add(this.label18);
             this.groupControl1.Controls.Add(this.label17);
             this.groupControl1.Controls.Add(this.label16);
@@ -178,62 +179,6 @@
             this.gvPhieuXuat.Name = "gvPhieuXuat";
             this.gvPhieuXuat.Size = new System.Drawing.Size(1076, 291);
             this.gvPhieuXuat.TabIndex = 6;
-            // 
-            // colTenHang
-            // 
-            this.colTenHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.colTenHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.colTenHang.HeaderText = "Tên Hàng";
-            this.colTenHang.Name = "colTenHang";
-            // 
-            // colMaHang
-            // 
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.colMaHang.HeaderText = "Mã Hàng";
-            this.colMaHang.Name = "colMaHang";
-            // 
-            // colDonVi
-            // 
-            this.colDonVi.HeaderText = "Đơn Vị";
-            this.colDonVi.Name = "colDonVi";
-            this.colDonVi.ReadOnly = true;
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.HeaderText = "Số Lượng";
-            this.colSoLuong.Name = "colSoLuong";
-            // 
-            // colDonGia
-            // 
-            this.colDonGia.HeaderText = "Đơn Giá";
-            this.colDonGia.Name = "colDonGia";
-            // 
-            // colThanhTien
-            // 
-            this.colThanhTien.HeaderText = "Thành Tiền";
-            this.colThanhTien.Name = "colThanhTien";
-            this.colThanhTien.ReadOnly = true;
-            // 
-            // colCK
-            // 
-            this.colCK.HeaderText = "CK (%)";
-            this.colCK.Name = "colCK";
-            // 
-            // colChietKhau
-            // 
-            this.colChietKhau.HeaderText = "Tiền Chiết Khấu";
-            this.colChietKhau.Name = "colChietKhau";
-            this.colChietKhau.ReadOnly = true;
-            // 
-            // colThanhToan
-            // 
-            this.colThanhToan.HeaderText = "Thanh Toán";
-            this.colThanhToan.Name = "colThanhToan";
-            this.colThanhToan.ReadOnly = true;
             // 
             // btnNapLai
             // 
@@ -649,17 +594,6 @@
             this.ceCK.Size = new System.Drawing.Size(83, 26);
             this.ceCK.TabIndex = 30;
             // 
-            // txtThanhTien
-            // 
-            this.txtThanhTien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThanhTien.ForeColor = System.Drawing.Color.Red;
-            this.txtThanhTien.Location = new System.Drawing.Point(955, 542);
-            this.txtThanhTien.Name = "txtThanhTien";
-            this.txtThanhTien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtThanhTien.Size = new System.Drawing.Size(127, 27);
-            this.txtThanhTien.TabIndex = 13;
-            this.txtThanhTien.Text = "0";
-            // 
             // ceVAT
             // 
             this.ceVAT.Location = new System.Drawing.Point(600, 543);
@@ -689,6 +623,83 @@
             this.ceVATM.Properties.NullText = "0";
             this.ceVATM.Size = new System.Drawing.Size(145, 26);
             this.ceVATM.TabIndex = 31;
+            // 
+            // nmrThanhTien
+            // 
+            this.nmrThanhTien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nmrThanhTien.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nmrThanhTien.ForeColor = System.Drawing.Color.Red;
+            this.nmrThanhTien.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.nmrThanhTien.Location = new System.Drawing.Point(955, 543);
+            this.nmrThanhTien.Maximum = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
+            this.nmrThanhTien.Name = "nmrThanhTien";
+            this.nmrThanhTien.Size = new System.Drawing.Size(122, 26);
+            this.nmrThanhTien.TabIndex = 30;
+            this.nmrThanhTien.ThousandsSeparator = true;
+            // 
+            // colTenHang
+            // 
+            this.colTenHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.colTenHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.colTenHang.HeaderText = "Tên Hàng";
+            this.colTenHang.Name = "colTenHang";
+            // 
+            // colMaHang
+            // 
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.colMaHang.HeaderText = "Mã Hàng";
+            this.colMaHang.Name = "colMaHang";
+            // 
+            // colDonVi
+            // 
+            this.colDonVi.HeaderText = "Đơn Vị";
+            this.colDonVi.Name = "colDonVi";
+            this.colDonVi.ReadOnly = true;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.HeaderText = "Số Lượng";
+            this.colSoLuong.Name = "colSoLuong";
+            // 
+            // colDonGia
+            // 
+            this.colDonGia.HeaderText = "Đơn Giá";
+            this.colDonGia.Name = "colDonGia";
+            // 
+            // colThanhTien
+            // 
+            this.colThanhTien.HeaderText = "Thành Tiền";
+            this.colThanhTien.MaxInputLength = 99999;
+            this.colThanhTien.Name = "colThanhTien";
+            this.colThanhTien.ReadOnly = true;
+            // 
+            // colCK
+            // 
+            this.colCK.HeaderText = "CK (%)";
+            this.colCK.Name = "colCK";
+            // 
+            // colChietKhau
+            // 
+            this.colChietKhau.HeaderText = "Tiền Chiết Khấu";
+            this.colChietKhau.MaxInputLength = 99999;
+            this.colChietKhau.Name = "colChietKhau";
+            this.colChietKhau.ReadOnly = true;
+            // 
+            // colThanhToan
+            // 
+            this.colThanhToan.HeaderText = "Thanh Toán";
+            this.colThanhToan.MaxInputLength = 99999;
+            this.colThanhToan.Name = "colThanhToan";
+            this.colThanhToan.ReadOnly = true;
             // 
             // ucBanHang2
             // 
@@ -721,6 +732,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ceCK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceVAT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceVATM.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrThanhTien)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -765,15 +777,6 @@
         private System.Windows.Forms.ComboBox cbDKTT;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView gvPhieuXuat;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colTenHang;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colMaHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDonVi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colThanhTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChietKhau;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colThanhToan;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
@@ -783,6 +786,15 @@
         private DevExpress.XtraEditors.CalcEdit ceVAT;
         private DevExpress.XtraEditors.CalcEdit ceVATM;
         private DevExpress.XtraEditors.CalcEdit ceCK;
-        private System.Windows.Forms.TextBox txtThanhTien;
+        private System.Windows.Forms.NumericUpDown nmrThanhTien;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colTenHang;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colMaHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDonVi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colThanhTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colChietKhau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colThanhToan;
     }
 }
