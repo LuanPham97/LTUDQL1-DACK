@@ -149,50 +149,50 @@ alter table HANGHOA add constraint FK_HANGHOA_NHACC foreign key (NhaCungCap) ref
 alter table KHACH_HANG add constraint FK_KHACHHANG_KHUVUC foreign key (MaKhuVuc) references KhuVuc(MaKhuVuc)
 
 
--------------- THEM DU LIEU -------------
--- thêm hàng hóa
-insert into HANGHOA(MaHangHoa, TenHang, ConQuanLy) values('001', N'OMO', 1)
-insert into HANGHOA(MaHangHoa, TenHang, ConQuanLy) values('002', N'Dây đeo', 0)
-insert into HANGHOA(MaHangHoa, TenHang, ConQuanLy) values('003', N'iPhone', 1)
+---------------- THEM DU LIEU -------------
+---- thêm hàng hóa
+--insert into HANGHOA(MaHangHoa, TenHang, ConQuanLy) values('001', N'OMO', 1)
+--insert into HANGHOA(MaHangHoa, TenHang, ConQuanLy) values('002', N'Dây đeo', 0)
+--insert into HANGHOA(MaHangHoa, TenHang, ConQuanLy) values('003', N'iPhone', 1)
 
--- thêm kho hàng
-insert into KHOHANG(MaKho, TenKho, ConQuanLy) values('001', N'Kho Công Ty', 1)
-insert into KHOHANG(MaKho, TenKho, ConQuanLy) values('002', N'Kho Hà Nội', 1)
-insert into KHOHANG(MaKho, TenKho, ConQuanLy) values('003', N'Kho TPHCM', 1)
+---- thêm kho hàng
+--insert into KHOHANG(MaKho, TenKho, ConQuanLy) values('001', N'Kho Công Ty', 1)
+--insert into KHOHANG(MaKho, TenKho, ConQuanLy) values('002', N'Kho Hà Nội', 1)
+--insert into KHOHANG(MaKho, TenKho, ConQuanLy) values('003', N'Kho TPHCM', 1)
 
--- thêm nhóm hàng
-insert into NHOMHANG(MaNhomHang, TenNhomHang, ConQuanLy) values('001', N'An ninh siêu thị', 1)
-insert into NHOMHANG(MaNhomHang, TenNhomHang, ConQuanLy) values('002', N'Camera quan sát', 1)
-insert into NHOMHANG(MaNhomHang, TenNhomHang, ConQuanLy) values('003', N'Dây cáp', 1)
+---- thêm nhóm hàng
+--insert into NHOMHANG(MaNhomHang, TenNhomHang, ConQuanLy) values('001', N'An ninh siêu thị', 1)
+--insert into NHOMHANG(MaNhomHang, TenNhomHang, ConQuanLy) values('002', N'Camera quan sát', 1)
+--insert into NHOMHANG(MaNhomHang, TenNhomHang, ConQuanLy) values('003', N'Dây cáp', 1)
 
--- thêm khu vực
-insert into KHUVUC(MaKhuVuc, TenKhuVuc, ConQuanLy) values('001', N'Miền Bắc', 1)
-insert into KHUVUC(MaKhuVuc, TenKhuVuc, ConQuanLy) values('002', N'Miền Trung', 1)
-insert into KHUVUC(MaKhuVuc, TenKhuVuc, ConQuanLy) values('003', N'Miền Nam', 1)
+---- thêm khu vực
+--insert into KHUVUC(MaKhuVuc, TenKhuVuc, ConQuanLy) values('001', N'Miền Bắc', 1)
+--insert into KHUVUC(MaKhuVuc, TenKhuVuc, ConQuanLy) values('002', N'Miền Trung', 1)
+--insert into KHUVUC(MaKhuVuc, TenKhuVuc, ConQuanLy) values('003', N'Miền Nam', 1)
 
--- thêm nhà cung cấp
-insert into NHACUNGCAP(MaNCC, TenNCC, KhuVuc, ConQuanLy) values('001', N'Công ty Minh An', '001', 1)
-insert into NHACUNGCAP(MaNCC, TenNCC, KhuVuc, ConQuanLy) values('002', N'Công ty Microsoft', '002', 1)
-insert into NHACUNGCAP(MaNCC, TenNCC, KhuVuc, ConQuanLy) values('003', N'Công ty Facebook', '003', 1)
+---- thêm nhà cung cấp
+--insert into NHACUNGCAP(MaNCC, TenNCC, KhuVuc, ConQuanLy) values('001', N'Công ty Minh An', '001', 1)
+--insert into NHACUNGCAP(MaNCC, TenNCC, KhuVuc, ConQuanLy) values('002', N'Công ty Microsoft', '002', 1)
+--insert into NHACUNGCAP(MaNCC, TenNCC, KhuVuc, ConQuanLy) values('003', N'Công ty Facebook', '003', 1)
 
--- thêm đơn vị tính
-insert into DONVITINH(MaDVTinh, TenDVTinh, ConQuanLy) values('001', N'chai', 1)
-insert into DONVITINH(MaDVTinh, TenDVTinh, ConQuanLy) values('002', N'cái', 1)
-insert into DONVITINH(MaDVTinh, TenDVTinh, ConQuanLy) values('003', N'kg', 1)
+---- thêm đơn vị tính
+--insert into DONVITINH(MaDVTinh, TenDVTinh, ConQuanLy) values('001', N'chai', 1)
+--insert into DONVITINH(MaDVTinh, TenDVTinh, ConQuanLy) values('002', N'cái', 1)
+--insert into DONVITINH(MaDVTinh, TenDVTinh, ConQuanLy) values('003', N'kg', 1)
 
--- thêm bộ phận
-insert into BOPHAN(MaBoPhan, TenBoPhan, ConQuanLy) values('KD', N'Phòng Kinh Doanh', 1)
-insert into BOPHAN(MaBoPhan, TenBoPhan, ConQuanLy) values('GD', N'Giám Đốc', 1)
-insert into BOPHAN(MaBoPhan, TenBoPhan, ConQuanLy) values('KT', N'Phòng Kỹ Thuật', 1)
+---- thêm bộ phận
+--insert into BOPHAN(MaBoPhan, TenBoPhan, ConQuanLy) values('KD', N'Phòng Kinh Doanh', 1)
+--insert into BOPHAN(MaBoPhan, TenBoPhan, ConQuanLy) values('GD', N'Giám Đốc', 1)
+--insert into BOPHAN(MaBoPhan, TenBoPhan, ConQuanLy) values('KT', N'Phòng Kỹ Thuật', 1)
 
--- thêm nhân viên
-insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, DienThoai, BoPhan) values('001', N'Phạm Đình Luân', 'luanpham.997@gmail.com', '0972129697', 'GD')
-insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, BoPhan) values('002', N'Phan Quang Thông', 'quangthong@hptvn.com','KD')
-insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, BoPhan) values('003', N'Nguyễn Thị Minh Huệ', 'huenguyen@hptvn.com','KD')
+---- thêm nhân viên
+--insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, DienThoai, BoPhan) values('001', N'Phạm Đình Luân', 'luanpham.997@gmail.com', '0972129697', 'GD')
+--insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, BoPhan) values('002', N'Phan Quang Thông', 'quangthong@hptvn.com','KD')
+--insert into NHANVIEN(MaNhanVien, TenNhanVien, Email, BoPhan) values('003', N'Nguyễn Thị Minh Huệ', 'huenguyen@hptvn.com','KD')
 
--- thêm khách hàng
-insert into KHACH_HANG(MaKH, LaKhachLe, TenKH, DienThoai, Email) values('001', 1, N'Phạm Đình Luân', '0972129697', 'luanpham.997@gmail.com')
-insert into KHACH_HANG(MaKH, LaKhachLe, TenKH, DienThoai, Email) values('002', 1, N'Khách hàng VIP', '0999999999', 'luanpham2.997@gmail.com')
+---- thêm khách hàng
+--insert into KHACH_HANG(MaKH, LaKhachLe, TenKH, DienThoai, Email) values('001', 1, N'Phạm Đình Luân', '0972129697', 'luanpham.997@gmail.com')
+--insert into KHACH_HANG(MaKH, LaKhachLe, TenKH, DienThoai, Email) values('002', 1, N'Khách hàng VIP', '0999999999', 'luanpham2.997@gmail.com')
 
 
 --------- THÊM STORE PROCEDURES ----------
@@ -304,91 +304,92 @@ alter table CHUCNANG add constraint FK_CHUCNANG_CHUCNANG foreign key (MaCha) ref
 alter table VAITRO_CHUCNANG add constraint FK_VTCN_VAITRO foreign key (MaVaiTro) references VAITRO(MaVaiTro)
 alter table VAITRO_CHUCNANG add constraint FK_VTCN_CHUCNANG foreign key (MaChucNang) references CHUCNANG(MaChucNang)
 
------ THÊM DỮ LIỆU
--- thêm vai trò
-insert into VAITRO(MaVaiTro, TenVaiTro, DienGiai, KichHoat) values('001', 'ADMIN', N'Admin hệ thống', 1)
-insert into VAITRO(MaVaiTro, TenVaiTro, DienGiai, KichHoat) values('002', 'Bán Hàng', N'Nhân viên bán hàng', 1)
 
--- thêm người dùng
-insert into NGUOIDUNG(MaNV, TenDangNhap, Password, MaVaiTro) values('001', 'admin', '', '001')
+------- THÊM DỮ LIỆU
+---- thêm vai trò
+--insert into VAITRO(MaVaiTro, TenVaiTro, DienGiai, KichHoat) values('001', 'ADMIN', N'Admin hệ thống', 1)
+--insert into VAITRO(MaVaiTro, TenVaiTro, DienGiai, KichHoat) values('002', 'Bán Hàng', N'Nhân viên bán hàng', 1)
+
+---- thêm người dùng
+--insert into NGUOIDUNG(MaNV, TenDangNhap, Password, MaVaiTro) values('001', 'admin', '', '001')
 
 
--- thêm chức năng (quan trọng)
--- hệ thống
-insert into CHUCNANG(MaChucNang, TenChucNang, TenTrongHeThong) values(1, N'Hệ Thống', 'rbpHeThong')
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(4, N'Hệ Thống', 1)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(7, N'Đơn Vị', 4)
+---- thêm chức năng (quan trọng)
+---- hệ thống
+--insert into CHUCNANG(MaChucNang, TenChucNang, TenTrongHeThong) values(1, N'Hệ Thống', 'rbpHeThong')
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(4, N'Hệ Thống', 1)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(7, N'Đơn Vị', 4)
 
-	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(5, N'Bảo Mật', 1, 'rpgBaoMat')
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(8, N'Quản Lý Phân Quyền', 5)
---			insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(11, N'Quản Lý Người Dùng', 8)
---			insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(12, N'Vai Trò & Quyền Hạn', 8)
+--	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(5, N'Bảo Mật', 1, 'rpgBaoMat')
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(8, N'Quản Lý Phân Quyền', 5)
+----			insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(11, N'Quản Lý Người Dùng', 8)
+----			insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(12, N'Vai Trò & Quyền Hạn', 8)
 
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(9, N'Đổi Mật Khẩu', 5)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(10, N'Nhật Ký Hệ Thống', 5)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(9, N'Đổi Mật Khẩu', 5)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(10, N'Nhật Ký Hệ Thống', 5)
 
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(6, N'Dữ Liệu', 1)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(13, N'Sao Lưu', 6)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(14, N'Phục Hồi', 6)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(15, N'Sửa Chữa', 6)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(16, N'Kết Chuyển', 6)
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(6, N'Dữ Liệu', 1)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(13, N'Sao Lưu', 6)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(14, N'Phục Hồi', 6)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(15, N'Sửa Chữa', 6)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(16, N'Kết Chuyển', 6)
 
----- danh mục
-insert into CHUCNANG(MaChucNang, TenChucNang, TenTrongHeThong) values(2, N'Danh Mục', 'rbpDanhMuc')
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(17, N'Đối Tác', 2)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(20, N'Khu Vực', 17)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(21, N'Khách Hàng', 17)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(22, N'Nhà Phân Phối', 17)
+------ danh mục
+--insert into CHUCNANG(MaChucNang, TenChucNang, TenTrongHeThong) values(2, N'Danh Mục', 'rbpDanhMuc')
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(17, N'Đối Tác', 2)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(20, N'Khu Vực', 17)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(21, N'Khách Hàng', 17)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(22, N'Nhà Phân Phối', 17)
 
-	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(18, N'Kho Hàng', 2, 'rpgKhoHang')
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(23, N'Kho', 18)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(24, N'Đơn Vị', 18)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(25, N'Nhóm Hàng', 18)
-		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(26, N'Hàng Hóa', 18, 'btnHangHoa')
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(27, N'In Mã Vạch', 18)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(28, N'Tỷ Giá', 18)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(29, N'Quy Đổi Đơn Vị', 18)
+--	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(18, N'Kho Hàng', 2, 'rpgKhoHang')
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(23, N'Kho', 18)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(24, N'Đơn Vị', 18)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(25, N'Nhóm Hàng', 18)
+--		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(26, N'Hàng Hóa', 18, 'btnHangHoa')
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(27, N'In Mã Vạch', 18)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(28, N'Tỷ Giá', 18)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(29, N'Quy Đổi Đơn Vị', 18)
 
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(19, N'Bộ Phận', 2)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(30, N'Bộ Phận', 19)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(31, N'Nhân Viên', 19)
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(19, N'Bộ Phận', 2)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(30, N'Bộ Phận', 19)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(31, N'Nhân Viên', 19)
 
----- chức năng
---insert into CHUCNANG(MaChucNang, TenChucNang) values(3, N'Chức Năng')
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(32, N'Bán Hàng', 3)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(39, N'Mua Hàng', 32)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(40, N'Bán Hàng', 32)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(41, N'Xuất Trả Hàng', 32)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(42, N'Nhập Trả Hàng', 32)
+------ chức năng
+----insert into CHUCNANG(MaChucNang, TenChucNang) values(3, N'Chức Năng')
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(32, N'Bán Hàng', 3)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(39, N'Mua Hàng', 32)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(40, N'Bán Hàng', 32)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(41, N'Xuất Trả Hàng', 32)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(42, N'Nhập Trả Hàng', 32)
 
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(33, N'Công Nợ', 3)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(43, N'Thu Tiền', 33)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(44, N'Trả Tiền', 33)
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(33, N'Công Nợ', 3)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(43, N'Thu Tiền', 33)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(44, N'Trả Tiền', 33)
 
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(34, N'Kho Hàng', 3)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(45, N'Nhập Kho', 34)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(46, N'Xuất Kho', 34)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(47, N'Tồn Kho', 34)
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(34, N'Kho Hàng', 3)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(45, N'Nhập Kho', 34)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(46, N'Xuất Kho', 34)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(47, N'Tồn Kho', 34)
 
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(35, N'Tiện Ích', 3)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(48, N'Đóng Gói', 35)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(49, N'Kiểm Kê', 35)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(50, N'Chuyển Kho', 35)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(51, N'Tổng hợp Tồn Kho', 35)
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(35, N'Tiện Ích', 3)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(48, N'Đóng Gói', 35)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(49, N'Kiểm Kê', 35)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(50, N'Chuyển Kho', 35)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(51, N'Tổng hợp Tồn Kho', 35)
 
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(36, N'Hóa Đơn', 3)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(52, N'Hóa Đơn', 36)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(53, N'Quản Lý Chứng Từ', 36)
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(36, N'Hóa Đơn', 3)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(52, N'Hóa Đơn', 36)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(53, N'Quản Lý Chứng Từ', 36)
 
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(37, N'Báo Cáo', 3)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(54, N'Báo cáo Kho', 37)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(55, N'Doanh thu Bán Hàng', 37)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(56, N'Hạn sử dụng', 37)
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(37, N'Báo Cáo', 3)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(54, N'Báo cáo Kho', 37)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(55, N'Doanh thu Bán Hàng', 37)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(56, N'Hạn sử dụng', 37)
 
---	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(38, N'Công Cụ', 3)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(57, N'Đặt Hàng', 38)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(58, N'Nhập Số Dư Ban Đầu', 38)
---		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(59, N'Lịch Sử Hàng Hóa', 38)
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(38, N'Công Cụ', 3)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(57, N'Đặt Hàng', 38)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(58, N'Nhập Số Dư Ban Đầu', 38)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(59, N'Lịch Sử Hàng Hóa', 38)
 
 		
 
