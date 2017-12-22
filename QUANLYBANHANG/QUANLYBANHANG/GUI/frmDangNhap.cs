@@ -48,7 +48,8 @@ namespace QUANLYBANHANG.GUI
                 Properties.Settings.Default.ckbNhoMK = ckbNhoMK.Checked;
                 Properties.Settings.Default.Save();
 
-                //this.Hide();
+                //this.Close();
+
                 string mavt = nv_nd.LayMaVaiTro(tendangnhap);
                 frmMain main = new frmMain(mavt);
                 main.Show();

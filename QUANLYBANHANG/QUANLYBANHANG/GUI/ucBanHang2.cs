@@ -33,6 +33,10 @@ namespace QUANLYBANHANG.GUI
 
             Load += UcBanHang2_Load;
 
+            //sự kiện button
+            btnTaoMoi.Click += BtnTaoMoi_Click;
+            btnNapLai.Click += BtnNapLai_Click;
+
             //sự kiện thay đổi dữ liệu khi chọn cb khách hàng
             lkueMaKH.EditValueChanged += LkueMaKH_EditValueChanged;
             lkueTenKH.EditValueChanged += LkueTenKH_EditValueChanged;
@@ -49,6 +53,16 @@ namespace QUANLYBANHANG.GUI
             ceCK.EditValueChanging += CeCK_EditValueChanging;
             ceChietKhau.EditValueChanging += CeChietKhau_EditValueChanging;
             ceVAT.EditValueChanging += CeVAT_EditValueChanging;
+        }
+
+        private void BtnNapLai_Click(object sender, EventArgs e)
+        {
+            NapDuLieu();
+        }
+
+        private void BtnTaoMoi_Click(object sender, EventArgs e)
+        {
+            ResetForm();
         }
 
         private void CeVAT_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -294,6 +308,18 @@ namespace QUANLYBANHANG.GUI
 
         private void UcBanHang2_Load(object sender, EventArgs e)
         {
+            NapDuLieu();
+            ResetForm();
+
+            // format 1000 separator
+            gvPhieuXuat.Columns["colThanhToan"].DefaultCellStyle.Format = "#,###";
+            gvPhieuXuat.Columns["colChietKhau"].DefaultCellStyle.Format = "#,###";
+            gvPhieuXuat.Columns["colThanhTien"].DefaultCellStyle.Format = "#,###";
+            gvPhieuXuat.Columns["colDonGia"].DefaultCellStyle.Format = "#,###";
+        }
+
+        private void NapDuLieu()
+        {
             FillThongTinKhachHang();
             FillCbNhanVien();
             FillCbKhoXuat();
@@ -303,12 +329,28 @@ namespace QUANLYBANHANG.GUI
             txtMaPhieu.Text = GenerateMaPhieu();
             txtMaPhieu.ReadOnly = true;
             FillGridView();
+            gvPhieuXuat.ContextMenuStrip = ctmsPhieuXuat;
+        }
 
-            // format 1000 separator
-            gvPhieuXuat.Columns["colThanhToan"].DefaultCellStyle.Format = "#,###";
-            gvPhieuXuat.Columns["colChietKhau"].DefaultCellStyle.Format = "#,###";
-            gvPhieuXuat.Columns["colThanhTien"].DefaultCellStyle.Format = "#,###";
-            gvPhieuXuat.Columns["colDonGia"].DefaultCellStyle.Format = "#,###";
+        //reset form
+        private void ResetForm()
+        {
+            lkueMaKH.ItemIndex = -1;
+            lkueTenKH.ItemIndex = -1;
+            lkueMaNV.ItemIndex = 0;
+            lkueKho.ItemIndex = 0;
+            txtDiaChi.Text = "";
+            txtSDT.Text = "";
+            rtxtGhiChu.Text = "";
+            txtSoHDVAT.Text = "";
+            txtSoPhieuNhapTay.Text = "";
+            ceCK.Value = 0;
+            ceChietKhau.Value = 0;
+            ceVAT.Value = 0;
+            ceVATM.Value = 0;
+            nmrThanhTien.Value = 0;
+
+            gvPhieuXuat.Rows.Clear();
         }
 
         private void FillGridView()
@@ -378,7 +420,6 @@ namespace QUANLYBANHANG.GUI
             lkueMaNV.Properties.DataSource = dt;
             lkueMaNV.Properties.ValueMember = "MaNhanVien";
             lkueMaNV.Properties.DisplayMember = "TenNhanVien";
-            lkueMaNV.ItemIndex = 0;
         }
 
         private void FillThongTinKhachHang()
@@ -390,13 +431,11 @@ namespace QUANLYBANHANG.GUI
             lkueMaKH.Properties.DataSource = dt;
             lkueMaKH.Properties.ValueMember = "MaKH";
             lkueMaKH.Properties.DisplayMember = "MaKH";
-            lkueMaKH.ItemIndex = 0;
 
             //cb tên kh
             lkueTenKH.Properties.DataSource = dt;
             lkueTenKH.Properties.ValueMember = "MaKH";
             lkueTenKH.Properties.DisplayMember = "TenKH";
-            lkueTenKH.ItemIndex = 0;
         }
 
         private void FillCbKhoXuat()
@@ -407,7 +446,6 @@ namespace QUANLYBANHANG.GUI
             lkueKho.Properties.DataSource = dt;
             lkueKho.Properties.ValueMember = "MaKho";
             lkueKho.Properties.DisplayMember = "TenKho";
-            lkueKho.ItemIndex = 0;
         }
 
         private void FillDateEdit()
