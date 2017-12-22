@@ -21,6 +21,12 @@ namespace QUANLYBANHANG.GUI
         int rowIndex = -1;
         int colIndex = -1;
 
+        //tong tien thanh toan
+        long ttthanhtoan = 0;
+
+        //cờ trạng thái changing
+        bool flagChanging = false;
+
         public ucBanHang2(VaiTro_ChucNang vtpq)
         {
             InitializeComponent();
@@ -39,13 +45,85 @@ namespace QUANLYBANHANG.GUI
             //xử lý lỗi khi người dùng nhập liệu sai
             gvPhieuXuat.DataError += GvPhieuXuat_DataError;
 
-            //1000 separator
-
             //sự kiện các txt phía dưới
+            ceCK.EditValueChanging += CeCK_EditValueChanging;
+            ceChietKhau.EditValueChanging += CeChietKhau_EditValueChanging;
+            ceVAT.EditValueChanging += CeVAT_EditValueChanging;
+        }
+
+        private void CeVAT_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            if (!flagChanging)
+            {
+                flagChanging = true;
+                if (!string.IsNullOrEmpty(e.NewValue.ToString()))
+                {
+                    decimal temp;
+                    if (!decimal.TryParse(e.NewValue.ToString(), out temp))
+                        temp = 0;
+                    ceVATM.Value = (temp * ttthanhtoan) / 100;
+                }
+                else
+                {
+                    ceVATM.Value = 0;
+                }
+
+                FillnmrThanhTien();
+                flagChanging = false;
+            }
+        }
+
+        private void CeChietKhau_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            if (!flagChanging)
+            {
+                flagChanging = true;
+                if (!string.IsNullOrEmpty(e.NewValue.ToString()))
+                {
+                    decimal temp;
+                    if (!decimal.TryParse(e.NewValue.ToString(), out temp))
+                        temp = 0;
+                    ceCK.Value = (temp * 100) / ttthanhtoan;
+                }
+                else
+                {
+                    ceCK.Value = 0;
+                }
+
+                FillnmrThanhTien();
+                flagChanging = false;
+            }
+        }
+
+        private void CeCK_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            if (!flagChanging)
+            {
+                flagChanging = true;
+                if (!string.IsNullOrEmpty(e.NewValue.ToString()))
+                {
+                    decimal temp;
+                    if (!decimal.TryParse(e.NewValue.ToString(), out temp))
+                        temp = 0;
+                    ceChietKhau.Value = (temp * ttthanhtoan) / 100;
+                }
+                else
+                {
+                    ceChietKhau.Value = 0;
+                }
+
+                FillnmrThanhTien();
+                flagChanging = false;
+            }
+        }
+
+        private void FillnmrThanhTien()
+        {
+            nmrThanhTien.Value = ttthanhtoan - ceChietKhau.Value + ceVATM.Value;
         }
 
         //tính tổng tiền thanh toán
-        private long TinhTongTienThanhToan()
+        private void TinhTongTienThanhToan()
         {
             long kq = 0;
             for (int i = 0; i < gvPhieuXuat.Rows.Count; i++)
@@ -54,7 +132,7 @@ namespace QUANLYBANHANG.GUI
                     kq += (long)gvPhieuXuat.Rows[i].Cells["colThanhToan"].Value;
             }
 
-            return kq;
+            ttthanhtoan = kq;
         }
 
         private void GvPhieuXuat_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -155,7 +233,8 @@ namespace QUANLYBANHANG.GUI
             //thanh toan
             else if (col == 8)
             {
-                nmrThanhTien.Value = TinhTongTienThanhToan();
+                TinhTongTienThanhToan();
+                FillnmrThanhTien();
             }
         }
 
@@ -230,10 +309,6 @@ namespace QUANLYBANHANG.GUI
             gvPhieuXuat.Columns["colChietKhau"].DefaultCellStyle.Format = "#,###";
             gvPhieuXuat.Columns["colThanhTien"].DefaultCellStyle.Format = "#,###";
             gvPhieuXuat.Columns["colDonGia"].DefaultCellStyle.Format = "#,###";
-
-
-            //gvPhieuXuat.Columns["colThanhToan"].DefaultCellStyle.NullValue = "0";
-            //gvPhieuXuat.Columns["colThanhToan"].DefaultCellStyle.NullValue = "0";
         }
 
         private void FillGridView()
@@ -253,7 +328,7 @@ namespace QUANLYBANHANG.GUI
             colTenHang.ValueMember = "MaHangHoa";
             colTenHang.DisplayMember = "TenHang";
 
-            //
+            //đổi kiểu dữ liệu cho các cột số
             colSoLuong.ValueType = typeof(long);
             colDonGia.ValueType = typeof(long);
             colThanhTien.ValueType = typeof(long);
@@ -322,11 +397,6 @@ namespace QUANLYBANHANG.GUI
             lkueTenKH.Properties.ValueMember = "MaKH";
             lkueTenKH.Properties.DisplayMember = "TenKH";
             lkueTenKH.ItemIndex = 0;
-
-            //địa chỉ
-
-            //điện thoại
-
         }
 
         private void FillCbKhoXuat()
