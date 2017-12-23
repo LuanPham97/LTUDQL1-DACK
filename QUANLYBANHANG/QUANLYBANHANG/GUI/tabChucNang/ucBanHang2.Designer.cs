@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBanHang2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
@@ -50,15 +50,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.cbInSauKhiLuu = new System.Windows.Forms.CheckBox();
             this.gvPhieuXuat = new System.Windows.Forms.DataGridView();
-            this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNapLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -102,6 +93,16 @@
             this.tsmiNapLai = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiDong = new System.Windows.Forms.ToolStripMenuItem();
+            this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSLTon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
@@ -397,70 +398,12 @@
             this.colThanhTien,
             this.colCK,
             this.colChietKhau,
-            this.colThanhToan});
+            this.colThanhToan,
+            this.colSLTon});
             this.gvPhieuXuat.Location = new System.Drawing.Point(1, 242);
             this.gvPhieuXuat.Name = "gvPhieuXuat";
             this.gvPhieuXuat.Size = new System.Drawing.Size(1076, 291);
             this.gvPhieuXuat.TabIndex = 6;
-            // 
-            // colTenHang
-            // 
-            this.colTenHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.colTenHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.colTenHang.HeaderText = "Tên Hàng";
-            this.colTenHang.Name = "colTenHang";
-            // 
-            // colMaHang
-            // 
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.colMaHang.HeaderText = "Mã Hàng";
-            this.colMaHang.Name = "colMaHang";
-            // 
-            // colDonVi
-            // 
-            this.colDonVi.HeaderText = "Đơn Vị";
-            this.colDonVi.Name = "colDonVi";
-            this.colDonVi.ReadOnly = true;
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.HeaderText = "Số Lượng";
-            this.colSoLuong.Name = "colSoLuong";
-            // 
-            // colDonGia
-            // 
-            this.colDonGia.HeaderText = "Đơn Giá";
-            this.colDonGia.Name = "colDonGia";
-            // 
-            // colThanhTien
-            // 
-            this.colThanhTien.HeaderText = "Thành Tiền";
-            this.colThanhTien.MaxInputLength = 99999;
-            this.colThanhTien.Name = "colThanhTien";
-            this.colThanhTien.ReadOnly = true;
-            // 
-            // colCK
-            // 
-            this.colCK.HeaderText = "CK (%)";
-            this.colCK.Name = "colCK";
-            // 
-            // colChietKhau
-            // 
-            this.colChietKhau.HeaderText = "Tiền Chiết Khấu";
-            this.colChietKhau.MaxInputLength = 99999;
-            this.colChietKhau.Name = "colChietKhau";
-            this.colChietKhau.ReadOnly = true;
-            // 
-            // colThanhToan
-            // 
-            this.colThanhToan.HeaderText = "Thanh Toán";
-            this.colThanhToan.MaxInputLength = 99999;
-            this.colThanhToan.Name = "colThanhToan";
-            this.colThanhToan.ReadOnly = true;
             // 
             // btnNapLai
             // 
@@ -872,6 +815,72 @@
             this.tsmiDong.Size = new System.Drawing.Size(131, 22);
             this.tsmiDong.Text = "Đóng";
             // 
+            // colTenHang
+            // 
+            this.colTenHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.colTenHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.colTenHang.HeaderText = "Tên Hàng";
+            this.colTenHang.Name = "colTenHang";
+            // 
+            // colMaHang
+            // 
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.colMaHang.HeaderText = "Mã Hàng";
+            this.colMaHang.Name = "colMaHang";
+            // 
+            // colDonVi
+            // 
+            this.colDonVi.HeaderText = "Đơn Vị";
+            this.colDonVi.Name = "colDonVi";
+            this.colDonVi.ReadOnly = true;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.HeaderText = "Số Lượng";
+            this.colSoLuong.Name = "colSoLuong";
+            // 
+            // colDonGia
+            // 
+            this.colDonGia.HeaderText = "Đơn Giá";
+            this.colDonGia.Name = "colDonGia";
+            // 
+            // colThanhTien
+            // 
+            this.colThanhTien.HeaderText = "Thành Tiền";
+            this.colThanhTien.MaxInputLength = 99999;
+            this.colThanhTien.Name = "colThanhTien";
+            this.colThanhTien.ReadOnly = true;
+            // 
+            // colCK
+            // 
+            this.colCK.HeaderText = "CK (%)";
+            this.colCK.Name = "colCK";
+            // 
+            // colChietKhau
+            // 
+            this.colChietKhau.HeaderText = "Tiền Chiết Khấu";
+            this.colChietKhau.MaxInputLength = 99999;
+            this.colChietKhau.Name = "colChietKhau";
+            this.colChietKhau.ReadOnly = true;
+            // 
+            // colThanhToan
+            // 
+            this.colThanhToan.HeaderText = "Thanh Toán";
+            this.colThanhToan.MaxInputLength = 99999;
+            this.colThanhToan.Name = "colThanhToan";
+            this.colThanhToan.ReadOnly = true;
+            // 
+            // colSLTon
+            // 
+            this.colSLTon.HeaderText = "slTon";
+            this.colSLTon.Name = "colSLTon";
+            this.colSLTon.ReadOnly = true;
+            this.colSLTon.Visible = false;
+            // 
             // ucBanHang2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -964,15 +973,6 @@
         private DevExpress.XtraEditors.CalcEdit ceVATM;
         private DevExpress.XtraEditors.CalcEdit ceCK;
         private System.Windows.Forms.NumericUpDown nmrThanhTien;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colTenHang;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colMaHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDonVi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colThanhTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChietKhau;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colThanhToan;
         private DevExpress.XtraEditors.GroupControl groupControl6;
         private DevExpress.XtraEditors.GroupControl groupControl5;
         private DevExpress.XtraEditors.GroupControl groupControl3;
@@ -987,5 +987,15 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiNapLai;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem tsmiDong;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colTenHang;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colMaHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDonVi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colThanhTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colChietKhau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colThanhToan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSLTon;
     }
 }

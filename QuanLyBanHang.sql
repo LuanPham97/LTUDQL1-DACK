@@ -486,13 +486,14 @@ go
 create table CT_PHIEU_XUAT
 (
 	MaPhieuXuat varchar(10), --fk ma phieu, phieu xuat
+	ID int identity(1,1),
 	MaHang varchar(10),
 	SoLuong int default(0),
 	DonGia int default(0),
 	ChietKhau int default(0), -- tính theo %
 	ThanhToan int default(0),
 
-	primary key(MaPhieuXuat, MaHang)
+	primary key(ID, MaPhieuXuat)
 )
 go
 --khóa ngoại
@@ -560,15 +561,16 @@ end
 go
 
 -- lấy tên đơn vị và đơn giá dựa vào mã hàng hóa
-create proc sp_LayTenDonViTinh
+create proc sp_LayThongTinHangHoa
 	@mahh varchar(10),
 	@tendv nvarchar(50) output,
-	@dongia int out
+	@dongia int out,
+	@slTon int out
 as
 begin
 	set @tendv = ''
 	set @dongia = 0
-	select @tendv = dv.TenDVTinh, @dongia = hh.GiaBanLe
+	select @tendv = dv.TenDVTinh, @dongia = hh.GiaBanLe, @slton = hh.TonHienTai
 	from HANGHOA hh, DONVITINH dv
 	where hh.DonVi=dv.MaDVTinh and hh.MaHangHoa=@mahh
 end

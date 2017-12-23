@@ -33,5 +33,21 @@ namespace QUANLYBANHANG.DTO
         public DateTime NgayLap { get => ngayLap; set => ngayLap = value; }
         public DateTime HanThanhToan { get => hanThanhToan; set => hanThanhToan = value; }
         public DateTime NgayGiao { get => ngayGiao; set => ngayGiao = value; }
+
+        public PhieuXuat()
+        {
+            MaPhieu = "";
+            MaKH = "";
+            GhiChu = "";
+            SoHoaDonVAT = "";
+            MaNVLap = "";
+            SoPhieuNhapTay = "";
+            MaKhoXuat = "";
+            DKTT = "";
+            HTTT = "";
+            NgayLap = DateTime.Now;
+            HanThanhToan = DateTime.Now;
+            NgayGiao = DateTime.Now;
+        }
     }
 }

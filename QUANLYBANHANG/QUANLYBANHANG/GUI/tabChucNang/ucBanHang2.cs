@@ -12,11 +12,16 @@ using QUANLYBANHANG.DTO;
 using System.Data.SqlClient;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using QUANLYBANHANG.BUS;
 
 namespace QUANLYBANHANG.GUI
 {
     public partial class ucBanHang2 : UserControl
     {
+        NGHIEPVU_PHIEUXUAT nv_px = new NGHIEPVU_PHIEUXUAT();
+        NGHIEPVU_CT_PHIEUXUAT nv_ctpx = new NGHIEPVU_CT_PHIEUXUAT();
+        NGHIEPVU_HANGHOA nv_hh = new NGHIEPVU_HANGHOA();
+
         //vị trí dòng, cột đang chọn
         int rowIndex = -1;
         int colIndex = -1;
@@ -37,6 +42,7 @@ namespace QUANLYBANHANG.GUI
             btnTaoMoi.Click += BtnTaoMoi_Click;
             btnNapLai.Click += BtnNapLai_Click;
             btnHangHoa.Click += BtnHangHoa_Click;
+            btnLuu.Click += BtnLuu_Click;
 
             //sự kiện tsmi
             tsmiXoa.Click += TsmiXoa_Click;
@@ -60,6 +66,86 @@ namespace QUANLYBANHANG.GUI
             ceCK.EditValueChanging += CeCK_EditValueChanging;
             ceChietKhau.EditValueChanging += CeChietKhau_EditValueChanging;
             ceVAT.EditValueChanging += CeVAT_EditValueChanging;
+        }
+
+        private void BtnLuu_Click(object sender, EventArgs e)
+        {
+            if (gvPhieuXuat.Rows.Count <= 1)
+            {
+                MessageBox.Show("Dữ liệu trống, không thể lưu");
+            }
+            else if (lkueMaKH.EditValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn Khách Hàng");
+            }
+            else
+            {
+                bool CanInsert = true;
+
+                PhieuXuat px = new PhieuXuat();
+                px.MaPhieu = txtMaPhieu.Text;
+                px.MaKH = lkueMaKH.EditValue.ToString();
+                px.NgayLap = DateTime.Parse(deNgayLap.EditValue.ToString());
+                px.GhiChu = rtxtGhiChu.Text;
+                px.SoHoaDonVAT = txtSoHDVAT.Text;
+                px.MaNVLap = lkueMaNV.EditValue.ToString();
+                px.SoPhieuNhapTay = txtSoPhieuNhapTay.Text;
+                px.MaKhoXuat = lkueKho.EditValue.ToString();
+                px.DKTT = cbDKTT.Text;
+                px.HTTT = cbHTTT.Text;
+                px.HanThanhToan = DateTime.Parse(deHanThanhToan.EditValue.ToString());
+                px.NgayGiao = DateTime.Parse(deNgayGiao.EditValue.ToString());
+               
+
+                List<CT_PhieuXuat> lstCT_PX = new List<CT_PhieuXuat>();
+
+                for (int i = 0; i < gvPhieuXuat.Rows.Count - 1; i++)
+                {
+                    CT_PhieuXuat ctpx = new CT_PhieuXuat();
+                    ctpx.MaPhieuXuat = px.MaPhieu;
+                    ctpx.MaHang = gvPhieuXuat.Rows[i].Cells["colMaHang"].Value.ToString();
+                    ctpx.SoLuong = int.Parse(gvPhieuXuat.Rows[i].Cells["colSoLuong"].Value.ToString());
+                    ctpx.DonGia = int.Parse(gvPhieuXuat.Rows[i].Cells["colDonGia"].Value.ToString());
+                    //chiếu khấu lưu theo số phần trăm
+                    ctpx.ChietKhau = int.Parse(gvPhieuXuat.Rows[i].Cells["colCK"].Value.ToString());
+                    ctpx.ThanhToan = int.Parse(gvPhieuXuat.Rows[i].Cells["colThanhToan"].Value.ToString());
+
+                    int slton = int.Parse(gvPhieuXuat.Rows[i].Cells["colSLTon"].Value.ToString());
+                    int tonSau = slton - int.Parse(gvPhieuXuat.Rows[i].Cells["colSoLuong"].Value.ToString());
+                    if (tonSau < 0)
+                    {
+                        string tenHang = gvPhieuXuat.Rows[i].Cells["colTenHang"].FormattedValue.ToString();
+                        DialogResult dr = MessageBox.Show(string.Format("Mặt hàng '{0}' đã xuất quá số lượng tồn\nSố lượng tồn hiện tại là {1}\nNếu thực hiện sẽ dẫn đến tồn kho bị âm\nBạn có chắc chắn muốn thực hiện công việc này không ?", tenHang, slton), "Cảnh Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (dr == DialogResult.Yes)
+                        {
+                            lstCT_PX.Add(ctpx);
+                        }
+                        else
+                        {
+                            CanInsert = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        lstCT_PX.Add(ctpx);
+                    }
+                }
+
+                if (CanInsert == true)
+                {
+                    nv_px.ThemPhieuXuat(px);
+
+                    foreach(CT_PhieuXuat ct in lstCT_PX)
+                    {
+                        nv_ctpx.ThemCTPhieuXuat(ct);
+
+                        nv_hh.CapNhatSlTon(ct.MaHang, ct.SoLuong);
+                    }
+
+                    MessageBox.Show("Thêm thành công");
+                }
+            }
         }
 
         private void TsmiXoaAll_Click(object sender, EventArgs e)
@@ -236,7 +322,8 @@ namespace QUANLYBANHANG.GUI
 
                 string tendonvi = null;
                 long dongia = 0;
-                LayThongTinHangHoa(mahang, ref tendonvi, ref dongia);
+                int slTon = 0;
+                LayThongTinHangHoa(mahang, ref tendonvi, ref dongia, ref slTon);
 
                 if (col == 1)
                     gvPhieuXuat.Rows[e.RowIndex].Cells["colTenHang"].Value = mahang;
@@ -250,6 +337,7 @@ namespace QUANLYBANHANG.GUI
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colCK"].Value = (long)0;
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colChietKhau"].Value = (long)0;
                 gvPhieuXuat.Rows[e.RowIndex].Cells["colThanhToan"].Value = dongia;
+                gvPhieuXuat.Rows[e.RowIndex].Cells["colSLTon"].Value = slTon;
             }
 
 
@@ -295,9 +383,9 @@ namespace QUANLYBANHANG.GUI
             }
         }
 
-        private void LayThongTinHangHoa(string mahang, ref string tdv, ref long dg)
+        private void LayThongTinHangHoa(string mahang, ref string tdv, ref long dg, ref int slTon)
         {
-            string sql = "sp_LayTenDonViTinh";
+            string sql = "sp_LayThongTinHangHoa";
 
             Provider p = new Provider();
             p.Connect();
@@ -306,12 +394,15 @@ namespace QUANLYBANHANG.GUI
             tendv.Direction = ParameterDirection.Output;
             SqlParameter dongia = new SqlParameter("@dongia", SqlDbType.Int);
             dongia.Direction = ParameterDirection.Output;
+            SqlParameter slton = new SqlParameter("@slTon", SqlDbType.Int);
+            slton.Direction = ParameterDirection.Output;
 
             p.ExecuteNonQuery(CommandType.StoredProcedure, sql,
-                new SqlParameter { ParameterName = "@mahh", Value = mahang }, tendv, dongia);
+                new SqlParameter { ParameterName = "@mahh", Value = mahang }, tendv, dongia, slton);
 
             tdv = tendv.Value.ToString();
             dg = long.Parse(dongia.Value.ToString());
+            slTon = int.Parse(slton.Value.ToString());
 
             p.Disconnect();
         }

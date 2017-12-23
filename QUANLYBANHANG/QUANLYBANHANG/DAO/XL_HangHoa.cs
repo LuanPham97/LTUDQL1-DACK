@@ -49,5 +49,13 @@ namespace QUANLYBANHANG.DAO
 
             return nRow;
         }
+
+        public int CapNhatSlTon(string mahh, int slBan)
+        {
+            string sql = string.Format("update HANGHOA set TonHienTai-= {0} where MaHangHoa='{1}'",
+                slBan, mahh);
+
+            return Execute.InsertUpdateDelete(sql);
+        }
     }
 }
