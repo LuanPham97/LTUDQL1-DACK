@@ -43,6 +43,7 @@ namespace QUANLYBANHANG.GUI
             btnNapLai.Click += BtnNapLai_Click;
             btnHangHoa.Click += BtnHangHoa_Click;
             btnLuu.Click += BtnLuu_Click;
+            btnKhachHang.Click += BtnKhachHang_Click;
 
             //sự kiện tsmi
             tsmiXoa.Click += TsmiXoa_Click;
@@ -66,6 +67,12 @@ namespace QUANLYBANHANG.GUI
             ceCK.EditValueChanging += CeCK_EditValueChanging;
             ceChietKhau.EditValueChanging += CeChietKhau_EditValueChanging;
             ceVAT.EditValueChanging += CeVAT_EditValueChanging;
+        }
+
+        private void BtnKhachHang_Click(object sender, EventArgs e)
+        {
+            frmThemSuaKhachHang frmkh = new frmThemSuaKhachHang();
+            frmkh.ShowDialog();
         }
 
         private void BtnLuu_Click(object sender, EventArgs e)

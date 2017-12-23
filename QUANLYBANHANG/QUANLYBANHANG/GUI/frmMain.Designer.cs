@@ -43,6 +43,8 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
+            this.rpgDoiTac = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnKhachHang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -55,9 +57,10 @@
             this.rbcMain.ExpandCollapseItem,
             this.btnHangHoa,
             this.btnPhanQuyen,
-            this.btnBanHang});
+            this.btnBanHang,
+            this.btnKhachHang});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 7;
+            this.rbcMain.MaxItemId = 9;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -108,7 +111,8 @@
             // rbpDanhMuc
             // 
             this.rbpDanhMuc.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgKhoHang});
+            this.rpgKhoHang,
+            this.rpgDoiTac});
             this.rbpDanhMuc.Name = "rbpDanhMuc";
             this.rbpDanhMuc.Text = "Danh Mục";
             // 
@@ -159,6 +163,20 @@
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
             // 
+            // rpgDoiTac
+            // 
+            this.rpgDoiTac.ItemLinks.Add(this.btnKhachHang);
+            this.rpgDoiTac.Name = "rpgDoiTac";
+            this.rpgDoiTac.Text = "Đối Tác";
+            // 
+            // btnKhachHang
+            // 
+            this.btnKhachHang.Caption = "Khách Hàng";
+            this.btnKhachHang.Id = 7;
+            this.btnKhachHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnKhachHang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnKhachHang.Name = "btnKhachHang";
+            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -197,6 +215,8 @@
         private DevExpress.XtraBars.BarButtonItem btnPhanQuyen;
         private DevExpress.XtraBars.BarButtonItem btnBanHang;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar rstatusbarMain;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDoiTac;
+        private DevExpress.XtraBars.BarButtonItem btnKhachHang;
     }
 }
 
