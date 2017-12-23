@@ -116,47 +116,41 @@
     <Compile Include="GUI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmThemSuaHangHoa.cs">
+    <Compile Include="GUI\tabDanhMuc\frmThemSuaHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmThemSuaHangHoa.Designer.cs">
+    <Compile Include="GUI\tabDanhMuc\frmThemSuaHangHoa.Designer.cs">
       <DependentUpon>frmThemSuaHangHoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\HeThong\frmThemSuaNguoiDung.cs">
+    <Compile Include="GUI\tabHeThong\frmThemSuaNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\HeThong\frmThemSuaNguoiDung.Designer.cs">
+    <Compile Include="GUI\tabHeThong\frmThemSuaNguoiDung.Designer.cs">
       <DependentUpon>frmThemSuaNguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\HeThong\frmThemSuaVaiTro.cs">
+    <Compile Include="GUI\tabHeThong\frmThemSuaVaiTro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\HeThong\frmThemSuaVaiTro.Designer.cs">
+    <Compile Include="GUI\tabHeThong\frmThemSuaVaiTro.Designer.cs">
       <DependentUpon>frmThemSuaVaiTro.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ucBanHang2.cs">
+    <Compile Include="GUI\tabChucNang\ucBanHang2.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\ucBanHang2.Designer.cs">
+    <Compile Include="GUI\tabChucNang\ucBanHang2.Designer.cs">
       <DependentUpon>ucBanHang2.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ucHangHoa.cs">
+    <Compile Include="GUI\tabDanhMuc\ucHangHoa.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\ucHangHoa.Designer.cs">
+    <Compile Include="GUI\tabDanhMuc\ucHangHoa.Designer.cs">
       <DependentUpon>ucHangHoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\HeThong\ucPhanQuyen.cs">
+    <Compile Include="GUI\tabHeThong\ucPhanQuyen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\HeThong\ucPhanQuyen.Designer.cs">
+    <Compile Include="GUI\tabHeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\ucTongTien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\ucTongTien.Designer.cs">
-      <DependentUpon>ucTongTien.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -171,26 +165,23 @@
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmThemSuaHangHoa.resx">
+    <EmbeddedResource Include="GUI\tabDanhMuc\frmThemSuaHangHoa.resx">
       <DependentUpon>frmThemSuaHangHoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\HeThong\frmThemSuaNguoiDung.resx">
+    <EmbeddedResource Include="GUI\tabHeThong\frmThemSuaNguoiDung.resx">
       <DependentUpon>frmThemSuaNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\HeThong\frmThemSuaVaiTro.resx">
+    <EmbeddedResource Include="GUI\tabHeThong\frmThemSuaVaiTro.resx">
       <DependentUpon>frmThemSuaVaiTro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ucBanHang2.resx">
+    <EmbeddedResource Include="GUI\tabChucNang\ucBanHang2.resx">
       <DependentUpon>ucBanHang2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ucHangHoa.resx">
+    <EmbeddedResource Include="GUI\tabDanhMuc\ucHangHoa.resx">
       <DependentUpon>ucHangHoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\HeThong\ucPhanQuyen.resx">
+    <EmbeddedResource Include="GUI\tabHeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ucTongTien.resx">
-      <DependentUpon>ucTongTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -224,6 +215,7 @@
       <DependentUpon>QuanLyBanHang_DoAnDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
