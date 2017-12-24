@@ -42,9 +42,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.ceChietKhau = new DevExpress.XtraEditors.CalcEdit();
             this.ceGioiHanNo = new DevExpress.XtraEditors.CalcEdit();
-            this.cbxNoHienTai = new System.Windows.Forms.ComboBox();
             this.lkueKhuVuc = new DevExpress.XtraEditors.LookUpEdit();
             this.txtNickSkype = new System.Windows.Forms.TextBox();
             this.txtNickYahoo = new System.Windows.Forms.TextBox();
@@ -71,9 +73,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.txtNoHienTai = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ceChietKhau.Properties)).BeginInit();
@@ -194,12 +194,12 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtNoHienTai);
             this.groupControl1.Controls.Add(this.label20);
             this.groupControl1.Controls.Add(this.label19);
             this.groupControl1.Controls.Add(this.label18);
             this.groupControl1.Controls.Add(this.ceChietKhau);
             this.groupControl1.Controls.Add(this.ceGioiHanNo);
-            this.groupControl1.Controls.Add(this.cbxNoHienTai);
             this.groupControl1.Controls.Add(this.lkueKhuVuc);
             this.groupControl1.Controls.Add(this.txtMaKhachHang);
             this.groupControl1.Controls.Add(this.txtNickSkype);
@@ -239,6 +239,36 @@
             this.groupControl1.TabIndex = 23;
             this.groupControl1.Text = "Thông tin chung";
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(284, 27);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(21, 13);
+            this.label20.TabIndex = 26;
+            this.label20.Text = "(*)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(33, 53);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(21, 13);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "(*)";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(26, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(21, 13);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "(*)";
+            // 
             // ceChietKhau
             // 
             this.ceChietKhau.Location = new System.Drawing.Point(91, 239);
@@ -262,14 +292,6 @@
             this.ceGioiHanNo.Properties.Mask.EditMask = "n0";
             this.ceGioiHanNo.Size = new System.Drawing.Size(124, 20);
             this.ceGioiHanNo.TabIndex = 24;
-            // 
-            // cbxNoHienTai
-            // 
-            this.cbxNoHienTai.FormattingEnabled = true;
-            this.cbxNoHienTai.Location = new System.Drawing.Point(308, 213);
-            this.cbxNoHienTai.Name = "cbxNoHienTai";
-            this.cbxNoHienTai.Size = new System.Drawing.Size(388, 21);
-            this.cbxNoHienTai.TabIndex = 23;
             // 
             // lkueKhuVuc
             // 
@@ -483,35 +505,13 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Mã số thuế";
             // 
-            // label18
+            // txtNoHienTai
             // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(26, 26);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 13);
-            this.label18.TabIndex = 24;
-            this.label18.Text = "(*)";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(33, 53);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(21, 13);
-            this.label19.TabIndex = 25;
-            this.label19.Text = "(*)";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(284, 27);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(21, 13);
-            this.label20.TabIndex = 26;
-            this.label20.Text = "(*)";
+            this.txtNoHienTai.Location = new System.Drawing.Point(308, 212);
+            this.txtNoHienTai.Name = "txtNoHienTai";
+            this.txtNoHienTai.ReadOnly = true;
+            this.txtNoHienTai.Size = new System.Drawing.Size(388, 21);
+            this.txtNoHienTai.TabIndex = 27;
             // 
             // frmThemSuaKhachHang
             // 
@@ -530,7 +530,6 @@
             this.Name = "frmThemSuaKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmThemKhachHang";
-            this.Load += new System.EventHandler(this.frmThemSuaKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -563,7 +562,6 @@
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.CalcEdit ceChietKhau;
         private DevExpress.XtraEditors.CalcEdit ceGioiHanNo;
-        private System.Windows.Forms.ComboBox cbxNoHienTai;
         private DevExpress.XtraEditors.LookUpEdit lkueKhuVuc;
         private System.Windows.Forms.TextBox txtNganHang;
         private System.Windows.Forms.TextBox txtWebSite;
@@ -589,5 +587,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtNoHienTai;
     }
 }

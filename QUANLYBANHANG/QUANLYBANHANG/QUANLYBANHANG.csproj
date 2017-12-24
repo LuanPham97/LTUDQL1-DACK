@@ -92,6 +92,7 @@
     <Compile Include="DAO\XL_CT_PhieuXuat.cs" />
     <Compile Include="DAO\XL_DonViTinh.cs" />
     <Compile Include="DAO\XL_HangHoa.cs" />
+    <Compile Include="DAO\XL_KhachHang.cs" />
     <Compile Include="DAO\XL_Kho.cs" />
     <Compile Include="DAO\XL_NguoiDung.cs" />
     <Compile Include="DAO\XL_NhaCungCap.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="DTO\ChucNang.cs" />
     <Compile Include="DTO\CT_PhieuXuat.cs" />
     <Compile Include="DTO\HangHoa.cs" />
+    <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\NguoiDung.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="DTO\PhieuXuat.cs" />
