@@ -292,6 +292,7 @@ namespace QUANLYBANHANG.GUI
         private void BtnThemVaiTro_Click(object sender, EventArgs e)
         {
             frmThemSuaVaiTro frmtvt = new frmThemSuaVaiTro();
+            frmtvt.KhiThemThanhCong += FillTreeView;
             frmtvt.ShowDialog();
         }
 

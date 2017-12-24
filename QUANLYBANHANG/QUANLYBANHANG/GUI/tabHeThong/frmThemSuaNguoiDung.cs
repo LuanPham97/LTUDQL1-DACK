@@ -102,7 +102,7 @@ namespace QUANLYBANHANG.GUI.HeThong
             lkueNhanVien.Properties.DataSource = dt;
             lkueNhanVien.Properties.ValueMember = "MaNhanVien";
             lkueNhanVien.Properties.DisplayMember = "TenNhanVien";
-            lkueNhanVien.ItemIndex = -1;
+            lkueNhanVien.ItemIndex = 0;
         }
 
         private void btnDong_click(object sender, EventArgs e)

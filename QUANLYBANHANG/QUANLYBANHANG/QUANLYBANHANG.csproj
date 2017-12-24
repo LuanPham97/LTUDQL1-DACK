@@ -79,6 +79,7 @@
     <Compile Include="BUS\NGHIEPVU_CT_PHIEUXUAT.cs" />
     <Compile Include="BUS\NGHIEPVU_DONVITINH.cs" />
     <Compile Include="BUS\NGHIEPVU_HANGHOA.cs" />
+    <Compile Include="BUS\NGHIEPVU_KHACHHANG.cs" />
     <Compile Include="BUS\NGHIEPVU_KHO.cs" />
     <Compile Include="BUS\NGHIEPVU_NGUOIDUNG.cs" />
     <Compile Include="BUS\NGHIEPVU_NHACUNGCAP.cs" />

@@ -321,7 +321,7 @@ alter table VAITRO_CHUCNANG add constraint FK_VTCN_CHUCNANG foreign key (MaChucN
 ----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(7, N'Đơn Vị', 4)
 
 --	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(5, N'Bảo Mật', 1, 'rpgBaoMat')
-----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(8, N'Quản Lý Phân Quyền', 5)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(8, N'Quản Lý Phân Quyền', 5, 'btnPhanQuyen')
 ----			insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(11, N'Quản Lý Người Dùng', 8)
 ----			insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(12, N'Vai Trò & Quyền Hạn', 8)
 
@@ -355,10 +355,10 @@ alter table VAITRO_CHUCNANG add constraint FK_VTCN_CHUCNANG foreign key (MaChucN
 ----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(31, N'Nhân Viên', 19)
 
 ------ chức năng
-----insert into CHUCNANG(MaChucNang, TenChucNang) values(3, N'Chức Năng')
-----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(32, N'Bán Hàng', 3)
+----insert into CHUCNANG(MaChucNang, TenChucNang, TenTrongHeThong) values(3, N'Chức Năng', 'rbpChucNang')
+----	insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(32, N'Nhập Xuất', 3, 'rpgNhapXuat')
 ----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(39, N'Mua Hàng', 32)
-----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(40, N'Bán Hàng', 32)
+----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha, TenTrongHeThong) values(40, N'Bán Hàng', 32, 'btnBanHang')
 ----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(41, N'Xuất Trả Hàng', 32)
 ----		insert into CHUCNANG(MaChucNang, TenChucNang, MaCha) values(42, N'Nhập Trả Hàng', 32)
 

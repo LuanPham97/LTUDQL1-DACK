@@ -10,8 +10,7 @@ namespace QUANLYBANHANG.DTO
     {
         string _maKH, _maKV, _tenKH, _diaChi, _maSoThue, _fax, _dienThoai, _mobile, _Email, _Website;
         string _taiKhoan, _nganHang, _accYahoo, _accSkype, _nguoiLienHe;
-        bool _laKhachLe, _conQuanLy;
-        int _gioiHanNo, _noHienTai, _chietKhau;
+        int _gioiHanNo, _noHienTai, _chietKhau, _laKhachLe, _conQuanLy;
 
         public string MaKH { get => _maKH; set => _maKH = value; }
         public string MaKV { get => _maKV; set => _maKV = value; }
@@ -28,8 +27,8 @@ namespace QUANLYBANHANG.DTO
         public string AccYahoo { get => _accYahoo; set => _accYahoo = value; }
         public string AccSkype { get => _accSkype; set => _accSkype = value; }
         public string NguoiLienHe { get => _nguoiLienHe; set => _nguoiLienHe = value; }
-        public bool LaKhachLe { get => _laKhachLe; set => _laKhachLe = value; }
-        public bool ConQuanLy { get => _conQuanLy; set => _conQuanLy = value; }
+        public int LaKhachLe { get => _laKhachLe; set => _laKhachLe = value; }
+        public int ConQuanLy { get => _conQuanLy; set => _conQuanLy = value; }
         public int GioiHanNo { get => _gioiHanNo; set => _gioiHanNo = value; }
         public int NoHienTai { get => _noHienTai; set => _noHienTai = value; }
         public int ChietKhau { get => _chietKhau; set => _chietKhau = value; }

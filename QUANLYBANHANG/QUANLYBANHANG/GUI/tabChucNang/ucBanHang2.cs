@@ -73,6 +73,7 @@ namespace QUANLYBANHANG.GUI
         {
             frmThemSuaKhachHang frmkh = new frmThemSuaKhachHang();
             frmkh.ShowDialog();
+            NapDuLieu();
         }
 
         private void BtnLuu_Click(object sender, EventArgs e)
