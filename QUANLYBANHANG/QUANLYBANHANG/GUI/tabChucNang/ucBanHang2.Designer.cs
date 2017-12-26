@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBanHang2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
@@ -50,6 +50,16 @@
             this.label16 = new System.Windows.Forms.Label();
             this.cbInSauKhiLuu = new System.Windows.Forms.CheckBox();
             this.gvPhieuXuat = new System.Windows.Forms.DataGridView();
+            this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSLTon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNapLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -93,16 +103,7 @@
             this.tsmiNapLai = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiDong = new System.Windows.Forms.ToolStripMenuItem();
-            this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colMaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSLTon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPhieuBanHang = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
@@ -111,6 +112,7 @@
             this.groupControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrThanhTien)).BeginInit();
@@ -167,9 +169,9 @@
             this.groupControl6.Controls.Add(this.btnKhachHang);
             this.groupControl6.Controls.Add(this.btnHangHoa);
             this.groupControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl6.Location = new System.Drawing.Point(2, 313);
+            this.groupControl6.Location = new System.Drawing.Point(2, 286);
             this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(167, 267);
+            this.groupControl6.Size = new System.Drawing.Size(167, 294);
             this.groupControl6.TabIndex = 2;
             this.groupControl6.Text = "Thêm Danh Mục";
             // 
@@ -220,7 +222,7 @@
             this.groupControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl5.Appearance.Options.UseFont = true;
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl5.Location = new System.Drawing.Point(2, 158);
+            this.groupControl5.Location = new System.Drawing.Point(2, 131);
             this.groupControl5.Name = "groupControl5";
             this.groupControl5.Size = new System.Drawing.Size(167, 155);
             this.groupControl5.TabIndex = 1;
@@ -230,10 +232,11 @@
             // 
             this.groupControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl3.Appearance.Options.UseFont = true;
+            this.groupControl3.Controls.Add(this.btnPhieuBanHang);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl3.Location = new System.Drawing.Point(2, 20);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(167, 138);
+            this.groupControl3.Size = new System.Drawing.Size(167, 111);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Bán Hàng";
             // 
@@ -404,6 +407,72 @@
             this.gvPhieuXuat.Name = "gvPhieuXuat";
             this.gvPhieuXuat.Size = new System.Drawing.Size(1076, 291);
             this.gvPhieuXuat.TabIndex = 6;
+            // 
+            // colTenHang
+            // 
+            this.colTenHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.colTenHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.colTenHang.HeaderText = "Tên Hàng";
+            this.colTenHang.Name = "colTenHang";
+            // 
+            // colMaHang
+            // 
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.colMaHang.HeaderText = "Mã Hàng";
+            this.colMaHang.Name = "colMaHang";
+            // 
+            // colDonVi
+            // 
+            this.colDonVi.HeaderText = "Đơn Vị";
+            this.colDonVi.Name = "colDonVi";
+            this.colDonVi.ReadOnly = true;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.HeaderText = "Số Lượng";
+            this.colSoLuong.Name = "colSoLuong";
+            // 
+            // colDonGia
+            // 
+            this.colDonGia.HeaderText = "Đơn Giá";
+            this.colDonGia.Name = "colDonGia";
+            // 
+            // colThanhTien
+            // 
+            this.colThanhTien.HeaderText = "Thành Tiền";
+            this.colThanhTien.MaxInputLength = 99999;
+            this.colThanhTien.Name = "colThanhTien";
+            this.colThanhTien.ReadOnly = true;
+            // 
+            // colCK
+            // 
+            this.colCK.HeaderText = "CK (%)";
+            this.colCK.Name = "colCK";
+            // 
+            // colChietKhau
+            // 
+            this.colChietKhau.HeaderText = "Tiền Chiết Khấu";
+            this.colChietKhau.MaxInputLength = 99999;
+            this.colChietKhau.Name = "colChietKhau";
+            this.colChietKhau.ReadOnly = true;
+            // 
+            // colThanhToan
+            // 
+            this.colThanhToan.HeaderText = "Thanh Toán";
+            this.colThanhToan.MaxInputLength = 99999;
+            this.colThanhToan.Name = "colThanhToan";
+            this.colThanhToan.ReadOnly = true;
+            // 
+            // colSLTon
+            // 
+            this.colSLTon.HeaderText = "slTon";
+            this.colSLTon.Name = "colSLTon";
+            this.colSLTon.ReadOnly = true;
+            this.colSLTon.Visible = false;
             // 
             // btnNapLai
             // 
@@ -815,71 +884,19 @@
             this.tsmiDong.Size = new System.Drawing.Size(131, 22);
             this.tsmiDong.Text = "Đóng";
             // 
-            // colTenHang
+            // btnPhieuBanHang
             // 
-            this.colTenHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.colTenHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.colTenHang.HeaderText = "Tên Hàng";
-            this.colTenHang.Name = "colTenHang";
-            // 
-            // colMaHang
-            // 
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.colMaHang.HeaderText = "Mã Hàng";
-            this.colMaHang.Name = "colMaHang";
-            // 
-            // colDonVi
-            // 
-            this.colDonVi.HeaderText = "Đơn Vị";
-            this.colDonVi.Name = "colDonVi";
-            this.colDonVi.ReadOnly = true;
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.HeaderText = "Số Lượng";
-            this.colSoLuong.Name = "colSoLuong";
-            // 
-            // colDonGia
-            // 
-            this.colDonGia.HeaderText = "Đơn Giá";
-            this.colDonGia.Name = "colDonGia";
-            // 
-            // colThanhTien
-            // 
-            this.colThanhTien.HeaderText = "Thành Tiền";
-            this.colThanhTien.MaxInputLength = 99999;
-            this.colThanhTien.Name = "colThanhTien";
-            this.colThanhTien.ReadOnly = true;
-            // 
-            // colCK
-            // 
-            this.colCK.HeaderText = "CK (%)";
-            this.colCK.Name = "colCK";
-            // 
-            // colChietKhau
-            // 
-            this.colChietKhau.HeaderText = "Tiền Chiết Khấu";
-            this.colChietKhau.MaxInputLength = 99999;
-            this.colChietKhau.Name = "colChietKhau";
-            this.colChietKhau.ReadOnly = true;
-            // 
-            // colThanhToan
-            // 
-            this.colThanhToan.HeaderText = "Thanh Toán";
-            this.colThanhToan.MaxInputLength = 99999;
-            this.colThanhToan.Name = "colThanhToan";
-            this.colThanhToan.ReadOnly = true;
-            // 
-            // colSLTon
-            // 
-            this.colSLTon.HeaderText = "slTon";
-            this.colSLTon.Name = "colSLTon";
-            this.colSLTon.ReadOnly = true;
-            this.colSLTon.Visible = false;
+            this.btnPhieuBanHang.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhieuBanHang.AppearanceHovered.Options.UseFont = true;
+            this.btnPhieuBanHang.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnPhieuBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPhieuBanHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnPhieuBanHang.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnPhieuBanHang.Location = new System.Drawing.Point(37, 38);
+            this.btnPhieuBanHang.Name = "btnPhieuBanHang";
+            this.btnPhieuBanHang.Size = new System.Drawing.Size(86, 58);
+            this.btnPhieuBanHang.TabIndex = 3;
+            this.btnPhieuBanHang.Text = "Phiếu Bán Hàng";
             // 
             // ucBanHang2
             // 
@@ -896,6 +913,7 @@
             this.groupControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -997,5 +1015,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colChietKhau;
         private System.Windows.Forms.DataGridViewTextBoxColumn colThanhToan;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSLTon;
+        private DevExpress.XtraEditors.SimpleButton btnPhieuBanHang;
     }
 }

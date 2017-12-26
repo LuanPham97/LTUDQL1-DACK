@@ -50,10 +50,12 @@ namespace QUANLYBANHANG.DAO
             return nRow;
         }
 
-        public int CapNhatSlTon(string mahh, int slBan)
+        public int CapNhatSlTon(string mahh, int slBan, int isPlus)
         {
-            string sql = string.Format("update HANGHOA set TonHienTai-= {0} where MaHangHoa='{1}'",
-                slBan, mahh);
+            string dau = isPlus == 1 ? "+" : "-";
+
+            string sql = string.Format("update HANGHOA set TonHienTai {0}= {1} where MaHangHoa='{2}'",
+              dau, slBan, mahh);
 
             return Execute.InsertUpdateDelete(sql);
         }

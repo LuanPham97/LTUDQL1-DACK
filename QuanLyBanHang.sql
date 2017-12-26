@@ -617,3 +617,101 @@ begin
 	set @kq += CAST(@ma as varchar(3))
 end
 go
+
+
+-- MUA HÀNG
+
+-- Phiếu nhập hàng
+create table PHIEU_NHAP(
+	MaPhieu varchar(10) primary key,
+	MaNCC varchar(10), --fk ma ncc, nha cung cap
+	NgayLap datetime,
+	GhiChu nvarchar(200),
+	SoHoaDonVAT varchar(50),
+	MaNVLap varchar(10), --fk ma nv, nhan vien
+	SoPhieuNhapTay varchar(50),
+	MaKhoNhap varchar(10), -- fk ma kho, kho hang
+	DieuKhoanThanhToan nvarchar(50),
+	HinhThucThanhToan nvarchar(50),
+	HanThanhToan datetime,
+)
+go
+
+-- Chi tiết phiếu nhập
+create table CT_PHIEU_NHAP
+(
+	MaPhieuNhap varchar(10), --fk ma phieu, phieu nhap
+	ID int identity(1,1),
+	MaHang varchar(10),
+	SoLuong int default(0),
+	DonGia int default(0),
+	GhiChu nvarchar(100),
+
+	primary key(ID, MaPhieuNhap)
+)
+go
+--khóa ngoại
+alter table PHIEU_NHAP add constraint FK_PHIEUNHAP_NCC foreign key (MaNCC) references NHACUNGCAP(MaNCC)
+alter table PHIEU_NHAP add constraint FK_PHIEUNHAP_NV foreign key (MaNVLap) references NHANVIEN(MaNhanVien)
+alter table PHIEU_NHAP add constraint FK_PHIEUNHAP_KHOHANG foreign key (MaKhoXuat) references KHOHANG(MaKho)
+
+alter table CT_PHIEU_NHAP add constraint FK_CTPHIEUNHAP_PHIEUNHAP foreign key (MaPhieuNhap) references PHIEU_NHAP(MaPhieu)
+
+
+
+-- proc
+go
+-- lấy mã phiếu nhập tiếp theo
+create proc sp_LayMaPhieuNhap
+	@kq varchar(10) output
+as
+begin
+	declare @ma int
+	set @ma = 1
+
+	declare cur Cursor
+	for select MaPhieu
+	from PHIEU_NHAP
+
+	open cur
+	declare @mahh varchar(10)
+	fetch next from cur into @mahh
+	while @@FETCH_STATUS = 0 
+	begin
+		if @ma != cast(@mahh as int)
+			break
+
+		set @ma += 1
+		fetch next from cur into @mahh
+	end
+	close cur
+	deallocate cur
+
+	declare @len int, @j int--, @kq varchar(10)
+	set @kq = ''
+	set @len = 3 - len(cast(@ma as varchar(10)))
+
+	set @j = 0
+	while(@j < @len)
+	begin
+		set @kq += '0'
+
+		set @j += 1
+	end
+	set @kq += CAST(@ma as varchar(3))
+end
+go
+
+
+-- lấy thông tin nhà cung cấp
+create proc sp_LayThongTinNCC
+	@diachi nvarchar(100) output,
+	@dt varchar(13) output,
+	@mancc varchar(10)
+as
+begin
+	select @diachi=DiaChi, @dt=DienThoai
+	from NHACUNGCAP
+	where MaNCC = @mancc
+end
+go

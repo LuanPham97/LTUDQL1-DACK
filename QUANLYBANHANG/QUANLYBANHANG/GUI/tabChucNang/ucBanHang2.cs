@@ -32,7 +32,7 @@ namespace QUANLYBANHANG.GUI
         //cờ trạng thái changing
         bool flagChanging = false;
 
-        public ucBanHang2(VaiTro_ChucNang vtpq)
+        public ucBanHang2(VaiTro_ChucNang vtbh)
         {
             InitializeComponent();
 
@@ -44,6 +44,7 @@ namespace QUANLYBANHANG.GUI
             btnHangHoa.Click += BtnHangHoa_Click;
             btnLuu.Click += BtnLuu_Click;
             btnKhachHang.Click += BtnKhachHang_Click;
+            //btnPhieuBanHang.Click += BtnPhieuBanHang_Click;
 
             //sự kiện tsmi
             tsmiXoa.Click += TsmiXoa_Click;
@@ -67,7 +68,22 @@ namespace QUANLYBANHANG.GUI
             ceCK.EditValueChanging += CeCK_EditValueChanging;
             ceChietKhau.EditValueChanging += CeChietKhau_EditValueChanging;
             ceVAT.EditValueChanging += CeVAT_EditValueChanging;
+
+            //phân quyền dựa vào bảng vai trò chức năng đã được gửi qua
+            if (vtbh != null)
+            {
+                if (vtbh.Them == 0)
+                {
+                    btnLuu.Enabled = false;
+                    tsmiLuuvaDong.Enabled = false;
+                }
+            }
         }
+
+        //private void BtnPhieuBanHang_Click(object sender, EventArgs e)
+        //{
+            
+        //}
 
         private void BtnKhachHang_Click(object sender, EventArgs e)
         {
@@ -148,7 +164,7 @@ namespace QUANLYBANHANG.GUI
                     {
                         nv_ctpx.ThemCTPhieuXuat(ct);
 
-                        nv_hh.CapNhatSlTon(ct.MaHang, ct.SoLuong);
+                        nv_hh.CapNhatSlTon(ct.MaHang, ct.SoLuong, 0);
                     }
 
                     MessageBox.Show("Thêm thành công");
@@ -453,6 +469,9 @@ namespace QUANLYBANHANG.GUI
             NapDuLieu();
             ResetForm();
 
+            FillCbDKTT();//điều khoản thanh toán
+            FillCbHTTT();//hình thức thanh toán
+
             // format 1000 separator
             gvPhieuXuat.Columns["colThanhToan"].DefaultCellStyle.Format = "#,###";
             gvPhieuXuat.Columns["colChietKhau"].DefaultCellStyle.Format = "#,###";
@@ -466,8 +485,7 @@ namespace QUANLYBANHANG.GUI
             FillCbNhanVien();
             FillCbKhoXuat();
             FillDateEdit();
-            FillCbDKTT();//điều khoản thanh toán
-            FillCbHTTT();//hình thức thanh toán
+            
             txtMaPhieu.Text = GenerateMaPhieu();
             txtMaPhieu.ReadOnly = true;
             FillGridView();

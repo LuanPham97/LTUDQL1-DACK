@@ -48,9 +48,9 @@ namespace QUANLYBANHANG.BUS
             return xl_hh.XoaHangHoa(mahh);
         }
 
-        public int CapNhatSlTon(string mahh, int slBan)
+        public int CapNhatSlTon(string mahh, int slBan, int isPlus)
         {
-            return xl_hh.CapNhatSlTon(mahh, slBan);
+            return xl_hh.CapNhatSlTon(mahh, slBan, isPlus);
         }
     }
 }
