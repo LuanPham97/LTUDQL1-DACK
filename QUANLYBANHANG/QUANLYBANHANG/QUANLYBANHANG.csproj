@@ -111,6 +111,7 @@
     <Compile Include="DTO\CT_PhieuXuat.cs" />
     <Compile Include="DTO\HangHoa.cs" />
     <Compile Include="DTO\KhachHang.cs" />
+    <Compile Include="DTO\KhoHang.cs" />
     <Compile Include="DTO\NguoiDung.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="DTO\PhieuNhap.cs" />
@@ -129,11 +130,23 @@
     <Compile Include="GUI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabChucNang\ucBCBanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucBCBanHang.Designer.cs">
+      <DependentUpon>ucBCBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabChucNang\ucMuaHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\tabChucNang\ucMuaHang.Designer.cs">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\frmThemKhoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\frmThemKhoHang.designer.cs">
+      <DependentUpon>frmThemKhoHang.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabDanhMuc\frmThemSuaHangHoa.cs">
       <SubType>Form</SubType>
@@ -146,6 +159,12 @@
     </Compile>
     <Compile Include="GUI\tabDanhMuc\frmThemSuaKhachHang.designer.cs">
       <DependentUpon>frmThemSuaKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\ucKhoHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\ucKhoHang.designer.cs">
+      <DependentUpon>ucKhoHang.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabHeThong\frmThemSuaNguoiDung.cs">
       <SubType>Form</SubType>
@@ -190,14 +209,23 @@
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\ucBCBanHang.resx">
+      <DependentUpon>ucBCBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucMuaHang.resx">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabDanhMuc\frmThemKhoHang.resx">
+      <DependentUpon>frmThemKhoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\frmThemSuaHangHoa.resx">
       <DependentUpon>frmThemSuaHangHoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\frmThemSuaKhachHang.resx">
       <DependentUpon>frmThemSuaKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabDanhMuc\ucKhoHang.resx">
+      <DependentUpon>ucKhoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabHeThong\frmThemSuaNguoiDung.resx">
       <DependentUpon>frmThemSuaNguoiDung.cs</DependentUpon>

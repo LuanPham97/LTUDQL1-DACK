@@ -16,7 +16,7 @@ namespace QUANLYBANHANG.GUI
 {
     public partial class frmThemSuaHangHoa : Form
     {
-        NGHIEPVU_KHO nv_kho = new NGHIEPVU_KHO();
+        NGHIEPVU_KHOHANG nv_kho = new NGHIEPVU_KHOHANG();
         NGHIEPVU_NHOMHANG nv_nhomhang = new NGHIEPVU_NHOMHANG();
         NGHIEPVU_DONVITINH nv_dvt = new NGHIEPVU_DONVITINH();
         NGHIEPVU_NHACUNGCAP nv_ncc = new NGHIEPVU_NHACUNGCAP();

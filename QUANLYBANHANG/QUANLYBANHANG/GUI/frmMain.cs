@@ -13,6 +13,8 @@ using QUANLYBANHANG.DTO;
 using DevExpress.XtraBars.Ribbon;
 using System.Collections;
 using QUANLYBANHANG.GUI.tabChucNang;
+using QUANLYBANHANG.GUI.tabDanhMuc;
+using QUANLYBANHANG.GUI.HeThong;
 
 namespace QUANLYBANHANG
 {
@@ -26,8 +28,20 @@ namespace QUANLYBANHANG
             btnPhanQuyen.ItemClick += BtnPhanQuyen_ItemClick;
             btnBanHang.ItemClick += BtnBanHang_ItemClick;
             btnMuaHang.ItemClick += BtnMuaHang_ItemClick;
+            btnKhoHang.ItemClick += BtnKhoHang_ItemClick;
 
             PHANQUYEN(mavt);
+        }
+
+        private void BtnKhoHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnMain.Controls.Clear();
+
+            VaiTro_ChucNang phanquyenKH = btnKhoHang.Tag as VaiTro_ChucNang;
+
+            ucKhoHang uckh = new ucKhoHang(phanquyenKH);
+            uckh.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(uckh);
         }
 
         private void BtnMuaHang_ItemClick(object sender, ItemClickEventArgs e)

@@ -34,6 +34,8 @@
             this.btnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             this.btnBanHang = new DevExpress.XtraBars.BarButtonItem();
             this.btnKhachHang = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMuaHang = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBCBanHang = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgBaoMat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -41,11 +43,12 @@
             this.rpgDoiTac = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpChucNang = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgNhapXuat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
-            this.btnMuaHang = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKhoHang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -60,9 +63,11 @@
             this.btnPhanQuyen,
             this.btnBanHang,
             this.btnKhachHang,
-            this.btnMuaHang});
+            this.btnMuaHang,
+            this.btnBCBanHang,
+            this.btnKhoHang});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 10;
+            this.rbcMain.MaxItemId = 12;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -105,6 +110,22 @@
             this.btnKhachHang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnKhachHang.ImageOptions.LargeImage")));
             this.btnKhachHang.Name = "btnKhachHang";
             // 
+            // btnMuaHang
+            // 
+            this.btnMuaHang.Caption = "Mua Hàng";
+            this.btnMuaHang.Id = 9;
+            this.btnMuaHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMuaHang.ImageOptions.Image")));
+            this.btnMuaHang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnMuaHang.ImageOptions.LargeImage")));
+            this.btnMuaHang.Name = "btnMuaHang";
+            // 
+            // btnBCBanHang
+            // 
+            this.btnBCBanHang.Caption = "Báo Cáo Bán Hàng";
+            this.btnBCBanHang.Id = 10;
+            this.btnBCBanHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBCBanHang.ImageOptions.Image")));
+            this.btnBCBanHang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCBanHang.ImageOptions.LargeImage")));
+            this.btnBCBanHang.Name = "btnBCBanHang";
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -129,6 +150,7 @@
             // rpgKhoHang
             // 
             this.rpgKhoHang.ItemLinks.Add(this.btnHangHoa);
+            this.rpgKhoHang.ItemLinks.Add(this.btnKhoHang);
             this.rpgKhoHang.Name = "rpgKhoHang";
             this.rpgKhoHang.Text = "Kho Hàng";
             // 
@@ -141,7 +163,8 @@
             // rbpChucNang
             // 
             this.rbpChucNang.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgNhapXuat});
+            this.rpgNhapXuat,
+            this.rpgBaoCao});
             this.rbpChucNang.Name = "rbpChucNang";
             this.rbpChucNang.Text = "Chức Năng";
             // 
@@ -151,6 +174,12 @@
             this.rpgNhapXuat.ItemLinks.Add(this.btnMuaHang);
             this.rpgNhapXuat.Name = "rpgNhapXuat";
             this.rpgNhapXuat.Text = "Nhập - Xuất";
+            // 
+            // rpgBaoCao
+            // 
+            this.rpgBaoCao.ItemLinks.Add(this.btnBCBanHang);
+            this.rpgBaoCao.Name = "rpgBaoCao";
+            this.rpgBaoCao.Text = "Báo Cáo";
             // 
             // rbpTroGiup
             // 
@@ -180,13 +209,13 @@
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
             // 
-            // btnMuaHang
+            // btnKhoHang
             // 
-            this.btnMuaHang.Caption = "Mua Hàng";
-            this.btnMuaHang.Id = 9;
-            this.btnMuaHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnMuaHang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnMuaHang.Name = "btnMuaHang";
+            this.btnKhoHang.Caption = "Kho Hàng";
+            this.btnKhoHang.Id = 11;
+            this.btnKhoHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnKhoHang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnKhoHang.Name = "btnKhoHang";
             // 
             // frmMain
             // 
@@ -229,6 +258,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDoiTac;
         private DevExpress.XtraBars.BarButtonItem btnKhachHang;
         private DevExpress.XtraBars.BarButtonItem btnMuaHang;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgBaoCao;
+        private DevExpress.XtraBars.BarButtonItem btnBCBanHang;
+        private DevExpress.XtraBars.BarButtonItem btnKhoHang;
     }
 }
 
