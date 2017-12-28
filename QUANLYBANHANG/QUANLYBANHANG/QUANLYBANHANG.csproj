@@ -130,12 +130,6 @@
     <Compile Include="GUI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\tabChucNang\ucBCBanHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\tabChucNang\ucBCBanHang.Designer.cs">
-      <DependentUpon>ucBCBanHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\tabChucNang\ucMuaHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -208,9 +202,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\tabChucNang\ucBCBanHang.resx">
-      <DependentUpon>ucBCBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucMuaHang.resx">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
