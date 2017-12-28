@@ -573,7 +573,7 @@ go
 --khóa ngoại
 alter table PHIEU_NHAP add constraint FK_PHIEUNHAP_NCC foreign key (MaNCC) references NHACUNGCAP(MaNCC)
 alter table PHIEU_NHAP add constraint FK_PHIEUNHAP_NV foreign key (MaNVLap) references NHANVIEN(MaNhanVien)
-alter table PHIEU_NHAP add constraint FK_PHIEUNHAP_KHOHANG foreign key (MaKhoXuat) references KHOHANG(MaKho)
+alter table PHIEU_NHAP add constraint FK_PHIEUNHAP_KHOHANG foreign key (MaKhoNhap) references KHOHANG(MaKho)
 
 alter table CT_PHIEU_NHAP add constraint FK_CTPHIEUNHAP_PHIEUNHAP foreign key (MaPhieuNhap) references PHIEU_NHAP(MaPhieu)
 
