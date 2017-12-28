@@ -21,5 +21,15 @@ namespace QUANLYBANHANG.BUS
         {
             return xl_kho.ThemKhoHang(kho);
         }
+
+        public int CapNhatKho(KhoHang kho)
+        {
+            return xl_kho.CapNhatKho(kho);
+        }
+
+        public int XoaKhoHang(string makho)
+        {
+            return xl_kho.XoaKhoHang(makho);
+        }
     }
 }

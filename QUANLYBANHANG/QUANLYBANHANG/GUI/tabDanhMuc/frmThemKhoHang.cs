@@ -22,16 +22,54 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         public delegate void ThemKhoHang();
         public event ThemKhoHang KhiThemThanhCong;
 
+        // lưu trạng thái là đang thêm đang sửa
+        bool isInsert;
 
+        //dùng để thêm
         public frmThemKhoHang()
         {
             InitializeComponent();
 
+            isInsert = true;
             Load += FrmThemKhoHang_Load;
+            this.Text = "Thêm Kho Hàng";
 
             // button
             btnLuu.Click += BtnLuu_Click;
             btnDong.Click += BtnDong_Click;
+        }
+
+        //dùng để sửa
+        public frmThemKhoHang(KhoHang kho)
+        {
+            InitializeComponent();
+
+            isInsert = false;
+            FillCbNguoiQL();
+
+            this.Text = "Cập nhật Kho Hàng";
+
+            // button
+            btnLuu.Click += BtnLuu_Click;
+            btnDong.Click += BtnDong_Click;
+
+            FillDuLieu(kho);
+        }
+
+        private void FillDuLieu(KhoHang kho)
+        {
+            txtMaKho.Text = kho.MaKho;
+            txtMaKho.ReadOnly = true;
+            txtKiHieuKho.Text = kho.KyHieu;
+            txtTenKho.Text = kho.TenKho;
+            lkueNguoiQuanLy.EditValue = kho.NguoiQuanLy;
+            txtNguoiLienHe.Text = kho.NguoiLienHe;
+            txtDiaChi.Text = kho.DiaChi;
+            txtDienThoai.Text = kho.DienThoai;
+            txtFax.Text = kho.Fax;
+            txtEmail.Text = kho.Email;
+            txtDienGiai.Text = kho.DienGiai;
+            cbConQuanLy.Checked = kho.ConQuanLy;
         }
 
         private void BtnDong_Click(object sender, EventArgs e)
@@ -43,13 +81,15 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         {
             if (string.IsNullOrEmpty(txtTenKho.Text))
                 MessageBox.Show("Không được bỏ trống Tên Kho");
+            if(lkueNguoiQuanLy.EditValue==null)
+                MessageBox.Show("Chưa chọn Người quản lý Kho");
             else
             {
                 KhoHang kho = new KhoHang();
                 kho.MaKho = txtMaKho.Text;
                 kho.KyHieu = txtKiHieuKho.Text;
                 kho.TenKho = txtTenKho.Text;
-                kho.NguoiQuanLy = lkueNguoiQuanLy.EditValue != null ? lkueNguoiQuanLy.EditValue.ToString() : "";
+                kho.NguoiQuanLy = lkueNguoiQuanLy.EditValue.ToString();
                 kho.NguoiLienHe = txtNguoiLienHe.Text;
                 kho.DiaChi = txtDiaChi.Text;
                 kho.Fax = txtFax.Text;
@@ -58,17 +98,32 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                 kho.DienGiai = txtDienGiai.Text;
                 kho.ConQuanLy = cbConQuanLy.Checked;
 
-                int kq = nv_kho.ThemKhoHang(kho);
-                if(kq>=1)
+                if (isInsert == true)
                 {
-                    KhiThemThanhCong();
-                    MessageBox.Show("Thêm thành công!");
+                    int kq = nv_kho.ThemKhoHang(kho);
+                    if (kq >= 1)
+                    {
+                        KhiThemThanhCong();
+                        MessageBox.Show("Thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi thêm");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi thêm");
+                    int kq = nv_kho.CapNhatKho(kho);
+                    if (kq >= 1)
+                    {
+                        KhiThemThanhCong();
+                        MessageBox.Show("Cập nhật thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi cập nhật");
+                    }
                 }
-                  
             }
         }
 

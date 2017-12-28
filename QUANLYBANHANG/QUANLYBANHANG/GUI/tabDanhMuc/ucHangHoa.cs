@@ -30,6 +30,7 @@ namespace QUANLYBANHANG.GUI
             btnThem.Click += new EventHandler(btnThem_click);
             btnSua.Click += new EventHandler(btnSua_click);
             btnXoa.Click += new EventHandler(btnXoa_click);
+
             //button radial menu
             bbiDong.ItemClick += BbiDong_ItemClick;
             bbiThem.ItemClick += btnThem_click;
@@ -43,9 +44,7 @@ namespace QUANLYBANHANG.GUI
 
             // lấy chỉ số dòng hiện tại
             gvHangHoa.FocusedRowChanged += gvHangHoa_FocusedRowChanged;
-
             gvHangHoa.DoubleClick += new EventHandler(btnSua_click);
-
             gvHangHoa.ShowingEditor += new CancelEventHandler(gvHangHoa_ShowingEditor);
 
             //show radial menu
@@ -121,14 +120,9 @@ namespace QUANLYBANHANG.GUI
                 HangHoa hh = LayHangHoaDangChon();
 
                 frmThemSuaHangHoa frmSua = new frmThemSuaHangHoa(hh);
-                frmSua.KhiThayDoi += ThayDoiDuLieu;
+                frmSua.KhiThayDoi += FillGridView;
                 frmSua.ShowDialog();
             }
-        }
-
-        private void ThayDoiDuLieu()
-        {
-            FillGridView();
         }
 
         private HangHoa LayHangHoaDangChon()
@@ -179,7 +173,7 @@ namespace QUANLYBANHANG.GUI
         private void btnThem_click(object sender, EventArgs e)
         {
             frmThemSuaHangHoa frmThem = new frmThemSuaHangHoa();
-            frmThem.KhiThayDoi += ThayDoiDuLieu;
+            frmThem.KhiThayDoi += FillGridView;
             frmThem.ShowDialog();
         }
 

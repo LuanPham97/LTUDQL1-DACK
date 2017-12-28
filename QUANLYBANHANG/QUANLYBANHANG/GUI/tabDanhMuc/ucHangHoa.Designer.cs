@@ -53,15 +53,15 @@
             this.colTonHienTai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNhaCungCap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rdmHangHoa = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
+            this.bbiThem = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSua = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDong = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiXoa = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bbiThem = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiSua = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiDong = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiXoa = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitCCHangHoa)).BeginInit();
             this.splitCCHangHoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcHangHoa)).BeginInit();
@@ -288,6 +288,38 @@
             this.rdmHangHoa.MenuRadius = 127;
             this.rdmHangHoa.Name = "rdmHangHoa";
             // 
+            // bbiThem
+            // 
+            this.bbiThem.Caption = "Thêm";
+            this.bbiThem.Id = 0;
+            this.bbiThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiThem.ImageOptions.Image")));
+            this.bbiThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiThem.ImageOptions.LargeImage")));
+            this.bbiThem.Name = "bbiThem";
+            // 
+            // bbiSua
+            // 
+            this.bbiSua.Caption = "Sửa";
+            this.bbiSua.Id = 1;
+            this.bbiSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSua.ImageOptions.Image")));
+            this.bbiSua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSua.ImageOptions.LargeImage")));
+            this.bbiSua.Name = "bbiSua";
+            // 
+            // bbiDong
+            // 
+            this.bbiDong.Caption = "Đóng";
+            this.bbiDong.Id = 2;
+            this.bbiDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiDong.ImageOptions.Image")));
+            this.bbiDong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiDong.ImageOptions.LargeImage")));
+            this.bbiDong.Name = "bbiDong";
+            // 
+            // bbiXoa
+            // 
+            this.bbiXoa.Caption = "Xóa";
+            this.bbiXoa.Id = 3;
+            this.bbiXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiXoa.ImageOptions.Image")));
+            this.bbiXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiXoa.ImageOptions.LargeImage")));
+            this.bbiXoa.Name = "bbiXoa";
+            // 
             // barManager1
             // 
             this.barManager1.DockControls.Add(this.barDockControlTop);
@@ -333,38 +365,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(777, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 479);
-            // 
-            // bbiThem
-            // 
-            this.bbiThem.Caption = "Thêm";
-            this.bbiThem.Id = 0;
-            this.bbiThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiThem.ImageOptions.Image")));
-            this.bbiThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiThem.ImageOptions.LargeImage")));
-            this.bbiThem.Name = "bbiThem";
-            // 
-            // bbiSua
-            // 
-            this.bbiSua.Caption = "Sửa";
-            this.bbiSua.Id = 1;
-            this.bbiSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSua.ImageOptions.Image")));
-            this.bbiSua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSua.ImageOptions.LargeImage")));
-            this.bbiSua.Name = "bbiSua";
-            // 
-            // bbiDong
-            // 
-            this.bbiDong.Caption = "Đóng";
-            this.bbiDong.Id = 2;
-            this.bbiDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiXoa.ImageOptions.Image")));
-            this.bbiDong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiXoa.ImageOptions.LargeImage")));
-            this.bbiDong.Name = "bbiDong";
-            // 
-            // bbiXoa
-            // 
-            this.bbiXoa.Caption = "Xóa";
-            this.bbiXoa.Id = 3;
-            this.bbiXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiDong.ImageOptions.Image")));
-            this.bbiXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiDong.ImageOptions.LargeImage")));
-            this.bbiXoa.Name = "bbiXoa";
             // 
             // ucHangHoa
             // 
