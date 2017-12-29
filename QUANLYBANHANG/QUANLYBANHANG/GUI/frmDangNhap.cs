@@ -52,12 +52,18 @@ namespace QUANLYBANHANG.GUI
 
                 string mavt = nv_nd.LayMaVaiTro(tendangnhap);
                 frmMain main = new frmMain(mavt);
+                main.KhiFormDong += CloseForm;
                 main.Show();
             }
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc Mật khẩu không đúng", "Hệ Thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CloseForm()
+        {
+            this.Close();
         }
 
         private void BtnThoat_Click(object sender, EventArgs e)

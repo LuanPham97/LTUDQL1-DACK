@@ -85,9 +85,9 @@ create table NHACUNGCAP(
 	Website varchar(50),
 	TaiKhoan varchar(50),
 	NganHang nvarchar(50),
-	GioiHanNo int,
-	NoHienTai int,
-	ChietKhau int,
+	GioiHanNo int default (0),
+	NoHienTai int default (0),
+	ChietKhau int default (0),
 	NguoiLienHe nvarchar(50),
 	ChucVu nvarchar(50),
 	ConQuanLy bit
@@ -648,6 +648,48 @@ begin
 	declare cur Cursor
 	for select MaKho
 	from KHOHANG
+
+	open cur
+	declare @mahh varchar(10)
+	fetch next from cur into @mahh
+	while @@FETCH_STATUS = 0 
+	begin
+		if @ma != cast(@mahh as int)
+			break
+
+		set @ma += 1
+		fetch next from cur into @mahh
+	end
+	close cur
+	deallocate cur
+
+	declare @len int, @j int--, @kq varchar(10)
+	set @kq = ''
+	set @len = 3 - len(cast(@ma as varchar(10)))
+
+	set @j = 0
+	while(@j < @len)
+	begin
+		set @kq += '0'
+
+		set @j += 1
+	end
+	set @kq += CAST(@ma as varchar(3))
+end
+go
+
+
+-- lấy mã nhà cung cấp tiếp theo
+create proc sp_LayMaNCC
+	@kq varchar(10) output
+as
+begin
+	declare @ma int
+	set @ma = 1
+
+	declare cur Cursor
+	for select MaNCC
+	from NHACUNGCAP
 
 	open cur
 	declare @mahh varchar(10)

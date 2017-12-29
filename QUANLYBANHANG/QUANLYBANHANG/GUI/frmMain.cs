@@ -20,6 +20,9 @@ namespace QUANLYBANHANG
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        public delegate void FormMain();
+        public event FormMain KhiFormDong;
+
         public frmMain(string mavt)
         {
             InitializeComponent();
@@ -30,8 +33,27 @@ namespace QUANLYBANHANG
             btnMuaHang.ItemClick += BtnMuaHang_ItemClick;
             btnKhoHang.ItemClick += BtnKhoHang_ItemClick;
             btnKhachHang.ItemClick += BtnKhachHang_ItemClick;
+            btnNCC.ItemClick += BtnNCC_ItemClick;
 
             PHANQUYEN(mavt);
+
+            FormClosing += FrmMain_FormClosing;
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            KhiFormDong();
+        }
+
+        private void BtnNCC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnMain.Controls.Clear();
+
+            VaiTro_ChucNang pqncc = btnNCC.Tag as VaiTro_ChucNang;
+
+            ucNhaCungCap ncc = new ucNhaCungCap(pqncc);
+            ncc.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(ncc);
         }
 
         private void BtnKhachHang_ItemClick(object sender, ItemClickEventArgs e)

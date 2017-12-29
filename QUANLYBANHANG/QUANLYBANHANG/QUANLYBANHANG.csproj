@@ -82,6 +82,7 @@
     <Compile Include="BUS\NGHIEPVU_HANGHOA.cs" />
     <Compile Include="BUS\NGHIEPVU_KHACHHANG.cs" />
     <Compile Include="BUS\NGHIEPVU_KHO.cs" />
+    <Compile Include="BUS\NGHIEPVU_KHUVUC.cs" />
     <Compile Include="BUS\NGHIEPVU_NGUOIDUNG.cs" />
     <Compile Include="BUS\NGHIEPVU_NHACUNGCAP.cs" />
     <Compile Include="BUS\NGHIEPVU_NHANVIEN.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="DAO\XL_HangHoa.cs" />
     <Compile Include="DAO\XL_KhachHang.cs" />
     <Compile Include="DAO\XL_Kho.cs" />
+    <Compile Include="DAO\XL_KhuVuc.cs" />
     <Compile Include="DAO\XL_NguoiDung.cs" />
     <Compile Include="DAO\XL_NhaCungCap.cs" />
     <Compile Include="DAO\XL_NhanVien.cs" />
@@ -112,7 +114,9 @@
     <Compile Include="DTO\HangHoa.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\KhoHang.cs" />
+    <Compile Include="DTO\KhuVuc.cs" />
     <Compile Include="DTO\NguoiDung.cs" />
+    <Compile Include="DTO\NhaCC.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="DTO\PhieuNhap.cs" />
     <Compile Include="DTO\PhieuXuat.cs" />
@@ -135,6 +139,12 @@
     </Compile>
     <Compile Include="GUI\tabChucNang\ucMuaHang.Designer.cs">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\frmThemNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\frmThemNhaCungCap.designer.cs">
+      <DependentUpon>frmThemNhaCungCap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabDanhMuc\frmThemSuaKhoHang.cs">
       <SubType>Form</SubType>
@@ -165,6 +175,12 @@
     </Compile>
     <Compile Include="GUI\tabDanhMuc\ucKhoHang.designer.cs">
       <DependentUpon>ucKhoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\ucNhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\ucNhaCungCap.designer.cs">
+      <DependentUpon>ucNhaCungCap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabHeThong\frmThemSuaNguoiDung.cs">
       <SubType>Form</SubType>
@@ -212,6 +228,9 @@
     <EmbeddedResource Include="GUI\tabChucNang\ucMuaHang.resx">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabDanhMuc\frmThemNhaCungCap.resx">
+      <DependentUpon>frmThemNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\frmThemSuaKhoHang.resx">
       <DependentUpon>frmThemSuaKhoHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\ucKhoHang.resx">
       <DependentUpon>ucKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabDanhMuc\ucNhaCungCap.resx">
+      <DependentUpon>ucNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabHeThong\frmThemSuaNguoiDung.resx">
       <DependentUpon>frmThemSuaNguoiDung.cs</DependentUpon>

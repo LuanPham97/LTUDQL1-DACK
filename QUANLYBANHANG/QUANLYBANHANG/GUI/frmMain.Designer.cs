@@ -47,6 +47,8 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
+            this.btnNCC = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKhuVuc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -62,9 +64,11 @@
             this.btnBanHang,
             this.btnKhachHang,
             this.btnMuaHang,
-            this.btnKhoHang});
+            this.btnKhoHang,
+            this.btnNCC,
+            this.btnKhuVuc});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 12;
+            this.rbcMain.MaxItemId = 14;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -154,6 +158,8 @@
             // rpgDoiTac
             // 
             this.rpgDoiTac.ItemLinks.Add(this.btnKhachHang);
+            this.rpgDoiTac.ItemLinks.Add(this.btnNCC);
+            this.rpgDoiTac.ItemLinks.Add(this.btnKhuVuc);
             this.rpgDoiTac.Name = "rpgDoiTac";
             this.rpgDoiTac.Text = "Đối Tác";
             // 
@@ -199,6 +205,21 @@
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
             // 
+            // btnNCC
+            // 
+            this.btnNCC.Caption = "Nhà Cung Cấp";
+            this.btnNCC.Id = 12;
+            this.btnNCC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnNCC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnNCC.Name = "btnNCC";
+            // 
+            // btnKhuVuc
+            // 
+            this.btnKhuVuc.Caption = "Khu Vực";
+            this.btnKhuVuc.Id = 13;
+            this.btnKhuVuc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage1")));
+            this.btnKhuVuc.Name = "btnKhuVuc";
+            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -241,6 +262,8 @@
         private DevExpress.XtraBars.BarButtonItem btnKhachHang;
         private DevExpress.XtraBars.BarButtonItem btnMuaHang;
         private DevExpress.XtraBars.BarButtonItem btnKhoHang;
+        private DevExpress.XtraBars.BarButtonItem btnNCC;
+        private DevExpress.XtraBars.BarButtonItem btnKhuVuc;
     }
 }
 
