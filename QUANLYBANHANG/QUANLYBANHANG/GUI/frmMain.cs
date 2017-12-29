@@ -36,13 +36,13 @@ namespace QUANLYBANHANG
 
         private void BtnKhachHang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //pnMain.Controls.Clear();
+            pnMain.Controls.Clear();
 
-            //VaiTro_ChucNang phanquyenKH = btnKhachHang.Tag as VaiTro_ChucNang;
+            VaiTro_ChucNang phanquyenKH = btnKhachHang.Tag as VaiTro_ChucNang;
 
-            //ucKhachHang k = new ucKhachHang(phanquyenKH);
-            //k.Dock = DockStyle.Fill;
-            //pnMain.Controls.Add(k);
+            ucKhachHang k = new ucKhachHang(phanquyenKH);
+            k.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(k);
         }
 
         private void BtnKhoHang_ItemClick(object sender, ItemClickEventArgs e)
