@@ -22,5 +22,27 @@ namespace QUANLYBANHANG.DAO
 
             return Execute.InsertUpdateDelete(sql);
         }
+
+        public int CapNhatKhachHang(KhachHang kh)
+        {
+            string sql = "update KHACH_HANG set " +
+                string.Format("LaKhachLe={0} ,MaKhuVuc='{1}',TenKH=N'{2}',DiaChi=N'{3}',MaSoThue='{4}',",
+                kh.LaKhachLe, kh.MaKV, kh.TenKH, kh.DiaChi, kh.MaSoThue) +
+                string.Format("Fax='{0}',DienThoai='{1}',Mobile='{2}',Email='{3}',Website='{4}',TaiKhoan='{5}',",
+                kh.Fax, kh.DienThoai, kh.Mobile, kh.Email, kh.Website, kh.TaiKhoan) +
+                string.Format("NganHang=N'{0}',GioiHanNo={1} ,NoHienTai={2} ,ChietKhau={3} ,AccYahoo='{4}',",
+                kh.NganHang, kh.GioiHanNo, kh.NoHienTai, kh.ChietKhau, kh.AccYahoo) +
+                string.Format("AccSkype='{0}',NguoiLienHe=N'{1}',ConQuanLy={2}  where MaKH='{3}'",
+                kh.AccSkype, kh.NguoiLienHe, kh.ConQuanLy, kh.MaKH);
+
+            return Execute.InsertUpdateDelete(sql);
+        }
+
+        public int XoaKhachHang(string makh)
+        {
+            string sql = "delete from KHACH_HANG where MaKH='" + makh + "'";
+
+            return Execute.InsertUpdateDelete(sql);
+        }
     }
 }

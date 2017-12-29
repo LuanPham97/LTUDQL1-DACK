@@ -155,6 +155,7 @@ namespace QUANLYBANHANG.GUI.tabChucNang
         private void BtnKhachHang_Click(object sender, EventArgs e)
         {
             frmThemSuaKhachHang frmkh = new frmThemSuaKhachHang();
+            frmkh.KhiThemThanhCong += NapDuLieu;
             frmkh.ShowDialog();
             NapDuLieu();
         }

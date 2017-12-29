@@ -154,13 +154,15 @@
             this.gvHangHoa.GridControl = this.gcHangHoa;
             this.gvHangHoa.GroupCount = 1;
             this.gvHangHoa.Name = "gvHangHoa";
+            this.gvHangHoa.OptionsFind.AlwaysVisible = true;
+            this.gvHangHoa.OptionsFind.FindDelay = 100;
             this.gvHangHoa.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colNhomHang, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colNhomHang
             // 
             this.colNhomHang.Caption = "Nhóm Hàng";
-            this.colNhomHang.FieldName = "PhanLoai";
+            this.colNhomHang.FieldName = "TenNhomHang";
             this.colNhomHang.Name = "colNhomHang";
             this.colNhomHang.Visible = true;
             this.colNhomHang.VisibleIndex = 0;
@@ -184,7 +186,7 @@
             // colDonVi
             // 
             this.colDonVi.Caption = "Đơn Vị";
-            this.colDonVi.FieldName = "DonVi";
+            this.colDonVi.FieldName = "TenDVTinh";
             this.colDonVi.Name = "colDonVi";
             this.colDonVi.Visible = true;
             this.colDonVi.VisibleIndex = 2;
@@ -232,7 +234,7 @@
             // colKhoMacDinh
             // 
             this.colKhoMacDinh.Caption = "Kho Mặc Định";
-            this.colKhoMacDinh.FieldName = "KhoMacDinh";
+            this.colKhoMacDinh.FieldName = "TenKho";
             this.colKhoMacDinh.Name = "colKhoMacDinh";
             this.colKhoMacDinh.Visible = true;
             this.colKhoMacDinh.VisibleIndex = 8;

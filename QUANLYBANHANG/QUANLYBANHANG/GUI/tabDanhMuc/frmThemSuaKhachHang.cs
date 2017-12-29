@@ -18,15 +18,69 @@ namespace QUANLYBANHANG.GUI
     {
         NGHIEPVU_KHACHHANG nv_kh = new NGHIEPVU_KHACHHANG();
 
+        //event khi thêm khách hàng thành công
+        public delegate void ThemKhachHang();
+        public event ThemKhachHang KhiThemThanhCong;
+
+        // lưu trạng thái là đang thêm đang sửa
+        bool isInsert;
+
+        //thêm
         public frmThemSuaKhachHang()
         {
             InitializeComponent();
 
+            isInsert = true;
+            this.Text = "Thêm Khách Hàng";
             Load += FrmThemSuaKhachHang_Load;
 
             //xử lý button
             btnDong.Click += BtnDong_Click;
             btnLuu.Click += BtnLuu_Click;
+        }
+
+        //sửa
+        public frmThemSuaKhachHang(KhachHang kh)
+        {
+            InitializeComponent();
+
+
+            isInsert = false;
+            this.Text = "Cập Nhật Khách Hàng";
+
+            FillCbKhuVuc();
+            txtNoHienTai.Text = "0";
+
+            //xử lý button
+            btnDong.Click += BtnDong_Click;
+            btnLuu.Click += BtnLuu_Click;
+
+            FillDuLieu(kh);
+        }
+
+        private void FillDuLieu(KhachHang kh)
+        {
+            rbKhachLe.Checked = kh.LaKhachLe == 1 ? true : false;
+            cbConQuanLy.Checked = kh.ConQuanLy == 1 ? true : false;
+            txtMaKhachHang.Text = kh.MaKH;
+            txtMaKhachHang.ReadOnly = true;
+            lkueKhuVuc.EditValue = kh.MaKV;
+            txtTenKhachHang.Text = kh.TenKH;
+            txtDiaChi.Text = kh.DiaChi;
+            txtMaSoThue.Text = kh.MaSoThue;
+            txtFax.Text = kh.Fax;
+            txtDienThoai.Text = kh.DienThoai;
+            txtMobile.Text = kh.Mobile;
+            txtEmail.Text = kh.Email;
+            txtWebSite.Text = kh.Website;
+            txtTaiKhoan.Text = kh.TaiKhoan;
+            txtNganHang.Text = kh.NganHang;
+            ceGioiHanNo.Value = kh.GioiHanNo;
+            txtNoHienTai.Text = kh.NoHienTai.ToString();
+            ceChietKhau.Value = kh.ChietKhau;
+            txtNickYahoo.Text = kh.AccYahoo;
+            txtNickSkype.Text = kh.AccSkype;
+            txtNguoiLienHe.Text = kh.NguoiLienHe;
         }
 
         private void BtnLuu_Click(object sender, EventArgs e)
@@ -59,11 +113,28 @@ namespace QUANLYBANHANG.GUI
                 kh.AccYahoo = txtNickYahoo.Text;
                 kh.NguoiLienHe = txtNguoiLienHe.Text;
 
-                int kq = nv_kh.ThemKhachHang(kh);
-                if (kq >= 1)
-                    MessageBox.Show("Thêm Khách Hàng thành công");
+                if (isInsert == true)
+                {
+                    int kq = nv_kh.ThemKhachHang(kh);
+                    if (kq >= 1)
+                    {
+                        KhiThemThanhCong();
+                        MessageBox.Show("Thêm Khách Hàng thành công");
+                    }
+                    else
+                        MessageBox.Show("Thêm Khách Hàng thất bại");
+                }
                 else
-                    MessageBox.Show("Thêm Khách Hàng thất bại");
+                {
+                    int kq = nv_kh.CapNhatKhachHang(kh);
+                    if (kq >= 1)
+                    {
+                        KhiThemThanhCong();
+                        MessageBox.Show("Cập nhật Khách Hàng thành công");
+                    }
+                    else
+                        MessageBox.Show("Thất bại");
+                }
             }
         }
 

@@ -41,23 +41,23 @@
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colConQuanLy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.colFax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNQL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
-            this.colFax = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNQL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rdmKhoHang = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
+            this.bbiThem = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSua = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDong = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiXoa = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bbiThem = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiSua = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiDong = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiXoa = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
@@ -177,6 +177,24 @@
             this.repositoryItemCheckEdit1.AutoHeight = false;
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
+            // colFax
+            // 
+            this.colFax.Caption = "gridColumn1";
+            this.colFax.FieldName = "Fax";
+            this.colFax.Name = "colFax";
+            // 
+            // colEmail
+            // 
+            this.colEmail.Caption = "gridColumn1";
+            this.colEmail.FieldName = "Email";
+            this.colEmail.Name = "colEmail";
+            // 
+            // colNQL
+            // 
+            this.colNQL.Caption = "gridColumn1";
+            this.colNQL.FieldName = "NguoiQuanLy";
+            this.colNQL.Name = "colNQL";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -228,24 +246,6 @@
             this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa";
             // 
-            // colFax
-            // 
-            this.colFax.Caption = "gridColumn1";
-            this.colFax.FieldName = "Fax";
-            this.colFax.Name = "colFax";
-            // 
-            // colEmail
-            // 
-            this.colEmail.Caption = "gridColumn1";
-            this.colEmail.FieldName = "Email";
-            this.colEmail.Name = "colEmail";
-            // 
-            // colNQL
-            // 
-            this.colNQL.Caption = "gridColumn1";
-            this.colNQL.FieldName = "NguoiQuanLy";
-            this.colNQL.Name = "colNQL";
-            // 
             // rdmKhoHang
             // 
             this.rdmKhoHang.AutoExpand = true;
@@ -259,6 +259,34 @@
             this.rdmKhoHang.Manager = this.barManager1;
             this.rdmKhoHang.MenuRadius = 127;
             this.rdmKhoHang.Name = "rdmKhoHang";
+            // 
+            // bbiThem
+            // 
+            this.bbiThem.Caption = "Thêm";
+            this.bbiThem.Id = 0;
+            this.bbiThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiThem.ImageOptions.Image")));
+            this.bbiThem.Name = "bbiThem";
+            // 
+            // bbiSua
+            // 
+            this.bbiSua.Caption = "Sửa";
+            this.bbiSua.Id = 1;
+            this.bbiSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSua.ImageOptions.Image")));
+            this.bbiSua.Name = "bbiSua";
+            // 
+            // bbiDong
+            // 
+            this.bbiDong.Caption = "Đóng";
+            this.bbiDong.Id = 2;
+            this.bbiDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiDong.ImageOptions.Image")));
+            this.bbiDong.Name = "bbiDong";
+            // 
+            // bbiXoa
+            // 
+            this.bbiXoa.Caption = "Xóa";
+            this.bbiXoa.Id = 3;
+            this.bbiXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiXoa.ImageOptions.Image")));
+            this.bbiXoa.Name = "bbiXoa";
             // 
             // barManager1
             // 
@@ -305,34 +333,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(920, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 479);
-            // 
-            // bbiThem
-            // 
-            this.bbiThem.Caption = "Thêm";
-            this.bbiThem.Id = 0;
-            this.bbiThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiThem.ImageOptions.Image")));
-            this.bbiThem.Name = "bbiThem";
-            // 
-            // bbiSua
-            // 
-            this.bbiSua.Caption = "Sửa";
-            this.bbiSua.Id = 1;
-            this.bbiSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSua.ImageOptions.Image")));
-            this.bbiSua.Name = "bbiSua";
-            // 
-            // bbiDong
-            // 
-            this.bbiDong.Caption = "Đóng";
-            this.bbiDong.Id = 2;
-            this.bbiDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiDong.ImageOptions.Image")));
-            this.bbiDong.Name = "bbiDong";
-            // 
-            // bbiXoa
-            // 
-            this.bbiXoa.Caption = "Xóa";
-            this.bbiXoa.Id = 3;
-            this.bbiXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiXoa.ImageOptions.Image")));
-            this.bbiXoa.Name = "bbiXoa";
             // 
             // barButtonItem1
             // 

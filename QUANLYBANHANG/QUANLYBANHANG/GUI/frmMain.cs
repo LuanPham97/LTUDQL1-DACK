@@ -29,17 +29,29 @@ namespace QUANLYBANHANG
             btnBanHang.ItemClick += BtnBanHang_ItemClick;
             btnMuaHang.ItemClick += BtnMuaHang_ItemClick;
             btnKhoHang.ItemClick += BtnKhoHang_ItemClick;
+            btnKhachHang.ItemClick += BtnKhachHang_ItemClick;
 
             PHANQUYEN(mavt);
+        }
+
+        private void BtnKhachHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //pnMain.Controls.Clear();
+
+            //VaiTro_ChucNang phanquyenKH = btnKhachHang.Tag as VaiTro_ChucNang;
+
+            //ucKhachHang k = new ucKhachHang(phanquyenKH);
+            //k.Dock = DockStyle.Fill;
+            //pnMain.Controls.Add(k);
         }
 
         private void BtnKhoHang_ItemClick(object sender, ItemClickEventArgs e)
         {
             pnMain.Controls.Clear();
 
-            VaiTro_ChucNang phanquyenKH = btnKhoHang.Tag as VaiTro_ChucNang;
+            VaiTro_ChucNang phanquyenKho = btnKhoHang.Tag as VaiTro_ChucNang;
 
-            ucKhoHang uckh = new ucKhoHang(phanquyenKH);
+            ucKhoHang uckh = new ucKhoHang(phanquyenKho);
             uckh.Dock = DockStyle.Fill;
             pnMain.Controls.Add(uckh);
         }

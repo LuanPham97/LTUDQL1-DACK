@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBanHang2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
@@ -39,6 +39,7 @@
             this.btnHangHoa = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.btnPhieuBanHang = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.nmrThanhTien = new System.Windows.Forms.NumericUpDown();
             this.ceVAT = new DevExpress.XtraEditors.CalcEdit();
@@ -103,7 +104,6 @@
             this.tsmiNapLai = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiDong = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnPhieuBanHang = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
@@ -239,6 +239,20 @@
             this.groupControl3.Size = new System.Drawing.Size(167, 111);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Bán Hàng";
+            // 
+            // btnPhieuBanHang
+            // 
+            this.btnPhieuBanHang.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhieuBanHang.AppearanceHovered.Options.UseFont = true;
+            this.btnPhieuBanHang.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnPhieuBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPhieuBanHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhieuBanHang.ImageOptions.Image")));
+            this.btnPhieuBanHang.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnPhieuBanHang.Location = new System.Drawing.Point(37, 38);
+            this.btnPhieuBanHang.Name = "btnPhieuBanHang";
+            this.btnPhieuBanHang.Size = new System.Drawing.Size(86, 58);
+            this.btnPhieuBanHang.TabIndex = 3;
+            this.btnPhieuBanHang.Text = "Phiếu Bán Hàng";
             // 
             // groupControl1
             // 
@@ -417,9 +431,9 @@
             // 
             // colMaHang
             // 
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle1;
             this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.colMaHang.HeaderText = "Mã Hàng";
@@ -609,6 +623,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayGiao.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deNgayGiao.Properties.EditFormat.FormatString = "dd/MM/yy";
+            this.deNgayGiao.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.deNgayGiao.Size = new System.Drawing.Size(122, 20);
             this.deNgayGiao.TabIndex = 14;
             // 
@@ -630,6 +646,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deHanThanhToan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deHanThanhToan.Properties.EditFormat.FormatString = "dd/MM/yy";
+            this.deHanThanhToan.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.deHanThanhToan.Size = new System.Drawing.Size(124, 20);
             this.deHanThanhToan.TabIndex = 13;
             // 
@@ -702,6 +720,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deNgayLap.Properties.EditFormat.FormatString = "dd/MM/yy";
+            this.deNgayLap.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.deNgayLap.Size = new System.Drawing.Size(122, 20);
             this.deNgayLap.TabIndex = 5;
             // 
@@ -883,20 +903,6 @@
             this.tsmiDong.Name = "tsmiDong";
             this.tsmiDong.Size = new System.Drawing.Size(131, 22);
             this.tsmiDong.Text = "Đóng";
-            // 
-            // btnPhieuBanHang
-            // 
-            this.btnPhieuBanHang.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhieuBanHang.AppearanceHovered.Options.UseFont = true;
-            this.btnPhieuBanHang.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnPhieuBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPhieuBanHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnPhieuBanHang.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnPhieuBanHang.Location = new System.Drawing.Point(37, 38);
-            this.btnPhieuBanHang.Name = "btnPhieuBanHang";
-            this.btnPhieuBanHang.Size = new System.Drawing.Size(86, 58);
-            this.btnPhieuBanHang.TabIndex = 3;
-            this.btnPhieuBanHang.Text = "Phiếu Bán Hàng";
             // 
             // ucBanHang2
             // 

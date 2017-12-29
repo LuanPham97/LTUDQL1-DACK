@@ -184,7 +184,9 @@ namespace QUANLYBANHANG.GUI
 
         public void FillGridView()
         {
-            string sql = "select * from HANGHOA";
+            string sql = "select hh.*, nh.TenNhomHang, dv.TenDVTinh, kho.TenKho " +
+                "from HANGHOA hh, NHOMHANG nh, DONVITINH dv, KHOHANG kho " +
+                "where hh.DonVi=dv.MaDVTinh and hh.PhanLoai=nh.MaNhomHang and hh.KhoMacDinh = kho.MaKho";
             DataTable hh = nv_hh.LayDuLieuHangHoa(sql);
             gcHangHoa.DataSource = hh;
             gvHangHoa.ExpandAllGroups();

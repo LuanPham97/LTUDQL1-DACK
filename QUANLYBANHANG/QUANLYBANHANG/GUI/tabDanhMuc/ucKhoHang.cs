@@ -110,7 +110,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             {
                 KhoHang kho = LayKhoDangChon();
 
-                frmThemKhoHang frmSua = new frmThemKhoHang(kho);
+                frmThemSuaKhoHang frmSua = new frmThemSuaKhoHang(kho);
                 frmSua.KhiThemThanhCong += FillGridView;
                 frmSua.ShowDialog();
             }
@@ -147,7 +147,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 
         private void BtnThem_Click(object sender, EventArgs e)
         {
-            frmThemKhoHang frmtkh = new frmThemKhoHang();
+            frmThemSuaKhoHang frmtkh = new frmThemSuaKhoHang();
             frmtkh.KhiThemThanhCong += FillGridView;
             frmtkh.ShowDialog();
         }
