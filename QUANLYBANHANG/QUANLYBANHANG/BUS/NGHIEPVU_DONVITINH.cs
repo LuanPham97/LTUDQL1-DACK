@@ -22,9 +22,9 @@ namespace QUANLYBANHANG.BUS
             return xl_dvt.ThemDVTinh(dv);
         }
 
-        public int SuaDVTinh(DonViTinh dv)
+        public int CapNhatDVTinh(DonViTinh dv)
         {
-            return xl_dvt.SuaDVTinh(dv);
+            return xl_dvt.CapNhatDVTinh(dv);
         }
 
         public int XoaDVTinh(string madv)

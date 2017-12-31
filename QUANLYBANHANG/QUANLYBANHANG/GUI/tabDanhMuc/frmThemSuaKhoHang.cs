@@ -129,7 +129,8 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 
         private void FrmThemKhoHang_Load(object sender, EventArgs e)
         {
-            GenerateMaKho();
+            txtMaKho.Text = Execute.GenerateMa("sp_LayMaKhoHang");
+            txtMaKho.ReadOnly = true;
             FillCbNguoiQL();
         }
 
@@ -142,24 +143,6 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             lkueNguoiQuanLy.Properties.ValueMember = "MaNhanVien";
             lkueNguoiQuanLy.Properties.DisplayMember = "TenNhanVien";
             lkueNguoiQuanLy.ItemIndex = -1;
-        }
-
-        private void GenerateMaKho()
-        {
-            string sql = "sp_LayMaKhoHang";
-
-            Provider p = new Provider();
-            p.Connect();
-
-            SqlParameter ma = new SqlParameter("@kq", SqlDbType.VarChar, 10);
-            ma.Direction = ParameterDirection.Output;
-
-            p.ExecuteNonQuery(CommandType.StoredProcedure, sql, ma);
-
-            p.Disconnect();
-
-            txtMaKho.Text = ma.Value.ToString();
-            txtMaKho.ReadOnly = true;
         }
     }
 }

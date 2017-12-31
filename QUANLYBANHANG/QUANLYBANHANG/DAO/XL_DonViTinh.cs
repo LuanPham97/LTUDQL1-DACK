@@ -27,7 +27,7 @@ namespace QUANLYBANHANG.DAO
             return Execute.InsertUpdateDelete(sql);
         }
 
-        public int SuaDVTinh(DonViTinh dv)
+        public int CapNhatDVTinh(DonViTinh dv)
         {
             int cql = dv.ConQuanLy == true ? 1 : 0;
 

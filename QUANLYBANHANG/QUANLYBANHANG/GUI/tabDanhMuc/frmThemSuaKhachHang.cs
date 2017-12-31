@@ -145,28 +145,10 @@ namespace QUANLYBANHANG.GUI
 
         private void FrmThemSuaKhachHang_Load(object sender, EventArgs e)
         {
-            GenerateMaKH();
+            txtMaKhachHang.Text = Execute.GenerateMa("sp_LayMaKHTiepTheo");
+            txtMaKhachHang.ReadOnly = true;
             FillCbKhuVuc();
             txtNoHienTai.Text = "0";
-        }
-
-        private void GenerateMaKH()
-        {
-            string sql = "sp_LayMaKHTiepTheo";
-
-            Provider p = new Provider();
-            p.Connect();
-
-            SqlParameter ma = new SqlParameter("@kq", SqlDbType.VarChar, 10);
-            ma.Direction = ParameterDirection.Output;
-
-            p.ExecuteNonQuery(CommandType.StoredProcedure, sql, ma);
-
-            p.Disconnect();
-
-            txtMaKhachHang.Text = ma.Value.ToString();
-
-            txtMaKhachHang.ReadOnly = true;
         }
 
         private void FillCbKhuVuc()

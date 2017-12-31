@@ -194,25 +194,8 @@ namespace QUANLYBANHANG.GUI.HeThong
 
         private void FrmThemVaiTro_Load(object sender, EventArgs e)
         {
-            txtMaVaiTro.Text = LayMaVaiTro();
+            txtMaVaiTro.Text = Execute.GenerateMa("sp_LayMaVaiTro");
             txtMaVaiTro.ReadOnly = true;
-        }
-
-        private string LayMaVaiTro()
-        {
-            string sql = "sp_LayMaVaiTro";
-
-            Provider p = new Provider();
-            p.Connect();
-
-            SqlParameter ma = new SqlParameter("@kq", SqlDbType.VarChar, 10);
-            ma.Direction = ParameterDirection.Output;
-
-            p.ExecuteNonQuery(CommandType.StoredProcedure, sql, ma);
-
-            p.Disconnect();
-
-            return ma.Value.ToString();
         }
 
         private void tlQuyenHan_CellValueChanging(object sender, CellValueChangedEventArgs e)

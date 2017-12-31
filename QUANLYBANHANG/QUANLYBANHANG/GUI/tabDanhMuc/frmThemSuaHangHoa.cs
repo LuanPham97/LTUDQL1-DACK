@@ -139,7 +139,7 @@ namespace QUANLYBANHANG.GUI
             FillCbLoaiHangHoa();
             FillCbKhoMacDinh();
             FillCbPhanLoai();
-            GenerateMa();
+            GenerateMaHH();
             FillCbDonVi();
             FillCbNCC();
 
@@ -180,32 +180,15 @@ namespace QUANLYBANHANG.GUI
             lkuePhanLoai.ItemIndex = 0;
         }
 
-        private void GenerateMa()
+        private void GenerateMaHH()
         {
-            string mahh = LayMaHangHoa();
+            string mahh = Execute.GenerateMa("sp_LayMaHangHoa");
 
             txtMaHang.Text = mahh;
             txtMaVachNSX.Text = mahh;
 
             // không cho sửa mã hàng
             txtMaHang.ReadOnly = true;
-        }
-
-        private string LayMaHangHoa()
-        {
-            string sql = "sp_LayMaHangHoa";
-
-            Provider p = new Provider();
-            p.Connect();
-
-            SqlParameter ma = new SqlParameter("@kq", SqlDbType.VarChar, 10);
-            ma.Direction = ParameterDirection.Output;
-
-            p.ExecuteNonQuery(CommandType.StoredProcedure, sql, ma);
-
-            p.Disconnect();
-
-            return ma.Value.ToString();
         }
 
         private void FillCbDonVi()

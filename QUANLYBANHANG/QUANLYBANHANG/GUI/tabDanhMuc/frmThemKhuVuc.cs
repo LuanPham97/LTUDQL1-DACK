@@ -18,7 +18,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
     {
         NGHIEPVU_KHUVUC nv_kv = new NGHIEPVU_KHUVUC();
 
-        //event khi thêm kho hàng thành công
+        //event khi thêm khu vực thành công
         public delegate void ThemKhuVuc();
         public event ThemKhuVuc KhiThemThanhCong;
 
@@ -107,24 +107,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 
         private void FrmThemKhuVuc_Load(object sender, EventArgs e)
         {
-            GenerateMaKhuVuc();
-        }
-
-        private void GenerateMaKhuVuc()
-        {
-            string sql = "sp_LayMaKhuVuc";
-
-            Provider p = new Provider();
-            p.Connect();
-
-            SqlParameter ma = new SqlParameter("@kq", SqlDbType.VarChar, 10);
-            ma.Direction = ParameterDirection.Output;
-
-            p.ExecuteNonQuery(CommandType.StoredProcedure, sql, ma);
-
-            p.Disconnect();
-
-            txtMaKhuVuc.Text = ma.Value.ToString();
+            txtMaKhuVuc.Text = Execute.GenerateMa("sp_LayMaKhuVuc");
             txtMaKhuVuc.ReadOnly = true;
         }
     }

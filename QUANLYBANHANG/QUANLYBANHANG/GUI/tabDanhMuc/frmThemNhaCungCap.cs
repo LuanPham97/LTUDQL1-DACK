@@ -141,7 +141,8 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 
         private void FrmThemNhaCungCap_Load(object sender, EventArgs e)
         {
-            GenerateMaNCC();
+            txtMaNCC.Text = Execute.GenerateMa("sp_LayMaNCC");
+            txtMaNCC.ReadOnly = true;
             FillCbKhuVuc();
             txtNoHienTai.Text = "0";
         }
@@ -155,25 +156,6 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             lkueKhuVuc.Properties.ValueMember = "MaKhuVuc";
             lkueKhuVuc.Properties.DisplayMember = "TenKhuVuc";
             lkueKhuVuc.ItemIndex = 0;
-        }
-
-        private void GenerateMaNCC()
-        {
-            string sql = "sp_LayMaNCC";
-
-            Provider p = new Provider();
-            p.Connect();
-
-            SqlParameter ma = new SqlParameter("@kq", SqlDbType.VarChar, 10);
-            ma.Direction = ParameterDirection.Output;
-
-            p.ExecuteNonQuery(CommandType.StoredProcedure, sql, ma);
-
-            p.Disconnect();
-
-            txtMaNCC.Text = ma.Value.ToString();
-
-            txtMaNCC.ReadOnly = true;
         }
     }
 }

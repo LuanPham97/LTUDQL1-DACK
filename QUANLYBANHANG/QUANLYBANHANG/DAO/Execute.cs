@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace QUANLYBANHANG.DAO
 {
@@ -45,6 +46,23 @@ namespace QUANLYBANHANG.DAO
             p.Disconnect();
 
             return row;
+        }
+
+        public static string GenerateMa(string tenSP)
+        {
+            string sql = tenSP;
+
+            Provider p = new Provider();
+            p.Connect();
+
+            SqlParameter ma = new SqlParameter("@kq", SqlDbType.VarChar, 10);
+            ma.Direction = ParameterDirection.Output;
+
+            p.ExecuteNonQuery(CommandType.StoredProcedure, sql, ma);
+
+            p.Disconnect();
+
+            return ma.Value.ToString();
         }
     }
 }
