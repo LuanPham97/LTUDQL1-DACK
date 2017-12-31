@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using QUANLYBANHANG.DAO;
 using System.Data;
+using QUANLYBANHANG.DTO;
 
 namespace QUANLYBANHANG.BUS
 {
@@ -14,6 +15,21 @@ namespace QUANLYBANHANG.BUS
         public DataTable LayDuLieuDonViTinh(string sql)
         {
             return xl_dvt.LayDuLieuDonViTinh(sql);
+        }
+
+        public int ThemDVTinh(DonViTinh dv)
+        {
+            return xl_dvt.ThemDVTinh(dv);
+        }
+
+        public int SuaDVTinh(DonViTinh dv)
+        {
+            return xl_dvt.SuaDVTinh(dv);
+        }
+
+        public int XoaDVTinh(string madv)
+        {
+            return xl_dvt.XoaDVTinh(madv);
         }
     }
 }

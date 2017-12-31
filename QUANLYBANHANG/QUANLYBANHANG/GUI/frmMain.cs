@@ -34,10 +34,22 @@ namespace QUANLYBANHANG
             btnKhoHang.ItemClick += BtnKhoHang_ItemClick;
             btnKhachHang.ItemClick += BtnKhachHang_ItemClick;
             btnNCC.ItemClick += BtnNCC_ItemClick;
+            btnKhuVuc.ItemClick += BtnKhuVuc_ItemClick;
 
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnKhuVuc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnMain.Controls.Clear();
+
+            VaiTro_ChucNang pqkv = btnKhuVuc.Tag as VaiTro_ChucNang;
+
+            ucKhuVuc kv = new ucKhuVuc(pqkv);
+            kv.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(kv);
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
