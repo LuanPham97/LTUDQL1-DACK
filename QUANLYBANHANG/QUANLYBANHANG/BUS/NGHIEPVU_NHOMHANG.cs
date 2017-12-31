@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using QUANLYBANHANG.DAO;
 using System.Data;
+using QUANLYBANHANG.DTO;
 
 namespace QUANLYBANHANG.BUS
 {
@@ -14,6 +15,21 @@ namespace QUANLYBANHANG.BUS
         public DataTable LayDuLieuNhomHang(string sql)
         {
             return xl_nhomhang.LayDuLieuNhomHang(sql);
+        }
+
+        public int ThemNhomHang(NhomHang nh)
+        {
+            return xl_nhomhang.ThemNhomHang(nh);
+        }
+
+        public int CapNhatNhomHang(NhomHang nh)
+        {
+            return xl_nhomhang.CapNhatNhomHang(nh);
+        }
+
+        public int XoaNhomHang(string manh)
+        {
+            return xl_nhomhang.XoaNhomHang(manh);
         }
     }
 }

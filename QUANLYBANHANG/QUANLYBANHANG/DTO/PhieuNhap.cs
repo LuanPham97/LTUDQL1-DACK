@@ -8,29 +8,17 @@ namespace QUANLYBANHANG.DTO
 {
     public class PhieuNhap
     {
-        private string hTTT;
-        private string maPhieu;
-        private string maNCC;
-        private string ghiChu;
-        private string soHoaDonVAT;
-        private string maNVLap;
-        private string soPhieuNhapTay;
-        private string maKhoNhap;
-        private string dKTT;
-        private DateTime ngayLap;
-        private DateTime hanThanhToan;
-
-        public string HTTT { get => hTTT; set => hTTT = value; }
-        public string MaPhieu { get => maPhieu; set => maPhieu = value; }
-        public string MaNCC { get => maNCC; set => maNCC = value; }
-        public string GhiChu { get => ghiChu; set => ghiChu = value; }
-        public string SoHoaDonVAT { get => soHoaDonVAT; set => soHoaDonVAT = value; }
-        public string MaNVLap { get => maNVLap; set => maNVLap = value; }
-        public string SoPhieuNhapTay { get => soPhieuNhapTay; set => soPhieuNhapTay = value; }
-        public string MaKhoNhap { get => maKhoNhap; set => maKhoNhap = value; }
-        public string DKTT { get => dKTT; set => dKTT = value; }
-        public DateTime NgayLap { get => ngayLap; set => ngayLap = value; }
-        public DateTime HanThanhToan { get => hanThanhToan; set => hanThanhToan = value; }
+        public string MaPhieu { get; set; }
+        public string MaNCC { get; set; }
+        public DateTime NgayLap { get; set; }
+        public string GhiChu { get; set; }
+        public string SoHoaDonVAT { get; set; }
+        public string MaNVLap { get; set; }
+        public string SoPhieuNhapTay { get; set; }
+        public string MaKhoNhap { get; set; }
+        public string DieuKhoanThanhToan { get; set; }
+        public string HinhThucThanhToan { get; set; }
+        public DateTime HanThanhToan { get; set; }
 
         public PhieuNhap()
         {
@@ -41,8 +29,8 @@ namespace QUANLYBANHANG.DTO
             MaNVLap = "";
             SoPhieuNhapTay = "";
             MaKhoNhap = "";
-            DKTT = "";
-            HTTT = "";
+            DieuKhoanThanhToan = "";
+            HinhThucThanhToan = "";
             NgayLap = DateTime.Now;
             HanThanhToan = DateTime.Now;
         }

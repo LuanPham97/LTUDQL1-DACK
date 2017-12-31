@@ -116,8 +116,8 @@ namespace QUANLYBANHANG.GUI
                 px.MaNVLap = lkueMaNV.EditValue.ToString();
                 px.SoPhieuNhapTay = txtSoPhieuNhapTay.Text;
                 px.MaKhoXuat = lkueKho.EditValue.ToString();
-                px.DKTT = cbDKTT.Text;
-                px.HTTT = cbHTTT.Text;
+                px.DieuKhoanThanhToan = cbDKTT.Text;
+                px.HinhThucThanhToan = cbHTTT.Text;
                 px.HanThanhToan = DateTime.Parse(deHanThanhToan.EditValue.ToString());
                 px.NgayGiao = DateTime.Parse(deNgayGiao.EditValue.ToString());
                

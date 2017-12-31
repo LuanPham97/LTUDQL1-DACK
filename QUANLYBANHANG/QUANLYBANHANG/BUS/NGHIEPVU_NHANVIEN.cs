@@ -1,4 +1,5 @@
 ﻿using QUANLYBANHANG.DAO;
+using QUANLYBANHANG.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +15,21 @@ namespace QUANLYBANHANG.BUS
         public DataTable LayDuLieuNV(string sql)
         {
             return xl_nv.LayDuLieuNV(sql);
+        }
+
+        public int ThemNhanVien(NhanVien nv)
+        {
+            return xl_nv.ThemNhanVien(nv);
+        }
+
+        public int CapNhatNhanVien(NhanVien nv)
+        {
+            return xl_nv.CapNhatNhanVien(nv);
+        }
+
+        public int XoaNhanVien(string manv)
+        {
+            return xl_nv.XoaNhanVien(manv);
         }
     }
 }

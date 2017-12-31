@@ -60,11 +60,11 @@ namespace QUANLYBANHANG.GUI
 
         private void FillDuLieu(KhachHang kh)
         {
-            rbKhachLe.Checked = kh.LaKhachLe == 1 ? true : false;
-            cbConQuanLy.Checked = kh.ConQuanLy == 1 ? true : false;
+            rbKhachLe.Checked = kh.LaKhachLe;
+            cbConQuanLy.Checked = kh.ConQuanLy;
             txtMaKhachHang.Text = kh.MaKH;
             txtMaKhachHang.ReadOnly = true;
-            lkueKhuVuc.EditValue = kh.MaKV;
+            lkueKhuVuc.EditValue = kh.MaKhuVuc;
             txtTenKhachHang.Text = kh.TenKH;
             txtDiaChi.Text = kh.DiaChi;
             txtMaSoThue.Text = kh.MaSoThue;
@@ -93,9 +93,9 @@ namespace QUANLYBANHANG.GUI
             {
                 KhachHang kh = new KhachHang();
                 kh.MaKH = txtMaKhachHang.Text;
-                kh.LaKhachLe = rbKhachLe.Checked ? 1 : 0;
-                kh.ConQuanLy = cbConQuanLy.Checked ? 1 : 0;
-                kh.MaKV = lkueKhuVuc.EditValue.ToString();
+                kh.LaKhachLe = rbKhachLe.Checked;
+                kh.ConQuanLy = cbConQuanLy.Checked;
+                kh.MaKhuVuc = lkueKhuVuc.EditValue.ToString();
                 kh.TenKH = txtTenKhachHang.Text;
                 kh.DiaChi = txtDiaChi.Text;
                 kh.MaSoThue = txtMaSoThue.Text;

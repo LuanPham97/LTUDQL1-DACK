@@ -8,17 +8,18 @@ namespace QUANLYBANHANG.DTO
 {
     public class CT_PhieuNhap
     {
-        string _maPhieuNhap, _maHang;
-        int _soLuong, _donGia, _ID;
-        string _ghiChu;
+        public string MaPhieuNhap { get; set; }
 
-        
-        public int SoLuong { get => _soLuong; set => _soLuong = value; }
-        public int DonGia { get => _donGia; set => _donGia = value; }
-        public int ID { get => _ID; set => _ID = value; }
-        public string MaPhieuNhap { get => _maPhieuNhap; set => _maPhieuNhap = value; }
-        public string MaHang { get => _maHang; set => _maHang = value; }
-        public string GhiChu { get => _ghiChu; set => _ghiChu = value; }
+        public int ID { get; set; }
+
+        public string MaHang { get; set; }
+
+        public int SoLuong { get; set; }
+
+        public int DonGia { get; set; }
+
+        public string GhiChu { get; set; }
+
 
         public CT_PhieuNhap()
         {

@@ -60,6 +60,7 @@ create table NHANVIEN(
 	DiaChi nvarchar(50),
 	Email nvarchar(50),
 	DienThoai varchar(15),
+	DiDong varchar(15),
 	BoPhan varchar(10), --fk bo phan
 	NguoiQuanLy varchar(10), --fk nhan vien
 	ConQuanLy bit

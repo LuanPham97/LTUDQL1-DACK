@@ -76,7 +76,7 @@ namespace QUANLYBANHANG.GUI
             txtXuatXu.Text = hh.XuatXu;
             nmrTonKhoToiThieu.Value = hh.TonKhoToiThieu;
             nmrTonKhoHienTai.Value = hh.TonHienTai;
-            lkueNCC.EditValue = hh.NCC;
+            lkueNCC.EditValue = hh.NhaCungCap;
             nmrGiaMua.Value = hh.GiaMua;
             nmrGiaBanLe.Value = hh.GiaBanLe;
             nmrGiaBanSi.Value = hh.GiaBanSi;
@@ -97,7 +97,7 @@ namespace QUANLYBANHANG.GUI
                 XuatXu = txtXuatXu.Text,
                 TonKhoToiThieu = (int)nmrTonKhoToiThieu.Value,
                 TonHienTai = (int)nmrTonKhoHienTai.Value,
-                NCC = lkueNCC.EditValue.ToString(),
+                NhaCungCap = lkueNCC.EditValue.ToString(),
                 GiaMua = int.Parse(nmrGiaMua.Value.ToString()),
                 GiaBanLe = int.Parse(nmrGiaBanLe.Value.ToString()),
                 GiaBanSi = int.Parse(nmrGiaBanSi.Value.ToString()),

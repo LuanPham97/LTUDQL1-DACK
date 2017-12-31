@@ -8,11 +8,12 @@ namespace QUANLYBANHANG.DTO
 {
     public class ChucNang
     {
-        string _tenChucNang;
-        int _maChucNang, _maCha;
+        public int MaChucNang { get; set; }
 
-        public string TenChucNang { get => _tenChucNang; set => _tenChucNang = value; }
-        public int MaChucNang { get => _maChucNang; set => _maChucNang = value; }
-        public int MaCha { get => _maCha; set => _maCha = value; }
+        public string TenChucNang { get; set; }
+
+        public string TenTrongHeThong { get; set; }
+
+        public int MaCha { get; set; }
     }
 }

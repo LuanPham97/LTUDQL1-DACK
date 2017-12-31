@@ -15,7 +15,7 @@ namespace QUANLYBANHANG.DAO
                 ",SoPhieuNhapTay,MaKhoNhap,DieuKhoanThanhToan,HinhThucThanhToan,HanThanhToan) " +
                 string.Format("values ('{0}','{1}','{2}',N'{3}','{4}','{5}','{6}','{7}',N'{8}',N'{9}','{10}')",
                 pn.MaPhieu, pn.MaNCC, pn.NgayLap, pn.GhiChu, pn.SoHoaDonVAT, pn.MaNVLap, pn.SoPhieuNhapTay,
-                pn.MaKhoNhap, pn.DKTT, pn.HTTT, pn.HanThanhToan);
+                pn.MaKhoNhap, pn.DieuKhoanThanhToan, pn.HinhThucThanhToan, pn.HanThanhToan);
 
             return Execute.InsertUpdateDelete(sql);
         }

@@ -148,7 +148,7 @@ namespace QUANLYBANHANG.GUI
             else
                 hh.TonHienTai = int.Parse(gvHangHoa.GetRowCellValue(CurRowIndex, "TonHienTai").ToString());
 
-            hh.NCC = gvHangHoa.GetRowCellValue(CurRowIndex, "NhaCungCap").ToString();
+            hh.NhaCungCap = gvHangHoa.GetRowCellValue(CurRowIndex, "NhaCungCap").ToString();
 
             if (gvHangHoa.GetRowCellValue(CurRowIndex, "GiaMua").ToString() == "")
                 hh.GiaMua = 0;

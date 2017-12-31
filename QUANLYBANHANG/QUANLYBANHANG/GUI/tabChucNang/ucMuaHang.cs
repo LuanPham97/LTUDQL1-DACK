@@ -99,8 +99,8 @@ namespace QUANLYBANHANG.GUI.tabChucNang
                 pn.MaNVLap = lkueMaNV.EditValue.ToString();
                 pn.SoPhieuNhapTay = txtSoPhieuNhapTay.Text;
                 pn.MaKhoNhap = lkueKho.EditValue.ToString();
-                pn.DKTT = cbDKTT.Text;
-                pn.HTTT = cbHTTT.Text;
+                pn.DieuKhoanThanhToan = cbDKTT.Text;
+                pn.HinhThucThanhToan = cbHTTT.Text;
                 pn.HanThanhToan = DateTime.Parse(deHanThanhToan.EditValue.ToString());
 
 

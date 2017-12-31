@@ -8,18 +8,25 @@ namespace QUANLYBANHANG.DTO
 {
     public class NhanVien
     {
-        string _maNhanVien, _tenNhanVien, _chucVu, _diaChi, _email, _dienThoai, _boPhan, _nguoiQuanLy;
-        bool _conQuanLy;
+        public string MaNhanVien { get; set; }
 
-        public string MaNhanVien { get => _maNhanVien; set => _maNhanVien = value; }
-        public string TenNhanVien { get => _tenNhanVien; set => _tenNhanVien = value; }
-        public string ChucVu { get => _chucVu; set => _chucVu = value; }
-        public string DiaChi { get => _diaChi; set => _diaChi = value; }
-        public string Email { get => _email; set => _email = value; }
-        public string DienThoai { get => _dienThoai; set => _dienThoai = value; }
-        public string BoPhan { get => _boPhan; set => _boPhan = value; }
-        public string NguoiQuanLy { get => _nguoiQuanLy; set => _nguoiQuanLy = value; }
-        public bool ConQuanLy { get => _conQuanLy; set => _conQuanLy = value; }
+        public string TenNhanVien { get; set; }
+
+        public string ChucVu { get; set; }
+
+        public string DiaChi { get; set; }
+
+        public string Email { get; set; }
+
+        public string DienThoai { get; set; }
+
+        public string BoPhan { get; set; }
+
+        public string NguoiQuanLy { get; set; }
+
+        public bool ConQuanLy { get; set; }
+
+        public string DiDong { get; set; }
 
         public NhanVien()
         {
@@ -29,6 +36,7 @@ namespace QUANLYBANHANG.DTO
             DiaChi = "";
             Email = "";
             DienThoai = "";
+            DiDong = "";
             BoPhan = "";
             NguoiQuanLy = "";
             ConQuanLy = false;

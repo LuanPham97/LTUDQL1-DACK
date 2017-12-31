@@ -133,9 +133,9 @@ namespace QUANLYBANHANG.GUI
 
             kh.MaKH = gvKhachHang.GetRowCellValue(CurRowIndex, "MaKH").ToString();
             kh.TenKH = gvKhachHang.GetRowCellValue(CurRowIndex, "TenKH").ToString();
-            kh.LaKhachLe = gvKhachHang.GetRowCellValue(CurRowIndex, "LaKhachLe").ToString() == "True" ? 1 : 0;
-            kh.ConQuanLy = gvKhachHang.GetRowCellValue(CurRowIndex, "ConQuanLy").ToString() == "True" ? 1 : 0;
-            kh.MaKV = gvKhachHang.GetRowCellValue(CurRowIndex, "MaKhuVuc").ToString();
+            kh.LaKhachLe = bool.Parse(gvKhachHang.GetRowCellValue(CurRowIndex, "LaKhachLe").ToString());
+            kh.ConQuanLy = bool.Parse(gvKhachHang.GetRowCellValue(CurRowIndex, "ConQuanLy").ToString());
+            kh.MaKhuVuc = gvKhachHang.GetRowCellValue(CurRowIndex, "MaKhuVuc").ToString();
             kh.DiaChi = gvKhachHang.GetRowCellValue(CurRowIndex, "DiaChi").ToString();
             kh.MaSoThue = gvKhachHang.GetRowCellValue(CurRowIndex, "MaSoThue").ToString();
             kh.Fax = gvKhachHang.GetRowCellValue(CurRowIndex, "Fax").ToString();

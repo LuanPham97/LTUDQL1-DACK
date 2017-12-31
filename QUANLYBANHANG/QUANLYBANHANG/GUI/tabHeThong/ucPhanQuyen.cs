@@ -165,7 +165,7 @@ namespace QUANLYBANHANG.GUI
             DataRow r = dt.Rows[0];
 
             NguoiDung nd = new NguoiDung();
-            nd.ID = IDUser;
+            nd.ID = int.Parse(IDUser);
             nd.TenDangNhap = r["TenDangNhap"].ToString();
             nd.Password = r["Password"].ToString();
             nd.MaVaiTro = r["MaVaiTro"].ToString();
@@ -194,7 +194,7 @@ namespace QUANLYBANHANG.GUI
             {
                 NguoiDung nd = tn.Tag as NguoiDung;
                 MaVaiTro = nd.MaVaiTro;
-                IDUser = nd.ID;
+                IDUser = nd.ID.ToString();
                 TenDangNhap = nd.TenDangNhap;
             }
 
@@ -259,7 +259,7 @@ namespace QUANLYBANHANG.GUI
             {
                 NguoiDung nd = new NguoiDung();
 
-                nd.ID = row["ID"].ToString();
+                nd.ID = int.Parse(row["ID"].ToString());
                 nd.TenDangNhap = row["TenDangNhap"].ToString();
                 nd.MaVaiTro = row["MaVaiTro"].ToString();
 
