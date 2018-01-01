@@ -190,6 +190,12 @@
     <Compile Include="GUI\tabDanhMuc\frmThemSuaKhachHang.designer.cs">
       <DependentUpon>frmThemSuaKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabDanhMuc\frmThemTyGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\frmThemTyGia.designer.cs">
+      <DependentUpon>frmThemTyGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabDanhMuc\ucDonViTinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,6 +231,12 @@
     </Compile>
     <Compile Include="GUI\tabDanhMuc\ucNhomHang.designer.cs">
       <DependentUpon>ucNhomHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\ucTyGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabDanhMuc\ucTyGia.designer.cs">
+      <DependentUpon>ucTyGia.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabHeThong\frmThemSuaNguoiDung.cs">
       <SubType>Form</SubType>
@@ -293,6 +305,9 @@
     <EmbeddedResource Include="GUI\tabDanhMuc\frmThemSuaKhachHang.resx">
       <DependentUpon>frmThemSuaKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabDanhMuc\frmThemTyGia.resx">
+      <DependentUpon>frmThemTyGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\ucDonViTinh.resx">
       <DependentUpon>ucDonViTinh.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\ucNhomHang.resx">
       <DependentUpon>ucNhomHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabDanhMuc\ucTyGia.resx">
+      <DependentUpon>ucTyGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabHeThong\frmThemSuaNguoiDung.resx">
       <DependentUpon>frmThemSuaNguoiDung.cs</DependentUpon>

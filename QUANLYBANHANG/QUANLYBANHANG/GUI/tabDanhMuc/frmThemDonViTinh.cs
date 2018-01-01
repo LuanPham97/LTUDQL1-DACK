@@ -19,8 +19,8 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_DONVITINH nv_dvt = new NGHIEPVU_DONVITINH();
 
         //event khi thêm đơn vị tính thành công
-        public delegate void ThemKhuVuc();
-        public event ThemKhuVuc KhiThemThanhCong;
+        public delegate void ThemDonViTinh();
+        public event ThemDonViTinh KhiThemThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;
