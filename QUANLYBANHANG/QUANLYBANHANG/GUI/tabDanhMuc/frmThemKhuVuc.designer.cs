@@ -67,7 +67,7 @@
             this.cbConQuanLy.Location = new System.Drawing.Point(68, 116);
             this.cbConQuanLy.Name = "cbConQuanLy";
             this.cbConQuanLy.Size = new System.Drawing.Size(88, 17);
-            this.cbConQuanLy.TabIndex = 6;
+            this.cbConQuanLy.TabIndex = 3;
             this.cbConQuanLy.Text = "Còn Quản Lý";
             this.cbConQuanLy.UseVisualStyleBackColor = true;
             // 
@@ -76,21 +76,21 @@
             this.txtGhiChu.Location = new System.Drawing.Point(68, 89);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(264, 21);
-            this.txtGhiChu.TabIndex = 5;
+            this.txtGhiChu.TabIndex = 2;
             // 
             // txtTenKhuVuc
             // 
             this.txtTenKhuVuc.Location = new System.Drawing.Point(68, 57);
             this.txtTenKhuVuc.Name = "txtTenKhuVuc";
             this.txtTenKhuVuc.Size = new System.Drawing.Size(264, 21);
-            this.txtTenKhuVuc.TabIndex = 4;
+            this.txtTenKhuVuc.TabIndex = 1;
             // 
             // txtMaKhuVuc
             // 
             this.txtMaKhuVuc.Location = new System.Drawing.Point(68, 24);
             this.txtMaKhuVuc.Name = "txtMaKhuVuc";
             this.txtMaKhuVuc.Size = new System.Drawing.Size(264, 21);
-            this.txtMaKhuVuc.TabIndex = 3;
+            this.txtMaKhuVuc.TabIndex = 0;
             // 
             // label3
             // 
@@ -126,7 +126,7 @@
             this.btnDong.Location = new System.Drawing.Point(231, 143);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(101, 23);
-            this.btnDong.TabIndex = 18;
+            this.btnDong.TabIndex = 2;
             this.btnDong.Text = "Đóng";
             // 
             // btnLuu
@@ -136,11 +136,12 @@
             this.btnLuu.Location = new System.Drawing.Point(109, 143);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(101, 23);
-            this.btnLuu.TabIndex = 17;
+            this.btnLuu.TabIndex = 1;
             this.btnLuu.Text = "Lưu";
             // 
             // frmThemKhuVuc
             // 
+            this.AcceptButton = this.btnLuu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 175);

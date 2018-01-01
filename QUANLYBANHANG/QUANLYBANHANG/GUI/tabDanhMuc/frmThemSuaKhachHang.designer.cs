@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtNoHienTai = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -73,7 +74,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNoHienTai = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ceChietKhau.Properties)).BeginInit();
@@ -99,7 +99,7 @@
             this.rbKhachLe.Location = new System.Drawing.Point(73, 13);
             this.rbKhachLe.Name = "rbKhachLe";
             this.rbKhachLe.Size = new System.Drawing.Size(71, 17);
-            this.rbKhachLe.TabIndex = 0;
+            this.rbKhachLe.TabIndex = 1;
             this.rbKhachLe.Text = "Khách Lẻ";
             this.rbKhachLe.UseVisualStyleBackColor = true;
             // 
@@ -111,7 +111,7 @@
             this.cbConQuanLy.Location = new System.Drawing.Point(590, 14);
             this.cbConQuanLy.Name = "cbConQuanLy";
             this.cbConQuanLy.Size = new System.Drawing.Size(82, 17);
-            this.cbConQuanLy.TabIndex = 1;
+            this.cbConQuanLy.TabIndex = 2;
             this.cbConQuanLy.Text = "Còn quản lý";
             this.cbConQuanLy.UseVisualStyleBackColor = true;
             // 
@@ -122,7 +122,7 @@
             this.btnDong.Location = new System.Drawing.Point(615, 355);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(101, 23);
-            this.btnDong.TabIndex = 19;
+            this.btnDong.TabIndex = 5;
             this.btnDong.Text = "Đóng";
             // 
             // btnLuu
@@ -132,7 +132,7 @@
             this.btnLuu.Location = new System.Drawing.Point(493, 355);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(101, 23);
-            this.btnLuu.TabIndex = 18;
+            this.btnLuu.TabIndex = 4;
             this.btnLuu.Text = "Lưu";
             // 
             // label1
@@ -149,7 +149,7 @@
             this.txtMaKhachHang.Location = new System.Drawing.Point(91, 23);
             this.txtMaKhachHang.Name = "txtMaKhachHang";
             this.txtMaKhachHang.Size = new System.Drawing.Size(124, 21);
-            this.txtMaKhachHang.TabIndex = 21;
+            this.txtMaKhachHang.TabIndex = 0;
             // 
             // txtKhuVuc
             // 
@@ -174,7 +174,7 @@
             this.txtTenKhachHang.Location = new System.Drawing.Point(91, 50);
             this.txtTenKhachHang.Name = "txtTenKhachHang";
             this.txtTenKhachHang.Size = new System.Drawing.Size(605, 21);
-            this.txtTenKhachHang.TabIndex = 21;
+            this.txtTenKhachHang.TabIndex = 2;
             // 
             // label3
             // 
@@ -190,7 +190,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(91, 76);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(605, 21);
-            this.txtDiaChi.TabIndex = 21;
+            this.txtDiaChi.TabIndex = 3;
             // 
             // groupControl1
             // 
@@ -236,8 +236,16 @@
             this.groupControl1.Location = new System.Drawing.Point(13, 37);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(703, 300);
-            this.groupControl1.TabIndex = 23;
+            this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "Thông tin chung";
+            // 
+            // txtNoHienTai
+            // 
+            this.txtNoHienTai.Location = new System.Drawing.Point(308, 212);
+            this.txtNoHienTai.Name = "txtNoHienTai";
+            this.txtNoHienTai.ReadOnly = true;
+            this.txtNoHienTai.Size = new System.Drawing.Size(388, 21);
+            this.txtNoHienTai.TabIndex = 13;
             // 
             // label20
             // 
@@ -279,7 +287,7 @@
             this.ceChietKhau.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.ceChietKhau.Properties.Mask.EditMask = "n0";
             this.ceChietKhau.Size = new System.Drawing.Size(124, 20);
-            this.ceChietKhau.TabIndex = 24;
+            this.ceChietKhau.TabIndex = 14;
             // 
             // ceGioiHanNo
             // 
@@ -291,7 +299,7 @@
             this.ceGioiHanNo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.ceGioiHanNo.Properties.Mask.EditMask = "n0";
             this.ceGioiHanNo.Size = new System.Drawing.Size(124, 20);
-            this.ceGioiHanNo.TabIndex = 24;
+            this.ceGioiHanNo.TabIndex = 12;
             // 
             // lkueKhuVuc
             // 
@@ -300,84 +308,84 @@
             this.lkueKhuVuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueKhuVuc.Size = new System.Drawing.Size(385, 20);
-            this.lkueKhuVuc.TabIndex = 22;
+            this.lkueKhuVuc.TabIndex = 1;
             // 
             // txtNickSkype
             // 
             this.txtNickSkype.Location = new System.Drawing.Point(308, 266);
             this.txtNickSkype.Name = "txtNickSkype";
             this.txtNickSkype.Size = new System.Drawing.Size(388, 21);
-            this.txtNickSkype.TabIndex = 21;
+            this.txtNickSkype.TabIndex = 17;
             // 
             // txtNickYahoo
             // 
             this.txtNickYahoo.Location = new System.Drawing.Point(308, 239);
             this.txtNickYahoo.Name = "txtNickYahoo";
             this.txtNickYahoo.Size = new System.Drawing.Size(388, 21);
-            this.txtNickYahoo.TabIndex = 21;
+            this.txtNickYahoo.TabIndex = 15;
             // 
             // txtNganHang
             // 
             this.txtNganHang.Location = new System.Drawing.Point(308, 185);
             this.txtNganHang.Name = "txtNganHang";
             this.txtNganHang.Size = new System.Drawing.Size(388, 21);
-            this.txtNganHang.TabIndex = 21;
+            this.txtNganHang.TabIndex = 11;
             // 
             // txtWebSite
             // 
             this.txtWebSite.Location = new System.Drawing.Point(308, 158);
             this.txtWebSite.Name = "txtWebSite";
             this.txtWebSite.Size = new System.Drawing.Size(388, 21);
-            this.txtWebSite.TabIndex = 21;
+            this.txtWebSite.TabIndex = 9;
             // 
             // txtMobile
             // 
             this.txtMobile.Location = new System.Drawing.Point(308, 130);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(388, 21);
-            this.txtMobile.TabIndex = 21;
+            this.txtMobile.TabIndex = 7;
             // 
             // txtNguoiLienHe
             // 
             this.txtNguoiLienHe.Location = new System.Drawing.Point(91, 265);
             this.txtNguoiLienHe.Name = "txtNguoiLienHe";
             this.txtNguoiLienHe.Size = new System.Drawing.Size(124, 21);
-            this.txtNguoiLienHe.TabIndex = 21;
+            this.txtNguoiLienHe.TabIndex = 16;
             // 
             // txtTaiKhoan
             // 
             this.txtTaiKhoan.Location = new System.Drawing.Point(91, 185);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(124, 21);
-            this.txtTaiKhoan.TabIndex = 21;
+            this.txtTaiKhoan.TabIndex = 10;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(91, 158);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(124, 21);
-            this.txtEmail.TabIndex = 21;
+            this.txtEmail.TabIndex = 8;
             // 
             // txtDienThoai
             // 
             this.txtDienThoai.Location = new System.Drawing.Point(91, 130);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(124, 21);
-            this.txtDienThoai.TabIndex = 21;
+            this.txtDienThoai.TabIndex = 6;
             // 
             // txtFax
             // 
             this.txtFax.Location = new System.Drawing.Point(308, 103);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(388, 21);
-            this.txtFax.TabIndex = 21;
+            this.txtFax.TabIndex = 5;
             // 
             // txtMaSoThue
             // 
             this.txtMaSoThue.Location = new System.Drawing.Point(91, 103);
             this.txtMaSoThue.Name = "txtMaSoThue";
             this.txtMaSoThue.Size = new System.Drawing.Size(124, 21);
-            this.txtMaSoThue.TabIndex = 21;
+            this.txtMaSoThue.TabIndex = 4;
             // 
             // label17
             // 
@@ -505,16 +513,9 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Mã số thuế";
             // 
-            // txtNoHienTai
-            // 
-            this.txtNoHienTai.Location = new System.Drawing.Point(308, 212);
-            this.txtNoHienTai.Name = "txtNoHienTai";
-            this.txtNoHienTai.ReadOnly = true;
-            this.txtNoHienTai.Size = new System.Drawing.Size(388, 21);
-            this.txtNoHienTai.TabIndex = 27;
-            // 
             // frmThemSuaKhachHang
             // 
+            this.AcceptButton = this.btnLuu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 390);

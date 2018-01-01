@@ -109,14 +109,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueNguoiQuanLy.Properties.NullText = "";
             this.lkueNguoiQuanLy.Size = new System.Drawing.Size(349, 20);
-            this.lkueNguoiQuanLy.TabIndex = 2;
+            this.lkueNguoiQuanLy.TabIndex = 3;
             // 
             // txtTenKho
             // 
             this.txtTenKho.Location = new System.Drawing.Point(85, 51);
             this.txtTenKho.Name = "txtTenKho";
             this.txtTenKho.Size = new System.Drawing.Size(349, 21);
-            this.txtTenKho.TabIndex = 1;
+            this.txtTenKho.TabIndex = 2;
             // 
             // txtKiHieuKho
             // 
@@ -130,7 +130,7 @@
             this.txtMaKho.Location = new System.Drawing.Point(85, 24);
             this.txtMaKho.Name = "txtMaKho";
             this.txtMaKho.Size = new System.Drawing.Size(140, 21);
-            this.txtMaKho.TabIndex = 1;
+            this.txtMaKho.TabIndex = 0;
             // 
             // label3
             // 
@@ -193,14 +193,14 @@
             this.txtDienGiai.Location = new System.Drawing.Point(85, 132);
             this.txtDienGiai.Name = "txtDienGiai";
             this.txtDienGiai.Size = new System.Drawing.Size(349, 21);
-            this.txtDienGiai.TabIndex = 1;
+            this.txtDienGiai.TabIndex = 5;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(85, 105);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(349, 21);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 4;
             // 
             // label7
             // 
@@ -232,7 +232,7 @@
             this.txtNguoiLienHe.Location = new System.Drawing.Point(85, 24);
             this.txtNguoiLienHe.Name = "txtNguoiLienHe";
             this.txtNguoiLienHe.Size = new System.Drawing.Size(349, 21);
-            this.txtNguoiLienHe.TabIndex = 1;
+            this.txtNguoiLienHe.TabIndex = 0;
             // 
             // label9
             // 
@@ -257,14 +257,14 @@
             this.txtFax.Location = new System.Drawing.Point(295, 78);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(139, 21);
-            this.txtFax.TabIndex = 1;
+            this.txtFax.TabIndex = 3;
             // 
             // txtDienThoai
             // 
             this.txtDienThoai.Location = new System.Drawing.Point(85, 78);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(140, 21);
-            this.txtDienThoai.TabIndex = 1;
+            this.txtDienThoai.TabIndex = 2;
             // 
             // label5
             // 
@@ -303,7 +303,7 @@
             this.btnDong.Location = new System.Drawing.Point(347, 277);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(101, 23);
-            this.btnDong.TabIndex = 21;
+            this.btnDong.TabIndex = 4;
             this.btnDong.Text = "Đóng";
             // 
             // btnLuu
@@ -313,11 +313,12 @@
             this.btnLuu.Location = new System.Drawing.Point(225, 277);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(101, 23);
-            this.btnLuu.TabIndex = 20;
+            this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu";
             // 
-            // frmThemKhoHang
+            // frmThemSuaKhoHang
             // 
+            this.AcceptButton = this.btnLuu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 304);
@@ -329,7 +330,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmThemKhoHang";
+            this.Name = "frmThemSuaKhoHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmThemKhoHang";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

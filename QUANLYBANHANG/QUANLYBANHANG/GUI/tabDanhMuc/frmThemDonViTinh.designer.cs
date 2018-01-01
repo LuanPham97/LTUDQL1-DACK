@@ -67,7 +67,7 @@
             this.cbConQuanLy.Location = new System.Drawing.Point(54, 106);
             this.cbConQuanLy.Name = "cbConQuanLy";
             this.cbConQuanLy.Size = new System.Drawing.Size(83, 17);
-            this.cbConQuanLy.TabIndex = 2;
+            this.cbConQuanLy.TabIndex = 3;
             this.cbConQuanLy.Text = "Còn quản lý";
             this.cbConQuanLy.UseVisualStyleBackColor = true;
             // 
@@ -76,7 +76,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(54, 78);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(217, 21);
-            this.txtGhiChu.TabIndex = 1;
+            this.txtGhiChu.TabIndex = 2;
             // 
             // txtTenDVTinh
             // 
@@ -90,7 +90,7 @@
             this.txtMaDVTinh.Location = new System.Drawing.Point(54, 23);
             this.txtMaDVTinh.Name = "txtMaDVTinh";
             this.txtMaDVTinh.Size = new System.Drawing.Size(217, 21);
-            this.txtMaDVTinh.TabIndex = 1;
+            this.txtMaDVTinh.TabIndex = 0;
             // 
             // label3
             // 
@@ -126,7 +126,7 @@
             this.btnDong.Location = new System.Drawing.Point(192, 134);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(85, 23);
-            this.btnDong.TabIndex = 23;
+            this.btnDong.TabIndex = 2;
             this.btnDong.Text = "Đóng";
             // 
             // btnLuu
@@ -136,11 +136,12 @@
             this.btnLuu.Location = new System.Drawing.Point(101, 134);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(85, 23);
-            this.btnLuu.TabIndex = 22;
+            this.btnLuu.TabIndex = 1;
             this.btnLuu.Text = "Lưu";
             // 
             // frmThemDonViTinh
             // 
+            this.AcceptButton = this.btnLuu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(283, 163);
