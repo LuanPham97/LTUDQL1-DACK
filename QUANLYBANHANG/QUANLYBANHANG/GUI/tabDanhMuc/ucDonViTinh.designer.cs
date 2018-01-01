@@ -72,7 +72,7 @@
             this.gcDonViTinh.Name = "gcDonViTinh";
             this.gcDonViTinh.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gcDonViTinh.Size = new System.Drawing.Size(701, 340);
+            this.gcDonViTinh.Size = new System.Drawing.Size(701, 344);
             this.gcDonViTinh.TabIndex = 11;
             this.gcDonViTinh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDonViTinh});
@@ -145,7 +145,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gcDonViTinh);
             this.splitContainer1.Size = new System.Drawing.Size(701, 396);
-            this.splitContainer1.SplitterDistance = 52;
+            this.splitContainer1.SplitterDistance = 48;
             this.splitContainer1.TabIndex = 12;
             // 
             // btnSua
@@ -180,6 +180,7 @@
             // 
             // rdmDonViTinh
             // 
+            this.rdmDonViTinh.AutoExpand = true;
             this.rdmDonViTinh.InnerRadius = 0;
             this.rdmDonViTinh.ItemAutoSize = DevExpress.XtraBars.Ribbon.RadialMenuItemAutoSize.Spring;
             this.rdmDonViTinh.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {

@@ -151,6 +151,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmThemDonViTinh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmThemDonViTinh";
             ((System.ComponentModel.ISupportInitialize)(this.gcDonViTinh)).EndInit();
             this.gcDonViTinh.ResumeLayout(false);
