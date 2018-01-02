@@ -26,5 +26,15 @@ namespace QUANLYBANHANG.BUS
         {
             return xl_tg.XoaTyGia(matg);
         }
+
+        /// <summary>
+        /// kiểm tra mã có tồn tại hay không
+        /// </summary>
+        /// <param name="matg"></param>
+        /// <returns>true nếu có tồn tại</returns>
+        public bool KiemTraMaTonTai(string matg)
+        {
+            return xl_tg.KiemTraMaTonTai(matg);
+        }
     }
 }

@@ -56,7 +56,7 @@
             this.gcDonViTinh.Location = new System.Drawing.Point(0, 0);
             this.gcDonViTinh.Name = "gcDonViTinh";
             this.gcDonViTinh.Size = new System.Drawing.Size(306, 128);
-            this.gcDonViTinh.TabIndex = 3;
+            this.gcDonViTinh.TabIndex = 0;
             this.gcDonViTinh.Text = "Thông Tin";
             // 
             // cbConQuanLy
@@ -67,7 +67,7 @@
             this.cbConQuanLy.Location = new System.Drawing.Point(64, 106);
             this.cbConQuanLy.Name = "cbConQuanLy";
             this.cbConQuanLy.Size = new System.Drawing.Size(83, 17);
-            this.cbConQuanLy.TabIndex = 2;
+            this.cbConQuanLy.TabIndex = 3;
             this.cbConQuanLy.Text = "Còn quản lý";
             this.cbConQuanLy.UseVisualStyleBackColor = true;
             // 
@@ -76,7 +76,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(64, 78);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(227, 21);
-            this.txtGhiChu.TabIndex = 1;
+            this.txtGhiChu.TabIndex = 2;
             // 
             // txtTenBoPhan
             // 
@@ -90,7 +90,7 @@
             this.txtMaBoPhan.Location = new System.Drawing.Point(64, 24);
             this.txtMaBoPhan.Name = "txtMaBoPhan";
             this.txtMaBoPhan.Size = new System.Drawing.Size(227, 21);
-            this.txtMaBoPhan.TabIndex = 1;
+            this.txtMaBoPhan.TabIndex = 0;
             // 
             // label3
             // 
@@ -126,7 +126,7 @@
             this.btnDong.Location = new System.Drawing.Point(209, 134);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(85, 23);
-            this.btnDong.TabIndex = 29;
+            this.btnDong.TabIndex = 2;
             this.btnDong.Text = "Đóng";
             // 
             // btnLuu
@@ -136,7 +136,7 @@
             this.btnLuu.Location = new System.Drawing.Point(104, 134);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(85, 23);
-            this.btnLuu.TabIndex = 28;
+            this.btnLuu.TabIndex = 1;
             this.btnLuu.Text = "Lưu";
             // 
             // frmThemBoPhan

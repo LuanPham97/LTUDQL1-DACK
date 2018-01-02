@@ -38,5 +38,20 @@ namespace QUANLYBANHANG.DAO
 
             return Execute.InsertUpdateDelete(sql);
         }
+
+        /// <summary>
+        /// kiểm tra mã có tồn tại hay không, trả về true nếu tồn tại
+        /// </summary>
+        /// <param name="mabp"></param>
+        /// <returns>true nếu có tồn tại</returns>
+        public bool KiemTraMaTonTai(string mabp)
+        {
+            string sql = "select count(*) from BOPHAN where MaBoPhan like '" + mabp + "'";
+
+            int kq = Execute.LaySoDong(sql);
+            if (kq >= 1)
+                return true;
+            return false;
+        }
     }
 }

@@ -26,5 +26,15 @@ namespace QUANLYBANHANG.BUS
         {
             return xl_bp.XoaBoPhan(mabp);
         }
+
+        /// <summary>
+        /// kiểm tra mã có tồn tại hay không, trả về true nếu tồn tại
+        /// </summary>
+        /// <param name="mabp"></param>
+        /// <returns>true nếu có tồn tại</returns>
+        public bool KiemTraMaTonTai(string mabp)
+        {
+            return xl_bp.KiemTraMaTonTai(mabp);
+        }
     }
 }

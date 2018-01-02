@@ -67,37 +67,44 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 
         private void BtnLuu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaBoPhan.Text)||string.IsNullOrEmpty(txtTenBoPhan.Text))
-                MessageBox.Show("Không được bỏ trống Tên hoặc Mã");
+            if (nv_bp.KiemTraMaTonTai(txtMaBoPhan.Text) == true)
+            {
+                MessageBox.Show("Mã này đã tồn tại, vui lòng nhập mã khác", "Trùng Lặp Mã", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
-                BoPhan bp = new BoPhan();
-                bp.MaBoPhan = txtMaBoPhan.Text;
-                bp.TenBoPhan = txtTenBoPhan.Text;
-                bp.GhiChu = txtGhiChu.Text;
-                bp.ConQuanLy = cbConQuanLy.Checked;
-
-                if (isInsert == true)
-                {
-                    int kq = nv_bp.ThemBoPhan(bp);
-                    if (kq >= 1)
-                    {
-                        KhiThemThanhCong();
-                        MessageBox.Show("Thêm thành công");
-                    }
-                    else
-                        MessageBox.Show("Thất Bại");
-                }
+                if (string.IsNullOrEmpty(txtMaBoPhan.Text) || string.IsNullOrEmpty(txtTenBoPhan.Text))
+                    MessageBox.Show("Không được bỏ trống Tên hoặc Mã");
                 else
                 {
-                    int kq = nv_bp.CapNhatBoPhan(bp);
-                    if (kq >= 1)
+                    BoPhan bp = new BoPhan();
+                    bp.MaBoPhan = txtMaBoPhan.Text;
+                    bp.TenBoPhan = txtTenBoPhan.Text;
+                    bp.GhiChu = txtGhiChu.Text;
+                    bp.ConQuanLy = cbConQuanLy.Checked;
+
+                    if (isInsert == true)
                     {
-                        KhiThemThanhCong();
-                        MessageBox.Show("Cập nhật thành công");
+                        int kq = nv_bp.ThemBoPhan(bp);
+                        if (kq >= 1)
+                        {
+                            KhiThemThanhCong();
+                            MessageBox.Show("Thêm thành công");
+                        }
+                        else
+                            MessageBox.Show("Thất Bại");
                     }
                     else
-                        MessageBox.Show("Thất Bại");
+                    {
+                        int kq = nv_bp.CapNhatBoPhan(bp);
+                        if (kq >= 1)
+                        {
+                            KhiThemThanhCong();
+                            MessageBox.Show("Cập nhật thành công");
+                        }
+                        else
+                            MessageBox.Show("Thất Bại");
+                    }
                 }
             }
         }

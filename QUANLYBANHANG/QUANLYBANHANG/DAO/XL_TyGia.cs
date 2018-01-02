@@ -38,5 +38,20 @@ namespace QUANLYBANHANG.DAO
 
             return Execute.InsertUpdateDelete(sql);
         }
+
+        /// <summary>
+        /// kiểm tra mã có tồn tại hay không
+        /// </summary>
+        /// <param name="matg"></param>
+        /// <returns>true nếu có tồn tại</returns>
+        public bool KiemTraMaTonTai(string matg)
+        {
+            string sql = "select count(*) from TYGIA where MaTyGia like '" + matg + "'";
+
+            int kq = Execute.LaySoDong(sql);
+            if (kq >= 1)
+                return true;
+            return false;
+        }
     }
 }
