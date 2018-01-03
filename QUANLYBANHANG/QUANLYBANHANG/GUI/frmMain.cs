@@ -14,7 +14,7 @@ using DevExpress.XtraBars.Ribbon;
 using System.Collections;
 using QUANLYBANHANG.GUI.tabChucNang;
 using QUANLYBANHANG.GUI.tabDanhMuc;
-using QUANLYBANHANG.GUI.HeThong;
+using QUANLYBANHANG.GUI.tabHeThong;
 
 namespace QUANLYBANHANG
 {
@@ -22,10 +22,13 @@ namespace QUANLYBANHANG
     {
         public delegate void FormMain();
         public event FormMain KhiFormDong;
+        string username;
 
-        public frmMain(string mavt)
+        public frmMain(string mavt, string tendangnhap)
         {
             InitializeComponent();
+
+            username = tendangnhap;
 
             btnHangHoa.ItemClick += btnHangHoa_Click;
             btnPhanQuyen.ItemClick += BtnPhanQuyen_ItemClick;
@@ -40,10 +43,17 @@ namespace QUANLYBANHANG
             btnTyGia.ItemClick += BtnTyGia_ItemClick;
             btnBoPhan.ItemClick += BtnBoPhan_ItemClick;
             btnNhanVien.ItemClick += BtnNhanVien_ItemClick;
+            btnDoiMatKhau.ItemClick += BtnDoiMatKhau_ItemClick;
 
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnDoiMatKhau_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmDoiMatKhau frmDoiMK = new frmDoiMatKhau(username);
+            frmDoiMK.ShowDialog();
         }
 
         private void BtnNhanVien_ItemClick(object sender, ItemClickEventArgs e)

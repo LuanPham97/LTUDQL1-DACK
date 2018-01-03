@@ -888,3 +888,14 @@ begin
 	set @kq += CAST(@ma as varchar(3))
 end
 go
+
+-- lấy password của user
+create proc sp_GetPassword
+	@username varchar(20),
+	@pass varchar(20) output
+as
+begin
+	select @pass = Password
+	from NGUOIDUNG
+	where TenDangNhap = @username
+end

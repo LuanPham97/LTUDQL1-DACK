@@ -86,5 +86,31 @@ namespace QUANLYBANHANG.DAO
 
             return mavt;
         }
+
+        public string GetPassword(string username)
+        {
+            string sql = "sp_GetPassword";
+
+            Provider p = new Provider();
+            p.Connect();
+
+            SqlParameter kq = new SqlParameter("@pass", SqlDbType.VarChar, 20);
+            kq.Direction = ParameterDirection.Output;
+
+            p.ExecuteNonQuery(CommandType.StoredProcedure, sql,
+                new SqlParameter { ParameterName = "@username", Value = username }, kq);
+
+            string pass = kq.Value.ToString();
+
+            return pass;
+        }
+
+        public int CapNhatMatKhau(string username, string newPass)
+        {
+            string sql = string.Format("update NGUOIDUNG set Password = '{0}' where TenDangNhap = '{1}'",
+                newPass, username);
+
+            return Execute.InsertUpdateDelete(sql);
+        }
     }
 }

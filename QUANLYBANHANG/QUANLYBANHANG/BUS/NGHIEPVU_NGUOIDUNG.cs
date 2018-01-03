@@ -53,5 +53,15 @@ namespace QUANLYBANHANG.BUS
         {
             return xl_nd.LayMaVaiTro(tendangnhap);
         }
+
+        public string GetPassword(string username)
+        {
+            return xl_nd.GetPassword(username);
+        }
+
+        public int CapNhatMatKhau(string username, string newPass)
+        {
+            return xl_nd.CapNhatMatKhau(username, newPass);
+        }
     }
 }

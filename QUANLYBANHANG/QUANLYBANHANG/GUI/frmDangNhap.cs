@@ -51,7 +51,7 @@ namespace QUANLYBANHANG.GUI
                 //this.Close();
 
                 string mavt = nv_nd.LayMaVaiTro(tendangnhap);
-                frmMain main = new frmMain(mavt);
+                frmMain main = new frmMain(mavt, tendangnhap);
                 main.KhiFormDong += CloseForm;
                 main.Show();
             }

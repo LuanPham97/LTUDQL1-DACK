@@ -262,6 +262,12 @@
     <Compile Include="GUI\tabDanhMuc\ucTyGia.designer.cs">
       <DependentUpon>ucTyGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabHeThong\frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabHeThong\frmDoiMatKhau.Designer.cs">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabHeThong\frmThemSuaNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\ucTyGia.resx">
       <DependentUpon>ucTyGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabHeThong\frmDoiMatKhau.resx">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabHeThong\frmThemSuaNguoiDung.resx">
       <DependentUpon>frmThemSuaNguoiDung.cs</DependentUpon>
