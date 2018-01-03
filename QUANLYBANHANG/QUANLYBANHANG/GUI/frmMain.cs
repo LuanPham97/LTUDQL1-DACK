@@ -30,10 +30,14 @@ namespace QUANLYBANHANG
 
             username = tendangnhap;
 
-            btnHangHoa.ItemClick += btnHangHoa_Click;
+            // tab hệ thống
             btnPhanQuyen.ItemClick += BtnPhanQuyen_ItemClick;
-            btnBanHang.ItemClick += BtnBanHang_ItemClick;
-            btnMuaHang.ItemClick += BtnMuaHang_ItemClick;
+            btnDoiMatKhau.ItemClick += BtnDoiMatKhau_ItemClick;
+            btnKetThuc.ItemClick += BtnKetThuc_ItemClick;
+            btnSaoLuu.ItemClick += BtnSaoLuu_ItemClick;
+
+            // tab danh mục
+            btnHangHoa.ItemClick += btnHangHoa_Click;
             btnKhoHang.ItemClick += BtnKhoHang_ItemClick;
             btnKhachHang.ItemClick += BtnKhachHang_ItemClick;
             btnNCC.ItemClick += BtnNCC_ItemClick;
@@ -43,11 +47,26 @@ namespace QUANLYBANHANG
             btnTyGia.ItemClick += BtnTyGia_ItemClick;
             btnBoPhan.ItemClick += BtnBoPhan_ItemClick;
             btnNhanVien.ItemClick += BtnNhanVien_ItemClick;
-            btnDoiMatKhau.ItemClick += BtnDoiMatKhau_ItemClick;
+
+            // tab chức năng
+            btnBanHang.ItemClick += BtnBanHang_ItemClick;
+            btnMuaHang.ItemClick += BtnMuaHang_ItemClick;
+            
 
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnSaoLuu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmSaoLuuDuLieu frmsl = new frmSaoLuuDuLieu();
+            frmsl.ShowDialog();
+        }
+
+        private void BtnKetThuc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
         }
 
         private void BtnDoiMatKhau_ItemClick(object sender, ItemClickEventArgs e)

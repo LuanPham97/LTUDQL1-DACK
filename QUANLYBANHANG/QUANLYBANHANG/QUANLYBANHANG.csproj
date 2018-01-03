@@ -268,6 +268,12 @@
     <Compile Include="GUI\tabHeThong\frmDoiMatKhau.Designer.cs">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabHeThong\frmSaoLuuDuLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabHeThong\frmSaoLuuDuLieu.Designer.cs">
+      <DependentUpon>frmSaoLuuDuLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabHeThong\frmThemSuaNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabHeThong\frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabHeThong\frmSaoLuuDuLieu.resx">
+      <DependentUpon>frmSaoLuuDuLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabHeThong\frmThemSuaNguoiDung.resx">
       <DependentUpon>frmThemSuaNguoiDung.cs</DependentUpon>

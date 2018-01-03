@@ -44,20 +44,24 @@
             this.btnBoPhan = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnDoiMatKhau = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTonKho = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKetThuc = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgBaoMat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgKhoHang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgDoiTac = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgToChuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpChucNang = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgNhapXuat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgKhoHangcn = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
-            this.rpgKhoHangcn = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnTonKho = new DevExpress.XtraBars.BarButtonItem();
+            this.rpgDuLieu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnSaoLuu = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -82,9 +86,11 @@
             this.btnBoPhan,
             this.btnNhanVien,
             this.btnDoiMatKhau,
-            this.btnTonKho});
+            this.btnTonKho,
+            this.btnKetThuc,
+            this.btnSaoLuu});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 21;
+            this.rbcMain.MaxItemId = 23;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -206,10 +212,27 @@
             this.btnDoiMatKhau.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDoiMatKhau.ImageOptions.LargeImage")));
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             // 
+            // btnTonKho
+            // 
+            this.btnTonKho.Caption = "Tồn Kho";
+            this.btnTonKho.Id = 20;
+            this.btnTonKho.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTonKho.ImageOptions.LargeImage")));
+            this.btnTonKho.Name = "btnTonKho";
+            // 
+            // btnKetThuc
+            // 
+            this.btnKetThuc.Caption = "Kết Thúc";
+            this.btnKetThuc.Id = 21;
+            this.btnKetThuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKetThuc.ImageOptions.Image")));
+            this.btnKetThuc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnKetThuc.ImageOptions.LargeImage")));
+            this.btnKetThuc.Name = "btnKetThuc";
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgBaoMat});
+            this.rpgBaoMat,
+            this.rpgHeThong,
+            this.rpgDuLieu});
             this.rbpHeThong.Name = "rbpHeThong";
             this.rbpHeThong.Text = "Hệ Thống";
             // 
@@ -219,6 +242,12 @@
             this.rpgBaoMat.ItemLinks.Add(this.btnDoiMatKhau);
             this.rpgBaoMat.Name = "rpgBaoMat";
             this.rpgBaoMat.Text = "Bảo Mật";
+            // 
+            // rpgHeThong
+            // 
+            this.rpgHeThong.ItemLinks.Add(this.btnKetThuc);
+            this.rpgHeThong.Name = "rpgHeThong";
+            this.rpgHeThong.Text = "Hệ Thống";
             // 
             // rbpDanhMuc
             // 
@@ -269,6 +298,12 @@
             this.rpgNhapXuat.Name = "rpgNhapXuat";
             this.rpgNhapXuat.Text = "Nhập - Xuất";
             // 
+            // rpgKhoHangcn
+            // 
+            this.rpgKhoHangcn.ItemLinks.Add(this.btnTonKho);
+            this.rpgKhoHangcn.Name = "rpgKhoHangcn";
+            this.rpgKhoHangcn.Text = "Kho Hàng";
+            // 
             // rbpTroGiup
             // 
             this.rbpTroGiup.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -297,18 +332,19 @@
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
             // 
-            // rpgKhoHangcn
+            // rpgDuLieu
             // 
-            this.rpgKhoHangcn.ItemLinks.Add(this.btnTonKho);
-            this.rpgKhoHangcn.Name = "rpgKhoHangcn";
-            this.rpgKhoHangcn.Text = "Kho Hàng";
+            this.rpgDuLieu.ItemLinks.Add(this.btnSaoLuu);
+            this.rpgDuLieu.Name = "rpgDuLieu";
+            this.rpgDuLieu.Text = "Dữ Liệu";
             // 
-            // btnTonKho
+            // btnSaoLuu
             // 
-            this.btnTonKho.Caption = "Tồn Kho";
-            this.btnTonKho.Id = 20;
-            this.btnTonKho.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnTonKho.Name = "btnTonKho";
+            this.btnSaoLuu.Caption = "Sao Lưu";
+            this.btnSaoLuu.Id = 22;
+            this.btnSaoLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnSaoLuu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnSaoLuu.Name = "btnSaoLuu";
             // 
             // frmMain
             // 
@@ -363,6 +399,10 @@
         private DevExpress.XtraBars.BarButtonItem btnDoiMatKhau;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgKhoHangcn;
         private DevExpress.XtraBars.BarButtonItem btnTonKho;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgHeThong;
+        private DevExpress.XtraBars.BarButtonItem btnKetThuc;
+        private DevExpress.XtraBars.BarButtonItem btnSaoLuu;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDuLieu;
     }
 }
 
