@@ -17,6 +17,8 @@ namespace QUANLYBANHANG.DAO
 
         public int ThemNhanVien(NhanVien nv)
         {
+            string bophan = nv.BoPhan != null ? string.Format("'{0}'", nv.BoPhan) : "null";
+            string nql = nv.NguoiQuanLy != null ? string.Format("'{0}'", nv.NguoiQuanLy) : "null";
             int cql = nv.ConQuanLy == true ? 1 : 0;
 
             string sql = "insert into NHANVIEN(MaNhanVien,TenNhanVien,ChucVu,DiaChi," +
@@ -24,10 +26,10 @@ namespace QUANLYBANHANG.DAO
                 "NguoiQuanLy,ConQuanLy) " +
                 string.Format("values ('{0}',N'{1}',N'{2}',N'{3}',",
                 nv.MaNhanVien, nv.TenNhanVien, nv.ChucVu, nv.DiaChi) +
-                string.Format("'{0}','{1}','{2}','{3}',",
-                nv.Email, nv.DienThoai, nv.DiDong, nv.BoPhan) +
-                string.Format("'{0}',{1})",
-                nv.NguoiQuanLy, cql);
+                string.Format("'{0}','{1}','{2}',{3},",
+                nv.Email, nv.DienThoai, nv.DiDong, bophan) +
+                string.Format("{0},{1})",
+                nql, cql);
 
             return Execute.InsertUpdateDelete(sql);
         }
