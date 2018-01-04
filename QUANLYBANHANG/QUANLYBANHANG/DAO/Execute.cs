@@ -64,5 +64,18 @@ namespace QUANLYBANHANG.DAO
 
             return ma.Value.ToString();
         }
+
+        public static void BackUpDatabase(string path, string db)
+        {
+            string sql = string.Format("backup database {0} to disk = '{1}'",
+                db, path);
+
+            Provider p = new Provider();
+            p.Connect();
+
+            p.ExecuteNonQuery(CommandType.Text, sql);
+
+            p.Disconnect();
+        }
     }
 }
