@@ -36,6 +36,7 @@ namespace QUANLYBANHANG
             btnKetThuc.ItemClick += BtnKetThuc_ItemClick;
             btnSaoLuu.ItemClick += BtnSaoLuu_ItemClick;
             btnPhucHoi.ItemClick += BtnPhucHoi_ItemClick;
+            btnTonKho.ItemClick += BtnTonKho_ItemClick;
 
             // tab danh mục
             btnHangHoa.ItemClick += btnHangHoa_Click;
@@ -57,6 +58,17 @@ namespace QUANLYBANHANG
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnTonKho_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnMain.Controls.Clear();
+
+            VaiTro_ChucNang pqtk = btnTonKho.Tag as VaiTro_ChucNang;
+
+            ucTonKho tk = new ucTonKho(pqtk);
+            tk.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(tk);
         }
 
         private void BtnPhucHoi_ItemClick(object sender, ItemClickEventArgs e)

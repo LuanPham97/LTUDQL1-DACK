@@ -148,6 +148,12 @@
     <Compile Include="GUI\tabChucNang\ucMuaHang.Designer.cs">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabChucNang\ucTonKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucTonKho.designer.cs">
+      <DependentUpon>ucTonKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabDanhMuc\frmThemBoPhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucMuaHang.resx">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\ucTonKho.resx">
+      <DependentUpon>ucTonKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\frmThemBoPhan.resx">
       <DependentUpon>frmThemBoPhan.cs</DependentUpon>
