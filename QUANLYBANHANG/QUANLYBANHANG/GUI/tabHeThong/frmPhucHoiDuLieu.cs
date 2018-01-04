@@ -1,0 +1,71 @@
+﻿using QUANLYBANHANG.DAO;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace QUANLYBANHANG.GUI.tabHeThong
+{
+    public partial class frmPhucHoiDuLieu : Form
+    {
+        public frmPhucHoiDuLieu()
+        {
+            InitializeComponent();
+
+            Load += FrmPhucHoiDuLieu_Load;
+
+            btnOpenFile.Click += BtnOpenFile_Click;
+            btnDong.Click += BtnDong_Click;
+            btnThucHien.Click += BtnThucHien_Click;
+        }
+
+        private void BtnThucHien_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            string path = txtTenTapTin.Text;
+            string Database = "QuanLyBanHang_DoAn";
+
+            if (File.Exists(path) == false)
+            {
+                MessageBox.Show("Tập tin không tồn tại, vui lòng chọn lại");
+                return;
+            }
+            else
+            {
+                Execute.RestoreDatabase(path, Database);
+
+                lblPhucHoi.Text = "Phục hồi thành công!";
+            }
+        }
+
+        private void BtnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnOpenFile_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "BackUp Files (*.bak)|*.bak|All files (*.*)|*.*";
+
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtTenTapTin.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void FrmPhucHoiDuLieu_Load(object sender, EventArgs e)
+        {
+            string csdl = "QuanLyBanHang_DoAn";
+            txtCSDL.Text = csdl;
+            txtCSDL.ReadOnly = true;
+        }
+    }
+}

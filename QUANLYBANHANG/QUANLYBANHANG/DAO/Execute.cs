@@ -77,5 +77,18 @@ namespace QUANLYBANHANG.DAO
 
             p.Disconnect();
         }
+
+        public static void RestoreDatabase(string path, string db)
+        {
+            string sql = string.Format("restore database {0} from disk = '{1}'",
+                db, path);
+
+            Provider p = new Provider();
+            p.Connect();
+
+            p.ExecuteNonQuery(CommandType.Text, sql);
+
+            p.Disconnect();
+        }
     }
 }

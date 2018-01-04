@@ -28,6 +28,14 @@ namespace QUANLYBANHANG.GUI.tabHeThong
 
         private void FrmSaoLuuDuLieu_Load(object sender, EventArgs e)
         {
+            GenerateTxtTenTapTin();
+
+            fbdSaoLuu.SelectedPath = "d:\\";
+            txtDuongDan.Text = fbdSaoLuu.SelectedPath;
+        }
+
+        private void GenerateTxtTenTapTin()
+        {
             string db = "QuanLyBanHang_DoAn";
 
             string date = DateTime.Now.Day.ToString() + "." +
