@@ -899,3 +899,33 @@ begin
 	from NGUOIDUNG
 	where TenDangNhap = @username
 end
+go
+
+---Phiếu Chuyển kho
+create table PHIEUCHUYENKHO(
+	MaPhieuChuyen varchar(10) primary key,
+	KhoXuatHang varchar(10), -- fk ma kho, kho
+	KhoNhanHang varchar(10), -- fk ma kho, kho
+	NVChuyen varchar(10), --fk manv, nv
+	NVNhan varchar(10), --fk manv, nv
+	PhieuChuyenTay nvarchar(50),
+	GhiChu nvarchar(100),
+	NgayLap datetime
+)
+
+-- Chi tiết phiếu chuyển kho
+create table CT_PhieuChuyenKho(
+	ID int Identity(1,1) primary key,
+	MaPhieuChuyen varchar(10), --fk ma phieu chuyen, phieu chuyen kho
+	MaHang varchar(10), --fk mahh, hang hoa
+	SoLuong int
+)
+
+-- fk
+alter table PHIEUCHUYENKHO add constraint FK_PhieuChuyenKho_KhoHangXuat foreign key (KhoXuatHang) references KHOHANG(MaKho)
+alter table PHIEUCHUYENKHO add constraint FK_PhieuChuyenKho_KhoHangNhan foreign key (KhoNhanHang) references KHOHANG(MaKho)
+alter table PHIEUCHUYENKHO add constraint FK_PhieuChuyenKho_NhanVienXuat foreign key (NVChuyen) references NHANVIEN(MaNhanVien)
+alter table PHIEUCHUYENKHO add constraint FK_PhieuChuyenKho_NhanVienNhan foreign key (NVNhan) references NHANVIEN(MaNhanVien)
+
+alter table CT_PhieuChuyenKho add constraint FK_CT_PhieuChuyenKho_PhieuChuyen foreign key (MaPhieuChuyen) references PHIEUCHUYENKHO(MaPhieuChuyen)
+alter table CT_PhieuChuyenKho add constraint FK_CT_PhieuChuyenKho_HangHoa foreign key (MaHang) references HANGHOA(MaHangHoa)
