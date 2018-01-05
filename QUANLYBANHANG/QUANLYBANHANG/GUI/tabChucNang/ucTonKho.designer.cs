@@ -32,7 +32,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnIn = new DevExpress.XtraEditors.DropDownButton();
-            this.btnDong = new DevExpress.XtraEditors.SimpleButton();
             this.btnXuat = new DevExpress.XtraEditors.SimpleButton();
             this.btnXem = new DevExpress.XtraEditors.SimpleButton();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
@@ -47,6 +46,8 @@
             this.colNhomHang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colConQuanLy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.saveFileDialogExcel = new System.Windows.Forms.SaveFileDialog();
+            this.btnXemAll = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,8 +83,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.btnXemAll);
             this.panel1.Controls.Add(this.btnIn);
-            this.panel1.Controls.Add(this.btnDong);
             this.panel1.Controls.Add(this.btnXuat);
             this.panel1.Controls.Add(this.btnXem);
             this.panel1.Controls.Add(this.separatorControl1);
@@ -100,15 +101,6 @@
             this.btnIn.Size = new System.Drawing.Size(65, 27);
             this.btnIn.TabIndex = 0;
             this.btnIn.Text = "In";
-            // 
-            // btnDong
-            // 
-            this.btnDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDong.ImageOptions.Image")));
-            this.btnDong.Location = new System.Drawing.Point(230, 3);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(65, 27);
-            this.btnDong.TabIndex = 1;
-            this.btnDong.Text = "Đóng";
             // 
             // btnXuat
             // 
@@ -143,6 +135,9 @@
             this.lkueKho.Name = "lkueKho";
             this.lkueKho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkueKho.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TenKho", "Tên Kho"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MaKho", "Mã Kho")});
             this.lkueKho.Properties.NullText = "[Tất Cả]";
             this.lkueKho.Size = new System.Drawing.Size(193, 20);
             this.lkueKho.TabIndex = 0;
@@ -173,6 +168,8 @@
             this.gvTonKho.GridControl = this.gcTonKho;
             this.gvTonKho.GroupCount = 1;
             this.gvTonKho.Name = "gvTonKho";
+            this.gvTonKho.OptionsPrint.EnableAppearanceOddRow = true;
+            this.gvTonKho.OptionsPrint.PrintPreview = true;
             this.gvTonKho.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colKhoHang, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
@@ -238,6 +235,15 @@
             this.repositoryItemCheckEdit1.AutoHeight = false;
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
+            // btnXemAll
+            // 
+            this.btnXemAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnXemAll.Location = new System.Drawing.Point(261, 3);
+            this.btnXemAll.Name = "btnXemAll";
+            this.btnXemAll.Size = new System.Drawing.Size(98, 27);
+            this.btnXemAll.TabIndex = 5;
+            this.btnXemAll.Text = "Xem Tất Cả";
+            // 
             // ucTonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,7 +274,6 @@
         private DevExpress.XtraEditors.SimpleButton btnXem;
         private DevExpress.XtraEditors.DropDownButton btnIn;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private DevExpress.XtraEditors.SimpleButton btnDong;
         private DevExpress.XtraGrid.GridControl gcTonKho;
         private DevExpress.XtraGrid.Views.Grid.GridView gvTonKho;
         private DevExpress.XtraGrid.Columns.GridColumn colKhoHang;
@@ -279,5 +284,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNhomHang;
         private DevExpress.XtraGrid.Columns.GridColumn colConQuanLy;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogExcel;
+        private DevExpress.XtraEditors.SimpleButton btnXemAll;
     }
 }
