@@ -13,6 +13,8 @@ using System.Data.SqlClient;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using QUANLYBANHANG.BUS;
+using System.Drawing.Printing;
+using PagedList;
 
 namespace QUANLYBANHANG.GUI
 {
@@ -32,11 +34,16 @@ namespace QUANLYBANHANG.GUI
         //cờ trạng thái changing
         bool flagChanging = false;
 
+        Bitmap bmp;
+
         public ucBanHang2(VaiTro_ChucNang vtbh)
         {
             InitializeComponent();
 
             Load += UcBanHang2_Load;
+
+            //print 
+            printDocument1.PrintPage += PrintDocument1_PrintPage;
 
             //sự kiện button
             btnTaoMoi.Click += BtnTaoMoi_Click;
@@ -80,9 +87,14 @@ namespace QUANLYBANHANG.GUI
             }
         }
 
+        private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
         //private void BtnPhieuBanHang_Click(object sender, EventArgs e)
         //{
-            
+
         //}
 
         private void BtnKhachHang_Click(object sender, EventArgs e)
@@ -120,7 +132,7 @@ namespace QUANLYBANHANG.GUI
                 px.HinhThucThanhToan = cbHTTT.Text;
                 px.HanThanhToan = DateTime.Parse(deHanThanhToan.EditValue.ToString());
                 px.NgayGiao = DateTime.Parse(deNgayGiao.EditValue.ToString());
-               
+
 
                 List<CT_PhieuXuat> lstCT_PX = new List<CT_PhieuXuat>();
 
@@ -131,6 +143,7 @@ namespace QUANLYBANHANG.GUI
                     ctpx.MaHang = gvPhieuXuat.Rows[i].Cells["colMaHang"].Value.ToString();
                     ctpx.SoLuong = int.Parse(gvPhieuXuat.Rows[i].Cells["colSoLuong"].Value.ToString());
                     ctpx.DonGia = int.Parse(gvPhieuXuat.Rows[i].Cells["colDonGia"].Value.ToString());
+                    ctpx.ThanhTien = int.Parse(gvPhieuXuat.Rows[i].Cells["colThanhTien"].Value.ToString());
                     //chiếu khấu lưu theo số phần trăm
                     ctpx.ChietKhau = int.Parse(gvPhieuXuat.Rows[i].Cells["colCK"].Value.ToString());
                     ctpx.ThanhToan = int.Parse(gvPhieuXuat.Rows[i].Cells["colThanhToan"].Value.ToString());
@@ -161,7 +174,7 @@ namespace QUANLYBANHANG.GUI
                 {
                     nv_px.ThemPhieuXuat(px);
 
-                    foreach(CT_PhieuXuat ct in lstCT_PX)
+                    foreach (CT_PhieuXuat ct in lstCT_PX)
                     {
                         nv_ctpx.ThemCTPhieuXuat(ct);
 
@@ -170,7 +183,23 @@ namespace QUANLYBANHANG.GUI
 
                     MessageBox.Show("Thêm thành công");
                 }
+
+                if(cbInSauKhiLuu.Checked)
+                {
+                    //print preview
+                    PrintPreview();
+                }
             }
+        }
+
+        private void PrintPreview()
+        {
+            int height = gvPhieuXuat.Height;
+            gvPhieuXuat.Height = gvPhieuXuat.RowCount * gvPhieuXuat.RowTemplate.Height * 2;
+            bmp = new Bitmap(gvPhieuXuat.Width, gvPhieuXuat.Height);
+            gvPhieuXuat.DrawToBitmap(bmp, new Rectangle(0, 0, gvPhieuXuat.Width, gvPhieuXuat.Height));
+            gvPhieuXuat.Height = height;
+            printPreviewDialog1.ShowDialog();
         }
 
         private void TsmiXoaAll_Click(object sender, EventArgs e)
@@ -212,6 +241,7 @@ namespace QUANLYBANHANG.GUI
         private void BtnNapLai_Click(object sender, EventArgs e)
         {
             NapDuLieu();
+
         }
 
         private void BtnTaoMoi_Click(object sender, EventArgs e)

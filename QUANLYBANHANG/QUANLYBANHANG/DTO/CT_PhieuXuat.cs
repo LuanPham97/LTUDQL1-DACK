@@ -18,6 +18,8 @@ namespace QUANLYBANHANG.DTO
 
         public int DonGia { get; set; }
 
+        public int ThanhTien { get; set; }
+
         public int ChietKhau { get; set; }
 
         public int ThanhToan { get; set; }

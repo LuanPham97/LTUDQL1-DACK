@@ -411,6 +411,7 @@ create table CT_PHIEU_XUAT
 	MaHang varchar(10),
 	SoLuong int default(0),
 	DonGia int default(0),
+	ThanhTien int default(0),
 	ChietKhau int default(0), -- tính theo %
 	ThanhToan int default(0),
 
@@ -900,6 +901,17 @@ begin
 	where TenDangNhap = @username
 end
 go
+
+go
+--- sp báo cáo sau khi lưu bán hàng
+create proc sp_BaoCaoSauKhiLuuBanHang
+	@maPX varchar(10)
+as
+begin
+	select kh.TenKH, kh.DiaChi, px.GhiChu, kh.DienThoai, px.NgayGiao, ctpx.MaHang, hh.TenHang, dv.TenDVTinh, ctpx.SoLuong, ctpx.DonGia, ctpx.ThanhTien, ctpx.ChietKhau, ctpx.ThanhToan
+	from PHIEU_XUAT px, CT_PHIEU_XUAT ctpx, KHACH_HANG kh, HANGHOA hh, DONVITINH dv
+	where ctpx.MaPhieuXuat=px.MaPhieu and ctpx.MaHang=hh.MaHangHoa and hh.DonVi=dv.MaDVTinh and px.MaKH=kh.MaKH and ctpx.MaPhieuXuat=@maPX
+end
 
 ---Phiếu Chuyển kho
 create table PHIEUCHUYENKHO(

@@ -11,9 +11,9 @@ namespace QUANLYBANHANG.DAO
     {
         public int ThemCTPhieuXuat(CT_PhieuXuat ctpx)
         {
-            string sql = "insert into CT_PHIEU_XUAT(MaPhieuXuat,MaHang,SoLuong,DonGia,ChietKhau,ThanhToan) " +
-                string.Format("values ('{0}','{1}',{2},{3},{4},{5})",
-                ctpx.MaPhieuXuat, ctpx.MaHang, ctpx.SoLuong, ctpx.DonGia, ctpx.ChietKhau, ctpx.ThanhToan);
+            string sql = "insert into CT_PHIEU_XUAT(MaPhieuXuat,MaHang,SoLuong,DonGia,ChietKhau,ThanhToan, ThanhTien) " +
+                string.Format("values ('{0}','{1}',{2},{3},{4},{5},{6})",
+                ctpx.MaPhieuXuat, ctpx.MaHang, ctpx.SoLuong, ctpx.DonGia, ctpx.ChietKhau, ctpx.ThanhToan, ctpx.ThanhTien);
 
             return Execute.InsertUpdateDelete(sql);
         }
