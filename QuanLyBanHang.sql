@@ -567,6 +567,7 @@ create table CT_PHIEU_NHAP
 	MaHang varchar(10),
 	SoLuong int default(0),
 	DonGia int default(0),
+	ThanhTien int default(0),
 	GhiChu nvarchar(100),
 
 	primary key(ID, MaPhieuNhap)
@@ -941,3 +942,46 @@ alter table PHIEUCHUYENKHO add constraint FK_PhieuChuyenKho_NhanVienNhan foreign
 
 alter table CT_PhieuChuyenKho add constraint FK_CT_PhieuChuyenKho_PhieuChuyen foreign key (MaPhieuChuyen) references PHIEUCHUYENKHO(MaPhieuChuyen)
 alter table CT_PhieuChuyenKho add constraint FK_CT_PhieuChuyenKho_HangHoa foreign key (MaHang) references HANGHOA(MaHangHoa)
+
+
+go
+-- lấy mã phiếu chuyển kho  tiếp theo
+create proc sp_LayMaPhieuChuyenKho
+	@kq varchar(10) output
+as
+begin
+	declare @ma int
+	set @ma = 1
+
+	declare cur Cursor
+	for select MaPhieuChuyen
+	from PHIEUCHUYENKHO
+
+	open cur
+	declare @mahh varchar(10)
+	fetch next from cur into @mahh
+	while @@FETCH_STATUS = 0 
+	begin
+		if @ma != cast(@mahh as int)
+			break
+
+		set @ma += 1
+		fetch next from cur into @mahh
+	end
+	close cur
+	deallocate cur
+
+	declare @len int, @j int--, @kq varchar(10)
+	set @kq = ''
+	set @len = 3 - len(cast(@ma as varchar(10)))
+
+	set @j = 0
+	while(@j < @len)
+	begin
+		set @kq += '0'
+
+		set @j += 1
+	end
+	set @kq += CAST(@ma as varchar(3))
+end
+go

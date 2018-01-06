@@ -11,6 +11,7 @@ using QUANLYBANHANG.DTO;
 using QUANLYBANHANG.DAO;
 using System.Data.SqlClient;
 using QUANLYBANHANG.BUS;
+using System.Drawing.Printing;
 
 namespace QUANLYBANHANG.GUI.tabChucNang
 {
@@ -30,11 +31,16 @@ namespace QUANLYBANHANG.GUI.tabChucNang
         //cờ trạng thái changing
         bool flagChanging = false;
 
+        Bitmap bmp;
+
         public ucMuaHang(VaiTro_ChucNang vtpq)
         {
             InitializeComponent();
 
             Load += UcMuaHang_Load;
+
+            //print 
+            printDocument1.PrintPage += PrintDocument1_PrintPage;
 
             //sự kiện button
             btnTaoMoi.Click += BtnTaoMoi_Click;
@@ -78,6 +84,11 @@ namespace QUANLYBANHANG.GUI.tabChucNang
             }
         }
 
+        private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
         private void BtnLuu_Click(object sender, EventArgs e)
         {
             if (gvPhieuNhap.Rows.Count <= 1)
@@ -113,7 +124,9 @@ namespace QUANLYBANHANG.GUI.tabChucNang
                     ctpn.MaHang = gvPhieuNhap.Rows[i].Cells["colMaHang"].Value.ToString();
                     ctpn.SoLuong = int.Parse(gvPhieuNhap.Rows[i].Cells["colSoLuong"].Value.ToString());
                     ctpn.DonGia = int.Parse(gvPhieuNhap.Rows[i].Cells["colDonGia"].Value.ToString());
+                    ctpn.ThanhTien = int.Parse(gvPhieuNhap.Rows[i].Cells["colThanhTien"].Value.ToString());
                     ctpn.GhiChu= gvPhieuNhap.Rows[i].Cells["colGhiChu"].Value.ToString();
+
 
                     lstCT_PN.Add(ctpn);
                 }
@@ -127,12 +140,23 @@ namespace QUANLYBANHANG.GUI.tabChucNang
                 }
 
                 MessageBox.Show("Thêm thành công");
+
+                if (cbInSauKhiLuu.Checked)
+                {
+                    //print preview
+                    PrintPreview();
+                }
             }
         }
 
-        private void TsmiNapLai_Click(object sender, EventArgs e)
+        private void PrintPreview()
         {
-            throw new NotImplementedException();
+            int height = gvPhieuNhap.Height;
+            gvPhieuNhap.Height = gvPhieuNhap.RowCount * gvPhieuNhap.RowTemplate.Height * 2;
+            bmp = new Bitmap(gvPhieuNhap.Width, gvPhieuNhap.Height);
+            gvPhieuNhap.DrawToBitmap(bmp, new Rectangle(0, 0, gvPhieuNhap.Width, gvPhieuNhap.Height));
+            gvPhieuNhap.Height = height;
+            printPreviewDialog1.ShowDialog();
         }
 
         private void TsmiXoaAll_Click(object sender, EventArgs e)
@@ -515,19 +539,7 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 
         private string GenerateMaPhieu()
         {
-            string sql = "sp_LayMaPhieuNhap";
-
-            Provider p = new Provider();
-            p.Connect();
-
-            SqlParameter ma = new SqlParameter("@kq", SqlDbType.VarChar, 10);
-            ma.Direction = ParameterDirection.Output;
-
-            p.ExecuteNonQuery(CommandType.StoredProcedure, sql, ma);
-
-            p.Disconnect();
-
-            return ma.Value.ToString();
+            return Execute.GenerateMa("sp_LayMaPhieuNhap");
         }
 
         private void FillGridView()

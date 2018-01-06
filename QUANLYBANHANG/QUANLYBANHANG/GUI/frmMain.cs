@@ -53,11 +53,23 @@ namespace QUANLYBANHANG
             // tab chức năng
             btnBanHang.ItemClick += BtnBanHang_ItemClick;
             btnMuaHang.ItemClick += BtnMuaHang_ItemClick;
+            btnChuyenKho.ItemClick += BtnChuyenKho_ItemClick;
             
 
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnChuyenKho_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnMain.Controls.Clear();
+
+            VaiTro_ChucNang pqck = btnChuyenKho.Tag as VaiTro_ChucNang;
+
+            ucChuyenKho ck = new ucChuyenKho(pqck);
+            ck.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(ck);
         }
 
         private void BtnTonKho_ItemClick(object sender, ItemClickEventArgs e)

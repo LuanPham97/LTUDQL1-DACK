@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\NGHIEPVU_BOPHAN.cs" />
+    <Compile Include="BUS\NGHIEPVU_CT_PHIEUCHUYENKHO.cs" />
     <Compile Include="BUS\NGHIEPVU_CT_PHIEUNHAP.cs" />
     <Compile Include="BUS\NGHIEPVU_CT_PHIEUXUAT.cs" />
     <Compile Include="BUS\NGHIEPVU_DONVITINH.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="BUS\NGHIEPVU_NHACUNGCAP.cs" />
     <Compile Include="BUS\NGHIEPVU_NHANVIEN.cs" />
     <Compile Include="BUS\NGHIEPVU_NHOMHANG.cs" />
+    <Compile Include="BUS\NGHIEPVU_PHIEUCHUYENKHO.cs" />
     <Compile Include="BUS\NGHIEPVU_PHIEUNHAP.cs" />
     <Compile Include="BUS\NGHIEPVU_PHIEUXUAT.cs" />
     <Compile Include="BUS\NGHIEPVU_TYGIA.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="DAO\Execute.cs" />
     <Compile Include="DAO\Provider.cs" />
     <Compile Include="DAO\XL_BoPhan.cs" />
+    <Compile Include="DAO\XL_CT_PhieuChuyenKho.cs" />
     <Compile Include="DAO\XL_CT_PhieuNhap.cs" />
     <Compile Include="DAO\XL_CT_PhieuXuat.cs" />
     <Compile Include="DAO\XL_DonViTinh.cs" />
@@ -113,6 +116,7 @@
     <Compile Include="DAO\XL_NhaCungCap.cs" />
     <Compile Include="DAO\XL_NhanVien.cs" />
     <Compile Include="DAO\XL_NhomHang.cs" />
+    <Compile Include="DAO\XL_PhieuChuyenKho.cs" />
     <Compile Include="DAO\XL_PhieuNhap.cs" />
     <Compile Include="DAO\XL_PhieuXuat.cs" />
     <Compile Include="DAO\XL_TyGia.cs" />
@@ -120,6 +124,7 @@
     <Compile Include="DAO\XL_VaiTro_ChucNang.cs" />
     <Compile Include="DTO\BoPhan.cs" />
     <Compile Include="DTO\ChucNang.cs" />
+    <Compile Include="DTO\CT_PhieuChuyenKho.cs" />
     <Compile Include="DTO\CT_PhieuNhap.cs" />
     <Compile Include="DTO\CT_PhieuXuat.cs" />
     <Compile Include="DTO\DonViTinh.cs" />
@@ -131,6 +136,7 @@
     <Compile Include="DTO\NhaCC.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="DTO\NhomHang.cs" />
+    <Compile Include="DTO\PhieuChuyenKho.cs" />
     <Compile Include="DTO\PhieuNhap.cs" />
     <Compile Include="DTO\PhieuXuat.cs" />
     <Compile Include="DTO\TyGia.cs" />
@@ -147,6 +153,12 @@
     </Compile>
     <Compile Include="GUI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucChuyenKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucChuyenKho.Designer.cs">
+      <DependentUpon>ucChuyenKho.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabChucNang\ucMuaHang.cs">
       <SubType>UserControl</SubType>
@@ -334,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\ucChuyenKho.resx">
+      <DependentUpon>ucChuyenKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucMuaHang.resx">
       <DependentUpon>ucMuaHang.cs</DependentUpon>

@@ -47,6 +47,7 @@
             this.btnTonKho = new DevExpress.XtraBars.BarButtonItem();
             this.btnKetThuc = new DevExpress.XtraBars.BarButtonItem();
             this.btnSaoLuu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgBaoMat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -62,7 +63,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
-            this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChuyenKho = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -90,9 +91,10 @@
             this.btnTonKho,
             this.btnKetThuc,
             this.btnSaoLuu,
-            this.btnPhucHoi});
+            this.btnPhucHoi,
+            this.btnChuyenKho});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 24;
+            this.rbcMain.MaxItemId = 25;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -237,6 +239,14 @@
             this.btnSaoLuu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSaoLuu.ImageOptions.LargeImage")));
             this.btnSaoLuu.Name = "btnSaoLuu";
             // 
+            // btnPhucHoi
+            // 
+            this.btnPhucHoi.Caption = "Phục Hồi";
+            this.btnPhucHoi.Id = 23;
+            this.btnPhucHoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.Image")));
+            this.btnPhucHoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.LargeImage")));
+            this.btnPhucHoi.Name = "btnPhucHoi";
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -318,6 +328,7 @@
             // rpgKhoHangcn
             // 
             this.rpgKhoHangcn.ItemLinks.Add(this.btnTonKho);
+            this.rpgKhoHangcn.ItemLinks.Add(this.btnChuyenKho);
             this.rpgKhoHangcn.Name = "rpgKhoHangcn";
             this.rpgKhoHangcn.Text = "Kho Hàng";
             // 
@@ -349,13 +360,13 @@
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
             // 
-            // btnPhucHoi
+            // btnChuyenKho
             // 
-            this.btnPhucHoi.Caption = "Phục Hồi";
-            this.btnPhucHoi.Id = 23;
-            this.btnPhucHoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnPhucHoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnPhucHoi.Name = "btnPhucHoi";
+            this.btnChuyenKho.Caption = "Chuyển Kho";
+            this.btnChuyenKho.Id = 24;
+            this.btnChuyenKho.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnChuyenKho.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnChuyenKho.Name = "btnChuyenKho";
             // 
             // frmMain
             // 
@@ -415,6 +426,7 @@
         private DevExpress.XtraBars.BarButtonItem btnSaoLuu;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDuLieu;
         private DevExpress.XtraBars.BarButtonItem btnPhucHoi;
+        private DevExpress.XtraBars.BarButtonItem btnChuyenKho;
     }
 }
 

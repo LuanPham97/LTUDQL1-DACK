@@ -18,6 +18,8 @@ namespace QUANLYBANHANG.DTO
 
         public int DonGia { get; set; }
 
+        public int ThanhTien { get; set; }
+
         public string GhiChu { get; set; }
 
 
@@ -28,6 +30,7 @@ namespace QUANLYBANHANG.DTO
             SoLuong = 0;
             DonGia = 0;
             GhiChu = "";
+            ThanhTien = 0;
         }
 
     }
