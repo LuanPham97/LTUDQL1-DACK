@@ -17,16 +17,28 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 {
     public partial class ucKhuVuc : DevExpress.XtraEditors.XtraUserControl
     {
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong nk);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
         NGHIEPVU_KHUVUC nv_kv = new NGHIEPVU_KHUVUC();
 
         //chỉ số dòng hiện tại
         int CurRowIndex;
 
-        public ucKhuVuc(VaiTro_ChucNang phanquyenkv)
+        // username
+        string user;
+
+        // tên chức năng
+        string TenChucNang = "Khu Vực";
+
+        public ucKhuVuc(VaiTro_ChucNang phanquyenkv, string username)
         {
             InitializeComponent();
 
             Load += new EventHandler(ucKhuVuc_Load);
+
+            user = username;
 
             //sự kiện button
             btnThem.Click += BtnThem_Click;
@@ -111,6 +123,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                 {
                     nv_kv.XoaKhuVuc(maKV);
                     FillGridView();
+                    AddNhatKy("Xóa");
                     MessageBox.Show("Đã Xóa");
                 }
             }
@@ -123,7 +136,8 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                 KhuVuc kv = LayKVDangChon();
 
                 frmThemKhuVuc frmSua = new frmThemKhuVuc(kv);
-                frmSua.KhiThemThanhCong += FillGridView;
+                frmSua.CapNhatThanhCong += FillGridView;
+                frmSua.CapNhatThanhCong += NhatKyCapNhat;
                 frmSua.ShowDialog();
             }
         }
@@ -143,14 +157,39 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         private void BtnThem_Click(object sender, EventArgs e)
         {
             frmThemKhuVuc frmthem = new frmThemKhuVuc();
-            frmthem.KhiThemThanhCong += FillGridView;
+            frmthem.ThemThanhCong += FillGridView;
+            frmthem.ThemThanhCong += NhatKyThem;
             frmthem.ShowDialog();
         }
 
+        private void NhatKyCapNhat()
+        {
+            AddNhatKy("Cập Nhật");
+        }
+
+        private void NhatKyThem()
+        {
+            AddNhatKy("Thêm");
+        }
 
         private void ucKhuVuc_Load(object sender, EventArgs e)
         {
+            // thêm nhật ký
+            AddNhatKy("Xem");
+            //
             FillGridView();
+        }
+
+        private void AddNhatKy(string hanhDong)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = TenChucNang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
         }
 
         private void FillGridView()

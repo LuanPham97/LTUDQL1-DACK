@@ -24,6 +24,13 @@ namespace QUANLYBANHANG
         public event FormMain KhiFormDong;
         string username;
 
+        //danh sach cac nhat ky he thong
+        List<cNhatKyHeThong> lstNhatKyFinal = new List<cNhatKyHeThong>();
+
+        ////tạo event lưu nhật ký hệ thống
+        //public delegate void NhatKyHeThong();
+        //public event NhatKyHeThong ThemNhatKyHeThong;
+
         public frmMain(string mavt, string tendangnhap)
         {
             InitializeComponent();
@@ -54,11 +61,20 @@ namespace QUANLYBANHANG
             btnBanHang.ItemClick += BtnBanHang_ItemClick;
             btnMuaHang.ItemClick += BtnMuaHang_ItemClick;
             btnChuyenKho.ItemClick += BtnChuyenKho_ItemClick;
+
+            // tab trợ giúp
+            btnThongTin.ItemClick += BtnThongTin_ItemClick;
             
 
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnThongTin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmThongTin frmtt = new frmThongTin();
+            frmtt.ShowDialog();
         }
 
         private void BtnChuyenKho_ItemClick(object sender, ItemClickEventArgs e)
@@ -123,7 +139,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqbp = btnBoPhan.Tag as VaiTro_ChucNang;
 
-            ucBoPhan bp = new ucBoPhan(pqbp);
+            ucBoPhan bp = new ucBoPhan(pqbp, username);
+            bp.ThemNhatKyHeThong += ThemNhatKy_Main;
             bp.Dock = DockStyle.Fill;
             pnMain.Controls.Add(bp);
         }
@@ -167,9 +184,15 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqkv = btnKhuVuc.Tag as VaiTro_ChucNang;
 
-            ucKhuVuc kv = new ucKhuVuc(pqkv);
+            ucKhuVuc kv = new ucKhuVuc(pqkv, username);
+            kv.ThemNhatKyHeThong += ThemNhatKy_Main;
             kv.Dock = DockStyle.Fill;
             pnMain.Controls.Add(kv);
+        }
+
+        private void ThemNhatKy_Main(cNhatKyHeThong nk)
+        {
+            lstNhatKyFinal.Add(nk);
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)

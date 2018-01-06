@@ -19,8 +19,9 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_KHUVUC nv_kv = new NGHIEPVU_KHUVUC();
 
         //event khi thêm khu vực thành công
-        public delegate void ThemKhuVuc();
-        public event ThemKhuVuc KhiThemThanhCong;
+        public delegate void KhuVuc();
+        public event KhuVuc ThemThanhCong;
+        public event KhuVuc CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;
@@ -40,7 +41,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         }
 
         //dùng để sửa
-        public frmThemKhuVuc(KhuVuc kv)
+        public frmThemKhuVuc(DTO.KhuVuc kv)
         {
             InitializeComponent();
 
@@ -54,7 +55,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             FillDuLieuKhuVuc(kv);
         }
 
-        private void FillDuLieuKhuVuc(KhuVuc kv)
+        private void FillDuLieuKhuVuc(DTO.KhuVuc kv)
         {
             txtMaKhuVuc.Text = kv.MaKhuVuc;
             txtMaKhuVuc.ReadOnly = true;
@@ -74,7 +75,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                 MessageBox.Show("Không được bỏ trống Tên khu vực");
             else
             {
-                KhuVuc kv = new KhuVuc();
+                DTO.KhuVuc kv = new DTO.KhuVuc();
                 kv.MaKhuVuc = txtMaKhuVuc.Text;
                 kv.TenKhuVuc = txtTenKhuVuc.Text;
                 kv.GhiChu = txtGhiChu.Text;
@@ -85,7 +86,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_kv.ThemKhuVuc(kv);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        ThemThanhCong();
                         MessageBox.Show("Thêm thành công");
                     }
                     else
@@ -96,7 +97,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_kv.CapNhatKhuVuc(kv);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        CapNhatThanhCong();
                         MessageBox.Show("Cập nhật thành công");
                     }
                     else
