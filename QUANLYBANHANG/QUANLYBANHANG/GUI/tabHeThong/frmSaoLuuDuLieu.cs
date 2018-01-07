@@ -15,10 +15,21 @@ namespace QUANLYBANHANG.GUI.tabHeThong
 {
     public partial class frmSaoLuuDuLieu : Form
     {
-        public frmSaoLuuDuLieu()
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // username
+        string user;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Sao Lưu";
+
+        public frmSaoLuuDuLieu(string un)
         {
             InitializeComponent();
 
+            user = un;
             Load += FrmSaoLuuDuLieu_Load;
 
             btnOpenFile.Click += BtnOpenFile_Click;
@@ -26,8 +37,21 @@ namespace QUANLYBANHANG.GUI.tabHeThong
             btnThucHien.Click += BtnThucHien_Click;
         }
 
+        private void AddNhatKy(string hanhDong)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = TenChucNang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
+        }
+
         private void FrmSaoLuuDuLieu_Load(object sender, EventArgs e)
         {
+            AddNhatKy("Xem");
             GenerateTxtTenTapTin();
 
             fbdSaoLuu.SelectedPath = "d:\\";
@@ -83,6 +107,8 @@ namespace QUANLYBANHANG.GUI.tabHeThong
             }
 
             Execute.BackUpDatabase(duongDanFinal, Database);
+
+            AddNhatKy("Thực Hiện");
 
             Process.Start(duongDan);
 

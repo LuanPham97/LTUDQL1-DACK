@@ -17,9 +17,9 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_BOPHAN nv_bp = new NGHIEPVU_BOPHAN();
 
         //event khi thêm thành công
-        public delegate void BoPhan();
-        public event BoPhan ThemThanhCong;
-        public event BoPhan CapNhatThanhCong;
+        public delegate void dBoPhan();
+        public event dBoPhan ThemThanhCong;
+        public event dBoPhan CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;

@@ -16,15 +16,27 @@ namespace QUANLYBANHANG.GUI
 {
     public partial class ucHangHoa : UserControl
     {
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // username
+        string user;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Hàng Hóa";
+
         NGHIEPVU_HANGHOA nv_hh = new NGHIEPVU_HANGHOA();
 
         int CurRowIndex;
 
-        public ucHangHoa(VaiTro_ChucNang phanquyenHH)
+        public ucHangHoa(VaiTro_ChucNang phanquyenHH, string un)
         {
             InitializeComponent();
 
             Load += new EventHandler(ucHangHoa_Load);
+
+            user = un;
 
             //khu vực định nghĩa sự kiện button
             btnThem.Click += new EventHandler(btnThem_click);
@@ -72,6 +84,27 @@ namespace QUANLYBANHANG.GUI
             }
         }
 
+        private void AddNhatKy(string hanhDong)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = TenChucNang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
+        }
+
+        private void NhatKySua()
+        {
+            AddNhatKy("Cập Nhật");
+        }
+
+        private void NhatKyThem()
+        {
+            AddNhatKy("Thêm");
+        }
         private void BbiDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.rdmHangHoa.HidePopup();
@@ -103,6 +136,7 @@ namespace QUANLYBANHANG.GUI
                 {
                     nv_hh.XoaHangHoa(MaHH);
                     FillGridView();
+                    AddNhatKy("Xóa");
                     MessageBox.Show("Đã Xóa");
                 }
             }
@@ -120,7 +154,8 @@ namespace QUANLYBANHANG.GUI
                 HangHoa hh = LayHangHoaDangChon();
 
                 frmThemSuaHangHoa frmSua = new frmThemSuaHangHoa(hh);
-                frmSua.KhiThayDoi += FillGridView;
+                frmSua.CapNhatThanhCong += FillGridView;
+                frmSua.CapNhatThanhCong += NhatKySua;
                 frmSua.ShowDialog();
             }
         }
@@ -173,12 +208,14 @@ namespace QUANLYBANHANG.GUI
         private void btnThem_click(object sender, EventArgs e)
         {
             frmThemSuaHangHoa frmThem = new frmThemSuaHangHoa();
-            frmThem.KhiThayDoi += FillGridView;
+            frmThem.ThemThanhCong += FillGridView;
+            frmThem.ThemThanhCong += NhatKyThem;
             frmThem.ShowDialog();
         }
 
         private void ucHangHoa_Load(object sender, EventArgs e)
         {
+            AddNhatKy("Xem");
             FillGridView();
         }
 

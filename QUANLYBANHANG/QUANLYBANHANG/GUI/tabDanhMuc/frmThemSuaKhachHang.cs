@@ -19,8 +19,9 @@ namespace QUANLYBANHANG.GUI
         NGHIEPVU_KHACHHANG nv_kh = new NGHIEPVU_KHACHHANG();
 
         //event khi thêm khách hàng thành công
-        public delegate void ThemKhachHang();
-        public event ThemKhachHang KhiThemThanhCong;
+        public delegate void dKhachHang();
+        public event dKhachHang ThemThanhCong;
+        public event dKhachHang CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;
@@ -40,7 +41,7 @@ namespace QUANLYBANHANG.GUI
         }
 
         //sửa
-        public frmThemSuaKhachHang(KhachHang kh)
+        public frmThemSuaKhachHang(DTO.KhachHang kh)
         {
             InitializeComponent();
 
@@ -58,7 +59,7 @@ namespace QUANLYBANHANG.GUI
             FillDuLieu(kh);
         }
 
-        private void FillDuLieu(KhachHang kh)
+        private void FillDuLieu(DTO.KhachHang kh)
         {
             rbKhachLe.Checked = kh.LaKhachLe;
             cbConQuanLy.Checked = kh.ConQuanLy;
@@ -91,7 +92,7 @@ namespace QUANLYBANHANG.GUI
             }
             else
             {
-                KhachHang kh = new KhachHang();
+                DTO.KhachHang kh = new DTO.KhachHang();
                 kh.MaKH = txtMaKhachHang.Text;
                 kh.LaKhachLe = rbKhachLe.Checked;
                 kh.ConQuanLy = cbConQuanLy.Checked;
@@ -118,7 +119,7 @@ namespace QUANLYBANHANG.GUI
                     int kq = nv_kh.ThemKhachHang(kh);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        ThemThanhCong();
                         MessageBox.Show("Thêm Khách Hàng thành công");
                     }
                     else
@@ -129,7 +130,7 @@ namespace QUANLYBANHANG.GUI
                     int kq = nv_kh.CapNhatKhachHang(kh);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        CapNhatThanhCong();
                         MessageBox.Show("Cập nhật Khách Hàng thành công");
                     }
                     else

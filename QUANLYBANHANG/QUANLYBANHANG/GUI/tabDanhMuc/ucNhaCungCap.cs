@@ -17,16 +17,28 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 {
     public partial class ucNhaCungCap : DevExpress.XtraEditors.XtraUserControl
     {
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // username
+        string user;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Nhà Cung Cấp";
+
         NGHIEPVU_NHACUNGCAP nv_ncc = new NGHIEPVU_NHACUNGCAP();
 
         //chỉ số dòng hiện tại
         int CurRowIndex;
 
 
-        public ucNhaCungCap(VaiTro_ChucNang phanquyenncc)
+        public ucNhaCungCap(VaiTro_ChucNang phanquyenncc, string un)
         {
             InitializeComponent();
             Load += new EventHandler(ucNhaCungCap_Load);
+
+            user = un;
 
             //sự kiện button
             btnThem.Click += BtnThem_Click;
@@ -74,6 +86,28 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             }
         }
 
+        private void AddNhatKy(string hanhDong)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = TenChucNang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
+        }
+
+        private void NhatKySua()
+        {
+            AddNhatKy("Cập Nhật");
+        }
+
+        private void NhatKyThem()
+        {
+            AddNhatKy("Thêm");
+        }
+
         private void GvNhaCungCap_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
             if (CurRowIndex >= 0)
@@ -100,6 +134,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 
         public void ucNhaCungCap_Load(object sender, EventArgs e)
         {
+            AddNhatKy("Xem");
             FillGridView();
         }
 
@@ -123,6 +158,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                 {
                     nv_ncc.XoaNCC(mancc);
                     FillGridView();
+                    AddNhatKy("Xóa");
                     MessageBox.Show("Đã Xóa");
                 }
             }
@@ -135,7 +171,8 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                 NhaCC ncc = LayNCCDangChon();
 
                 frmThemNhaCungCap frmSua = new frmThemNhaCungCap(ncc);
-                frmSua.KhiThemThanhCong += FillGridView;
+                frmSua.CapNhatThanhCong += FillGridView;
+                frmSua.CapNhatThanhCong += NhatKySua;
                 frmSua.ShowDialog();
             }
         }
@@ -170,7 +207,8 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         private void BtnThem_Click(object sender, EventArgs e)
         {
             frmThemNhaCungCap frmthem = new frmThemNhaCungCap();
-            frmthem.KhiThemThanhCong += FillGridView;
+            frmthem.ThemThanhCong += FillGridView;
+            frmthem.ThemThanhCong += NhatKyThem;
             frmthem.ShowDialog();
         }
     }

@@ -17,8 +17,9 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_TYGIA nv_tg = new NGHIEPVU_TYGIA();
 
         //event khi thêm thành công
-        public delegate void ThemTyGia();
-        public event ThemTyGia KhiThemThanhCong;
+        public delegate void dTyGia();
+        public event dTyGia ThemThanhCong;
+        public event dTyGia CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;
@@ -83,7 +84,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                         int kq = nv_tg.ThemTyGia(tg);
                         if (kq >= 1)
                         {
-                            KhiThemThanhCong();
+                            ThemThanhCong();
                             MessageBox.Show("Thêm thành công");
                         }
                         else
@@ -94,7 +95,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                         int kq = nv_tg.CapNhatTyGia(tg);
                         if (kq >= 1)
                         {
-                            KhiThemThanhCong();
+                            CapNhatThanhCong();
                             MessageBox.Show("Cập nhật thành công");
                         }
                         else

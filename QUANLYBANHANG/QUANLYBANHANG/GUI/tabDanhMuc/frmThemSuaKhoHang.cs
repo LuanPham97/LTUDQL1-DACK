@@ -19,8 +19,9 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_KHOHANG nv_kho = new NGHIEPVU_KHOHANG();
 
         //event khi thêm kho hàng thành công
-        public delegate void ThemKhoHang();
-        public event ThemKhoHang KhiThemThanhCong;
+        public delegate void dKhoHang();
+        public event dKhoHang ThemThanhCong;
+        public event dKhoHang CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;
@@ -103,7 +104,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_kho.ThemKhoHang(kho);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        ThemThanhCong();
                         MessageBox.Show("Thêm thành công!");
                     }
                     else
@@ -116,7 +117,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_kho.CapNhatKho(kho);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        CapNhatThanhCong();
                         MessageBox.Show("Cập nhật thành công!");
                     }
                     else

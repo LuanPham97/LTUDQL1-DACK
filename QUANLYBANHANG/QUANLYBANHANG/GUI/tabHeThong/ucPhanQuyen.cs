@@ -19,6 +19,16 @@ namespace QUANLYBANHANG.GUI
 {
     public partial class ucPhanQuyen : UserControl
     {
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // username
+        string user;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Phân Quyền";
+
         NGHIEPVU_VAITRO nv_vt = new NGHIEPVU_VAITRO();
         NGHIEPVU_NGUOIDUNG nv_nd = new NGHIEPVU_NGUOIDUNG();
         NGHIEPVU_VAITRO_CHUCNANG nv_vtcn = new NGHIEPVU_VAITRO_CHUCNANG();
@@ -29,10 +39,11 @@ namespace QUANLYBANHANG.GUI
         string TenVT = null;
         string TenDangNhap = null;
 
-        public ucPhanQuyen(VaiTro_ChucNang phanquyenPQ)
+        public ucPhanQuyen(VaiTro_ChucNang phanquyenPQ, string un)
         {
             InitializeComponent();
 
+            user = un;
             Load += UcPhanQuyen_Load;
 
             this.ContextMenuStrip = ctmsPhanQuyen;
@@ -65,6 +76,38 @@ namespace QUANLYBANHANG.GUI
                 btnSua.Enabled = phanquyenPQ.Sua == 0 ? false : true;
                 btnXoa.Enabled = phanquyenPQ.Xoa == 0 ? false : true;
             }
+        }
+
+        private void AddNhatKy(string hanhDong, string chucnang)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = chucnang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
+        }
+
+        private void NhatKySuaVaiTro()
+        {
+            AddNhatKy("Cập Nhật", "Vai Trò");
+        }
+
+        private void NhatKyThemVaiTro()
+        {
+            AddNhatKy("Thêm", "Vai Trò");
+        }
+
+        private void NhatKySuaNguoiDung()
+        {
+            AddNhatKy("Cập Nhật", "Người Dùng");
+        }
+
+        private void NhatKyThemNguoiDung()
+        {
+            AddNhatKy("Thêm", "Người Dùng");
         }
 
         private void TlBPQ_MouseUp(object sender, MouseEventArgs e)
@@ -131,14 +174,16 @@ namespace QUANLYBANHANG.GUI
             {
                 VaiTro vt = LayVaiTroDangChon();
                 frmThemSuaVaiTro frmvt = new frmThemSuaVaiTro(vt);
-                frmvt.KhiThemThanhCong += FillTreeView;
+                frmvt.CapNhatThanhCong += FillTreeView;
+                frmvt.CapNhatThanhCong += NhatKySuaVaiTro;
                 frmvt.ShowDialog();
             }
             else
             {
                 NguoiDung nd = LayNguoiDungDangChon();
                 frmThemSuaNguoiDung frm = new frmThemSuaNguoiDung(nd);
-                frm.KhiThemThanhCong += FillTreeView;
+                frm.CapNhatThanhCong += FillTreeView;
+                frm.CapNhatThanhCong += NhatKySuaNguoiDung;
                 frm.ShowDialog();
             }
         }
@@ -229,6 +274,7 @@ namespace QUANLYBANHANG.GUI
 
         private void UcPhanQuyen_Load(object sender, EventArgs e)
         {
+            AddNhatKy("Xem", TenChucNang);
             FillTreeView();
         }
 
@@ -292,14 +338,16 @@ namespace QUANLYBANHANG.GUI
         private void BtnThemVaiTro_Click(object sender, EventArgs e)
         {
             frmThemSuaVaiTro frmtvt = new frmThemSuaVaiTro();
-            frmtvt.KhiThemThanhCong += FillTreeView;
+            frmtvt.ThemThanhCong += FillTreeView;
+            frmtvt.ThemThanhCong += NhatKyThemVaiTro;
             frmtvt.ShowDialog();
         }
 
         private void btnThemNguoiDung_Click(object sender, EventArgs e)
         {
             frmThemSuaNguoiDung frmnd = new frmThemSuaNguoiDung();
-            frmnd.KhiThemThanhCong += FillTreeView;
+            frmnd.ThemThanhCong += FillTreeView;
+            frmnd.ThemThanhCong += NhatKyThemNguoiDung;
             frmnd.ShowDialog();
         }
     }

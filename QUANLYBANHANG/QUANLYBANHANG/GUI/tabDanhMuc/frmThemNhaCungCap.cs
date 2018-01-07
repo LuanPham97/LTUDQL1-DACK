@@ -19,8 +19,9 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_NHACUNGCAP nv_ncc = new NGHIEPVU_NHACUNGCAP();
 
         //event khi thêm thành công
-        public delegate void ThemNCC();
-        public event ThemNCC KhiThemThanhCong;
+        public delegate void dNCC();
+        public event dNCC ThemThanhCong;
+        public event dNCC CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;
@@ -114,7 +115,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_ncc.ThemNCC(ncc);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        ThemThanhCong();
                         MessageBox.Show("Thêm Nhà Cung Cấp thành công");
                     }
                     else
@@ -125,7 +126,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_ncc.CapNhatNCC(ncc);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        CapNhatThanhCong();
                         MessageBox.Show("Cập nhật Nhà Cung Cấp thành công");
                     }
                     else

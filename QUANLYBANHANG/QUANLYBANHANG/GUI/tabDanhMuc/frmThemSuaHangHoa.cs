@@ -26,8 +26,9 @@ namespace QUANLYBANHANG.GUI
         int Cur_State = 1;
 
         // sự kiện sau khi thêm sửa
-        public delegate void ThayDoiDuLieuHangHoa();
-        public event ThayDoiDuLieuHangHoa KhiThayDoi;
+        public delegate void dHangHoa();
+        public event dHangHoa ThemThanhCong;
+        public event dHangHoa CapNhatThanhCong;
 
         // dùng để thêm
         public frmThemSuaHangHoa()
@@ -44,7 +45,7 @@ namespace QUANLYBANHANG.GUI
         }
 
         // dùng để sửa
-        public frmThemSuaHangHoa(HangHoa hh)
+        public frmThemSuaHangHoa(DTO.HangHoa hh)
         {
             InitializeComponent();
 
@@ -57,7 +58,7 @@ namespace QUANLYBANHANG.GUI
             FillDuLieu(hh);
         }
 
-        private void FillDuLieu(HangHoa hh)
+        private void FillDuLieu(DTO.HangHoa hh)
         {
             FillCbLoaiHangHoa();
             FillCbKhoMacDinh();
@@ -85,7 +86,7 @@ namespace QUANLYBANHANG.GUI
 
         private void btnLuu_click(object sender, EventArgs e)
         {
-            HangHoa hh = new HangHoa()
+            DTO.HangHoa hh = new DTO.HangHoa()
             {
                 LoaiHangHoa = cbLoaiHH.Text,
                 KhoMacDinh = lkueKhoMacDinh.EditValue.ToString(),
@@ -109,7 +110,7 @@ namespace QUANLYBANHANG.GUI
                 int kq = nv_hh.ThemHangHoa(hh);
                 if (kq == 1)
                 {
-                    KhiThayDoi();
+                    ThemThanhCong();
                     MessageBox.Show("Thêm hàng hóa thành công !");
                 }
                 else
@@ -121,7 +122,7 @@ namespace QUANLYBANHANG.GUI
                 int kq = nv_hh.CapNhatHangHoa(hh);
                 if (kq == 1)
                 {
-                    KhiThayDoi();
+                    CapNhatThanhCong();
                     MessageBox.Show("Cập nhật hàng hóa thành công !");
                 }
                 else

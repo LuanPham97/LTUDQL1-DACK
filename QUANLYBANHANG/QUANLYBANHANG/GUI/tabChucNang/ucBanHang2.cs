@@ -15,11 +15,22 @@ using DevExpress.XtraEditors.Repository;
 using QUANLYBANHANG.BUS;
 using System.Drawing.Printing;
 using PagedList;
+using QUANLYBANHANG.GUI.tabDanhMuc;
 
 namespace QUANLYBANHANG.GUI
 {
     public partial class ucBanHang2 : UserControl
     {
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // username
+        string user;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Bán Hàng";
+
         NGHIEPVU_PHIEUXUAT nv_px = new NGHIEPVU_PHIEUXUAT();
         NGHIEPVU_CT_PHIEUXUAT nv_ctpx = new NGHIEPVU_CT_PHIEUXUAT();
         NGHIEPVU_HANGHOA nv_hh = new NGHIEPVU_HANGHOA();
@@ -36,9 +47,11 @@ namespace QUANLYBANHANG.GUI
 
         Bitmap bmp;
 
-        public ucBanHang2(VaiTro_ChucNang vtbh)
+        public ucBanHang2(VaiTro_ChucNang vtbh, string un)
         {
             InitializeComponent();
+
+            user = un;
 
             Load += UcBanHang2_Load;
 
@@ -51,6 +64,7 @@ namespace QUANLYBANHANG.GUI
             btnHangHoa.Click += BtnHangHoa_Click;
             btnLuu.Click += BtnLuu_Click;
             btnKhachHang.Click += BtnKhachHang_Click;
+            btnKhoHang.Click += BtnKhoHang_Click;
             //btnPhieuBanHang.Click += BtnPhieuBanHang_Click;
 
             //sự kiện tsmi
@@ -87,6 +101,42 @@ namespace QUANLYBANHANG.GUI
             }
         }
 
+        private void BtnKhoHang_Click(object sender, EventArgs e)
+        {
+            frmThemSuaKhoHang frmkh = new frmThemSuaKhoHang();
+            frmkh.ThemThanhCong += NapDuLieu;
+            frmkh.ThemThanhCong += NhatKyThemKhoHang;
+            frmkh.ShowDialog();
+            NapDuLieu();
+        }
+
+        private void AddNhatKy(string hanhDong, string chucnang)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = chucnang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
+        }
+
+        private void NhatKyThemHangHoa()
+        {
+            AddNhatKy("Thêm", "Hàng Hóa");
+        }
+
+        private void NhatKyThemKhachHang()
+        {
+            AddNhatKy("Thêm", "Khách Hàng");
+        }
+
+        private void NhatKyThemKhoHang()
+        {
+            AddNhatKy("Thêm", "Kho Hàng");
+        }
+
         private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(bmp, 0, 0);
@@ -100,7 +150,8 @@ namespace QUANLYBANHANG.GUI
         private void BtnKhachHang_Click(object sender, EventArgs e)
         {
             frmThemSuaKhachHang frmkh = new frmThemSuaKhachHang();
-            frmkh.KhiThemThanhCong += NapDuLieu;
+            frmkh.ThemThanhCong += NapDuLieu;
+            frmkh.ThemThanhCong += NhatKyThemKhachHang;
             frmkh.ShowDialog();
             NapDuLieu();
         }
@@ -181,12 +232,14 @@ namespace QUANLYBANHANG.GUI
                         nv_hh.CapNhatSlTon(ct.MaHang, ct.SoLuong, 0);
                     }
 
+                    AddNhatKy("Thêm", TenChucNang);
                     MessageBox.Show("Thêm thành công");
                 }
 
                 if(cbInSauKhiLuu.Checked)
                 {
                     //print preview
+                    AddNhatKy("In", TenChucNang);
                     PrintPreview();
                 }
             }
@@ -213,6 +266,9 @@ namespace QUANLYBANHANG.GUI
         {
             if (e.Button == MouseButtons.Right)
             {
+                if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                    return;
+
                 rowIndex = e.RowIndex;
                 colIndex = e.ColumnIndex;
 
@@ -234,14 +290,14 @@ namespace QUANLYBANHANG.GUI
         private void BtnHangHoa_Click(object sender, EventArgs e)
         {
             frmThemSuaHangHoa frmhh = new frmThemSuaHangHoa();
-            frmhh.KhiThayDoi += NapDuLieu;
+            frmhh.ThemThanhCong += NapDuLieu;
+            frmhh.ThemThanhCong += NhatKyThemHangHoa;
             frmhh.ShowDialog();
         }
 
         private void BtnNapLai_Click(object sender, EventArgs e)
         {
             NapDuLieu();
-
         }
 
         private void BtnTaoMoi_Click(object sender, EventArgs e)
@@ -497,6 +553,8 @@ namespace QUANLYBANHANG.GUI
 
         private void UcBanHang2_Load(object sender, EventArgs e)
         {
+            AddNhatKy("Xem", TenChucNang);
+
             NapDuLieu();
             ResetForm();
 

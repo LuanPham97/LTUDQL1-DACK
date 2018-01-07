@@ -19,18 +19,44 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 {
     public partial class ucTonKho : DevExpress.XtraEditors.XtraUserControl
     {
-        public ucTonKho(VaiTro_ChucNang pqtk)
+
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // username
+        string user;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Tồn Kho";
+
+        public ucTonKho(VaiTro_ChucNang pqtk, string un)
         {
             InitializeComponent();
 
+            user = un;
             Load += UcTonKho_Load;
 
+            // button
             btnXuat.Click += BtnXuat_Click;
             btnIn.Click += BtnIn_Click;
             btnXem.Click += BtnXem_Click;
             btnXemAll.Click += BtnXemAll_Click;
 
+            // button radial menu
+            bbiIn.ItemClick += BtnIn_Click;
+            bbiXuat.ItemClick += BtnXuat_Click;
+            bbiXemAll.ItemClick += BtnXemAll_Click;
+            bbiXem.ItemClick += BtnXem_Click;
+
+            //radial menu
+            bbiIn.CloseRadialMenuOnItemClick = true;
+            bbiXem.CloseRadialMenuOnItemClick = true;
+            bbiXemAll.CloseRadialMenuOnItemClick = true;
+            bbiXuat.CloseRadialMenuOnItemClick = true;
+
             gvTonKho.ShowingEditor += GvTonKho_ShowingEditor;
+            gvTonKho.PopupMenuShowing += GvTonKho_PopupMenuShowing;
 
             //phân quyền dựa vào bảng vai trò chức năng đã được gửi qua
             if (pqtk != null)
@@ -40,6 +66,24 @@ namespace QUANLYBANHANG.GUI.tabChucNang
                     btnXuat.Enabled = false;
                 }
             }
+        }
+
+        private void GvTonKho_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            e.Allow = false;
+            rdmTonKho.ShowPopup(gcTonKho.PointToScreen(e.Point));
+        }
+
+        private void AddNhatKy(string hanhDong)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = TenChucNang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
         }
 
         private void BtnXemAll_Click(object sender, EventArgs e)
@@ -64,6 +108,7 @@ namespace QUANLYBANHANG.GUI.tabChucNang
             }
             else
             {
+                AddNhatKy("In");
                 Cursor.Current = Cursors.WaitCursor;
                 gcTonKho.ShowPrintPreview();
             }
@@ -97,6 +142,8 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 
                 if (File.Exists(FilePath))
                 {
+                    AddNhatKy("Xuất File");
+
                     if (MessageBox.Show("Bạn có muốn mở file lên không?", "Mở File Đã Xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         try
@@ -130,6 +177,7 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 
         private void UcTonKho_Load(object sender, EventArgs e)
         {
+            AddNhatKy("Xem");
             FillCbKho();
             FillGridView(null);
         }

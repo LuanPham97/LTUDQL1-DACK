@@ -12,11 +12,22 @@ using QUANLYBANHANG.DAO;
 using System.Data.SqlClient;
 using QUANLYBANHANG.BUS;
 using System.Drawing.Printing;
+using QUANLYBANHANG.GUI.tabDanhMuc;
 
 namespace QUANLYBANHANG.GUI.tabChucNang
 {
     public partial class ucMuaHang : UserControl
     {
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // username
+        string user;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Mua Hàng";
+
         NGHIEPVU_PHIEUNHAP nv_pn = new NGHIEPVU_PHIEUNHAP();
         NGHIEPVU_CT_PHIEUNHAP nv_ctpn = new NGHIEPVU_CT_PHIEUNHAP();
         NGHIEPVU_HANGHOA nv_hh = new NGHIEPVU_HANGHOA();
@@ -33,10 +44,11 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 
         Bitmap bmp;
 
-        public ucMuaHang(VaiTro_ChucNang vtpq)
+        public ucMuaHang(VaiTro_ChucNang vtpq, string un)
         {
             InitializeComponent();
 
+            user = un;
             Load += UcMuaHang_Load;
 
             //print 
@@ -48,6 +60,7 @@ namespace QUANLYBANHANG.GUI.tabChucNang
             btnHangHoa.Click += BtnHangHoa_Click;
             btnLuu.Click += BtnLuu_Click;
             btnKhachHang.Click += BtnKhachHang_Click;
+            btnKhoHang.Click += BtnKhoHang_Click;
             //btnPhieuBanHang.Click += BtnPhieuBanHang_Click;
 
             //sự kiện tsmi
@@ -82,6 +95,42 @@ namespace QUANLYBANHANG.GUI.tabChucNang
                     tsmiLuuvaDong.Enabled = false;
                 }
             }
+        }
+
+        private void BtnKhoHang_Click(object sender, EventArgs e)
+        {
+            frmThemSuaKhoHang frmkh = new frmThemSuaKhoHang();
+            frmkh.ThemThanhCong += NapDuLieu;
+            frmkh.ThemThanhCong += NhatKyThemKhoHang;
+            frmkh.ShowDialog();
+            NapDuLieu();
+        }
+
+        private void AddNhatKy(string hanhDong, string cn)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = cn;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
+        }
+
+        private void NhatKyThemHangHoa()
+        {
+            AddNhatKy("Thêm", "Hàng Hóa");
+        }
+
+        private void NhatKyThemKhachHang()
+        {
+            AddNhatKy("Thêm", "Khách Hàng");
+        }
+
+        private void NhatKyThemKhoHang()
+        {
+            AddNhatKy("Thêm", "Kho Hàng");
         }
 
         private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
@@ -139,11 +188,13 @@ namespace QUANLYBANHANG.GUI.tabChucNang
                     nv_hh.CapNhatSlTon(ct.MaHang, ct.SoLuong, 1);
                 }
 
+                AddNhatKy("Thêm", TenChucNang);
                 MessageBox.Show("Thêm thành công");
 
                 if (cbInSauKhiLuu.Checked)
                 {
                     //print preview
+                    AddNhatKy("In", TenChucNang);
                     PrintPreview();
                 }
             }
@@ -179,7 +230,8 @@ namespace QUANLYBANHANG.GUI.tabChucNang
         private void BtnKhachHang_Click(object sender, EventArgs e)
         {
             frmThemSuaKhachHang frmkh = new frmThemSuaKhachHang();
-            frmkh.KhiThemThanhCong += NapDuLieu;
+            frmkh.ThemThanhCong += NapDuLieu;
+            frmkh.ThemThanhCong += NhatKyThemKhachHang;
             frmkh.ShowDialog();
             NapDuLieu();
         }
@@ -187,7 +239,8 @@ namespace QUANLYBANHANG.GUI.tabChucNang
         private void BtnHangHoa_Click(object sender, EventArgs e)
         {
             frmThemSuaHangHoa frmhh = new frmThemSuaHangHoa();
-            frmhh.KhiThayDoi += NapDuLieu;
+            frmhh.ThemThanhCong += NapDuLieu;
+            frmhh.ThemThanhCong += NhatKyThemHangHoa;
             frmhh.ShowDialog();
         }
 
@@ -301,6 +354,9 @@ namespace QUANLYBANHANG.GUI.tabChucNang
         {
             if (e.Button == MouseButtons.Right)
             {
+                if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                    return;
+
                 rowIndex = e.RowIndex;
                 colIndex = e.ColumnIndex;
 
@@ -455,6 +511,7 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 
         private void UcMuaHang_Load(object sender, EventArgs e)
         {
+            AddNhatKy("Xem",TenChucNang);
             NapDuLieu();
             ResetForm();
             FillCbDKTT();//điều khoản thanh toán

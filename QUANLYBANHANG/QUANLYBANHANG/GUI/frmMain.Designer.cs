@@ -49,6 +49,7 @@
             this.btnSaoLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuyenKho = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThongTin = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgBaoMat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -64,7 +65,7 @@
             this.rpgThongTin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
-            this.btnThongTin = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhatKy = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -94,9 +95,10 @@
             this.btnSaoLuu,
             this.btnPhucHoi,
             this.btnChuyenKho,
-            this.btnThongTin});
+            this.btnThongTin,
+            this.btnNhatKy});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 26;
+            this.rbcMain.MaxItemId = 27;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -257,6 +259,14 @@
             this.btnChuyenKho.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenKho.ImageOptions.LargeImage")));
             this.btnChuyenKho.Name = "btnChuyenKho";
             // 
+            // btnThongTin
+            // 
+            this.btnThongTin.Caption = "Thông Tin";
+            this.btnThongTin.Id = 25;
+            this.btnThongTin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThongTin.ImageOptions.Image")));
+            this.btnThongTin.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThongTin.ImageOptions.LargeImage")));
+            this.btnThongTin.Name = "btnThongTin";
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -270,6 +280,7 @@
             // 
             this.rpgBaoMat.ItemLinks.Add(this.btnPhanQuyen);
             this.rpgBaoMat.ItemLinks.Add(this.btnDoiMatKhau);
+            this.rpgBaoMat.ItemLinks.Add(this.btnNhatKy);
             this.rpgBaoMat.Name = "rpgBaoMat";
             this.rpgBaoMat.Text = "Bảo Mật";
             // 
@@ -371,13 +382,13 @@
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
             // 
-            // btnThongTin
+            // btnNhatKy
             // 
-            this.btnThongTin.Caption = "Thông Tin";
-            this.btnThongTin.Id = 25;
-            this.btnThongTin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnThongTin.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnThongTin.Name = "btnThongTin";
+            this.btnNhatKy.Caption = "Nhật Ký Hệ Thống";
+            this.btnNhatKy.Id = 26;
+            this.btnNhatKy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnNhatKy.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnNhatKy.Name = "btnNhatKy";
             // 
             // frmMain
             // 
@@ -439,6 +450,7 @@
         private DevExpress.XtraBars.BarButtonItem btnPhucHoi;
         private DevExpress.XtraBars.BarButtonItem btnChuyenKho;
         private DevExpress.XtraBars.BarButtonItem btnThongTin;
+        private DevExpress.XtraBars.BarButtonItem btnNhatKy;
     }
 }
 

@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucTonKho));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnXemAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnIn = new DevExpress.XtraEditors.DropDownButton();
             this.btnXuat = new DevExpress.XtraEditors.SimpleButton();
             this.btnXem = new DevExpress.XtraEditors.SimpleButton();
@@ -47,7 +49,16 @@
             this.colConQuanLy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.saveFileDialogExcel = new System.Windows.Forms.SaveFileDialog();
-            this.btnXemAll = new DevExpress.XtraEditors.SimpleButton();
+            this.rdmTonKho = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
+            this.bbiXem = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiIn = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiXemAll = new DevExpress.XtraBars.BarButtonItem();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,6 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcTonKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTonKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdmTonKho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -92,6 +105,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(472, 32);
             this.panel1.TabIndex = 2;
+            // 
+            // btnXemAll
+            // 
+            this.btnXemAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXemAll.ImageOptions.Image")));
+            this.btnXemAll.Location = new System.Drawing.Point(261, 3);
+            this.btnXemAll.Name = "btnXemAll";
+            this.btnXemAll.Size = new System.Drawing.Size(98, 27);
+            this.btnXemAll.TabIndex = 5;
+            this.btnXemAll.Text = "Xem Tất Cả";
             // 
             // btnIn
             // 
@@ -235,19 +257,106 @@
             this.repositoryItemCheckEdit1.AutoHeight = false;
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
-            // btnXemAll
+            // rdmTonKho
             // 
-            this.btnXemAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnXemAll.Location = new System.Drawing.Point(261, 3);
-            this.btnXemAll.Name = "btnXemAll";
-            this.btnXemAll.Size = new System.Drawing.Size(98, 27);
-            this.btnXemAll.TabIndex = 5;
-            this.btnXemAll.Text = "Xem Tất Cả";
+            this.rdmTonKho.AutoExpand = true;
+            this.rdmTonKho.InnerRadius = 0;
+            this.rdmTonKho.ItemAutoSize = DevExpress.XtraBars.Ribbon.RadialMenuItemAutoSize.Spring;
+            this.rdmTonKho.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiXem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiXuat),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiIn),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiXemAll)});
+            this.rdmTonKho.Manager = this.barManager1;
+            this.rdmTonKho.MenuRadius = 135;
+            this.rdmTonKho.Name = "rdmTonKho";
+            // 
+            // bbiXem
+            // 
+            this.bbiXem.Caption = "Xem";
+            this.bbiXem.Id = 0;
+            this.bbiXem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiThem.ImageOptions.Image")));
+            this.bbiXem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiThem.ImageOptions.LargeImage")));
+            this.bbiXem.Name = "bbiXem";
+            // 
+            // bbiXuat
+            // 
+            this.bbiXuat.Caption = "Xuất";
+            this.bbiXuat.Id = 1;
+            this.bbiXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSua.ImageOptions.Image")));
+            this.bbiXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSua.ImageOptions.LargeImage")));
+            this.bbiXuat.Name = "bbiXuat";
+            // 
+            // bbiIn
+            // 
+            this.bbiIn.Caption = "In";
+            this.bbiIn.Id = 2;
+            this.bbiIn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiDong.ImageOptions.Image")));
+            this.bbiIn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiDong.ImageOptions.LargeImage")));
+            this.bbiIn.Name = "bbiIn";
+            // 
+            // bbiXemAll
+            // 
+            this.bbiXemAll.Caption = "Xem Tất Cả";
+            this.bbiXemAll.Id = 3;
+            this.bbiXemAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiXoa.ImageOptions.Image")));
+            this.bbiXemAll.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiXoa.ImageOptions.LargeImage")));
+            this.bbiXemAll.Name = "bbiXemAll";
+            // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bbiXem,
+            this.bbiXuat,
+            this.bbiIn,
+            this.bbiXemAll});
+            this.barManager1.MaxItemId = 4;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(785, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 431);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(785, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 431);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(785, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 431);
             // 
             // ucTonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ucTonKho";
             this.Size = new System.Drawing.Size(785, 431);
@@ -261,7 +370,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcTonKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTonKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdmTonKho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -286,5 +398,15 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private System.Windows.Forms.SaveFileDialog saveFileDialogExcel;
         private DevExpress.XtraEditors.SimpleButton btnXemAll;
+        private DevExpress.XtraBars.Ribbon.RadialMenu rdmTonKho;
+        private DevExpress.XtraBars.BarButtonItem bbiXem;
+        private DevExpress.XtraBars.BarButtonItem bbiXuat;
+        private DevExpress.XtraBars.BarButtonItem bbiIn;
+        private DevExpress.XtraBars.BarButtonItem bbiXemAll;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }

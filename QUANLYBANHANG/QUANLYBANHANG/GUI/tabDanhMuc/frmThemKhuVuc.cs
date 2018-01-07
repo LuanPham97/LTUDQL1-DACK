@@ -19,9 +19,9 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_KHUVUC nv_kv = new NGHIEPVU_KHUVUC();
 
         //event khi thêm khu vực thành công
-        public delegate void KhuVuc();
-        public event KhuVuc ThemThanhCong;
-        public event KhuVuc CapNhatThanhCong;
+        public delegate void dKhuVuc();
+        public event dKhuVuc ThemThanhCong;
+        public event dKhuVuc CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;

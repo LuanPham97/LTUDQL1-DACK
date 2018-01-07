@@ -19,8 +19,9 @@ namespace QUANLYBANHANG.GUI.HeThong
         NGHIEPVU_NGUOIDUNG nv_nd = new NGHIEPVU_NGUOIDUNG();
 
         //event khi thêm thành công
-        public delegate void ThemThanhCong();
-        public event ThemThanhCong KhiThemThanhCong;
+        public delegate void dNguoiDung();
+        public event dNguoiDung ThemThanhCong;
+        public event dNguoiDung CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         int Cur_State = 1;
@@ -146,7 +147,7 @@ namespace QUANLYBANHANG.GUI.HeThong
                         int kq = nv_nd.ThemNguoiDung(nd);
                         if (kq >= 1)
                         {
-                            KhiThemThanhCong();
+                            ThemThanhCong();
                             MessageBox.Show("Thêm người dùng thành công");
                         }
                         else
@@ -161,7 +162,7 @@ namespace QUANLYBANHANG.GUI.HeThong
                         int kq = nv_nd.CapNhatNguoiDung(nd);
                         if (kq >= 1)
                         {
-                            KhiThemThanhCong();
+                            CapNhatThanhCong();
                             MessageBox.Show("Cập nhật người dùng thành công");
                         }
                         else

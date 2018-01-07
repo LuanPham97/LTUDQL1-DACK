@@ -19,8 +19,9 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_DONVITINH nv_dvt = new NGHIEPVU_DONVITINH();
 
         //event khi thêm đơn vị tính thành công
-        public delegate void ThemDonViTinh();
-        public event ThemDonViTinh KhiThemThanhCong;
+        public delegate void dDonViTinh();
+        public event dDonViTinh ThemThanhCong;
+        public event dDonViTinh CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;
@@ -40,7 +41,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         }
 
         //dùng để sửa
-        public frmThemDonViTinh(DonViTinh dvt)
+        public frmThemDonViTinh(DTO.DonViTinh dvt)
         {
             InitializeComponent();
 
@@ -54,7 +55,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             FillDuLieu(dvt);
         }
 
-        private void FillDuLieu(DonViTinh dvt)
+        private void FillDuLieu(DTO.DonViTinh dvt)
         {
             txtMaDVTinh.Text = dvt.MaDVTinh;
             txtMaDVTinh.ReadOnly = true;
@@ -74,7 +75,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                 MessageBox.Show("Không được bỏ trống Tên Đơn Vị Tính");
             else
             {
-                DonViTinh dvt = new DonViTinh();
+                DTO.DonViTinh dvt = new DTO.DonViTinh();
                 dvt.MaDVTinh = txtMaDVTinh.Text;
                 dvt.TenDVTinh = txtTenDVTinh.Text;
                 dvt.GhiChu = txtGhiChu.Text;
@@ -85,7 +86,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_dvt.ThemDVTinh(dvt);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        ThemThanhCong();
                         MessageBox.Show("Thêm thành công");
                     }
                     else
@@ -96,7 +97,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_dvt.CapNhatDVTinh(dvt);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        CapNhatThanhCong();
                         MessageBox.Show("Cập nhật thành công");
                     }
                     else

@@ -18,8 +18,9 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         NGHIEPVU_NHOMHANG nv_nh = new NGHIEPVU_NHOMHANG();
 
         //event khi thêm thành công
-        public delegate void ThemNhomHang();
-        public event ThemNhomHang KhiThemThanhCong;
+        public delegate void dNhomHang();
+        public event dNhomHang ThemThanhCong;
+        public event dNhomHang CapNhatThanhCong;
 
         // lưu trạng thái là đang thêm đang sửa
         bool isInsert;
@@ -39,7 +40,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
         }
 
         //dùng để sửa
-        public frmThemNhomHang(NhomHang nh)
+        public frmThemNhomHang(DTO.NhomHang nh)
         {
             InitializeComponent();
 
@@ -53,7 +54,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             FillNhomHang(nh);
         }
 
-        private void FillNhomHang(NhomHang nh)
+        private void FillNhomHang(DTO.NhomHang nh)
         {
             txtMaNhomHang.Text = nh.MaNhomHang;
             txtMaNhomHang.ReadOnly = true;
@@ -68,7 +69,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                 MessageBox.Show("Không được bỏ trống Tên Nhóm Hàng");
             else
             {
-                NhomHang nh = new NhomHang();
+                DTO.NhomHang nh = new DTO.NhomHang();
                 nh.MaNhomHang = txtMaNhomHang.Text;
                 nh.TenNhomHang = txtTenNhomHang.Text;
                 nh.GhiChu = txtGhiChu.Text;
@@ -79,7 +80,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_nh.ThemNhomHang(nh);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        ThemThanhCong();
                         MessageBox.Show("Thêm thành công");
                     }
                     else
@@ -90,7 +91,7 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                     int kq = nv_nh.CapNhatNhomHang(nh);
                     if (kq >= 1)
                     {
-                        KhiThemThanhCong();
+                        CapNhatThanhCong();
                         MessageBox.Show("Cập nhật thành công");
                     }
                     else

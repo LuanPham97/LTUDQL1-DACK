@@ -44,7 +44,6 @@
             this.tlQuyenHan = new DevExpress.XtraTreeList.TreeList();
             this.colTenChucNang = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colTatCa = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colTruyCap = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colThem = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colXoa = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -53,14 +52,15 @@
             this.colNhap = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colXuat = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.quanLyBanHang_DoAnDataSet1 = new QUANLYBANHANG.QuanLyBanHang_DoAnDataSet();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.chucnangTableAdapter1 = new QUANLYBANHANG.QuanLyBanHang_DoAnDataSetTableAdapters.CHUCNANGTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tlQuyenHan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyBanHang_DoAnDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -146,13 +146,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnLuu);
-            this.groupBox1.Controls.Add(this.btnDong);
             this.groupBox1.Controls.Add(this.tlQuyenHan);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 119);
+            this.groupBox1.Location = new System.Drawing.Point(0, 94);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(911, 402);
+            this.groupBox1.Size = new System.Drawing.Size(911, 360);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quyền Hạn";
@@ -160,7 +157,7 @@
             // btnLuu
             // 
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(682, 359);
+            this.btnLuu.Location = new System.Drawing.Point(682, 460);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(93, 37);
             this.btnLuu.TabIndex = 3;
@@ -169,7 +166,7 @@
             // btnDong
             // 
             this.btnDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDong.ImageOptions.Image")));
-            this.btnDong.Location = new System.Drawing.Point(806, 359);
+            this.btnDong.Location = new System.Drawing.Point(806, 460);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(93, 37);
             this.btnDong.TabIndex = 4;
@@ -197,7 +194,7 @@
             this.tlQuyenHan.ParentFieldName = "MaCha";
             this.tlQuyenHan.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.tlQuyenHan.Size = new System.Drawing.Size(905, 383);
+            this.tlQuyenHan.Size = new System.Drawing.Size(905, 341);
             this.tlQuyenHan.TabIndex = 0;
             // 
             // colTenChucNang
@@ -218,11 +215,6 @@
             this.colTatCa.Visible = true;
             this.colTatCa.VisibleIndex = 1;
             this.colTatCa.Width = 87;
-            // 
-            // repositoryItemCheckEdit1
-            // 
-            this.repositoryItemCheckEdit1.AutoHeight = false;
-            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // colTruyCap
             // 
@@ -292,21 +284,28 @@
             this.quanLyBanHang_DoAnDataSet1.DataSetName = "QuanLyBanHang_DoAnDataSet";
             this.quanLyBanHang_DoAnDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
             // chucnangTableAdapter1
             // 
             this.chucnangTableAdapter1.ClearBeforeFill = true;
             // 
-            // frmThemVaiTro
+            // frmThemSuaVaiTro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 521);
+            this.ClientSize = new System.Drawing.Size(911, 502);
+            this.Controls.Add(this.btnLuu);
+            this.Controls.Add(this.btnDong);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmThemVaiTro";
+            this.Name = "frmThemSuaVaiTro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Vai Trò";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -315,8 +314,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlQuyenHan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyBanHang_DoAnDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }

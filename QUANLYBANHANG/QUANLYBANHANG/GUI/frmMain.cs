@@ -35,6 +35,8 @@ namespace QUANLYBANHANG
         {
             InitializeComponent();
 
+            Load += FrmMain_Load;
+
             username = tendangnhap;
 
             // tab hệ thống
@@ -44,6 +46,7 @@ namespace QUANLYBANHANG
             btnSaoLuu.ItemClick += BtnSaoLuu_ItemClick;
             btnPhucHoi.ItemClick += BtnPhucHoi_ItemClick;
             btnTonKho.ItemClick += BtnTonKho_ItemClick;
+            btnNhatKy.ItemClick += BtnNhatKy_ItemClick;
 
             // tab danh mục
             btnHangHoa.ItemClick += btnHangHoa_Click;
@@ -71,6 +74,27 @@ namespace QUANLYBANHANG
             FormClosing += FrmMain_FormClosing;
         }
 
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            cNhatKyHeThong c = new cNhatKyHeThong();
+            c.ChucNang = "Hệ Thống";
+            c.HanhDong = "Đăng Nhập";
+            c.MayTinh = System.Environment.MachineName;
+            c.NguoiDung = username;
+            c.ThoiGian = DateTime.Now;
+
+            lstNhatKyFinal.Add(c);
+        }
+
+        private void BtnNhatKy_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnMain.Controls.Clear();
+
+            ucNhatKyHeThong ucdiary = new ucNhatKyHeThong(lstNhatKyFinal);
+            ucdiary.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(ucdiary);
+        }
+
         private void BtnThongTin_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmThongTin frmtt = new frmThongTin();
@@ -83,7 +107,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqck = btnChuyenKho.Tag as VaiTro_ChucNang;
 
-            ucChuyenKho ck = new ucChuyenKho(pqck);
+            ucChuyenKho ck = new ucChuyenKho(pqck,username);
+            ck.ThemNhatKyHeThong += ThemNhatKy_Main;
             ck.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ck);
         }
@@ -94,20 +119,23 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqtk = btnTonKho.Tag as VaiTro_ChucNang;
 
-            ucTonKho tk = new ucTonKho(pqtk);
+            ucTonKho tk = new ucTonKho(pqtk, username);
+            tk.ThemNhatKyHeThong += ThemNhatKy_Main;
             tk.Dock = DockStyle.Fill;
             pnMain.Controls.Add(tk);
         }
 
         private void BtnPhucHoi_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmPhucHoiDuLieu frmph = new frmPhucHoiDuLieu();
+            frmPhucHoiDuLieu frmph = new frmPhucHoiDuLieu(username);
+            frmph.ThemNhatKyHeThong += ThemNhatKy_Main;
             frmph.ShowDialog();
         }
 
         private void BtnSaoLuu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmSaoLuuDuLieu frmsl = new frmSaoLuuDuLieu();
+            frmSaoLuuDuLieu frmsl = new frmSaoLuuDuLieu(username);
+            frmsl.ThemNhatKyHeThong += ThemNhatKy_Main;
             frmsl.ShowDialog();
         }
 
@@ -119,6 +147,7 @@ namespace QUANLYBANHANG
         private void BtnDoiMatKhau_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmDoiMatKhau frmDoiMK = new frmDoiMatKhau(username);
+            frmDoiMK.ThemNhatKyHeThong += ThemNhatKy_Main;
             frmDoiMK.ShowDialog();
         }
 
@@ -128,7 +157,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqnv = btnNhanVien.Tag as VaiTro_ChucNang;
 
-            ucNhanVien nv = new ucNhanVien(pqnv);
+            ucNhanVien nv = new ucNhanVien(pqnv, username);
+            nv.ThemNhatKyHeThong += ThemNhatKy_Main;
             nv.Dock = DockStyle.Fill;
             pnMain.Controls.Add(nv);
         }
@@ -151,7 +181,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqtg = btnTyGia.Tag as VaiTro_ChucNang;
 
-            ucTyGia tg = new ucTyGia(pqtg);
+            ucTyGia tg = new ucTyGia(pqtg, username);
+            tg.ThemNhatKyHeThong += ThemNhatKy_Main;
             tg.Dock = DockStyle.Fill;
             pnMain.Controls.Add(tg);
         }
@@ -162,7 +193,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqnh = btnNhomHang.Tag as VaiTro_ChucNang;
 
-            ucNhomHang nh = new ucNhomHang(pqnh);
+            ucNhomHang nh = new ucNhomHang(pqnh, username);
+            nh.ThemNhatKyHeThong += ThemNhatKy_Main;
             nh.Dock = DockStyle.Fill;
             pnMain.Controls.Add(nh);
         }
@@ -173,7 +205,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqdvt = btnDonViTinh.Tag as VaiTro_ChucNang;
 
-            ucDonViTinh dvt = new ucDonViTinh(pqdvt);
+            ucDonViTinh dvt = new ucDonViTinh(pqdvt, username);
+            dvt.ThemNhatKyHeThong += ThemNhatKy_Main;
             dvt.Dock = DockStyle.Fill;
             pnMain.Controls.Add(dvt);
         }
@@ -206,7 +239,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqncc = btnNCC.Tag as VaiTro_ChucNang;
 
-            ucNhaCungCap ncc = new ucNhaCungCap(pqncc);
+            ucNhaCungCap ncc = new ucNhaCungCap(pqncc, username);
+            ncc.ThemNhatKyHeThong += ThemNhatKy_Main;
             ncc.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ncc);
         }
@@ -217,7 +251,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang phanquyenKH = btnKhachHang.Tag as VaiTro_ChucNang;
 
-            ucKhachHang k = new ucKhachHang(phanquyenKH);
+            ucKhachHang k = new ucKhachHang(phanquyenKH, username);
+            k.ThemNhatKyHeThong += ThemNhatKy_Main;
             k.Dock = DockStyle.Fill;
             pnMain.Controls.Add(k);
         }
@@ -228,7 +263,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang phanquyenKho = btnKhoHang.Tag as VaiTro_ChucNang;
 
-            ucKhoHang uckh = new ucKhoHang(phanquyenKho);
+            ucKhoHang uckh = new ucKhoHang(phanquyenKho, username);
+            uckh.ThemNhatKyHeThong += ThemNhatKy_Main;
             uckh.Dock = DockStyle.Fill;
             pnMain.Controls.Add(uckh);
         }
@@ -239,7 +275,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang phanquyenMH = btnMuaHang.Tag as VaiTro_ChucNang;
 
-            ucMuaHang ucmh = new ucMuaHang(phanquyenMH);
+            ucMuaHang ucmh = new ucMuaHang(phanquyenMH,username);
+            ucmh.ThemNhatKyHeThong += ThemNhatKy_Main;
             ucmh.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ucmh);
         }
@@ -250,7 +287,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang phanquyenBH = btnBanHang.Tag as VaiTro_ChucNang;
 
-            ucBanHang2 ucbh = new ucBanHang2(phanquyenBH);
+            ucBanHang2 ucbh = new ucBanHang2(phanquyenBH, username);
+            ucbh.ThemNhatKyHeThong += ThemNhatKy_Main;
             ucbh.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ucbh);
         }
@@ -341,7 +379,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang phanquyenPQ = btnPhanQuyen.Tag as VaiTro_ChucNang;
 
-            ucPhanQuyen ucpq = new ucPhanQuyen(phanquyenPQ);
+            ucPhanQuyen ucpq = new ucPhanQuyen(phanquyenPQ, username);
+            ucpq.ThemNhatKyHeThong += ThemNhatKy_Main;
             ucpq.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ucpq);
         }
@@ -352,7 +391,8 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang phanquyenHH = btnHangHoa.Tag as VaiTro_ChucNang;
 
-            ucHangHoa uchh = new ucHangHoa(phanquyenHH);
+            ucHangHoa uchh = new ucHangHoa(phanquyenHH, username);
+            uchh.ThemNhatKyHeThong += ThemNhatKy_Main;
             uchh.Dock = DockStyle.Fill;
             pnMain.Controls.Add(uchh);
         }

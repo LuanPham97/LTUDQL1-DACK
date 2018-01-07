@@ -328,6 +328,12 @@
     <Compile Include="GUI\tabDanhMuc\ucHangHoa.Designer.cs">
       <DependentUpon>ucHangHoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabHeThong\ucNhatKyHeThong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabHeThong\ucNhatKyHeThong.designer.cs">
+      <DependentUpon>ucNhatKyHeThong.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabHeThong\ucPhanQuyen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -440,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabDanhMuc\ucHangHoa.resx">
       <DependentUpon>ucHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabHeThong\ucNhatKyHeThong.resx">
+      <DependentUpon>ucNhatKyHeThong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabHeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>

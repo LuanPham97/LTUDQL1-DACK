@@ -14,15 +14,38 @@ namespace QUANLYBANHANG.GUI.tabHeThong
 {
     public partial class frmPhucHoiDuLieu : Form
     {
-        public frmPhucHoiDuLieu()
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // username
+        string user;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Phục Hồi Dữ Liệu";
+
+        public frmPhucHoiDuLieu(string un)
         {
             InitializeComponent();
+            user = un;
 
             Load += FrmPhucHoiDuLieu_Load;
 
             btnOpenFile.Click += BtnOpenFile_Click;
             btnDong.Click += BtnDong_Click;
             btnThucHien.Click += BtnThucHien_Click;
+        }
+
+        private void AddNhatKy(string hanhDong)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = user;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = TenChucNang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
         }
 
         private void BtnThucHien_Click(object sender, EventArgs e)
@@ -40,7 +63,7 @@ namespace QUANLYBANHANG.GUI.tabHeThong
             else
             {
                 Execute.RestoreDatabase(path, Database);
-
+                AddNhatKy("Thực Hiện");
                 lblPhucHoi.Text = "Phục hồi thành công!";
             }
         }
@@ -63,6 +86,7 @@ namespace QUANLYBANHANG.GUI.tabHeThong
 
         private void FrmPhucHoiDuLieu_Load(object sender, EventArgs e)
         {
+            AddNhatKy("Xem");
             string csdl = "QuanLyBanHang_DoAn";
             txtCSDL.Text = csdl;
             txtCSDL.ReadOnly = true;

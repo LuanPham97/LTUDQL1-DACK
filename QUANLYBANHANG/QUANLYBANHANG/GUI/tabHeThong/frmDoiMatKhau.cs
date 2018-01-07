@@ -13,6 +13,13 @@ namespace QUANLYBANHANG.GUI.tabHeThong
 {
     public partial class frmDoiMatKhau : Form
     {
+        //tạo event lưu nhật ký hệ thống
+        public delegate void NhatKyHeThong(cNhatKyHeThong diary);
+        public event NhatKyHeThong ThemNhatKyHeThong;
+
+        // tên chức năng hiện tại
+        string TenChucNang = "Đổi Mật Khẩu";
+
         NGHIEPVU_NGUOIDUNG nv_nd = new NGHIEPVU_NGUOIDUNG();
 
         string username;
@@ -21,10 +28,29 @@ namespace QUANLYBANHANG.GUI.tabHeThong
         {
             InitializeComponent();
 
+            Load += FrmDoiMatKhau_Load;
+
             username = tenDangNhap;
 
             btnThoat.Click += BtnThoat_Click;
             btnDongY.Click += BtnDongY_Click;
+        }
+
+        private void FrmDoiMatKhau_Load(object sender, EventArgs e)
+        {
+            AddNhatKy("Truy Cập");
+        }
+
+        private void AddNhatKy(string hanhDong)
+        {
+            cNhatKyHeThong nk = new cNhatKyHeThong();
+            nk.NguoiDung = username;
+            nk.MayTinh = System.Environment.MachineName;
+            nk.ThoiGian = DateTime.Now;
+            nk.ChucNang = TenChucNang;
+            nk.HanhDong = hanhDong;
+
+            ThemNhatKyHeThong(nk);
         }
 
         private void BtnDongY_Click(object sender, EventArgs e)
@@ -48,6 +74,7 @@ namespace QUANLYBANHANG.GUI.tabHeThong
 
                     if (kq >= 1)
                     {
+                        AddNhatKy("Thành Công");
                         MessageBox.Show("Cập nhật Thành Công!");
                     }
                     else

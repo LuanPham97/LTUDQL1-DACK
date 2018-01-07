@@ -27,8 +27,9 @@ namespace QUANLYBANHANG.GUI.HeThong
         int checkNullVTCN = 0;
 
         //event thêm thành công
-        public delegate void ThemThanhCong();
-        public event ThemThanhCong KhiThemThanhCong;
+        public delegate void dVaiTro();
+        public event dVaiTro ThemThanhCong;
+        public event dVaiTro CapNhatThanhCong;
 
         public frmThemSuaVaiTro()
         {
@@ -109,7 +110,7 @@ namespace QUANLYBANHANG.GUI.HeThong
                     if (kq >= 1)
                     {
                         ThemVaiTroChucNang(vt.MaVaiTro);
-                        KhiThemThanhCong();
+                        ThemThanhCong();
                         MessageBox.Show("Thêm thành công !!!");
                     }
                     else
@@ -128,7 +129,7 @@ namespace QUANLYBANHANG.GUI.HeThong
                             ThemVaiTroChucNang(vt.MaVaiTro);
                         else
                             SuaVaiTroChucNang(vt.MaVaiTro);
-                        KhiThemThanhCong();
+                        CapNhatThanhCong();
                         MessageBox.Show("Cập Nhật thành công !!!");
                     }
                     else
