@@ -1,6 +1,7 @@
 ﻿using QUANLYBANHANG.BUS;
 using QUANLYBANHANG.DAO;
 using QUANLYBANHANG.DTO;
+using QUANLYBANHANG.GUI.tabDanhMuc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,18 @@ namespace QUANLYBANHANG.GUI
             //xử lý button
             btnDong.Click += BtnDong_Click;
             btnLuu.Click += BtnLuu_Click;
+
+            lkueKhuVuc.ButtonClick += LkueKhuVuc_ButtonClick;
+        }
+
+        private void LkueKhuVuc_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                frmThemKhuVuc kv = new frmThemKhuVuc();
+                kv.ThemThanhCong += FillCbKhuVuc;
+                kv.ShowDialog();
+            }
         }
 
         //sửa
@@ -57,6 +70,8 @@ namespace QUANLYBANHANG.GUI
             btnLuu.Click += BtnLuu_Click;
 
             FillDuLieu(kh);
+
+            lkueKhuVuc.ButtonClick += LkueKhuVuc_ButtonClick;
         }
 
         private void FillDuLieu(DTO.KhachHang kh)

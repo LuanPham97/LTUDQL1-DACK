@@ -30,7 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucChuyenKho));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.ctmsPhieuChuyenKho = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiXoaAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +50,7 @@
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbInSauKhiLuu = new System.Windows.Forms.CheckBox();
             this.txtVAT = new System.Windows.Forms.TextBox();
             this.gvPhieuChuyenKho = new System.Windows.Forms.DataGridView();
             this.colTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -77,7 +79,6 @@
             this.btnTaoMoi = new DevExpress.XtraEditors.SimpleButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.cbInSauKhiLuu = new System.Windows.Forms.CheckBox();
             this.ctmsPhieuChuyenKho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -125,38 +126,38 @@
             // 
             this.tsmiXoaAll.Image = ((System.Drawing.Image)(resources.GetObject("tsmiXoaAll.Image")));
             this.tsmiXoaAll.Name = "tsmiXoaAll";
-            this.tsmiXoaAll.Size = new System.Drawing.Size(152, 22);
+            this.tsmiXoaAll.Size = new System.Drawing.Size(131, 22);
             this.tsmiXoaAll.Text = "Xóa Tất Cả";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
             // 
             // tsmiLuuvaDong
             // 
             this.tsmiLuuvaDong.Image = ((System.Drawing.Image)(resources.GetObject("tsmiLuuvaDong.Image")));
             this.tsmiLuuvaDong.Name = "tsmiLuuvaDong";
-            this.tsmiLuuvaDong.Size = new System.Drawing.Size(152, 22);
+            this.tsmiLuuvaDong.Size = new System.Drawing.Size(131, 22);
             this.tsmiLuuvaDong.Text = "Lưu & Đóng";
             // 
             // tsmiNapLai
             // 
             this.tsmiNapLai.Image = ((System.Drawing.Image)(resources.GetObject("tsmiNapLai.Image")));
             this.tsmiNapLai.Name = "tsmiNapLai";
-            this.tsmiNapLai.Size = new System.Drawing.Size(152, 22);
+            this.tsmiNapLai.Size = new System.Drawing.Size(131, 22);
             this.tsmiNapLai.Text = "Nạp Lại";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(128, 6);
             // 
             // tsmiDong
             // 
             this.tsmiDong.Image = ((System.Drawing.Image)(resources.GetObject("tsmiDong.Image")));
             this.tsmiDong.Name = "tsmiDong";
-            this.tsmiDong.Size = new System.Drawing.Size(152, 22);
+            this.tsmiDong.Size = new System.Drawing.Size(131, 22);
             this.tsmiDong.Text = "Đóng";
             // 
             // groupControl5
@@ -293,6 +294,16 @@
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Phiếu Nhập Hàng";
             // 
+            // cbInSauKhiLuu
+            // 
+            this.cbInSauKhiLuu.AutoSize = true;
+            this.cbInSauKhiLuu.Location = new System.Drawing.Point(32, 554);
+            this.cbInSauKhiLuu.Name = "cbInSauKhiLuu";
+            this.cbInSauKhiLuu.Size = new System.Drawing.Size(95, 17);
+            this.cbInSauKhiLuu.TabIndex = 17;
+            this.cbInSauKhiLuu.Text = "In Sau Khi Lưu";
+            this.cbInSauKhiLuu.UseVisualStyleBackColor = true;
+            // 
             // txtVAT
             // 
             this.txtVAT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -329,9 +340,9 @@
             // 
             // colMaHang
             // 
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle1;
             this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.colMaHang.HeaderText = "Mã Hàng";
@@ -487,7 +498,8 @@
             this.lkueNguoiNhan.Location = new System.Drawing.Point(684, 56);
             this.lkueNguoiNhan.Name = "lkueNguoiNhan";
             this.lkueNguoiNhan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Thêm người nhận nếu chưa tồn tại")});
             this.lkueNguoiNhan.Properties.NullText = "";
             this.lkueNguoiNhan.Size = new System.Drawing.Size(145, 20);
             this.lkueNguoiNhan.TabIndex = 1;
@@ -559,16 +571,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // cbInSauKhiLuu
-            // 
-            this.cbInSauKhiLuu.AutoSize = true;
-            this.cbInSauKhiLuu.Location = new System.Drawing.Point(32, 554);
-            this.cbInSauKhiLuu.Name = "cbInSauKhiLuu";
-            this.cbInSauKhiLuu.Size = new System.Drawing.Size(95, 17);
-            this.cbInSauKhiLuu.TabIndex = 17;
-            this.cbInSauKhiLuu.Text = "In Sau Khi Lưu";
-            this.cbInSauKhiLuu.UseVisualStyleBackColor = true;
             // 
             // ucChuyenKho
             // 

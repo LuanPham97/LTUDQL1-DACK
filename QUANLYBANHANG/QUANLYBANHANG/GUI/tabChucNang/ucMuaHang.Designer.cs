@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucMuaHang));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNapLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
@@ -427,7 +428,9 @@
             // 
             this.lkueTenNCC.Location = new System.Drawing.Point(97, 26);
             this.lkueTenNCC.Name = "lkueTenNCC";
+            this.lkueTenNCC.Properties.ActionButtonIndex = 1;
             this.lkueTenNCC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Tạo", -1, true, true, false, editorButtonImageOptions1),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueTenNCC.Properties.NullText = "[Chọn Nhà Cung Cấp]";
             this.lkueTenNCC.Size = new System.Drawing.Size(446, 20);

@@ -30,7 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBanHang2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
@@ -438,9 +439,9 @@
             // 
             // colMaHang
             // 
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.colMaHang.DefaultCellStyle = dataGridViewCellStyle1;
             this.colMaHang.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.colMaHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.colMaHang.HeaderText = "Mã Hàng";
@@ -812,7 +813,9 @@
             // 
             this.lkueTenKH.Location = new System.Drawing.Point(97, 26);
             this.lkueTenKH.Name = "lkueTenKH";
+            this.lkueTenKH.Properties.ActionButtonIndex = 1;
             this.lkueTenKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Tạo", -1, true, true, false, editorButtonImageOptions1),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueTenKH.Properties.NullText = "[Chọn Khách Hàng]";
             this.lkueTenKH.Size = new System.Drawing.Size(375, 20);

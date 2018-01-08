@@ -18,10 +18,14 @@ namespace QUANLYBANHANG.GUI.HeThong
         NGHIEPVU_VAITRO nv_vt = new NGHIEPVU_VAITRO();
         NGHIEPVU_NGUOIDUNG nv_nd = new NGHIEPVU_NGUOIDUNG();
 
-        //event khi thêm thành công
+        //event khi thêm người dùng thành công
         public delegate void dNguoiDung();
         public event dNguoiDung ThemThanhCong;
         public event dNguoiDung CapNhatThanhCong;
+
+        //event khi thêm vai trò thành công
+        public delegate void ndVaiTro();
+        public event ndVaiTro CapNhatVaiTro;
 
         // lưu trạng thái là đang thêm đang sửa
         int Cur_State = 1;
@@ -37,9 +41,20 @@ namespace QUANLYBANHANG.GUI.HeThong
             btnDong.Click += new EventHandler(btnDong_click);
             btnLuu.Click += new EventHandler(btnLuu_click);
 
+            lkueVaiTro.ButtonClick += LkueVaiTro_ButtonClick;
             lkueNhanVien.EditValueChanged += new EventHandler(lkueNhanVien_editValueChanged);
 
             this.Text = "Thêm Người Dùng";
+        }
+
+        private void LkueVaiTro_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 0)
+            {
+                frmThemSuaVaiTro vt = new frmThemSuaVaiTro();
+                vt.ThemThanhCong += FillCbVaiTro;
+                vt.ShowDialog();
+            }
         }
 
         // dùng để sửa
@@ -53,6 +68,7 @@ namespace QUANLYBANHANG.GUI.HeThong
             btnDong.Click += new EventHandler(btnDong_click);
             btnLuu.Click += new EventHandler(btnLuu_click);
 
+            lkueVaiTro.ButtonClick += LkueVaiTro_ButtonClick;
             lkueNhanVien.EditValueChanged += new EventHandler(lkueNhanVien_editValueChanged);
 
             FillDuLieu(nd);
@@ -93,6 +109,8 @@ namespace QUANLYBANHANG.GUI.HeThong
             lkueVaiTro.Properties.ValueMember = "MaVaiTro";
             lkueVaiTro.Properties.DisplayMember = "TenVaiTro";
             lkueVaiTro.ItemIndex = 0;
+
+            CapNhatVaiTro();
         }
 
         private void FillCbNhanVien()

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemSuaKhachHang));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.rbDaiLy = new System.Windows.Forms.RadioButton();
             this.rbKhachLe = new System.Windows.Forms.RadioButton();
             this.cbConQuanLy = new System.Windows.Forms.CheckBox();
@@ -305,8 +306,10 @@
             // 
             this.lkueKhuVuc.Location = new System.Drawing.Point(311, 24);
             this.lkueKhuVuc.Name = "lkueKhuVuc";
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.lkueKhuVuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, null)});
             this.lkueKhuVuc.Size = new System.Drawing.Size(385, 20);
             this.lkueKhuVuc.TabIndex = 1;
             // 

@@ -46,6 +46,9 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 
             Load += UcChuyenKho_Load;
 
+            // button lkue
+            lkueNguoiNhan.ButtonClick += LkueNguoiNhan_ButtonClick;
+
             //sự kiện button
             btnTaoMoi.Click += BtnTaoMoi_Click;
             btnNapLai.Click += BtnNapLai_Click;
@@ -79,6 +82,18 @@ namespace QUANLYBANHANG.GUI.tabChucNang
                     btnLuu.Enabled = false;
                     tsmiLuuvaDong.Enabled = false;
                 }
+            }
+        }
+
+        private void LkueNguoiNhan_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                frmThemNhanVien nv = new frmThemNhanVien();
+                nv.ThemThanhCong += FillCbNhanVien;
+                nv.ThemThanhCong += NhatKyThemNhanVien;
+                nv.ShowDialog();
+                NapDuLieu();
             }
         }
 
@@ -116,6 +131,11 @@ namespace QUANLYBANHANG.GUI.tabChucNang
         private void NhatKyThemKhoHang()
         {
             AddNhatKy("Thêm", "Kho Hàng");
+        }
+
+        private void NhatKyThemNhanVien()
+        {
+            AddNhatKy("Thêm", "Nhân Viên");
         }
 
         private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)

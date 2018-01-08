@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemSuaHangHoa));
             this.label1 = new System.Windows.Forms.Label();
             this.cbLoaiHH = new System.Windows.Forms.ComboBox();
@@ -105,7 +109,8 @@
             this.lkueKhoMacDinh.Location = new System.Drawing.Point(406, 11);
             this.lkueKhoMacDinh.Name = "lkueKhoMacDinh";
             this.lkueKhoMacDinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Thêm Kho")});
             this.lkueKhoMacDinh.Size = new System.Drawing.Size(141, 20);
             this.lkueKhoMacDinh.TabIndex = 1;
             // 
@@ -114,7 +119,8 @@
             this.lkuePhanLoai.Location = new System.Drawing.Point(116, 73);
             this.lkuePhanLoai.Name = "lkuePhanLoai";
             this.lkuePhanLoai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Thêm Phân Loại")});
             this.lkuePhanLoai.Size = new System.Drawing.Size(429, 20);
             this.lkuePhanLoai.TabIndex = 2;
             // 
@@ -180,7 +186,8 @@
             this.lkueDonVi.Location = new System.Drawing.Point(116, 151);
             this.lkueDonVi.Name = "lkueDonVi";
             this.lkueDonVi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Thêm Đơn Vị")});
             this.lkueDonVi.Size = new System.Drawing.Size(162, 20);
             this.lkueDonVi.TabIndex = 6;
             // 
@@ -267,7 +274,8 @@
             this.lkueNCC.Location = new System.Drawing.Point(116, 338);
             this.lkueNCC.Name = "lkueNCC";
             this.lkueNCC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Thêm NCC")});
             this.lkueNCC.Size = new System.Drawing.Size(431, 20);
             this.lkueNCC.TabIndex = 11;
             // 

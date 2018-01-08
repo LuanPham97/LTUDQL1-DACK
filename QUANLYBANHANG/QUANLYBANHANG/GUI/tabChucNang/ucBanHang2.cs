@@ -55,6 +55,9 @@ namespace QUANLYBANHANG.GUI
 
             Load += UcBanHang2_Load;
 
+            // button lookupedit
+            lkueTenKH.ButtonClick += LkueTenKH_ButtonClick;
+
             //print 
             printDocument1.PrintPage += PrintDocument1_PrintPage;
 
@@ -98,6 +101,18 @@ namespace QUANLYBANHANG.GUI
                     btnLuu.Enabled = false;
                     tsmiLuuvaDong.Enabled = false;
                 }
+            }
+        }
+
+        private void LkueTenKH_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 0)
+            {
+                frmThemSuaKhachHang frmkh = new frmThemSuaKhachHang();
+                frmkh.ThemThanhCong += NapDuLieu;
+                frmkh.ThemThanhCong += NhatKyThemKhachHang;
+                frmkh.ShowDialog();
+                NapDuLieu();
             }
         }
 

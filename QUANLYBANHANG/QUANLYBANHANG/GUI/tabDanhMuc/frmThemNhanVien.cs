@@ -37,6 +37,18 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             // button
             btnLuu.Click += BtnLuu_Click;
             btnDong.Click += BtnDong_Click;
+
+            lkueBoPhan.ButtonClick += LkueBoPhan_ButtonClick;
+        }
+
+        private void LkueBoPhan_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                frmThemBoPhan bp = new frmThemBoPhan();
+                bp.ThemThanhCong += FillCbBoPhan;
+                bp.ShowDialog();
+            }
         }
 
         //dùng để sửa
@@ -56,6 +68,8 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
             btnDong.Click += BtnDong_Click;
 
             FillNhanVien(nv);
+
+            lkueBoPhan.ButtonClick += LkueBoPhan_ButtonClick;
         }
 
         private void FillNhanVien(DTO.NhanVien nv)

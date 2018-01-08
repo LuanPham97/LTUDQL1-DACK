@@ -108,7 +108,9 @@
             // 
             this.lkueVaiTro.Location = new System.Drawing.Point(90, 135);
             this.lkueVaiTro.Name = "lkueVaiTro";
+            this.lkueVaiTro.Properties.ActionButtonIndex = 1;
             this.lkueVaiTro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkueVaiTro.Properties.NullText = "";
             this.lkueVaiTro.Size = new System.Drawing.Size(240, 20);

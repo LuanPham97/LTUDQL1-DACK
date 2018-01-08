@@ -348,6 +348,7 @@ namespace QUANLYBANHANG.GUI
             frmThemSuaNguoiDung frmnd = new frmThemSuaNguoiDung();
             frmnd.ThemThanhCong += FillTreeView;
             frmnd.ThemThanhCong += NhatKyThemNguoiDung;
+            frmnd.CapNhatVaiTro += FillTreeView;
             frmnd.ShowDialog();
         }
     }

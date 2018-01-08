@@ -158,7 +158,8 @@
             this.lkueBoPhan.Location = new System.Drawing.Point(70, 131);
             this.lkueBoPhan.Name = "lkueBoPhan";
             this.lkueBoPhan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)});
             this.lkueBoPhan.Size = new System.Drawing.Size(365, 20);
             this.lkueBoPhan.TabIndex = 5;
             // 

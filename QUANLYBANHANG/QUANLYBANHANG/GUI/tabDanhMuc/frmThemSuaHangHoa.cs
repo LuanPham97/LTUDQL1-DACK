@@ -11,6 +11,7 @@ using QUANLYBANHANG.BUS;
 using QUANLYBANHANG.DAO;
 using System.Data.SqlClient;
 using QUANLYBANHANG.DTO;
+using QUANLYBANHANG.GUI.tabDanhMuc;
 
 namespace QUANLYBANHANG.GUI
 {
@@ -42,6 +43,52 @@ namespace QUANLYBANHANG.GUI
             btnLuu.Click += new EventHandler(btnLuu_click);
 
             this.Text = "Thêm Hàng Hóa, Dịch Vụ";
+
+            //button lookupedit
+            lkueKhoMacDinh.ButtonClick += LkueKhoMacDinh_ButtonClick;
+            lkuePhanLoai.ButtonClick += LkuePhanLoai_ButtonClick;
+            lkueDonVi.ButtonClick += LkueDonVi_ButtonClick;
+            lkueNCC.ButtonClick += LkueNCC_ButtonClick;
+        }
+
+        private void LkueNCC_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                frmThemNhaCungCap ncc = new frmThemNhaCungCap();
+                ncc.ThemThanhCong += FillCbNCC;
+                ncc.ShowDialog();
+            }
+        }
+
+        private void LkueDonVi_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                frmThemDonViTinh dvt = new frmThemDonViTinh();
+                dvt.ThemThanhCong += FillCbDonVi;
+                dvt.ShowDialog();
+            }
+        }
+
+        private void LkuePhanLoai_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                frmThemNhomHang nh = new frmThemNhomHang();
+                nh.ThemThanhCong += FillCbPhanLoai;
+                nh.ShowDialog();
+            }
+        }
+
+        private void LkueKhoMacDinh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                frmThemSuaKhoHang kho = new frmThemSuaKhoHang();
+                kho.ThemThanhCong += FillCbKhoMacDinh;
+                kho.ShowDialog();
+            }
         }
 
         // dùng để sửa
@@ -56,6 +103,12 @@ namespace QUANLYBANHANG.GUI
             btnLuu.Click += new EventHandler(btnLuu_click);
 
             FillDuLieu(hh);
+
+            //button lookupedit
+            lkueKhoMacDinh.ButtonClick += LkueKhoMacDinh_ButtonClick;
+            lkuePhanLoai.ButtonClick += LkuePhanLoai_ButtonClick;
+            lkueDonVi.ButtonClick += LkueDonVi_ButtonClick;
+            lkueNCC.ButtonClick += LkueNCC_ButtonClick;
         }
 
         private void FillDuLieu(DTO.HangHoa hh)
