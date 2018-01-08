@@ -36,6 +36,7 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 
             btnXuat.Click += BtnXuat_Click;
             btnIn.Click += BtnIn_Click;
+            btnRPTHH.Click += BtnRPTHH_Click;
 
             bbiXuat.ItemClick += BtnXuat_Click;
             bbiIn.ItemClick += BtnIn_Click;
@@ -45,6 +46,12 @@ namespace QUANLYBANHANG.GUI.tabChucNang
 
             gvBCKhoHang.ShowingEditor += GvBCKhoHang_ShowingEditor;
             gvBCKhoHang.PopupMenuShowing += GvBCKhoHang_PopupMenuShowing;
+        }
+
+        private void BtnRPTHH_Click(object sender, EventArgs e)
+        {
+            frmPRT r = new frmPRT();
+            r.ShowDialog();
         }
 
         private void AddNhatKy(string hanhDong)

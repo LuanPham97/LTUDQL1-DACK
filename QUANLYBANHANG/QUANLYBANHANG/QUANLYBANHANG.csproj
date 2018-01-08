@@ -163,6 +163,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHH.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabChucNang\frmPRT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\frmPRT.Designer.cs">
+      <DependentUpon>frmPRT.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabChucNang\rptHH.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\frmPRT.resx">
+      <DependentUpon>frmPRT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\rptHH.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
