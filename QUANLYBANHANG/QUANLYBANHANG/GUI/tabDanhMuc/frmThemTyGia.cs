@@ -63,23 +63,23 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 
         private void BtnLuu_Click(object sender, EventArgs e)
         {
-            if (nv_tg.KiemTraMaTonTai(txtMaTyGia.Text) == true)
-            {
-                MessageBox.Show("Mã này đã tồn tại, vui lòng nhập mã khác", "Trùng Lặp Mã", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            if (string.IsNullOrEmpty(txtTenTyGia.Text) || string.IsNullOrEmpty(txtMaTyGia.Text))
+                MessageBox.Show("Không được bỏ trống Tên hoặc Mã");
             else
             {
-                if (string.IsNullOrEmpty(txtTenTyGia.Text) || string.IsNullOrEmpty(txtMaTyGia.Text))
-                    MessageBox.Show("Không được bỏ trống Tên hoặc Mã");
-                else
-                {
-                    TyGia tg = new TyGia();
-                    tg.MaTyGia = txtMaTyGia.Text;
-                    tg.TenTyGia = txtTenTyGia.Text;
-                    tg.TyGiaQuyDoi = int.Parse(ceTyGiaQuyDoi.Value.ToString());
-                    tg.ConQuanLy = cbConQuanLy.Checked;
+                TyGia tg = new TyGia();
+                tg.MaTyGia = txtMaTyGia.Text;
+                tg.TenTyGia = txtTenTyGia.Text;
+                tg.TyGiaQuyDoi = int.Parse(ceTyGiaQuyDoi.Value.ToString());
+                tg.ConQuanLy = cbConQuanLy.Checked;
 
-                    if (isInsert == true)
+                if (isInsert == true)
+                {
+                    if (nv_tg.KiemTraMaTonTai(txtMaTyGia.Text) == true)
+                    {
+                        MessageBox.Show("Mã này đã tồn tại, vui lòng nhập mã khác", "Trùng Lặp Mã", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
                     {
                         int kq = nv_tg.ThemTyGia(tg);
                         if (kq >= 1)
@@ -90,17 +90,17 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
                         else
                             MessageBox.Show("Thất Bại");
                     }
-                    else
+                }
+                else
+                {
+                    int kq = nv_tg.CapNhatTyGia(tg);
+                    if (kq >= 1)
                     {
-                        int kq = nv_tg.CapNhatTyGia(tg);
-                        if (kq >= 1)
-                        {
-                            CapNhatThanhCong();
-                            MessageBox.Show("Cập nhật thành công");
-                        }
-                        else
-                            MessageBox.Show("Thất Bại");
+                        CapNhatThanhCong();
+                        MessageBox.Show("Cập nhật thành công");
                     }
+                    else
+                        MessageBox.Show("Thất Bại");
                 }
             }
         }
