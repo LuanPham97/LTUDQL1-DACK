@@ -50,6 +50,7 @@
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuyenKho = new DevExpress.XtraBars.BarButtonItem();
             this.btnThongTin = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhatKy = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgBaoMat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -65,7 +66,8 @@
             this.rpgThongTin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
-            this.btnNhatKy = new DevExpress.XtraBars.BarButtonItem();
+            this.rpgBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnBCKhoHang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -96,9 +98,10 @@
             this.btnPhucHoi,
             this.btnChuyenKho,
             this.btnThongTin,
-            this.btnNhatKy});
+            this.btnNhatKy,
+            this.btnBCKhoHang});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 27;
+            this.rbcMain.MaxItemId = 28;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -267,6 +270,14 @@
             this.btnThongTin.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThongTin.ImageOptions.LargeImage")));
             this.btnThongTin.Name = "btnThongTin";
             // 
+            // btnNhatKy
+            // 
+            this.btnNhatKy.Caption = "Nhật Ký Hệ Thống";
+            this.btnNhatKy.Id = 26;
+            this.btnNhatKy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKy.ImageOptions.Image")));
+            this.btnNhatKy.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNhatKy.ImageOptions.LargeImage")));
+            this.btnNhatKy.Name = "btnNhatKy";
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -335,7 +346,8 @@
             // 
             this.rbpChucNang.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgNhapXuat,
-            this.rpgKhoHangcn});
+            this.rpgKhoHangcn,
+            this.rpgBaoCao});
             this.rbpChucNang.Name = "rbpChucNang";
             this.rbpChucNang.Text = "Chức Năng";
             // 
@@ -382,13 +394,19 @@
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
             // 
-            // btnNhatKy
+            // rpgBaoCao
             // 
-            this.btnNhatKy.Caption = "Nhật Ký Hệ Thống";
-            this.btnNhatKy.Id = 26;
-            this.btnNhatKy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnNhatKy.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnNhatKy.Name = "btnNhatKy";
+            this.rpgBaoCao.ItemLinks.Add(this.btnBCKhoHang);
+            this.rpgBaoCao.Name = "rpgBaoCao";
+            this.rpgBaoCao.Text = "Báo Cáo";
+            // 
+            // btnBCKhoHang
+            // 
+            this.btnBCKhoHang.Caption = "Báo Cáo Kho Hàng";
+            this.btnBCKhoHang.Id = 27;
+            this.btnBCKhoHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnBCKhoHang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnBCKhoHang.Name = "btnBCKhoHang";
             // 
             // frmMain
             // 
@@ -451,6 +469,8 @@
         private DevExpress.XtraBars.BarButtonItem btnChuyenKho;
         private DevExpress.XtraBars.BarButtonItem btnThongTin;
         private DevExpress.XtraBars.BarButtonItem btnNhatKy;
+        private DevExpress.XtraBars.BarButtonItem btnBCKhoHang;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgBaoCao;
     }
 }
 
