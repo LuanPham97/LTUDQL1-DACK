@@ -68,44 +68,44 @@ namespace QUANLYBANHANG.GUI.tabDanhMuc
 
         private void BtnLuu_Click(object sender, EventArgs e)
         {
-            if (nv_bp.KiemTraMaTonTai(txtMaBoPhan.Text) == true)
-            {
-                MessageBox.Show("Mã này đã tồn tại, vui lòng nhập mã khác", "Trùng Lặp Mã", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+            if (string.IsNullOrEmpty(txtMaBoPhan.Text) || string.IsNullOrEmpty(txtTenBoPhan.Text))
+                MessageBox.Show("Không được bỏ trống Tên hoặc Mã");
             else
             {
-                if (string.IsNullOrEmpty(txtMaBoPhan.Text) || string.IsNullOrEmpty(txtTenBoPhan.Text))
-                    MessageBox.Show("Không được bỏ trống Tên hoặc Mã");
-                else
-                {
-                    DTO.BoPhan bp = new DTO.BoPhan();
-                    bp.MaBoPhan = txtMaBoPhan.Text;
-                    bp.TenBoPhan = txtTenBoPhan.Text;
-                    bp.GhiChu = txtGhiChu.Text;
-                    bp.ConQuanLy = cbConQuanLy.Checked;
+                DTO.BoPhan bp = new DTO.BoPhan();
+                bp.MaBoPhan = txtMaBoPhan.Text;
+                bp.TenBoPhan = txtTenBoPhan.Text;
+                bp.GhiChu = txtGhiChu.Text;
+                bp.ConQuanLy = cbConQuanLy.Checked;
 
-                    if (isInsert == true)
+                if (isInsert == true)
+                {
+                    if (nv_bp.KiemTraMaTonTai(txtMaBoPhan.Text) == true)
                     {
-                        int kq = nv_bp.ThemBoPhan(bp);
-                        if (kq >= 1)
-                        {
-                            ThemThanhCong();
-                            MessageBox.Show("Thêm thành công");
-                        }
-                        else
-                            MessageBox.Show("Thất Bại");
+                        MessageBox.Show("Mã này đã tồn tại, vui lòng nhập mã khác", "Trùng Lặp Mã", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    int kq = nv_bp.ThemBoPhan(bp);
+                    if (kq >= 1)
+                    {
+                        ThemThanhCong();
+                        MessageBox.Show("Thêm thành công");
                     }
                     else
+                        MessageBox.Show("Thất Bại");
+                }
+                else
+                {
+                    int kq = nv_bp.CapNhatBoPhan(bp);
+                    if (kq >= 1)
                     {
-                        int kq = nv_bp.CapNhatBoPhan(bp);
-                        if (kq >= 1)
-                        {
-                            CapNhatThanhCong();
-                            MessageBox.Show("Cập nhật thành công");
-                        }
-                        else
-                            MessageBox.Show("Thất Bại");
+                        CapNhatThanhCong();
+                        MessageBox.Show("Cập nhật thành công");
                     }
+                    else
+                        MessageBox.Show("Thất Bại");
                 }
             }
         }
