@@ -20,5 +20,13 @@ namespace QUANLYBANHANG.DAO
 
             return Execute.InsertUpdateDelete(sql);
         }
+
+        public int CapNhatTienDaTra(string mapx, int sotien)
+        {
+            string sql = string.Format("update PHIEU_XUAT set DaTra +={0} where MaPhieu='{1}'",
+                sotien, mapx);
+
+            return Execute.InsertUpdateDelete(sql);
+        }
     }
 }

@@ -99,6 +99,7 @@
     <Compile Include="BUS\NGHIEPVU_NHACUNGCAP.cs" />
     <Compile Include="BUS\NGHIEPVU_NHANVIEN.cs" />
     <Compile Include="BUS\NGHIEPVU_NHOMHANG.cs" />
+    <Compile Include="BUS\NGHIEPVU_PHIEUCHITIEN.cs" />
     <Compile Include="BUS\NGHIEPVU_PHIEUCHUYENKHO.cs" />
     <Compile Include="BUS\NGHIEPVU_PHIEUNHAP.cs" />
     <Compile Include="BUS\NGHIEPVU_PHIEUTHUTIEN.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="DAO\XL_NhaCungCap.cs" />
     <Compile Include="DAO\XL_NhanVien.cs" />
     <Compile Include="DAO\XL_NhomHang.cs" />
+    <Compile Include="DAO\XL_PhieuChiTien.cs" />
     <Compile Include="DAO\XL_PhieuChuyenKho.cs" />
     <Compile Include="DAO\XL_PhieuNhap.cs" />
     <Compile Include="DAO\XL_PhieuThuTien.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="DTO\NhaCC.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="DTO\NhomHang.cs" />
+    <Compile Include="DTO\PhieuChiTien.cs" />
     <Compile Include="DTO\PhieuChuyenKho.cs" />
     <Compile Include="DTO\PhieuNhap.cs" />
     <Compile Include="DTO\PhieuThuTien.cs" />
@@ -166,6 +169,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHH.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabChucNang\frmLapPhieuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\frmLapPhieuThu.designer.cs">
+      <DependentUpon>frmLapPhieuThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabChucNang\frmPRT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +186,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptHH.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucBangKeThuTien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucBangKeThuTien.Designer.cs">
+      <DependentUpon>ucBangKeThuTien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabChucNang\ucBaoCaoKhoHang.cs">
       <SubType>UserControl</SubType>
@@ -190,11 +205,23 @@
     <Compile Include="GUI\tabChucNang\ucChuyenKho.Designer.cs">
       <DependentUpon>ucChuyenKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabChucNang\ucDSCongNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucDSCongNo.Designer.cs">
+      <DependentUpon>ucDSCongNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabChucNang\ucMuaHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\tabChucNang\ucMuaHang.Designer.cs">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucThuTien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\ucThuTien.designer.cs">
+      <DependentUpon>ucThuTien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabChucNang\ucTonKho.cs">
       <SubType>UserControl</SubType>
@@ -390,6 +417,9 @@
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\frmLapPhieuThu.resx">
+      <DependentUpon>frmLapPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\frmPRT.resx">
       <DependentUpon>frmPRT.cs</DependentUpon>
     </EmbeddedResource>
@@ -397,14 +427,23 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptHH.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\ucBangKeThuTien.resx">
+      <DependentUpon>ucBangKeThuTien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucBaoCaoKhoHang.resx">
       <DependentUpon>ucBaoCaoKhoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucChuyenKho.resx">
       <DependentUpon>ucChuyenKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\ucDSCongNo.resx">
+      <DependentUpon>ucDSCongNo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucMuaHang.resx">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\ucThuTien.resx">
+      <DependentUpon>ucThuTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucTonKho.resx">
       <DependentUpon>ucTonKho.cs</DependentUpon>

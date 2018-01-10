@@ -16,5 +16,10 @@ namespace QUANLYBANHANG.BUS
         {
             return xl_px.ThemPhieuXuat(px);
         }
+
+        public int CapNhatTienDaTra(string mapx, int sotien)
+        {
+            return xl_px.CapNhatTienDaTra(mapx, sotien);
+        }
     }
 }
