@@ -101,6 +101,7 @@
     <Compile Include="BUS\NGHIEPVU_NHOMHANG.cs" />
     <Compile Include="BUS\NGHIEPVU_PHIEUCHUYENKHO.cs" />
     <Compile Include="BUS\NGHIEPVU_PHIEUNHAP.cs" />
+    <Compile Include="BUS\NGHIEPVU_PHIEUTHUTIEN.cs" />
     <Compile Include="BUS\NGHIEPVU_PHIEUXUAT.cs" />
     <Compile Include="BUS\NGHIEPVU_TYGIA.cs" />
     <Compile Include="BUS\NGHIEPVU_VAITRO.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="DAO\XL_NhomHang.cs" />
     <Compile Include="DAO\XL_PhieuChuyenKho.cs" />
     <Compile Include="DAO\XL_PhieuNhap.cs" />
+    <Compile Include="DAO\XL_PhieuThuTien.cs" />
     <Compile Include="DAO\XL_PhieuXuat.cs" />
     <Compile Include="DAO\XL_TyGia.cs" />
     <Compile Include="DAO\XL_VaiTro.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="DTO\NhomHang.cs" />
     <Compile Include="DTO\PhieuChuyenKho.cs" />
     <Compile Include="DTO\PhieuNhap.cs" />
+    <Compile Include="DTO\PhieuThuTien.cs" />
     <Compile Include="DTO\PhieuXuat.cs" />
     <Compile Include="DTO\TyGia.cs" />
     <Compile Include="DTO\VaiTro.cs" />

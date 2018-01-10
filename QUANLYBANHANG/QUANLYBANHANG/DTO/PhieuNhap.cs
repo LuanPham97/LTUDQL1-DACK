@@ -19,6 +19,8 @@ namespace QUANLYBANHANG.DTO
         public string DieuKhoanThanhToan { get; set; }
         public string HinhThucThanhToan { get; set; }
         public DateTime HanThanhToan { get; set; }
+        public int DaTra { get; set; }
+        public int TongTien { get; set; }
 
         public PhieuNhap()
         {
@@ -33,6 +35,8 @@ namespace QUANLYBANHANG.DTO
             HinhThucThanhToan = "";
             NgayLap = DateTime.Now;
             HanThanhToan = DateTime.Now;
+            DaTra = 0;
+            TongTien = 0;
         }
     }
 }

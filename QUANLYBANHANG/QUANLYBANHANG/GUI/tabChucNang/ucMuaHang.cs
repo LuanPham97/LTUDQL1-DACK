@@ -179,6 +179,8 @@ namespace QUANLYBANHANG.GUI.tabChucNang
                 pn.DieuKhoanThanhToan = cbDKTT.Text;
                 pn.HinhThucThanhToan = cbHTTT.Text;
                 pn.HanThanhToan = DateTime.Parse(deHanThanhToan.EditValue.ToString());
+                pn.DaTra = 0;
+                pn.TongTien = int.Parse(nmrThanhToan.Value.ToString());
 
 
                 List<CT_PhieuNhap> lstCT_PN = new List<CT_PhieuNhap>();
@@ -231,7 +233,10 @@ namespace QUANLYBANHANG.GUI.tabChucNang
         {
             DialogResult dr = MessageBox.Show("Xóa Tất Cả ?", "Phiếu Xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
+            {
+                nmrThanhToan.Value = 0;
                 gvPhieuNhap.Rows.Clear();
+            }
         }
 
         private void TsmiXoa_Click(object sender, EventArgs e)
@@ -240,7 +245,11 @@ namespace QUANLYBANHANG.GUI.tabChucNang
             {
                 DialogResult dr = MessageBox.Show("Chắc chắn XÓA ?", "Phiếu Xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
+                {
+                    int tt = int.Parse(gvPhieuNhap.Rows[rowIndex].Cells["colThanhTien"].Value.ToString());
+                    nmrThanhToan.Value = nmrThanhToan.Value - tt;
                     gvPhieuNhap.Rows.RemoveAt(rowIndex);
+                }
             }
         }
 

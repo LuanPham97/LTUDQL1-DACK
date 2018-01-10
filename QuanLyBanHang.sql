@@ -400,6 +400,8 @@ create table PHIEU_XUAT(
 	HinhThucThanhToan nvarchar(50),
 	HanThanhToan datetime,
 	NgayGiao datetime,
+	DaTra int,
+	TongTien int
 )
 go
 
@@ -556,6 +558,8 @@ create table PHIEU_NHAP(
 	DieuKhoanThanhToan nvarchar(50),
 	HinhThucThanhToan nvarchar(50),
 	HanThanhToan datetime,
+	DaTra int,
+	TongTien int
 )
 go
 
@@ -985,3 +989,39 @@ begin
 	set @kq += CAST(@ma as varchar(3))
 end
 go
+
+
+-- Phiếu thu tiền
+create table PHIEUTHUTIEN(
+	MaPhieuThu int Identity(1,1) primary key,
+	MaKH varchar(10), --fk ma khach hang, kh
+	MaPhieuXuat varchar(10), --fk ma phieu xuat
+	NgayLap datetime,
+	SoTien int,
+	ConNo int,
+	SoTienTra int,
+	MaNV varchar(10), --fk ma nv
+	LyDo nvarchar(100)
+)
+
+alter table PHIEUTHUTIEN add constraint FK_PHIEUTHUTIEN_KH foreign key (MaKH) references KHACH_HANG(MaKH)
+alter table PHIEUTHUTIEN add constraint FK_PHIEUTHUTIEN_PHIEUXUAT foreign key (MaPhieuXuat) references PHIEU_XUAT(MaPhieu)
+alter table PHIEUTHUTIEN add constraint FK_PHIEUTHUTIEN_NV foreign key (MaNV) references NHANVIEN(MaNhanVien)
+
+
+-- Phiếu chi tiền
+create table PHIEUCHITIEN(
+	MaPhieuChi int Identity(1,1) primary key,
+	MaKH varchar(10), --fk ma khach hang, kh
+	MaPhieuXuat varchar(10), --fk ma phieu xuat
+	NgayLap datetime,
+	SoTien int,
+	ConNo int,
+	SoTienTra int,
+	MaNV varchar(10), --fk ma nv
+	LyDo nvarchar(100)
+)
+
+alter table PHIEUCHITIEN add constraint FK_PHIEUCHITIEN_KH foreign key (MaKH) references KHACH_HANG(MaKH)
+alter table PHIEUCHITIEN add constraint FK_PHIEUCHITIEN_PHIEUXUAT foreign key (MaPhieuXuat) references PHIEU_XUAT(MaPhieu)
+alter table PHIEUCHITIEN add constraint FK_PHIEUCHITIEN_NV foreign key (MaNV) references NHANVIEN(MaNhanVien)

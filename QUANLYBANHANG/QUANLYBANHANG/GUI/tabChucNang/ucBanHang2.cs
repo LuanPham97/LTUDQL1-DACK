@@ -198,6 +198,8 @@ namespace QUANLYBANHANG.GUI
                 px.HinhThucThanhToan = cbHTTT.Text;
                 px.HanThanhToan = DateTime.Parse(deHanThanhToan.EditValue.ToString());
                 px.NgayGiao = DateTime.Parse(deNgayGiao.EditValue.ToString());
+                px.DaTra = 0;
+                px.TongTien = int.Parse(nmrThanhTien.Value.ToString());
 
 
                 List<CT_PhieuXuat> lstCT_PX = new List<CT_PhieuXuat>();
@@ -274,7 +276,10 @@ namespace QUANLYBANHANG.GUI
         {
             DialogResult dr = MessageBox.Show("Xóa Tất Cả ?", "Phiếu Xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
+            {
+                nmrThanhTien.Value = 0;
                 gvPhieuXuat.Rows.Clear();
+            }
         }
 
         private void GvPhieuXuat_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
@@ -298,7 +303,11 @@ namespace QUANLYBANHANG.GUI
             {
                 DialogResult dr = MessageBox.Show("Chắc chắn XÓA ?", "Phiếu Xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
+                {
+                    int tt = int.Parse(gvPhieuXuat.Rows[rowIndex].Cells["colThanhTien"].Value.ToString());
+                    nmrThanhTien.Value = nmrThanhTien.Value - tt;
                     gvPhieuXuat.Rows.RemoveAt(rowIndex);
+                }
             }
         }
 
