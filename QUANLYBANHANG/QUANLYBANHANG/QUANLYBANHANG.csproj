@@ -421,6 +421,12 @@
     <Compile Include="GUI\tabHeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabTroGiup\frmLienHe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabTroGiup\frmLienHe.designer.cs">
+      <DependentUpon>frmLienHe.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabTroGiup\frmThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -567,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabHeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabTroGiup\frmLienHe.resx">
+      <DependentUpon>frmLienHe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabTroGiup\frmThongTin.resx">
       <DependentUpon>frmThongTin.cs</DependentUpon>

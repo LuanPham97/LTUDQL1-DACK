@@ -16,6 +16,8 @@ using QUANLYBANHANG.GUI.tabChucNang;
 using QUANLYBANHANG.GUI.tabDanhMuc;
 using QUANLYBANHANG.GUI.tabHeThong;
 using QUANLYBANHANG.GUI.tabChucNang.TraTien;
+using System.IO;
+using QUANLYBANHANG.GUI.tabTroGiup;
 
 namespace QUANLYBANHANG
 {
@@ -73,11 +75,33 @@ namespace QUANLYBANHANG
             // tab trợ giúp
             btnThongTin.ItemClick += BtnThongTin_ItemClick;
             btnHDSD.ItemClick += BtnHDSD_ItemClick;
-            
+            btnHoTroTrucTuyen.ItemClick += BtnHoTroTrucTuyen_ItemClick;
+            btnLienHe.ItemClick += BtnLienHe_ItemClick;
+
 
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnLienHe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmLienHe lh = new frmLienHe();
+            lh.ShowDialog();
+        }
+
+        private void BtnHoTroTrucTuyen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string pathTeamViewer = "C:/Program Files (x86)/TeamViewer/TeamViewer.exe";
+            if (File.Exists(pathTeamViewer))
+            {
+                System.Diagnostics.Process.Start(pathTeamViewer);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng Cài đặt team viewer vào đường dẫn mặc định");
+                System.Diagnostics.Process.Start("https://www.teamviewer.com/en/");
+            }
         }
 
         private void BtnHDSD_ItemClick(object sender, ItemClickEventArgs e)
@@ -154,7 +178,7 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang pqck = btnChuyenKho.Tag as VaiTro_ChucNang;
 
-            ucChuyenKho ck = new ucChuyenKho(pqck,username);
+            ucChuyenKho ck = new ucChuyenKho(pqck, username);
             ck.ThemNhatKyHeThong += ThemNhatKy_Main;
             ck.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ck);
@@ -322,7 +346,7 @@ namespace QUANLYBANHANG
 
             VaiTro_ChucNang phanquyenMH = btnMuaHang.Tag as VaiTro_ChucNang;
 
-            ucMuaHang ucmh = new ucMuaHang(phanquyenMH,username);
+            ucMuaHang ucmh = new ucMuaHang(phanquyenMH, username);
             ucmh.ThemNhatKyHeThong += ThemNhatKy_Main;
             ucmh.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ucmh);
@@ -343,7 +367,7 @@ namespace QUANLYBANHANG
         private void PHANQUYEN(string mavt)
         {
             List<VaiTro_ChucNang> lstVTCN = LayListVTCN(mavt);
-            
+
             ArrayList arrayRBC = rbcMain.TotalPageCategory.GetVisiblePages();
             foreach (RibbonPage page in arrayRBC)
             {
@@ -377,9 +401,9 @@ namespace QUANLYBANHANG
 
         private VaiTro_ChucNang LayVTCN(string name, List<VaiTro_ChucNang> lstVTCN)
         {
-            foreach(VaiTro_ChucNang vc in lstVTCN)
+            foreach (VaiTro_ChucNang vc in lstVTCN)
             {
-                if(string.Compare(vc.TenTrongHeThong, name) == 0)
+                if (string.Compare(vc.TenTrongHeThong, name) == 0)
                 {
                     return vc;
                 }

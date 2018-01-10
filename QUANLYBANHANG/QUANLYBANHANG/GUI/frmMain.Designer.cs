@@ -54,6 +54,10 @@
             this.btnBCKhoHang = new DevExpress.XtraBars.BarButtonItem();
             this.btnThuTien = new DevExpress.XtraBars.BarButtonItem();
             this.btnTraTien = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHDSD = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThongTin2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
+            this.btnHoTroTrucTuyen = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgBaoMat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -69,11 +73,10 @@
             this.rpgCongNo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgThongTin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rstatusbarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
-            this.rpgTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnHDSD = new DevExpress.XtraBars.BarButtonItem();
-            this.btnThongTin2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLienHe = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
@@ -109,9 +112,12 @@
             this.btnThuTien,
             this.btnTraTien,
             this.btnHDSD,
-            this.btnThongTin2});
+            this.btnThongTin2,
+            this.barCheckItem1,
+            this.btnHoTroTrucTuyen,
+            this.btnLienHe});
             this.rbcMain.Location = new System.Drawing.Point(0, 0);
-            this.rbcMain.MaxItemId = 32;
+            this.rbcMain.MaxItemId = 35;
             this.rbcMain.Name = "rbcMain";
             this.rbcMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -312,6 +318,35 @@
             this.btnTraTien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTraTien.ImageOptions.LargeImage")));
             this.btnTraTien.Name = "btnTraTien";
             // 
+            // btnHDSD
+            // 
+            this.btnHDSD.Caption = "Hướng Dẫn Sử Dụng";
+            this.btnHDSD.Id = 30;
+            this.btnHDSD.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHDSD.ImageOptions.Image")));
+            this.btnHDSD.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHDSD.ImageOptions.LargeImage")));
+            this.btnHDSD.Name = "btnHDSD";
+            // 
+            // btnThongTin2
+            // 
+            this.btnThongTin2.Caption = "Thông Tin";
+            this.btnThongTin2.Id = 31;
+            this.btnThongTin2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThongTin2.ImageOptions.Image")));
+            this.btnThongTin2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThongTin2.ImageOptions.LargeImage")));
+            this.btnThongTin2.Name = "btnThongTin2";
+            // 
+            // barCheckItem1
+            // 
+            this.barCheckItem1.Caption = "barCheckItem1";
+            this.barCheckItem1.Id = 32;
+            this.barCheckItem1.Name = "barCheckItem1";
+            // 
+            // btnHoTroTrucTuyen
+            // 
+            this.btnHoTroTrucTuyen.Caption = "Hỗ Trợ Trực Tuyến";
+            this.btnHoTroTrucTuyen.Id = 33;
+            this.btnHoTroTrucTuyen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHoTroTrucTuyen.ImageOptions.LargeImage")));
+            this.btnHoTroTrucTuyen.Name = "btnHoTroTrucTuyen";
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -428,6 +463,14 @@
             this.rpgThongTin.Name = "rpgThongTin";
             this.rpgThongTin.Text = "Thông Tin";
             // 
+            // rpgTroGiup
+            // 
+            this.rpgTroGiup.ItemLinks.Add(this.btnHDSD);
+            this.rpgTroGiup.ItemLinks.Add(this.btnHoTroTrucTuyen);
+            this.rpgTroGiup.ItemLinks.Add(this.btnLienHe);
+            this.rpgTroGiup.Name = "rpgTroGiup";
+            this.rpgTroGiup.Text = "Trợ Giúp";
+            // 
             // rstatusbarMain
             // 
             this.rstatusbarMain.Location = new System.Drawing.Point(2, 355);
@@ -444,27 +487,13 @@
             this.pnMain.Size = new System.Drawing.Size(828, 384);
             this.pnMain.TabIndex = 5;
             // 
-            // rpgTroGiup
+            // btnLienHe
             // 
-            this.rpgTroGiup.ItemLinks.Add(this.btnHDSD);
-            this.rpgTroGiup.Name = "rpgTroGiup";
-            this.rpgTroGiup.Text = "Trợ Giúp";
-            // 
-            // btnHDSD
-            // 
-            this.btnHDSD.Caption = "Hướng Dẫn Sử Dụng";
-            this.btnHDSD.Id = 30;
-            this.btnHDSD.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnHDSD.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnHDSD.Name = "btnHDSD";
-            // 
-            // btnThongTin2
-            // 
-            this.btnThongTin2.Caption = "Thông Tin";
-            this.btnThongTin2.Id = 31;
-            this.btnThongTin2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image1")));
-            this.btnThongTin2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage1")));
-            this.btnThongTin2.Name = "btnThongTin2";
+            this.btnLienHe.Caption = "Liên Hệ";
+            this.btnLienHe.Id = 34;
+            this.btnLienHe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnLienHe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnLienHe.Name = "btnLienHe";
             // 
             // frmMain
             // 
@@ -535,6 +564,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTroGiup;
         private DevExpress.XtraBars.BarButtonItem btnHDSD;
         private DevExpress.XtraBars.BarButtonItem btnThongTin2;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem1;
+        private DevExpress.XtraBars.BarButtonItem btnHoTroTrucTuyen;
+        private DevExpress.XtraBars.BarButtonItem btnLienHe;
     }
 }
 
