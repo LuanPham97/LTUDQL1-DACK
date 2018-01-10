@@ -1012,7 +1012,7 @@ alter table PHIEUTHUTIEN add constraint FK_PHIEUTHUTIEN_NV foreign key (MaNV) re
 -- Phiếu chi tiền
 create table PHIEUCHITIEN(
 	MaPhieuChi int Identity(1,1) primary key,
-	MaKH varchar(10), --fk ma khach hang, kh
+	MaNCC varchar(10), --fk ma ncc, ncc
 	MaPhieuXuat varchar(10), --fk ma phieu xuat
 	NgayLap datetime,
 	SoTien int,
@@ -1022,6 +1022,6 @@ create table PHIEUCHITIEN(
 	LyDo nvarchar(100)
 )
 
-alter table PHIEUCHITIEN add constraint FK_PHIEUCHITIEN_KH foreign key (MaKH) references KHACH_HANG(MaKH)
+alter table PHIEUCHITIEN add constraint FK_PHIEUCHITIEN_KH foreign key (MaNCC) references NHACUNGCAP(MaNCC)
 alter table PHIEUCHITIEN add constraint FK_PHIEUCHITIEN_PHIEUXUAT foreign key (MaPhieuXuat) references PHIEU_XUAT(MaPhieu)
 alter table PHIEUCHITIEN add constraint FK_PHIEUCHITIEN_NV foreign key (MaNV) references NHANVIEN(MaNhanVien)

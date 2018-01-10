@@ -35,6 +35,20 @@ namespace QUANLYBANHANG.GUI.tabChucNang
             FillDuLieu(ptt);
         }
 
+
+        public frmLapPhieuThu(PhieuThuTien ptt, int m)
+        {
+            InitializeComponent();
+
+            Load += FrmLapPhieuThu_Load;
+
+            //button
+            btnBoQua.Click += BtnBoQua_Click;
+            btnLuu.Visible = false;
+
+            FillDuLieu(ptt);
+        }
+
         private void BtnLuu_Click(object sender, EventArgs e)
         {
             PhieuThuTien pt = new PhieuThuTien();

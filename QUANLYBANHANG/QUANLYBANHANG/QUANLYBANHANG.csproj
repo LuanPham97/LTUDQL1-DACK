@@ -169,6 +169,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHH.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GUI\tabChucNang\frmLapPhieuChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\frmLapPhieuChi.designer.cs">
+      <DependentUpon>frmLapPhieuChi.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\tabChucNang\frmLapPhieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,11 +193,29 @@
       <DependentUpon>rptHH.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GUI\tabChucNang\ucBangKeThuTien.cs">
+    <Compile Include="GUI\tabChucNang\ThuTien\ucBangKeThuTien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\tabChucNang\ucBangKeThuTien.Designer.cs">
+    <Compile Include="GUI\tabChucNang\ThuTien\ucBangKeThuTien.Designer.cs">
       <DependentUpon>ucBangKeThuTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\TraTien\ucBangKePhieuChi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\TraTien\ucBangKePhieuChi.Designer.cs">
+      <DependentUpon>ucBangKePhieuChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\TraTien\ucDSCongNoTra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\TraTien\ucDSCongNoTra.Designer.cs">
+      <DependentUpon>ucDSCongNoTra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\TraTien\ucTraTien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\tabChucNang\TraTien\ucTraTien.Designer.cs">
+      <DependentUpon>ucTraTien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabChucNang\ucBaoCaoKhoHang.cs">
       <SubType>UserControl</SubType>
@@ -205,10 +229,10 @@
     <Compile Include="GUI\tabChucNang\ucChuyenKho.Designer.cs">
       <DependentUpon>ucChuyenKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\tabChucNang\ucDSCongNo.cs">
+    <Compile Include="GUI\tabChucNang\ThuTien\ucDSCongNo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\tabChucNang\ucDSCongNo.Designer.cs">
+    <Compile Include="GUI\tabChucNang\ThuTien\ucDSCongNo.Designer.cs">
       <DependentUpon>ucDSCongNo.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabChucNang\ucMuaHang.cs">
@@ -217,10 +241,10 @@
     <Compile Include="GUI\tabChucNang\ucMuaHang.Designer.cs">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\tabChucNang\ucThuTien.cs">
+    <Compile Include="GUI\tabChucNang\ThuTien\ucThuTien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\tabChucNang\ucThuTien.designer.cs">
+    <Compile Include="GUI\tabChucNang\ThuTien\ucThuTien.designer.cs">
       <DependentUpon>ucThuTien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\tabChucNang\ucTonKho.cs">
@@ -417,6 +441,9 @@
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\frmLapPhieuChi.resx">
+      <DependentUpon>frmLapPhieuChi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\frmLapPhieuThu.resx">
       <DependentUpon>frmLapPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
@@ -427,8 +454,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptHH.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\tabChucNang\ucBangKeThuTien.resx">
+    <EmbeddedResource Include="GUI\tabChucNang\ThuTien\ucBangKeThuTien.resx">
       <DependentUpon>ucBangKeThuTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\TraTien\ucBangKePhieuChi.resx">
+      <DependentUpon>ucBangKePhieuChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\TraTien\ucDSCongNoTra.resx">
+      <DependentUpon>ucDSCongNoTra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\tabChucNang\TraTien\ucTraTien.resx">
+      <DependentUpon>ucTraTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucBaoCaoKhoHang.resx">
       <DependentUpon>ucBaoCaoKhoHang.cs</DependentUpon>
@@ -436,13 +472,13 @@
     <EmbeddedResource Include="GUI\tabChucNang\ucChuyenKho.resx">
       <DependentUpon>ucChuyenKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\tabChucNang\ucDSCongNo.resx">
+    <EmbeddedResource Include="GUI\tabChucNang\ThuTien\ucDSCongNo.resx">
       <DependentUpon>ucDSCongNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucMuaHang.resx">
       <DependentUpon>ucMuaHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\tabChucNang\ucThuTien.resx">
+    <EmbeddedResource Include="GUI\tabChucNang\ThuTien\ucThuTien.resx">
       <DependentUpon>ucThuTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\tabChucNang\ucTonKho.resx">
@@ -582,6 +618,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

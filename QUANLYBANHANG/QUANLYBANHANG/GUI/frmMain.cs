@@ -15,6 +15,7 @@ using System.Collections;
 using QUANLYBANHANG.GUI.tabChucNang;
 using QUANLYBANHANG.GUI.tabDanhMuc;
 using QUANLYBANHANG.GUI.tabHeThong;
+using QUANLYBANHANG.GUI.tabChucNang.TraTien;
 
 namespace QUANLYBANHANG
 {
@@ -66,6 +67,7 @@ namespace QUANLYBANHANG
             btnChuyenKho.ItemClick += BtnChuyenKho_ItemClick;
             btnBCKhoHang.ItemClick += BtnBCKhoHang_ItemClick;
             btnThuTien.ItemClick += BtnThuTien_ItemClick;
+            btnTraTien.ItemClick += BtnTraTien_ItemClick;
 
             // tab trợ giúp
             btnThongTin.ItemClick += BtnThongTin_ItemClick;
@@ -74,6 +76,18 @@ namespace QUANLYBANHANG
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnTraTien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnMain.Controls.Clear();
+
+            VaiTro_ChucNang pqct = btnTraTien.Tag as VaiTro_ChucNang;
+
+            ucTraTien traTien = new ucTraTien(pqct, username);
+            traTien.ThemNhatKyHeThong += ThemNhatKy_Main;
+            traTien.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(traTien);
         }
 
         private void BtnThuTien_ItemClick(object sender, ItemClickEventArgs e)

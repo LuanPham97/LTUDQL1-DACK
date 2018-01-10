@@ -11,9 +11,9 @@ namespace QUANLYBANHANG.DAO
     {
         public int ThemPhieuChi(PhieuChiTien pc)
         {
-            string sql = "insert into PHIEUCHITIEN(MaKH, MaPhieuXuat,NgayLap,SoTien,ConNo,SoTienTra,MaNV,LyDo) " +
+            string sql = "insert into PHIEUCHITIEN(MaNCC, MaPhieuXuat,NgayLap,SoTien,ConNo,SoTienTra,MaNV,LyDo) " +
                 string.Format("values ('{0}','{1}','{2}',{3},{4},{5},'{6}',N'{7}')",
-                pc.MaKH, pc.MaPhieuXuat, pc.NgayLap, pc.SoTien, pc.ConNo, pc.SoTienTra, pc.MaNV, pc.LyDo);
+                pc.MaNCC, pc.MaPhieuXuat, pc.NgayLap, pc.SoTien, pc.ConNo, pc.SoTienTra, pc.MaNV, pc.LyDo);
 
             return Execute.InsertUpdateDelete(sql);
         }

@@ -10,7 +10,7 @@ namespace QUANLYBANHANG.DTO
     {
         public int MaPhieuChi { get; set; }
 
-        public string MaKH { get; set; }
+        public string MaNCC { get; set; }
 
         public string MaPhieuXuat { get; set; }
 

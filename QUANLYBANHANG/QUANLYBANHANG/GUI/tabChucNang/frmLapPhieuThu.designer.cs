@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.deNgayLap = new DevExpress.XtraEditors.DateEdit();
+            this.txtChungTu = new System.Windows.Forms.TextBox();
             this.lkueKhachHang = new DevExpress.XtraEditors.LookUpEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,12 +47,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
-            this.btnIn = new DevExpress.XtraEditors.SimpleButton();
             this.btnBoQua = new DevExpress.XtraEditors.SimpleButton();
-            this.txtChungTu = new System.Windows.Forms.TextBox();
-            this.deNgayLap = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkueKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -58,8 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ceSoTienTra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceConNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceSoTien.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -76,6 +75,28 @@
             this.groupControl1.Size = new System.Drawing.Size(641, 81);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông Tin";
+            // 
+            // deNgayLap
+            // 
+            this.deNgayLap.EditValue = null;
+            this.deNgayLap.Location = new System.Drawing.Point(474, 26);
+            this.deNgayLap.Name = "deNgayLap";
+            this.deNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deNgayLap.Properties.EditFormat.FormatString = "dd/MM/yy";
+            this.deNgayLap.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.deNgayLap.Size = new System.Drawing.Size(155, 20);
+            this.deNgayLap.TabIndex = 6;
+            // 
+            // txtChungTu
+            // 
+            this.txtChungTu.Location = new System.Drawing.Point(104, 55);
+            this.txtChungTu.Name = "txtChungTu";
+            this.txtChungTu.ReadOnly = true;
+            this.txtChungTu.Size = new System.Drawing.Size(196, 21);
+            this.txtChungTu.TabIndex = 5;
             // 
             // lkueKhachHang
             // 
@@ -235,19 +256,11 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(392, 268);
+            this.btnLuu.Location = new System.Drawing.Point(439, 268);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.TabIndex = 2;
             this.btnLuu.Text = "Lưu";
-            // 
-            // btnIn
-            // 
-            this.btnIn.Location = new System.Drawing.Point(473, 268);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(75, 23);
-            this.btnIn.TabIndex = 2;
-            this.btnIn.Text = "In";
             // 
             // btnBoQua
             // 
@@ -257,28 +270,6 @@
             this.btnBoQua.TabIndex = 2;
             this.btnBoQua.Text = "Bỏ qua";
             // 
-            // txtChungTu
-            // 
-            this.txtChungTu.Location = new System.Drawing.Point(104, 55);
-            this.txtChungTu.Name = "txtChungTu";
-            this.txtChungTu.ReadOnly = true;
-            this.txtChungTu.Size = new System.Drawing.Size(196, 21);
-            this.txtChungTu.TabIndex = 5;
-            // 
-            // deNgayLap
-            // 
-            this.deNgayLap.EditValue = null;
-            this.deNgayLap.Location = new System.Drawing.Point(474, 26);
-            this.deNgayLap.Name = "deNgayLap";
-            this.deNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayLap.Properties.EditFormat.FormatString = "dd/MM/yy";
-            this.deNgayLap.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.deNgayLap.Size = new System.Drawing.Size(155, 20);
-            this.deNgayLap.TabIndex = 6;
-            // 
             // frmLapPhieuThu
             // 
             this.AcceptButton = this.btnLuu;
@@ -286,7 +277,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 299);
             this.Controls.Add(this.btnBoQua);
-            this.Controls.Add(this.btnIn);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
@@ -299,6 +289,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkueKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
@@ -307,8 +299,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ceSoTienTra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceConNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceSoTien.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,7 +321,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
-        private DevExpress.XtraEditors.SimpleButton btnIn;
         private DevExpress.XtraEditors.SimpleButton btnBoQua;
         private System.Windows.Forms.RichTextBox rtbLyDo;
         private System.Windows.Forms.TextBox txtChungTu;
