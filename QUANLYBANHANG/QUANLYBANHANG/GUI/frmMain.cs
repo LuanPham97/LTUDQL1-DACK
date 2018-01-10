@@ -48,6 +48,7 @@ namespace QUANLYBANHANG
             btnPhucHoi.ItemClick += BtnPhucHoi_ItemClick;
             btnTonKho.ItemClick += BtnTonKho_ItemClick;
             btnNhatKy.ItemClick += BtnNhatKy_ItemClick;
+            btnThongTin2.ItemClick += BtnThongTin_ItemClick;
 
             // tab danh mục
             btnHangHoa.ItemClick += btnHangHoa_Click;
@@ -71,11 +72,17 @@ namespace QUANLYBANHANG
 
             // tab trợ giúp
             btnThongTin.ItemClick += BtnThongTin_ItemClick;
+            btnHDSD.ItemClick += BtnHDSD_ItemClick;
             
 
             PHANQUYEN(mavt);
 
             FormClosing += FrmMain_FormClosing;
+        }
+
+        private void BtnHDSD_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://perfect.com.vn/huong-dan-su-dung-phan-mem-quan-ly-ban-hang.html");
         }
 
         private void BtnTraTien_ItemClick(object sender, ItemClickEventArgs e)
